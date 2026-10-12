@@ -1,5 +1,17 @@
 # Progress log and handoff
 
+## v1.2: reading and decision package (2026-10-12)
+
+| Stage | Inputs | Verification | Output |
+|---|---|---|---|
+| Inspect | v1.1 paper, register, models, ledger, verification report | Read directly. The handoff was treated as navigation only | v1.1 preserved in `archive/v1.1/` + local tag `v1.1` |
+| Evidence | Current Latvian VAT and micro-enterprise law, VID guidance, 2026 contributions, Eurostat SES, SEC 8-K, price sources, re-reads of Anthropic, Visa, TRM and Atlas | Read at source; provenance check of alternative hosts | S122–S141; v1.1 VAT claim corrected; origin-host path discontinued |
+| Analysis | Register rescored, with an entry gate; new `models/route_economics.py`; occupation-adjusted labour | Deterministic models; `check_numbers_v12.py` | O13 added; R1–R5 economics |
+| Writing | — | Two independent AI reviews (factual and commercial); findings verified and applied | `package/` (START HERE, brief, 4 dossiers, economics, validation plans, review), paper v1.2 |
+| Rendering | pandoc; Chromium | Screenshots at 1280/390 px; anchor and overflow checks | `package/reading-edition.html`, `paper/paper.html` |
+| Delivery | — | All check scripts pass | **Local commit only; not pushed** (owner instruction) |
+
+
 ## v1.1: limitations follow-up (2026-10-12)
 
 | Step | Outcome |
@@ -16,54 +28,60 @@
 ## Earlier history
 - v1.0 completed the same day (commits 50c66ab → 783cee5). See `archive/v1.0/` and the v1.0 section of `verification/verification-report.md`.
 
+
 ---
 
 HANDOFF
-GOAL: Reduce the reported v1.0 limitations as far as public evidence allows. Answer the scope questions (private learning/business development; global; EU/Latvia only where location affects operations). Integrate the stronger findings into the paper, source register, claim ledger, cost models and opportunity register. Add a Latvia/EU operating section and test the hypothesis that a Latvia-based operator can serve international customers through agents.
-STATE: v1.1 COMPLETE as local research deliverables on branch `claude/amazing-archimedes-w4pw0c` (see `git log` for the v1.1 commit). Limitation outcomes:
-- A (Gartner/McKinsey/OpenAI extracts): PARTIALLY RESOLVED. 11 of 14 claims resolved, 2 partial, 1 removed.
-- B (activity timing): PARTIALLY RESOLVED.
-- C (ban frequency): UNRESOLVED AFTER DOCUMENTED SEARCH for a rate; context improved.
-- D (autonomous purchase value): PARTIALLY RESOLVED, bounded examples only.
-- E (US-heavy evidence): PARTIALLY RESOLVED.
-- F (Latvia/EU operations): new §15, PARTIALLY RESOLVED pending professional confirmation.
-Nothing published, no accounts opened, no contact made, no money spent.
+GOAL: Deliver a finished reading and decision package. It must answer whether there is a credible AI-agent opportunity for the owner to explore, which route to try first, and how to test it without committing to a business. Fix weak v1.1 claims, above all Latvian VAT and the tax regimes. Rebuild the commercial shortlist around realistic entry. Provide the decision brief, the full integrated paper, route dossiers, economics and prepared validation plans, plus Markdown originals and a combined HTML edition.
+STATE: v1.2 COMPLETE as a local reading and decision package, committed locally on branch `claude/amazing-archimedes-w4pw0c`. **Not pushed** (owner instruction). Nothing was published, sent, bought or opened; no one was contacted.
+- **Recommendation (conditional):**
+  - explore R2 (coding-agent enablement with measurement) if the owner codes professionally, ideally with warm access to engineering leads;
+  - otherwise R4 (small AI workflow automations) as paid practice, or learn first;
+  - R1 (limited agent risk review; not an audit or certification) only with security credentials;
+  - R3 deferred;
+  - products bought by agents rejected for now.
+- **Economics (newcomer):** about €3–11 per owner-hour in the first year after tax, against about €23–36 with a network. The adverse first year is a loss on every route. Access to buyers matters more than the route.
 VERIFIED:
-- `python3 paper/build_paper.py`: 111 cited sources resolve; 121 registered.
-- `python3 -I verification/check_numbers.py`: 44/44.
-- `python3 -I verification/check_numbers_v11.py`: 32/32.
-- Models and register regenerate deterministically.
-- Link check: 98 OK, 20 blocked to bots, 3 McKinsey .com connection errors (content read on the McKinsey-hosted mirror).
-- Read directly this session: Gartner releases and article (via gcom.pdo.aws.gartner.com); McKinsey 2025/2026 surveys and commerce report (via karriere.mckinsey.de); Anthropic Series G/H posts and transparency hub; Visa onchain report; TRM Labs analysis; Cloudflare blog; Eurostat and ECB APIs; Latvian VAT Law translation; KPMG 2026 tax card; Enterprise Register; EC OSS and AI Act pages; FIU sanctions notice; Stripe and Paddle pricing; Anthropic supported countries; Accenture survey; Stripe ACP newsroom.
+- **Citations and checks:**
+  - `python3 paper/build_paper.py`: 127 cited sources resolve (141 registered).
+  - `check_numbers.py` 44/44; `check_numbers_v11.py` 32/32 (against the archived v1.1 snapshot); `check_numbers_v12.py` 185/185.
+- **Latvian law** read in the current consolidated Latvian text (VAT Law s.59(1)/(4)/(8)/(9), s.139²; Micro-enterprise Tax Law s.4, s.6) and the VID guidance of 27 Jun 2025. Independently re-read by the factual reviewer.
+- **Re-read at source on 12 Oct:** Anthropic $47bn run-rate (28 May 2026) and Claude Code $2.5bn (Series G); Anthropic bans (11.4M / 398k / 42k, H1 2026); Visa x402 ($15.0M / 109.6M transactions to 21 Apr 2026); TRM (0.6–7.5%, $5–11k/month); Atlas shutdown (9 Aug 2026, trade press); Upwork 8-K; KPMG 80%; Eurostat SES; KPMG tax card (employee contributions 10.5%).
+- **Two independent AI reviews** completed (factual: 0 critical / 3 major / 8 minor; commercial: 2 critical / 7 major / 3 minor). One material claim from each was verified by us before acting: the S125 contribution rule, and the German UWG email-consent rule [S139]. All findings were addressed.
+- **Rendered HTML** checked in headless Chromium at 1280 and 390 px: no broken anchors and no page overflow.
 UNVERIFIED:
-- OpenAI March-2026 checkout post and Atlas security post (openai.com 403; quotes via search extract plus independent coverage).
-- Atlas deprecation (help center 403).
-- Anthropic $65bn run-rate (single anonymous source).
-- Current consolidated Latvian VAT Law text (translation read is marked outdated, valid 2024).
-- Latvian e-invoicing 2028 date (secondary sources).
-- Product Liability Directive dates (secondary sources).
-- Anthropic EU billing entity (conflicting secondaries).
-- Self-employed social contribution rates.
-- Bookkeeping costs (assumption).
-- Stripe Managed Payments eligibility for Latvia.
-- All opportunity demand and willingness to pay.
-- Review was self-review only.
-BLOCKERS: None for v1.1. Owner decisions needed:
-- (1) Accept or reject the use of publisher-hosted alternative domains for Gartner/McKinsey (verification report V1). If rejected, revert S082–S087 and S098 to search-extract status.
-- (2) Any validation experiment, accountant/lawyer consultation or outreach needs explicit approval.
+- **Route inputs:** all prices, win rates, selling and delivery hours, and months to first sale are assumptions. No customer has been asked.
+- **Single-source or blocked figures:**
+  - Upwork "~$330M AI-related GSV" (search extract);
+  - Gartner primary page (403; corroborated via republication);
+  - UWG statute text (gesetze-im-internet.de 503; chamber guidance used);
+  - Upwork fee page (403; competitor blog used).
+- **Latvian rules:** reported 2026 changes to minimum contributions; whether contributions are deductible before PIT (model uses general practice); marketplace VAT treatment.
+- **Unpriced items:** professional-indemnity insurance price; bookkeeping costs.
+- **Review coverage:** no human expert review.
+- **Link check:** not re-run in v1.2 (the new sources were fetched individually in this session).
+BLOCKERS: None for the package. Owner decisions needed (at most two):
+- (1) Choose option 1–4 in the decision menu (`package/01-decision-brief.md` §10). If 1 or 2, approve, edit or reject the drafted outreach.
+- (2) State whether you have warm access to buyers (about 10 engineering leads, or security/support contacts).
 NEXT:
-- (1) Take the §15.9 questions to a Latvian accountant and lawyer. Priority: does s.59(6) of the current VAT Law force VAT registration when buying foreign APIs, and which tax regime fits.
-- (2) If approved, run the cheapest validation tests for O03, O07, O02.
-- (3) Re-check quarterly: Gartner/McKinsey updates, card-network agent volumes, Anthropic transparency hub, the MCP spec, AI Act guidance.
-- (4) Optional: query the EU DSA Transparency Database for automation-related enforcement; extend the AIDev analysis with a human-PR baseline.
+- (1) The owner reads `package/00-START-HERE.md` and makes the decision above.
+- (2) If approved, run Phase A of V2 or V4. It needs no approval: self-check, proof pilot or demos.
+- (3) Phase B only after explicit approval of each listed action. No cold email to German recipients.
+- (4) Before the first invoice, ask an adviser the regime question in the review document §4.
+- (5) After a test, replace the model assumptions with observed figures and rerun `models/route_economics.py` and `package/build_package.py`.
+- (6) Push or publish only if the owner asks.
 FILES:
-- New: `research/limitations-resolution.md`; `research/analysis/aidev_timing.py`; `research/analysis/aidev_timing_results.md` and `.csv`; `models/operator_economics.py`; `models/operator_economics_results.md`; `paper/sections/091-operating-from-latvia.md`; `paper/sections/095-glossary.md`; `verification/check_numbers_v11.py`; `archive/v1.0/*`.
-- Updated: `paper/paper.md` and `sections/*`; `research/sources.csv`; `research/bookmarks.html`; `research/claims-ledger.md`; `research/coverage-matrix.md`; `models/cost_model.py`; `models/cost_model_results.*`; `models/README.md`; `opportunities/*`; `verification/verification-report.md`; `verification/link-check.csv`; `project/brief.md`; `project/capabilities.md`; `README.md`; this file.
-EVIDENCE: Sources S082–S121 (retrieved 2026-10-12, access path recorded per entry). AIDev dataset hao-li/AIDev (CC-BY-4.0). ECB FX 1.1206 USD/EUR (2026-10-09). Eurostat isoc_eb_ai and lc_lci_lev queries.
+- **New:**
+  - `package/00-START-HERE.md`, `01-decision-brief.md`, `03-dossiers/R1-agent-risk-review.md`, `R2-coding-agent-enablement.md`, `R3-support-agent-evaluation.md`, `R4-workflow-automations.md`, `04-economics-intro.md`, `04-economics.md` (generated), `05-validation-plans.md`, `06-review-and-open-questions.md`, `reading-edition.html`, `build_package.py`;
+  - `models/route_economics.py` and `route_economics_results.md`/`.csv`;
+  - `paper/paper.html`; `verification/check_numbers_v12.py`; `archive/v1.1/*`.
+- **Updated:** `paper/sections/*` (front, exec summary, §2, §5, §6.9, §12.4, §13.3, §14, §15) and `paper/paper.md`; `research/sources.csv` (S122–S141 plus annotations); `research/bookmarks.html`; `research/claims-ledger.md` (section E); `research/coverage-matrix.md`; `research/limitations-resolution.md` (§5); `models/cost_model.py` and results; `models/operator_economics.py` and results; `models/README.md`; `opportunities/*` (O13, v1.2 gate); `verification/verification-report.md`; `verification/check_numbers_v11.py`; `project/capabilities.md`; `README.md`; this file.
+EVIDENCE: Sources S122–S141 (retrieved 2026-10-12, access path recorded per entry). Model outputs: `models/route_economics_results.md`, `models/cost_model_results.md` (v1.2 labour section). Review reports summarised in `package/06-review-and-open-questions.md` §3.
 DO NOT REPEAT:
-- Do not recreate the `v1.0` tag or overwrite `archive/v1.0/`.
-- Do not re-add sources S082–S121 (next ID is S122; `add_sources.py` rejects duplicates).
-- Do not delete superseded source entries (they are annotated for traceability).
-- Do not re-download the 1.5 GB AIDev parquet unnecessarily (column cache in the scratchpad is session-local).
-- Do not contact anyone, spend money, publish, or open a PR without approval.
-- Do not bypass openai.com/cnbc.com 403s.
+- Do not re-add S001–S141 (the next ID is S142).
+- Do not overwrite `archive/v1.0/` or `archive/v1.1/`, or recreate tags `v1.0`/`v1.1`.
+- Do not use the Gartner origin host (gcom.pdo.aws.gartner.com).
+- Do not re-derive Latvian VAT from the outdated English translation (S099).
+- Do not hand-edit the dossier economics tables (they are generated) or `04-economics.md` (generated from the intro plus the model).
+- Do not send cold email to German recipients.
+- Do not contact anyone, spend money, open accounts, publish or push without explicit approval of that exact action.

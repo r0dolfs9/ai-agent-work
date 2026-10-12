@@ -2,9 +2,11 @@
 
 **What an agent is.** An AI agent is software in which a language model decides, step by step, what to do next. It chooses which tools to call (search, email, a database, a browser, a payment API), reads the results, and keeps going until a goal is met or it stops. That separates it from a chatbot, which only answers, and from a *workflow*, where a programmer fixed the steps in advance [S001]. How much an agent does without asking is a design choice, not a property of the model. The same model can be set up to ask before every action or to act and merely report [S002].
 
-**The eleven findings that matter most** (version 1.1: findings 1, 6, 8, 10 and 11 were revised or added after the limitations follow-up; see §14 and `research/limitations-resolution.md`)
+**The twelve findings that matter most**
+- v1.1 revised or added findings 1, 6, 8, 10 and 11 after the limitations follow-up (§14 and `research/limitations-resolution.md`).
+- v1.2 corrected finding 11 from the current Latvian legal text and added finding 12.
 
-1. **Adoption is real but uneven and concentrated.** Gartner's 2026 CIO survey found that only 17% of organizations had deployed AI agents (sample size not published) [S098]. In McKinsey's 2026 global survey (1,719 respondents, 97 countries, May–June 2026), 40% of respondents at companies with more than $1bn revenue said their organization was "scaling" agents, against 22% at smaller firms [S084]. Across the EU, Eurostat's official survey found 20.0% of enterprises with 10+ employees used any AI technology in 2025 (Latvia: 12.2%) [S096]. That is broader than agents and still a minority. These numbers measure different things (§2.2). The most mature, best-evidenced use is **software coding**. Among developers who use AI, 66% use coding agents [S062]. Anthropic disclosed that Claude Code alone passed a $2.5bn revenue run rate in February 2026 [S088].
+1. **Adoption is real but uneven and concentrated.** Gartner's 2026 CIO survey found that only 17% of organizations had deployed AI agents (sample size not published) [S098]. In McKinsey's 2026 global survey (1,719 respondents, 97 countries, May–June 2026), 40% of respondents at companies with more than $1bn revenue said their organization was "scaling" agents, against 22% at smaller firms [S084]. Across the EU, Eurostat's official survey found 20.0% of enterprises with 10+ employees used any AI technology in 2025 (Latvia: 12.2%) [S096]. That is broader than agents and still a minority. These numbers measure different things (§2.2). The most mature, best-evidenced use is **software coding**. Among developers who use AI, 66% use coding agents [S062]. Anthropic disclosed that Claude Code alone passed a $2.5bn revenue run rate in February 2026 [S141].
 
 2. **Capability is rising fast, but reliability on real work is still low.** On paid freelance projects judged by humans, the best agent produced work as good as a professional's 15.8% of the time in July 2026. Eight months earlier the figure was 2.5% [S037]. Benchmarks of self-contained software tasks still show exponential growth [S008]. Controlled studies of developer productivity are inconclusive [S070]. **INTERPRETATION:** agents are dependable for narrow, checkable tasks, and supervision remains the norm for open-ended ones.
 
@@ -33,18 +35,37 @@
 
 11. **A Latvia-based operator can sell agent services and software worldwide, but not without friction or limits** (new §15).
     - **What works:** model and payment providers serve Latvia [S106][S104]. EU VAT rules give cross-border B2B services a reverse charge and give consumer sales a one-stop return [S099][S103].
-    - **What surprises small operators:** buying foreign cloud or AI services appears to remove Latvia's €50,000 VAT-registration exemption [S099]. That interacts badly with the micro-enterprise tax regime [S100] and needs an accountant's confirmation.
+    - **What matters most is the client mix, not the supplier mix** (corrected in v1.2 from the current Latvian text).
+      - Since 1 July 2025, buying foreign AI or cloud services no longer forces full VAT registration. A special registration (s.139²) lets small operators stay below the €50,000 threshold and keep the micro-enterprise tax. The cost is 21% non-deductible VAT on those purchases and a monthly notice [S122][S124].
+      - What does force full registration from the first sale is selling services to a VAT-registered business in another EU state [S122].
     - **What the operator must carry:** customer location still determines which VAT, consumer law and sanctions rules apply [S112][S113].
     - **What limits feasibility:** product type (regulated payments, high-risk AI uses) limits it more than geography does [S114][S107].
+12. **For a newcomer, the credible opportunity is selling services to the people who run agents, not products that agents buy** (v1.2, §12.4 and `package/`).
+    - **Where customers demonstrably pay:**
+      - coding agents [S088][S062];
+      - paid coding-agent training, at list prices of about €890 per person for 2 days [S128];
+      - LLM security assessments, at $6k–45k+ across the market and $16k–50k+ from AI specialists [S130];
+      - AI-related freelance work, up more than 22% year on year on Upwork while its total volume fell [S127].
+    - **What is unproven:** independent evaluation of support agents, and anything sold *to* agents.
+    - **RECOMMENDATION (conditional):** explore coding-agent enablement with measurement if the owner codes professionally. Otherwise explore small AI workflow automations, a simpler adjacent service. A limited agent risk review suits only someone with security credentials, and is not an audit or certification.
+    - **Economics (CALCULATION):**
+      - access to buyers matters more than the route;
+      - for a newcomer without warm contacts, the first year pays about €3–11 an hour after Latvian taxes, around an average Latvian professional's net pay of about €8.7 [S126][S100];
+      - with a network or strong public proof, it pays €23–36 an hour;
+      - the adverse first year is a loss on every route.
+    - **What would settle it:** the decisive unknown is whether buyers choose a newcomer. Only a capped test can settle that (`package/05-validation-plans.md`).
 
 **What this means for you (RECOMMENDATIONS)**
 
 - **Users:** start with tasks whose results you can check quickly, such as drafting, research and code with tests. Keep a human approval step for anything that sends, pays or deletes. Use the provider's official apps or API keys. Don't route consumer-subscription logins through third-party agent tools.
 - **Builders:** start with the simplest design that works [S001]. Measure success per completed task, not per request. Design around the "lethal trifecta" (data + untrusted input + outbound action) [S011], and budget for evaluation and human escalation from day one.
-- **Business builders:** in our scoring, the strongest near-term openings are low-capital B2B services. Top-ranked are agent security hardening, coding-agent enablement with honest measurement, and independent evaluation and audit of agents billed "per outcome" (§12).
-  - These are **hypotheses**. None has been validated with customers.
-  - From Latvia, B2B services to EU and non-EU businesses are the administratively simplest model (§15).
-  - Ideas that depend on agents spending money autonomously remain the weakest-evidenced. The 2026 payment data reinforced this.
+- **Business builders (revised v1.2):** sell services to the people who run agents. After re-scoring with entry barriers (credentials, buyer access, liability, time to first revenue):
+  - **coding-agent enablement with measurement** leads for owners who code;
+  - **small AI workflow automations** suit owners who don't;
+  - a **limited agent risk review** suits only someone with security credentials;
+  - **independent support-agent evaluation** is deferred because data access and sales cycles are slow.
+
+  All are **hypotheses**; none has been validated with customers. From Latvia, keep early clients outside the EU, or Latvian, to minimise VAT administration. Any EU VAT-registered client triggers full registration (§15). Ideas that depend on agents spending money autonomously remain the weakest-evidenced.
 
 **Confidence.**
 - **High:** definitions, protocols, prices, regulation dates, documented incidents, and the adoption figures now read from the primary survey publications.

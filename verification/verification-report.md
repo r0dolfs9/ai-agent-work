@@ -1,6 +1,6 @@
 # Verification report
 
-Date: 2026-10-12. Reviewer: the same AI system that wrote the paper (**self-review**). No independent human or second-model review took place, because the session had no explicit authorization to spawn reviewers. The owner should arrange an independent review before any publication.
+Date: 2026-10-12. Reviewer for v1.0 and v1.1: the same AI system that wrote the paper (**self-review**). **v1.2 added two independent AI reviewers** (factual and commercial; see the v1.2 section at the end). No human expert review has taken place.
 
 ## 1. Automated checks (reproducible)
 
@@ -107,3 +107,50 @@ Reviewer: the same AI system (**self-review**). No independent reviewer was used
 | V14 | Consistency across artifacts | Opportunity scores in the paper (§12.4) match the register. Labour-sensitivity and operator figures match the model outputs (automated check) | OK |
 
 **No critical unsupported claim was found to remain** after the fixes above. The highest residual risks are V1 (access-path judgement) and V9 (Latvian VAT interpretation).
+
+
+## v1.2 verification (decision package, 2026-10-12)
+
+### V12.A Automated checks
+
+| Check | Command | Result |
+|---|---|---|
+| Paper citations resolve | `python3 paper/build_paper.py` | **Pass.** 127 cited sources, 0 unresolved (141 registered) |
+| v1.0 cost figures | `python3 -I verification/check_numbers.py` | **Pass.** 44/44 |
+| v1.1 figures (against the preserved v1.1 snapshot in `archive/v1.1/`; v1.1 wording was deliberately revised) | `python3 -I verification/check_numbers_v11.py` | **Pass.** 32/32 |
+| v1.2 figures: brief, economics, dossiers and paper vs `models/route_economics.py`; tax arithmetic; register ranks; labour table; package citations | `python3 -I verification/check_numbers_v12.py` | **Pass.** See the final run in HANDOFF |
+| Dossier economics tables | generated from the model by `package/build_package.py` | Regenerated on every build |
+| Rendered edition | Headless Chromium at 1280 px and 390 px: anchors, horizontal overflow, table count, screenshots | No broken in-page anchors. No page-level horizontal overflow at 390 px after the fix: wide tables scroll inside their own container, and long URLs wrap |
+
+### V12.B Independent reviews (two separate AI agents, read-only)
+
+- **Factual reviewer.** About 30 claims re-checked at source, including the Latvian statute text, VID guidance, the SEC filing, Anthropic, Visa, TRM, Eurostat and price sources.
+  - **Findings:** 0 critical, 3 major, 8 minor. All fixed.
+  - **Most material:** the self-employed contribution rule below €780 per month. **Verified by us** against the S125 record before the model was changed.
+- **Commercial reviewer.** Challenged the recommendation, demand assumptions, economics, plans and legality.
+  - **Findings:** 2 critical, 7 major, 3 minor. All addressed.
+  - **Most material:** cold B2B email to Germany. **Verified by us** via German chamber-of-commerce guidance [S139] before the plans were changed.
+- **Full table:** `package/06-review-and-open-questions.md` §3.
+
+### V12.C Adversarial review (required challenges)
+
+Covered in `package/06-review-and-open-questions.md` §2:
+- the strongest market claim;
+- the leading recommendation;
+- the weakest demand assumption;
+- adverse-scenario economics;
+- feasibility without credentials or access;
+- whether the actual work is explained concretely.
+
+### V12.D Corrections of earlier versions
+
+- **v1.1 Latvian VAT conclusion withdrawn** (claims ledger L51 → L65, L52 → L66, C021).
+- **v1.1 access path withdrawn.** Owner decision point V1 (publisher alternative hosts) is resolved: provenance established [S137], origin-host use discontinued, and the key figure corroborated through an independent republication [S136].
+- **v1.2 draft economics revised after review.** The base case is now a newcomer, and the adverse case includes ramp and fee shocks.
+
+### V12.E What could still be wrong
+
+- **Route inputs** (prices, win rates, hours) are assumptions. They are the most decision-relevant unknowns.
+- **Consolidated Latvian texts** are informative only; the official publication prevails. Reported 2026 changes to minimum contributions are unverified.
+- **Commercial evidence** relies on list prices and vendor guides, not transactions.
+- **The reviews** were performed by AI agents, not human professionals.

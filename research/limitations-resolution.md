@@ -59,3 +59,15 @@ Outcome categories describe **evidence gaps**, not project completion:
 | Browser-agent category | **Weakened** | OpenAI discontinued its Atlas browser within a year |
 | Operating from Latvia | **New, supported with conditions** | §15 |
 | Top opportunities | **Stable ranking; O02 slightly down; O08, O09 down** | GDPR processor friction; payment data and licensing |
+
+## 5. v1.2 addendum (2026-10-12): limitations and corrections after the decision-package review
+
+| Item | v1.1 status | v1.2 action | v1.2 outcome |
+|---|---|---|---|
+| A. Publisher alternative hosts (Gartner origin host, McKinsey .de host) | Used; owner decision requested | Provenance established through DNS and canonical tags [S137]. The Gartner origin-host path could sidestep the CDN bot controls, so it was **discontinued**. The $29.2bn table was corroborated through an independent republication [S136] | **RESOLVED** (provenance) / access path withdrawn |
+| F. Latvian VAT registration vs tax regimes | Based on an outdated translation; "trap" claim | Current Latvian consolidated text [S122], Micro-enterprise Tax Law [S123] and VID guidance [S124] read | **RESOLVED from authoritative sources; v1.1 claim corrected.** Remaining questions depend on the owner's circumstances (decision brief §8) |
+| F. Self-employed contribution rates | Not in sources | Official-publisher consultation for 2026 [S125] | **PARTIALLY RESOLVED** (non-binding source) |
+| Wage-based savings | Whole-economy averages | Occupation-adjusted (SES 2022 [S126]) plus local engineering | **IMPROVED.** Latvia 17–28%, Germany 38–40% |
+| Atlas shutdown | Search extract of help center | Trade-press confirmation [S138] | **CORROBORATED** (primary still 403) |
+| Demand evidence behind top opportunities | Inferred only | Price and paid-demand evidence added [S127]–[S134]. Shortlist rebuilt with an entry gate | **PARTIALLY RESOLVED.** Category demand is observed; demand for the owner's offer is untestable without approved validation |
+| Ban rate, activity hours, global autonomous purchases | Unresolved or bounded | Not pursued further: they do not change the route decision (per the owner's instruction) | Unchanged |

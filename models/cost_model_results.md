@@ -112,5 +112,18 @@ Eurostat hourly labour cost levels, 2025, whole economy excl. public administrat
 | Estonia average | 23.64 | $113,240 | $157,631 | 28% | $5,103 | $9,458 | 46% |
 | Latvia average | 18.27 | $94,975 | $121,772 | 22% | $4,229 | $7,306 | 42% |
 
+## Occupation-adjusted labour and local engineering (v1.2)
+
+CALCULATION: all-in labour cost [S119] × (occupation mean hourly earnings ÷ all-occupation mean) from the 2022 Structure of Earnings Survey [S126]. Clerical support workers (ISCO 4) stand in for support agents; professionals (ISCO 2) for engineers, at 160 paid hours/month (ASSUMPTION). Ratios: clerical EU27 15.83/17.69, DE 20.03/22.23, LV 7.67/9.17; professionals EU27 24.40/17.69, DE 32.37/22.23, LV 13.04/9.17. Earnings ratios are applied to labour costs (ASSUMPTION: employer on-costs proportional).
+
+| Jurisdiction | Support $/h (clerical-adjusted) | Engineer $/month (local) | Production base saving: US engineering | Production base saving: local engineering |
+|---|---|---|---|---|
+| EU27 | 35.00 | 8,631 | 35% | 38% |
+| Germany | 45.44 | 11,749 | 38% | 40% |
+| Latvia | 15.28 | 4,156 | 17% | 28% |
+
+INTERPRETATION (v1.2): using support-type (clerical) rather than whole-economy labour lowers the human cost replaced, and so the saving; hiring engineers locally raises it again. The direction of the v1.1 finding holds: the same deployment saves a smaller share in Latvia than in Germany.
+
+
 INTERPRETATION: cheaper labour shrinks the *percentage* saving from automation, because fixed engineering, security and model costs are priced globally (in USD) while the human work replaced is cheaper. An EU/Latvia-based deployment therefore needs a higher resolution rate to beat an all-human team than a US one. Engineering FTE is held at the US BLS rate in every row; with local engineering salaries the gap narrows (not modelled).
 

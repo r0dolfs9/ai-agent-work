@@ -149,3 +149,56 @@ Confidence: H/M/L. "Location" points into the source register entry (`key_extrac
 | U08 (new) current consolidated text of Latvian VAT Law s.59 | UNKNOWN (outdated translation read) |
 | U09 (new) Latvian bookkeeping/compliance costs | UNKNOWN (assumption €1.7–6.4k/yr) |
 | U10 (new) non-EU indirect-tax registration duties for digital sales | Not researched; MoR recommended |
+
+## E. v1.2 updates (decision package, 2026-10-12)
+
+The handoff was treated as a navigation aid, not as proof. The high-impact claims were re-read at source on 12 Oct 2026.
+
+### E.1 Re-checked claims
+
+| ID | Claim | Re-check result | Label | Sources |
+|---|---|---|---|---|
+| L01/L64 | Atlas shut down | **Confirmed.** Announced 2026-07-09; deprecation 2026-08-09 (trade press, plus a tertiary source). OpenAI primary still returns 403 | VF (secondary) | S117, S138, S135 |
+| (Anthropic revenue) | Run-rate "crossed $47 billion" (Series H post dated 2026-05-28); $65bn remains single-source press | **Confirmed** (primary re-read) | VF / weak | S088, S089 |
+| (Anthropic bans) | 11.4M banned accounts, 398k appeals, 42k overturns, Jan–Jun 2026 | **Confirmed** (primary re-read). All causes; no denominator | VF | S094 |
+| (x402) | ~$15.0M adjusted across 109.6M transactions, Artemis data to 2026-04-21, excluding identified wash and test activity | **Confirmed** (primary re-read) | VF | S091 |
+| (market size) | Gartner $29.2bn 2026 "AI agents and assistants" | **Corroborated** via an independent republication; origin-host access path discontinued | VF | S082, S136, S137 |
+| (market size) | ~$202bn "agentic AI spending 2026" | Attributed by secondaries to an earlier, broader 4Q25 Gartner forecast; still not found in a primary; **not cited** | UNKNOWN | S058 |
+
+### E.2 Corrected and new load-bearing claims
+
+| ID | Claim | Label | Source | Caveat | Conf. |
+|---|---|---|---|---|---|
+| L51 → **L65** | Supplying s.19(1) services to a taxable person of another Member State disapplies the €50,000 exemption (s.59(8)), so registration is needed before the first such sale. Receiving foreign services does **not**: since 2025-07-01 the recipient may keep the exemption via the s.139² special registration (s.59(9)). L51 is **withdrawn** | VF (current Latvian consolidated text) | S122 | Consolidated text informative; official publication prevails | H |
+| L52 → **L66** | Micro-enterprise tax is compatible with s.139² special registration. It is lost if the payer supplies s.19(1) services to a VAT-registered person in another Member State or if turnover exceeds €50,000. Available only to natural persons registered with VID, individual merchants and similar (not an SIA). L52 is **withdrawn** | VF | S123, S124 | VID guidance dated 2025-06-27 | H |
+| L67 | Under s.139², VAT on received services is paid without a right of deduction; monthly notice by the 20th; payment within 23 days | VF | S122 | — | H |
+| L68 | 2026 self-employed contributions: 31.07% on income of at least €780 a month; 10% pension contribution otherwise or on the excess; PIT 25.5% up to €105,300 | VF (official-publisher consultation) | S125 | Non-binding; 2026 law changes reported but not verified | M-H |
+| L69 | Occupation-adjusted base production saving: Latvia 17% (US engineering) / 28% (local engineering); Germany 38%/40%; EU27 35%/38% | CALC | S119, S126; cost model | Earnings ratios applied to labour cost | M |
+| L70 | Paid demand: Upwork AI-related GSV +22% YoY in Q2 2026; AI Strategy & Consulting +50%; total GSV −4% | VF | S127 | Marketplace-specific; ~$330M annualised is a search extract | H (growth) / M (size) |
+| L71 | Coding-agent training list prices: €890 per person for 2 days (Anthropic partner); mentor workshops from $250 / $500 / $900 | VF (list prices) | S128, S129 | No volumes | M |
+| L72 | LLM security audit price bands: $6k–45k+; specialists $16k–50k; 5–25 days | VF (vendor guide) | S130 | Vendor with a selling interest | M |
+| L73 | Cybersecurity is the top obstacle for 80% of 130 large US firms (Q4 2025) | VF | S131 | Small, large-firm, US sample | M |
+| L74 | Route economics (revised after the independent commercial review): first-year take-home per owner hour €3.2–11.2 for a newcomer and €23.2–36.3 with a network; adverse first year is a loss on all routes; net Latvian professional benchmark ≈ €8.69/h | CALC | models/route_economics.py; S126; S100 | Prices, win rates and hours are ASSUMPTIONS | L-M |
+| L75 | "B2B services = least admin" holds only for non-EU (or small Latvian) clients; any EU VAT-registered client forces full VAT registration and EU sales statements | INT from VF | S122, S124 | — | H |
+| L76 | Recommendation: explore R2 (coding-agent enablement) if the owner codes; otherwise R4; R1 only with security credentials; defer R3; reject agent-bought products | REC | package/01-decision-brief.md | Conditional on unknown personal constraints and untested demand | — |
+
+### E.3 Conflicts
+
+| ID | Topic | Conflict | Resolution |
+|---|---|---|---|
+| C019 | Latvian VAT threshold test | 12-month test (2024 translation) vs calendar-year test | **Resolved:** the current s.59(1) text uses the current calendar year [S122] |
+| C021 | v1.1 VAT conclusion vs current law | Outdated translation's s.59(6) vs current s.59(9) + s.139² | **Resolved** in favour of the current Latvian text; v1.1 statement withdrawn |
+| C022 | Zendesk QA price | $25 / $35 / $50 in different secondary guides | Unresolved; used only as an order of magnitude [S134] |
+| C024 | Contribution rule below €780 a month | v1.2 draft model charged 31.07% below €780; S125 says 10% pension only | **Resolved:** model corrected (finding from the independent factual review) |
+| C025 | Cold B2B email as the V2 channel | Draft plan vs German UWG §7(2) consent rule | **Resolved:** cold email to German recipients removed; channel rule added [S139] |
+| C023 | Route attractiveness | v1.1 numeric rank (security first) vs v1.2 entry gate (coding enablement first) | Entry gate decides; numeric score is ordinal (register v1.2 note) |
+
+### E.4 Unknowns after v1.2
+
+| Unknown | Status |
+|---|---|
+| U08 current consolidated Latvian VAT text | **RESOLVED** [S122] |
+| Win rates, selling hours and acceptable prices for each route | UNKNOWN; only the validation plans can measure them |
+| Professional-indemnity insurance price for an agent risk review | UNKNOWN (a quote requires approval) |
+| Marketplace VAT treatment (who is the customer) | UNKNOWN; depends on the marketplace's invoicing model (adviser question; blocks first paid job) |
+| Owner's skills, time, budget and contacts | UNKNOWN by design; the brief branches on them |

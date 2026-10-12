@@ -74,3 +74,24 @@ The incidents line is potentially the largest omitted cost. Treat it qualitative
 | Bookkeeping/bank/tools | €1,740 / €3,300 / €6,360 per year | ASSUMPTION; get quotes |
 
 Not modelled: non-EU indirect taxes (US sales tax, UK VAT registration for B2C), social contributions for self-employed operators, currency risk, and insurance.
+
+
+## v1.2: route economics (`route_economics.py`)
+
+- **What it models:** four service routes for a solo, Latvia-based operator (R1–R4), plus "defer/learn first" (R5).
+- **Cases:**
+  - *low* = adverse;
+  - *base* = a newcomer without track record or warm contacts;
+  - *high* = with a network or strong public proof.
+- **What it separates:** revenue (net of VAT), VAT pass-through, cash costs, operating profit, owner hours, and take-home under three set-ups:
+  - self-employed general regime;
+  - micro-enterprise tax (hypothetical non-EU client mix, with 21% non-deductible VAT on foreign tools);
+  - SIA paying all profit as dividends.
+- **What it reports:**
+  - the first-12-month take-home per owner hour;
+  - break-even wins per month;
+  - sensitivity to single shocks;
+  - a combined adverse case: sales halved, price −30%, rework ×2, selling ×2, ramp +3 months, fee +5pp.
+- **Inputs:** every price, win rate and hour figure is an ASSUMPTION anchored to [S128][S129][S130][S127][S140]. Tax rules come from [S100][S122]–[S125].
+- **Correction:** below €780 a month, only the 10% pension contribution is charged [S125]. This was corrected after the independent factual review.
+- **Occupation-adjusted labour (`cost_model.py`, v1.2):** clerical rates stand in for support work and professional rates for engineers [S126]. Production base saving: Latvia 17% (US engineering) / 28% (local engineering); Germany 38%/40%.

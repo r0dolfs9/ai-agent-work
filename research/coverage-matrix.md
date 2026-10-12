@@ -55,3 +55,19 @@ Each research area from the assignment is mapped to its research questions, key 
 | Liability, delegated authority, payment licensing | S111, S114 | Medium | §15.7 | Agent-authority law (UNKNOWN) |
 | Operator economics model | models/operator_economics.py | CALCULATION | §6.9, §15 | Non-EU taxes not modelled |
 | Labour-cost jurisdiction sensitivity | S119 | CALCULATION on official stats | §6.9 | Occupation-specific EU wages |
+
+## v1.2 rows (decision package, 2026-10-12)
+
+| Topic | Sources | Strength | Where | Remaining gap |
+|---|---|---|---|---|
+| Latvian VAT: s.59(8), s.59(9), s.139² (current text) | S122 | Strong (statute) | §15.3; brief §8 | Owner-specific regime choice |
+| Micro-enterprise tax eligibility | S123, S124 | Strong | §15.2; economics | 2026 amendments to contributions (reported, unverified) |
+| Self-employed 2026 contributions | S125 | Medium-high | economics | Binding text not read |
+| Occupation-adjusted labour costs | S126, S119 | CALCULATION on official statistics | §6.9 | 2022 earnings structure |
+| Paid demand: freelance AI work | S127 | Strong (SEC filing) | §12.4; R4 dossier | Size figure is a search extract |
+| Coding-agent training prices | S128, S129 | Medium (list prices) | R2 dossier | Volumes |
+| LLM security audit prices | S130 | Medium-weak (vendor) | R1 dossier | Independent price data |
+| Security as an adoption barrier | S131, S132 | Medium | R1 dossier | SME and EU evidence |
+| Support QA substitutes | S133, S134 | Weak-medium | R3 dossier | Primary pricing |
+| Route economics (R1–R5) | models/route_economics.py | CALCULATION on ASSUMPTIONS | package/04 | Win rates and hours untested |
+| Validation plans | package/05 | Prepared, not executed | package/05 | Execution needs approval |

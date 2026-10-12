@@ -63,7 +63,7 @@ The single most useful design heuristic is Simon Willison's **"lethal trifecta"*
 
 ### 5.2 Prompt injection is mitigated, not solved
 
-- OpenAI, when hardening its Atlas browser, wrote that prompt injection, "much like scams and social engineering on the web, is unlikely to ever be fully 'solved'" [S118][S069]. (OpenAI later deprecated the Atlas browser itself, in August 2026, and moved browser agents into ChatGPT and a Chrome extension [S117].)
+- OpenAI, when hardening its Atlas browser, wrote that prompt injection, "much like scams and social engineering on the web, is unlikely to ever be fully 'solved'" [S118][S069]. (OpenAI later deprecated the Atlas browser itself, on 9 August 2026, and moved browser agents into ChatGPT and a Chrome extension [S117][S138].)
 - Anthropic's 2025 red-teaming of its Chrome agent covered 123 test cases. Attack success was 23.6% without mitigations and 11.2% with them. Mitigations included site permissions, confirmations for high-risk actions, and default blocks on financial sites [S068].
 - In simulated marketplaces, some models' payments could be redirected to malicious agents through manipulation and injection [S029].
 

@@ -1,0 +1,36 @@
+## Glossary
+
+- **A2A (Agent2Agent):** open protocol for agents to discover and message other agents. Uses "Agent Cards" describing an agent's skills and endpoint [S036].
+- **ACP (Agentic Commerce Protocol):** OpenAI/Stripe protocol for merchants to expose products and checkout to AI assistants [S026].
+- **Agent:** an LLM-driven system that chooses its own actions and tools at run time (§1).
+- **Agent washing:** marketing a non-agentic product as an agent [S087].
+- **AGENTS.md:** a plain-text file in a code repository that tells coding agents how to work on it [S034].
+- **AP2 (Agent Payments Protocol):** Google-led protocol using signed "mandates" to prove what a user authorised [S035].
+- **ARR / run-rate:** annualised recurring revenue, or current revenue extrapolated to a year. Not the same as annual revenue.
+- **Cache (prompt caching):** the provider stores a repeated prompt prefix and bills re-reads at a fraction of the price [S044].
+- **Computer use / browser use:** the agent controls a screen or browser by "seeing" screenshots and clicking.
+- **Context window:** the text the model can consider at once. Agent loops fill it as they go.
+- **Escalation:** handing a case from the agent to a human.
+- **Harness:** the software around the model that runs tools, enforces limits and records traces.
+- **Human-in-the-loop:** a person approves or edits before an action takes effect.
+- **Lethal trifecta:** private data + untrusted content + outbound communication in one agent [S011].
+- **LLM:** large language model.
+- **Mandate:** a signed statement of what an agent is authorised to buy [S035].
+- **MCP (Model Context Protocol):** open standard for connecting agents to tools and data [S032].
+- **MPP (Machine Payments Protocol):** Stripe/Tempo protocol letting agents pay for services programmatically [S024].
+- **Prompt injection:** hidden instructions in content the agent reads that hijack its behaviour [S118][S069].
+- **Resolution rate:** the share of cases an agent completes without a human.
+- **Sandbox:** isolated environment limiting what an agent's actions can affect.
+- **Signed agent / Web Bot Auth:** an agent that cryptographically signs its web requests so sites can verify who it is [S059].
+- **Time horizon (METR):** the length of tasks (in human time) that an agent completes 50% of the time [S008].
+- **Token:** a chunk of text (~¾ of an English word) used for model billing.
+- **TAP (Trusted Agent Protocol):** Visa's protocol for merchants to recognise legitimate shopping agents [S020].
+- **UCP (Universal Commerce Protocol):** Google/Shopify-led open protocol for agentic shopping from catalog to post-purchase [S023].
+- **x402:** protocol using the HTTP "402 Payment Required" status to let agents pay per request, typically in stablecoins [S028].
+- **Autonomy levels P1–P4 (purchases):** P1 agent recommends, human buys; P2 agent prepares, human approves; P3 agent executes within limits delegated earlier; P4 agent transacts with no approval at the moment of purchase (§9.2).
+- **DPA (data processing agreement):** GDPR Art. 28 contract between a controller and a processor; SCCs are the EU standard clauses for transfers outside the EEA [S110].
+- **Merchant of record (MoR):** a company (e.g., Paddle) that legally sells your product to the customer, collects and remits taxes worldwide and handles disputes, for a fee [S105].
+- **OSS (One Stop Shop):** EU scheme letting a seller declare VAT on cross-border consumer sales in all member states through one quarterly return in its home state [S103].
+- **Reverse charge:** for B2B services across borders, the *buyer* self-accounts for VAT instead of the seller charging it [S099].
+- **SIA:** Latvian limited liability company (sabiedrība ar ierobežotu atbildību) [S102].
+- **VID:** Latvian State Revenue Service (Valsts ieņēmumu dienests).

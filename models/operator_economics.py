@@ -119,10 +119,15 @@ def main() -> None:
     rc = api_eur * VAT_LV
     w(f"A USD {api_usd:,}/month API bill (≈€{api_eur:,.0f}) from a non-Latvian provider is a B2B service taxed where the buyer is established "
       f"(VAT Law s.19(1)). The Latvian buyer self-assesses 21% VAT ≈ €{rc:,.0f} under reverse charge (s.88/89 [S099]). For a fully taxable, "
-      "VAT-registered business this is reported and deducted in the same return, so it is cash-neutral. Under s.59(6), receiving such services "
-      "removes the €50,000 small-business registration exemption, so even a very small company buying foreign APIs or cloud must be VAT-registered "
-      "(per the 2024 English translation; confirm against the current text with an adviser). Under the micro-enterprise tax regime, taxpayers must not be VAT payers [S100], "
-      "so the two rules appear to be in tension for agent businesses buying foreign APIs (INTERPRETATION requiring professional confirmation).\n")
+      "VAT-registered business this is reported and deducted in the same return, so it is cash-neutral.\n")
+    small = 150.0
+    w("**v1.2 correction (current Latvian text [S122], VID guidance [S124]).** Receiving foreign services does **not** by itself force full registration "
+      "since 1 July 2025: a taxable person below €50,000 may register under the special procedure of s.139² (s.59(9)). VAT is then paid on those purchases only, "
+      f"with **no deduction** (s.139²(9)) — a real cost of 21%: €{small*VAT_LV:,.2f}/month on €{small:,.0f} of tools, €{api_eur*VAT_LV:,.0f}/month on the €{api_eur:,.0f} bill above. "
+      "Monthly notice by the 20th; payment within 23 days. The micro-enterprise tax remains available with this special registration [S123][S124] unless the "
+      "taxpayer supplies s.19(1) services to a VAT-registered person in another Member State (s.59(8) then forces full registration) or turnover exceeds €50,000. "
+      "Crossover (INTERPRETATION): voluntary full registration makes purchase VAT deductible but adds output-VAT filing; for heavy API buyers (e.g. the USD 2,000 bill) the €375/month "
+      "non-deductible cost usually outweighs the extra filing effort — ask an adviser to price the filing. The v1.1 text based on the outdated translation's s.59(6) is withdrawn.\n")
     (OUT / "operator_economics_results.md").write_text("\n".join(L) + "\n")
     print("\n".join(L))
 

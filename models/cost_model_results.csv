@@ -104,3 +104,9 @@ labour_sensitivity,claude-sonnet-5.5,EU27 average,prod_saving_pct,0.3643
 labour_sensitivity,claude-sonnet-5.5,Germany average,prod_saving_pct,0.3926
 labour_sensitivity,claude-sonnet-5.5,Estonia average,prod_saving_pct,0.2816
 labour_sensitivity,claude-sonnet-5.5,Latvia average,prod_saving_pct,0.2201
+labour_v12,claude-sonnet-5.5,EU27,prod_saving_local_eng,0.3804
+labour_v12,claude-sonnet-5.5,EU27,prod_saving_us_eng,0.3494
+labour_v12,claude-sonnet-5.5,Germany,prod_saving_local_eng,0.3954
+labour_v12,claude-sonnet-5.5,Germany,prod_saving_us_eng,0.3819
+labour_v12,claude-sonnet-5.5,Latvia,prod_saving_local_eng,0.2821
+labour_v12,claude-sonnet-5.5,Latvia,prod_saving_us_eng,0.1671

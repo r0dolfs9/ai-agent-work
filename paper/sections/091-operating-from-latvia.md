@@ -1,6 +1,11 @@
 ## 15. Operating a global agent business from Latvia and the EU
 
-> **Status of this section.** It summarises published rules as of 12 October 2026 so you can make better decisions and ask better questions. It is **not tax or legal advice**. Several points depend on facts only an accountant or lawyer can assess, and these are flagged ⚖. The Latvian VAT Law was read in an official English translation marked *outdated*: it is valid for 2024 and excludes amendments of December 2024 and December 2025 [S099]. Check every VAT point against the current Latvian text.
+> **Status of this section (revised v1.2).** It summarises published rules as of 12 October 2026 so you can make better decisions and ask better questions. It is **not tax or legal advice**. Points that depend on facts only an accountant or lawyer can assess are flagged ⚖.
+>
+> **v1.2 correction.** v1.1 relied on an English translation of the VAT Law that was marked outdated [S099]. On that basis it said buying foreign APIs forces VAT registration and makes the micro-enterprise tax unavailable. **That was wrong for the law in force since 1 July 2025.** v1.2 rests on:
+> - the current consolidated **Latvian** text of the VAT Law (s.59 and s.139²) [S122];
+> - the Micro-enterprise Tax Law [S123];
+> - the State Revenue Service (VID) guidance updated 27 June 2025 [S124].
 
 ### 15.1 The hypothesis and the short answer
 
@@ -30,8 +35,8 @@ Being in Latvia rather than elsewhere in the EU changes mostly tax mechanics and
 
 | Form | Registration | Liability | Main tax on profit | Notes |
 |---|---|---|---|---|
-| **Self-employed person** (registered with VID as performing economic activity) | With the State Revenue Service | Unlimited (personal) | Progressive PIT 25.5% up to €105,300, 33% above, +3% above €200,000 [S100]; social contributions apply (self-employed rates not in our sources ⚖) | Simplest. Personal liability for an agent's mistakes is a real exposure |
-| **Micro-enterprise taxpayer** (available to individuals and sole proprietors) | Opt-in | Unlimited | 25% of turnover (80% counts as social contributions, 20% as PIT), only if **not a VAT payer** and turnover ≤ €50,000 [S100] | See the VAT trap in §15.3. Appears hard to combine with buying foreign APIs ⚖ |
+| **Self-employed person** (registered with VID as performing economic activity) | With the State Revenue Service | Unlimited (personal) | Progressive PIT 25.5% up to €105,300, 33% above, +3% above €200,000 [S100]. 2026 social contributions: 31.07% on income of at least €780 per month, and 10% pension contribution on income above that base or below it [S125] | Simplest. Personal liability for an agent's mistakes is a real exposure |
+| **Micro-enterprise taxpayer** (natural persons registered with VID, individual merchants, individual enterprises) [S123] | Opt-in | Unlimited | **25% of turnover**, with no deduction for expenses; 80% counts as social contributions and 20% as PIT [S123][S124] | **Available alongside buying foreign APIs** via the s.139² special VAT registration (since 1 Jul 2025). **Lost** if you supply B2B services to a VAT-registered business in another EU state, or if turnover exceeds €50,000 [S124]. Taxing turnover penalises routes with high costs |
 | **Individual merchant (IK)** | Enterprise Register, state fee €30 [S102] | Owner liable with own property [S102] | As self-employed | Rarely better than an SIA for liability-heavy agent work (INTERPRETATION) |
 | **SIA (limited liability company)** | Enterprise Register, state fee €75, electronic filing; share capital ≥ €2,800, or reduced-equity SIA below that [S102] | Limited to the company | **CIT 20% of gross distributed profit** (0.2/0.8 of the net dividend). Retained profit untaxed. Dividends to individuals 0% PIT when CIT has been paid. Optional regime for individual-owned companies: 15% CIT + 6% PIT [S100] | Standard vehicle for selling internationally and limiting liability |
 
@@ -47,15 +52,31 @@ Being in Latvia rather than elsewhere in the EU changes mostly tax mechanics and
 | You sell… | To… | VAT treatment (simplified) | Registration consequence |
 |---|---|---|---|
 | Agent services or software subscription | Latvian business or consumer | Latvian VAT 21% | Register once taxable supplies exceed €50,000 [S100][S099] (s.59(1)) |
-| B2B services (consulting, managed agents, SaaS) | Business in another EU state (with VAT ID) | Taxed where the customer is established (s.19(1)); customer self-accounts under reverse charge; you invoice without VAT | **Threshold does not apply**: s.59(4) removes the €50,000 exemption when supplying such services to a taxable person of another Member State, so register from the first such sale [S099] ⚖ |
+| B2B services (consulting, managed agents, SaaS) | Business in another EU state (with VAT ID) | Taxed where the customer is established (s.19(1)); customer self-accounts under reverse charge; you invoice without VAT | **Threshold does not apply**: s.59(8) removes the €50,000 exemption for anyone supplying s.19(1) services to a taxable person of another Member State, so register **before the first such sale**. Also file EU sales (recapitulative) statements [S122]. A micro-enterprise taxpayer loses that regime [S124] |
 | **Electronically supplied** services (automated SaaS, an agent product with minimal human involvement) | Consumers in other EU states | Customer's country VAT (s.27), unless your total cross-border B2C electronic sales and distance sales stay ≤ €10,000 in the current and previous year, in which case Latvian VAT applies; declared through the **Union OSS**, filed quarterly [S103][S099] | OSS registration in Latvia |
 | Human-delivered services (e.g., consulting performed by you, set-up work) | Consumers in other EU states | General B2C rule: supplier's place (s.19(2)), i.e. Latvian VAT 21% [S099] | Classifying a service as "electronically supplied" or not is a fact-specific judgement ⚖ |
 | Any services | Businesses outside the EU | Outside Latvian VAT (place of supply = customer's country) [S099] (s.19(1)) | Check the customer country's rules (some apply reverse charge or require foreign-supplier registration) ⚖ |
 | Electronically supplied services | Consumers outside the EU | Outside EU VAT, but many countries tax foreign digital suppliers (e.g., the UK, and US state sales taxes). Not researched in depth here (UNKNOWN) | A **merchant of record** takes on these registrations [S105][S104] |
 
-**Buying** (the trap for agent businesses):
-- Buying model APIs, cloud and SaaS from foreign providers is a B2B service taxed in Latvia. The Latvian business self-assesses 21% VAT under reverse charge (s.88 for EU suppliers, s.89 for non-EU) [S099]. For a fully taxable, VAT-registered business, this is reported and deducted in the same return, so it is cash-neutral (CALCULATION: about €375 VAT self-assessed and deducted on a $2,000 monthly API bill).
-- **s.59(6)** removes the €50,000 small-business exemption for a taxable person that *receives* such services from another Member State or a third country [S099]. **INTERPRETATION ⚖:** a Latvian agent business that buys foreign AI or cloud services would have to register for VAT even with tiny turnover. Because the micro-enterprise tax requires *not* being a VAT payer [S100], that regime may be unavailable to such businesses. This is the single most important point to confirm with an accountant, against the current (post-2024) text.
+**Buying foreign APIs, cloud and SaaS** (corrected in v1.2):
+- These are B2B services with their place of supply in Latvia. The Latvian buyer self-assesses 21% VAT under reverse charge (s.88 for EU suppliers, s.89 for non-EU) [S099][S122].
+- **Since 1 July 2025, buying them does *not* by itself force full VAT registration.** A taxable person who receives such services may keep the €50,000 small-business exemption (s.59(9)) by registering under the **special procedure of s.139²** [S122]:
+  - the VAT number is used only for those purchases;
+  - there is no obligation to issue VAT invoices;
+  - VAT is due only on those purchases, and there is **no right to deduct it** (s.139²(9));
+  - a notice is due by the 20th of the following month for each month with such purchases, with payment within 23 days of the month's end.
+  - Before 1 July 2025 this option did not exist (transitional provision 47).
+- **Cost of the special route (CALCULATION):** 21% of foreign purchases becomes a real cost. On €150 a month of model and tool subscriptions that is **€31.50 a month (€378 a year)**. Fully registered businesses instead self-assess and deduct the same VAT in one return, so for them it is cash-neutral.
+- **Micro-enterprise tax:** it can be combined with the special registration. The VID guidance confirms this as long as the taxpayer does not supply s.19(1) services to VAT-registered businesses in other Member States and turnover stays at or below €50,000 [S124][S123].
+- **Practical consequence (INTERPRETATION):** client mix, not supplier mix, drives the VAT burden.
+
+| Client mix | Registration | Admin burden (INTERPRETATION) |
+|---|---|---|
+| Non-EU businesses only, plus Latvian clients under €50k | s.139² special registration if buying foreign tools; micro-enterprise tax possible | **Lowest** |
+| Any VAT-registered business in another EU state | Full VAT registration from the first such sale, plus EU sales statements | Medium |
+| EU consumers buying an electronically supplied product | OSS above €10k, or a merchant of record | Medium–high |
+
+- **v1.1's "trap" statement is withdrawn.** v1.1 cited s.59(6) of the outdated translation and said a micro-enterprise could not buy foreign APIs. The claim ledger (L51/L52 → L65/L66) records the correction.
 - Some providers bill EU customers with VAT unless a valid VAT ID is supplied. Third-party guides report that Anthropic invoices EU customers through a non-resident VAT scheme and switches to reverse charge when a business VAT ID is added. That is unverified, and a job posting names Ireland as the EU billing entity, which conflicts with it [S120]. Check the invoice seller block.
 
 ### 15.4 Payments, invoicing, currencies, refunds and disputes
@@ -116,19 +137,19 @@ Being in Latvia rather than elsewhere in the EU changes mostly tax mechanics and
 | | **1. Agent services to businesses** (build, harden or audit agents; managed agent operations) | **2. Agent software subscription** (self-serve SaaS) | **3. Internal agent procuring business services** |
 |---|---|---|---|
 | Typical customer | EU and non-EU companies | Global SMBs and consumers | Your own company |
-| VAT on sales | EU B2B: reverse charge, register from first sale (s.59(4)). Non-EU B2B: outside scope. Latvia: 21% | EU consumers: OSS at customer-country rates (above €10k). EU B2B: reverse charge. Non-EU consumers: foreign digital-services taxes, so a MoR is advisable | n/a |
-| VAT on purchases | Reverse charge on foreign APIs and cloud; registration trigger s.59(6) | Same | Same. Self-assess and deduct |
+| VAT on sales | EU B2B: reverse charge, register before first sale (s.59(8)) [S122]. Non-EU B2B: outside scope. Latvia: 21% | EU consumers: OSS at customer-country rates (above €10k). EU B2B: reverse charge. Non-EU consumers: foreign digital-services taxes, so a MoR is advisable | n/a |
+| VAT on purchases | Reverse charge on foreign APIs and cloud. If not fully registered, use the s.139² special registration (21% becomes a non-deductible cost) [S122] | Same | Same |
 | GDPR role | Processor (client data) | Controller + processor | Controller |
 | AI Act role | Deployer, or provider if you deliver your own branded system | **Provider** of the AI system. Art. 50 disclosure if it interacts with people | Deployer; AI literacy |
 | Consumer law | Usually none (B2B) | 14-day withdrawal unless properly waived for immediate performance [S113] | n/a |
 | Payments | Bank transfer / Stripe invoices; e-invoicing from 2028 | MoR or Stripe + OSS | Company card or per-agent cards with limits |
 | Main risks | Professional liability; sanctions screening | Global indirect tax; chargebacks; product liability from Dec 2026 | Unauthorised commitments; spend leakage |
-| Administrative burden (INTERPRETATION) | **Low–medium** | **Medium–high** (lower with MoR) | Low |
-| Fit with top opportunities | O03, O07, O02, O04 | O05 (kit), O06 (care plan) | All (cost base) |
+| Administrative burden (INTERPRETATION) | **Low** if clients are non-EU (or Latvian, below €50k). **Medium** once any EU VAT-registered client is served | **Medium–high** (lower with MoR) | Low |
+| Fit with shortlisted routes (v1.2) | R2 (O07), R4 (O13), R1 (O03); R3 (O02) deferred | O05 (kit), O06 (care plan) | All (cost base) |
 
 ### 15.9 Questions to take to an accountant or lawyer (⚖)
 
-1. Under the **current** Latvian VAT Law, does receiving foreign B2B services (APIs, cloud) still remove the €50,000 registration exemption (s.59(6))? If so, which tax regimes stay available?
+1. *(Answered from primary sources in v1.2; confirm before the first invoice.)* Given my expected client mix, should I use the s.139² special registration plus micro-enterprise tax, the self-employed general regime, or a full registration? At what client mix does full registration become cheaper? (**Blocks:** the first invoice. **Does not block:** investigating, or unpaid validation.)
 2. Is my agent product an "electronically supplied service" (OSS, customer-country VAT) or a professional service (Latvian VAT for consumers)?
 3. Which non-EU countries require registration for my digital sales, and is a merchant of record cheaper than registering myself?
 4. Standard vs alternative CIT regime: what actually differs for my ownership structure?

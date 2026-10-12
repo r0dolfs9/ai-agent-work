@@ -272,11 +272,44 @@ dict(
  why="evidence: liability gap documented only by vendor commentary (S066); volumes small"),
 ]
 
+
+# ---------------------------------------------------------------- v1.2 addition (2026-10-12): simpler adjacent service
+OPPS.append(dict(
+ id="O13", name="Small AI workflow automations for SMEs (marketplace-delivered)",
+ customer="Small businesses and solo professionals worldwide posting AI/automation jobs on freelance marketplaces (Upwork-type)",
+ economic_buyer="Business owner or operations lead posting the job", buyer_type="human/organization",
+ problem="Repetitive inbox, document, CRM and reporting tasks; owners want an LLM step (classify, extract, draft) inside existing tools without hiring",
+ workaround="Do it by hand; DIY with Zapier/Make/n8n templates; hire a generalist freelancer",
+ value="Fixed-scope build of 1-3 automations (e.g. email triage + draft replies with human approval; invoice extraction into a sheet), with a written runbook, cost estimate per run and a 30-day fix window",
+ sources="S127;S062;S011;S104",
+ demand_evidence="OBSERVED: Upwork GSV from AI-related work +22% YoY in Q2 2026, ~$330M annualised (investor-presentation extract); AI Strategy & Consulting +50% while total GSV fell 4% (S127). This is paid demand on a marketplace, not demand for any specific offer. INFERRED: a share of it is small automation jobs a solo operator can deliver.",
+ distribution="Freelance marketplace profile and proposals; later direct referrals",
+ conversion="Accepted fixed-price contract", pricing="€500-2,000 per fixed-scope job; optional €100-250/month care plan (HYPOTHESIS; marketplace fee assumed 10%)",
+ setup_cost="Very low: profile, 2-3 demo automations; < €200 tools", operating_burden="Medium: many small clients, scope creep, ratings pressure",
+ margin="High cash margin, low hourly rate early (ASSUMPTION)",
+ dependencies="Marketplace account standing and fee policy; automation platform pricing; model API access",
+ competitors="Large global freelancer pool (price pressure); no-code templates; vendors' built-in AI features",
+ defensibility="Low: reviews and niche specialisation only",
+ platform_risk="High: marketplace controls ranking, fees and account standing",
+ failure="Cannot win jobs without reviews; price competition pushes effective rate below Latvian professional benchmark",
+ invalidation="After 25 tailored proposals over 6 weeks, fewer than 2 paid jobs, or effective rate < €13/h on delivered jobs",
+ experiment="(Needs approval to open a marketplace account and send proposals) 6-week capped test: 3 public demo automations, 25 proposals to fitting jobs",
+ metric="Proposal-to-contract rate; effective € per owner-hour on delivered jobs", threshold="≥2 paid jobs and ≥€20/h effective → continue; 0 jobs → stop",
+ next_action="Build 2-3 demo automations on own data (no account needed); draft profile and proposal templates for review",
+ open_questions="Marketplace VAT treatment for a Latvian freelancer serving EU business clients (s.59(8))",
+ value_type="Revenue + learning",
+ scores=dict(evidence=4, pain=3, wtp=3, access=4, feasibility=4, cost=5, competition=1, risk=3),
+ why="evidence: observed paid marketplace demand (S127); competition: intense global supply; access: marketplace supplies buyers but cold-start without reviews",
+ simpler_alternative="This IS the simpler adjacent service; simpler still: employment or contracting in an existing AI team",
+ operating_model="1 (B2B services)", latvia_eu_operating="Client mix decides VAT: non-EU clients outside LV VAT; any EU VAT-registered client triggers full registration from first sale (s.59(8)) [S122] and ends micro-enterprise eligibility [S124]",
+ global_demand_note="Marketplace demand is global; operator location matters little except time zone and VAT",
+ v11_change="New in v1.2"))
+
 # ---------------------------------------------------------------- v1.1 updates (limitations follow-up, 2026-10-12)
 # Global demand evidence is kept separate from Latvian/EU operating conditions.
 V11 = {
  "O01": dict(simpler_alternative="Merchant uses Shopify/Google Merchant Center native AI feeds; platform self-serve onboarding",
-   operating_model="1 (B2B services)", latvia_eu_operating="B2B services: EU clients reverse charge (register for VAT from first EU B2B sale, s.59(4) [S099]); non-EU clients outside LV VAT; GDPR processor only if handling shopper data",
+   operating_model="1 (B2B services)", latvia_eu_operating="B2B services: EU clients reverse charge (register for VAT from first EU B2B sale, s.59(8) [S122]); non-EU clients outside LV VAT; GDPR processor only if handling shopper data",
    global_demand_note="AI-referred retail traffic evidence is US-only (Adobe) [S116]; UCP checkout live in US, expansion named for CA/AU/UK not EU [S023] — target non-EU and large-EU merchants, not Latvian demand",
    v11_change="No score change; evidence base re-sourced (S116 replaces S031)"),
  "O02": dict(simpler_alternative="Client's own QA team samples transcripts; vendor dashboards",
@@ -326,9 +359,32 @@ V11 = {
 }
 SCORE_CHANGES = {"O02": {"risk": 3}, "O06": {"competition": 1}, "O08": {"evidence": 1, "risk": 1}, "O09": {"evidence": 1}}
 for o in OPPS:
-    o.update(V11[o["id"]])
+    o.update(V11.get(o["id"], {}))
     o["v10_total"] = round(sum(WEIGHTS[k] * v for k, v in o["scores"].items()) * 20, 1)
     o["scores"].update(SCORE_CHANGES.get(o["id"], {}))
+
+# ---------------------------------------------------------------- v1.2 commercial gate (2026-10-12)
+# Numeric changes, each with new evidence. Scores are ordinal judgements; differences < ~5 points are noise.
+SCORE_CHANGES_V12 = {
+ "O03": {"wtp": 4, "access": 2, "feasibility": 3, "risk": 2},   # S130 audit prices observed; buyers prefer specialists; liability
+ "O07": {"wtp": 4},                                              # S128/S129 paid training prices observed
+ "O02": {"access": 2, "competition": 2},                         # S134 cheap QA substitutes; data access/GDPR friction
+}
+V12 = {o: dict(v12_route="—", v12_gate="Not shortlisted", v12_note="") for o in [x["id"] for x in OPPS]}
+V12.update({
+ "O07": dict(v12_route="R2", v12_gate="SHORTLIST — recommended first (if owner can code)", v12_note="Paid training prices observed (S128,S129); widest real adoption (S062,S088); productivity unclear (S070) creates the measurement angle. Refusal risk: vendors/partners teach for free or bundle it"),
+ "O13": dict(v12_route="R4", v12_gate="SHORTLIST — simpler adjacent; first move if owner is not a developer", v12_note="Strongest observed paid demand (S127) but lowest price and differentiation"),
+ "O03": dict(v12_route="R1", v12_gate="SHORTLIST — conditional on security background", v12_note="Limited risk review only; NOT a pentest, audit or certification. Buyers of real audits pay specialists $16-50k (S130)"),
+ "O02": dict(v12_route="R3", v12_gate="DEFER — revisit after first client relationships", v12_note="Highest value per client but slowest sale, data access and GDPR processor duties; cheap substitutes (S134)"),
+ "O09": dict(v12_route="—", v12_gate="REJECT for now (products bought by agents)", v12_note="Agentic x402 commerce ~$5-11k/month worldwide (S090)"),
+ "O08": dict(v12_route="—", v12_gate="REJECT (regulated funds handling)", v12_note="PSD2 licensing (S114)"),
+})
+for o in OPPS:
+    o.update(V12[o["id"]])
+    o["v11_total"] = round(sum(WEIGHTS[k] * v for k, v in o["scores"].items()) * 20, 1)
+    o["scores"].update(SCORE_CHANGES_V12.get(o["id"], {}))
+    if o["id"] == "O13":
+        o["v10_total"] = o["v11_total"] = "new"
 
 def total(s):
     return round(sum(WEIGHTS[k] * v for k, v in s.items()) * 20, 1)
@@ -347,14 +403,18 @@ def main():
           "Generated by `opportunities/build_register.py` and kept in sync with `opportunity-register.csv`, which holds the full fields. "
           "Every entry is a **commercial hypothesis**. No customer has been contacted, so no demand, sales or willingness to pay has been validated.\n",
           "**v1.1 (2026-10-12):** scores re-checked against the limitations follow-up. Each entry now also records a simpler alternative, the operating model (§15.8), Latvia/EU operating conditions, and the *global* demand evidence. Global demand is kept separate from the operator's location. Changed scores: O02 risk, O06 competition, O08 evidence and risk, O09 evidence.\n",
+          "**v1.2 (2026-10-12):** commercial gate rebuilt around realistic entry for a solo operator with unknown skills, budget and contacts. New O13 (simpler adjacent service). "
+          "Score changes from new price/substitute evidence: O03 (wtp up; access, feasibility, risk down), O07 (wtp up), O02 (access, competition down). "
+          "**The numeric score is not the decision basis.** It is an ordinal summary of judgements; differences under about 5 points are noise. "
+          "The decision uses the `v12_gate` column, which adds entry barriers (credentials, buyer access, liability, time to first revenue) — see `package/01-decision-brief.md`.\n",
           "**Rubric** (1–5 each, 5 = favourable; for cost, competition and risk 5 = low): "
           + ", ".join(f"{k} {int(v*100)}%" for k, v in WEIGHTS.items()) + ". Total = weighted mean × 20 (0–100).\n",
-          "| Rank | ID | Opportunity | Buyer type | Ev | Pain | WTP | Access | Feas | Cost | Comp | Risk | **Total** | v1.0 | Value type |",
-          "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+          "| Rank | ID | Opportunity | Buyer type | Ev | Pain | WTP | Access | Feas | Cost | Comp | Risk | **Total** | v1.1 | v1.0 | v1.2 gate |",
+          "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for i, o in enumerate(ranked, 1):
         s = o["scores"]
         md.append(f"| {i} | {o['id']} | {o['name']} | {o['buyer_type']} | {s['evidence']} | {s['pain']} | {s['wtp']} | {s['access']} | "
-                  f"{s['feasibility']} | {s['cost']} | {s['competition']} | {s['risk']} | **{o['total']}** | {o['v10_total']} | {o['value_type']} |")
+                  f"{s['feasibility']} | {s['cost']} | {s['competition']} | {s['risk']} | **{o['total']}** | {o['v11_total']} | {o['v10_total']} | {o['v12_gate']} |")
     md.append("\n## Details\n")
     for i, o in enumerate(ranked, 1):
         md.append(f"### {i}. {o['id']} — {o['name']} (score {o['total']})\n")
@@ -370,7 +430,8 @@ def main():
                            ("Open questions", "open_questions"), ("Value type", "value_type"), ("Score rationale", "why"),
                            ("Simpler alternative", "simpler_alternative"), ("Operating model (§15.8)", "operating_model"),
                            ("Latvia/EU operating conditions", "latvia_eu_operating"), ("Global demand evidence (separate from operator location)", "global_demand_note"),
-                           ("v1.1 change", "v11_change"), ("v1.0 total score", "v10_total")]:
+                           ("v1.1 change", "v11_change"), ("v1.0 total score", "v10_total"), ("v1.1 total score", "v11_total"),
+                           ("v1.2 route", "v12_route"), ("v1.2 gate", "v12_gate"), ("v1.2 note", "v12_note")]:
             md.append(f"- **{label}:** {o[key]}")
         md.append("")
     (HERE / "opportunity-register.md").write_text("\n".join(md) + "\n")

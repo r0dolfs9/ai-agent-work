@@ -2,11 +2,15 @@
 AIDev timing, opportunity scores) and arithmetic checks on derived numbers."""
 import pathlib, csv, sys
 root = pathlib.Path(__file__).resolve().parents[1]
-paper = (root / "paper" / "paper.md").read_text()
-cm = (root / "models" / "cost_model_results.md").read_text()
-op = (root / "models" / "operator_economics_results.md").read_text()
+import sys
+# v1.2: the v1.1 wording was deliberately revised. By default this script checks the preserved v1.1 snapshot
+# (archive/v1.1). Pass --current to check the live files instead (v1.2-superseded items will then mismatch).
+base = root if "--current" in sys.argv else root / "archive" / "v1.1"
+paper = (base / "paper" / "paper.md").read_text()
+cm = (base / "models" / "cost_model_results.md").read_text()
+op = (base / "models" / "operator_economics_results.md").read_text()
 aid = (root / "research" / "analysis" / "aidev_timing_results.md").read_text()
-reg = (root / "opportunities" / "opportunity-register.md").read_text()
+reg = (base / "opportunities" / "opportunity-register.md").read_text()
 checks = [
  # labour sensitivity
  ("| US support agent (BLS × 1.4) | 33% | 49% |", cm, "| US support agent (BLS × 1.4) | 30.14 | $135,304 | $200,947 | 33% | $6,159 | $12,057 | 49% |"),

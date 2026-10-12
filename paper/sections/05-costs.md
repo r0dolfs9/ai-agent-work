@@ -130,7 +130,7 @@ Regional note: Anthropic charges 1.1× for US-only inference on its newer models
 6. Prefer APIs and MCP tools over browser or computer use: they are fewer tokens, faster and more reliable.
 7. Spend engineering effort on raising the resolution rate before cutting token prices. In our sensitivity analysis, the resolution rate moves cost per conversation about ten times as much as the cache-hit rate does.
 
-### 6.9 Where the operator is located changes the economics (v1.1)
+### 6.9 Where the operator is located changes the economics (v1.1, refined v1.2)
 
 **Labour costs differ by jurisdiction.** The scenarios above price human work at US support-agent wages ([S077] × 1.4). Eurostat's all-in hourly labour costs for 2025 are EU27 €34.9, Germany €45.0, Estonia €21.1 and Latvia €16.3. These are whole-economy averages, not support-agent wages [S119]. Re-running the base cases with these rates gives (**CALCULATION**, `models/cost_model_results.md`):
 
@@ -144,10 +144,25 @@ Regional note: Anthropic charges 1.1× for US-only inference on its newer models
 
 **INTERPRETATION.** Where human labour is cheaper, automation saves a smaller *share*. Model, engineering and security costs are priced globally (engineering is held at US rates in this table), while the human work they replace is cheaper. A Latvian *customer's* business case is therefore weaker than a German or US one at the same resolution rate. That matters for choosing which customers to target globally, independent of where the operator sits.
 
+**v1.2 refinement: occupation-adjusted rates and local engineering (CALCULATION).**
+- **Method.** Whole-economy averages overstate what support work costs. v1.2 scales Eurostat's all-in labour cost [S119] by the ratio of each occupation's mean earnings to the all-occupation mean (Structure of Earnings Survey 2022 [S126]):
+  - clerical support workers stand in for support agents;
+  - professionals stand in for engineers.
+- **Support labour per hour:** about €31.2 (EU27), €40.5 (Germany) and €13.6 (Latvia).
+- **Engineering:** at local professional rates, an engineer costs roughly $4,200 a month in Latvia, against $11,700 in Germany.
+
+| Jurisdiction | Production base saving, engineering at US rates | Production base saving, local engineering |
+|---|---|---|
+| EU27 | 35% | 38% |
+| Germany | 38% | 40% |
+| Latvia | 17% | 28% |
+
+**INTERPRETATION.** The v1.1 direction holds: the same deployment saves a smaller share where support labour is cheap. A Latvian deployment that also hires engineers locally recovers part of the gap. For an operator choosing *whom to sell to*, clients in high-wage markets have the larger automation budgets (see `package/04-economics.md`).
+
 **From revenue to the owner.** `models/operator_economics.py` adds the operator-side costs of a Latvia-based seller (§15):
 - payment processing (Stripe EEA 1.5% + €0.25, international 3.15% + €0.25, +2% FX) or a merchant of record (Paddle 5% + $0.50) [S104][S105];
 - VAT handling by customer type [S099][S103];
 - recurring company administration (ASSUMPTION: about €1,700–6,400 a year);
 - Latvian corporate income tax, charged only on distributed profit (20% of the gross distribution) [S100].
 
-On a €49 net subscription the seller keeps about €44.5–48.0 depending on route and customer, before its own costs (**CALCULATION**).
+On a €49 net subscription the seller keeps about €44.5–48.0 depending on route and customer, before its own costs (**CALCULATION**). That is **not** take-home pay. For service routes, `models/route_economics.py` (v1.2) goes further: it models selling time, rework, fixed costs, VAT by client mix, Latvian social contributions and income tax, through to the owner's take-home per hour. See `package/04-economics.md`.

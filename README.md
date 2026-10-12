@@ -2,18 +2,22 @@
 
 This is an evidence-based research paper on AI agents and the market forming around them. It comes with a source register, cost model and business-opportunity register.
 
-**Status: v1.1 (limitations follow-up) COMPLETE as local research deliverables, 2026-10-12.** v1.0 is preserved in `archive/v1.0/` and git tag `v1.0`. Nothing has been published externally, and no one has been contacted.
+**Status: v1.2 (reading and decision package), 2026-10-12.** Committed locally only, not pushed. v1.1 is preserved in `archive/v1.1/` and local tag `v1.1`; v1.0 in `archive/v1.0/` and tag `v1.0`. Nothing has been published externally, no one has been contacted, and no money has been spent.
+
+**Start with [`package/00-START-HERE.md`](package/00-START-HERE.md)**, or open the single-file reading edition [`package/reading-edition.html`](package/reading-edition.html).
 
 ## Start here
 
 | File | What it is |
 |---|---|
-| [`paper/paper.md`](paper/paper.md) | **The paper** v1.1 (~20.7k words incl. appendices, + references). Generated from `paper/sections/` by `paper/build_paper.py`. New §15: operating a global agent business from Latvia and the EU |
+| [`package/`](package/) | **v1.2 decision package:** START HERE, decision brief, route dossiers (R1–R4), economics, validation plans with draft materials, review and open questions, and a combined HTML reading edition |
+| [`models/route_economics.py`](models/route_economics.py) | Route economics: setup, costs, selling time, VAT, Latvian taxes, take-home per hour, adverse cases (v1.2) |
+| [`paper/paper.md`](paper/paper.md) / [`paper/paper.html`](paper/paper.html) | **The paper** v1.2 (~22k words incl. appendices, + references), generated from `paper/sections/` by `paper/build_paper.py`. §15 corrected from current Latvian law |
 | [`research/limitations-resolution.md`](research/limitations-resolution.md) | **Limitations-resolution matrix** and claim-level audit (v1.1) |
 | [`research/analysis/`](research/analysis/) | Our analysis of 2.74M agent-authored pull requests (timing) |
 | [`opportunities/opportunity-register.md`](opportunities/opportunity-register.md) | Ranked business opportunities, with evidence and validation plans (CSV: `opportunity-register.csv`) |
-| [`research/sources.csv`](research/sources.csv) | Source and bookmark register (121 sources; superseded entries kept and annotated). Browser import: [`research/bookmarks.html`](research/bookmarks.html) |
-| [`research/claims-ledger.md`](research/claims-ledger.md) | Load-bearing claims (L01–L64), conflicts (C001–C020), unknowns (U01–U10) |
+| [`research/sources.csv`](research/sources.csv) | Source and bookmark register (141 sources; superseded entries kept and annotated). Browser import: [`research/bookmarks.html`](research/bookmarks.html) |
+| [`research/claims-ledger.md`](research/claims-ledger.md) | Load-bearing claims (L01–L76), conflicts (C001–C025), unknowns; v1.2 section E |
 | [`research/coverage-matrix.md`](research/coverage-matrix.md) | Topic → research question → sources → strength → section → gaps |
 | [`models/`](models/) | Agent cost model (`cost_model.py`, incl. labour-cost jurisdiction sensitivity), operator economics for a Latvia-based seller (`operator_economics.py`), assumptions (`README.md`), outputs (`*_results.md`) |
 | [`verification/verification-report.md`](verification/verification-report.md) | Checks performed, adversarial self-review, what could invalidate conclusions |
@@ -29,7 +33,10 @@ python3 opportunities/build_register.py      # regenerate ranked register
 python3 paper/build_paper.py                 # assemble paper + references, fail on unresolved citations
 python3 models/operator_economics.py         # regenerate operator economics (v1.1)
 python3 -I verification/check_numbers.py     # paper figures == model output
-python3 -I verification/check_numbers_v11.py # v1.1 figures and arithmetic
+python3 -I verification/check_numbers_v11.py # v1.1 figures (checks the archived v1.1 snapshot)
+python3 models/route_economics.py           # route economics (v1.2)
+python3 package/build_package.py            # regenerate dossier tables, economics doc, HTML editions
+python3 -I verification/check_numbers_v12.py # v1.2 package figures vs model
 python3 -I verification/check_links.py       # read-only link check (network)
 python3 -I research/tools/make_bookmarks.py  # regenerate bookmarks.html
 ```

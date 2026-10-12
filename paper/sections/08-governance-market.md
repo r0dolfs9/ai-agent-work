@@ -116,7 +116,7 @@ The Anthropic figure is account bans for all Usage Policy reasons. It is **not**
 | Evidence type | Example | Strength | Caveat |
 |---|---|---|---|
 | Audited / filed company results | Salesforce Agentforce ARR >$1.5bn (+240% YoY), broadened definition [S055] | **Strong** for that company | Definition change inflates growth |
-| Company disclosures | Anthropic run-rate $14bn (Feb 2026) and >$47bn (May 2026); Claude Code >$2.5bn (Feb 2026) [S088]. Cursor $1bn disclosed (Nov 2025) [S054] | Medium–strong | Run-rate ≠ revenue; most of it is model usage, not "agent products" alone |
+| Company disclosures | Anthropic run-rate $14bn (Feb 2026) [S141] and >$47bn (May 2026) [S088]; Claude Code >$2.5bn (Feb 2026) [S141]. Cursor $1bn disclosed (Nov 2025) [S054] | Medium–strong | Run-rate ≠ revenue; most of it is model usage, not "agent products" alone |
 | Press reports from anonymous sources | Anthropic ~$65bn run-rate by end-July 2026 (one person familiar, via Bloomberg/Reuters) [S089]; Cursor ~$4bn [S054] | Medium–weak | Not confirmed by the companies |
 | Executive surveys | Gartner 17% deployed [S098]; McKinsey 22–40% of respondents report scaling [S084] | Medium | Self-report; definitions differ; samples not representative of all firms |
 | Official statistics | Eurostat: 20.0% of EU enterprises used any AI in 2025 [S096] | **Strong** (for its definition) | AI in general, not agents |
@@ -150,27 +150,52 @@ The Anthropic figure is account bans for all Usage Policy reasons. It is **not**
 
 **RECOMMENDATION.** For the next 12–24 months, build businesses that **sell to the humans responsible for agents**. Treat being selected by agents as a secondary channel. Make your offer machine-readable (structured data, an MCP server, honest labels) because it is cheap to do, but don't depend on it.
 
-### 12.4 Opportunity summary
+### 12.4 Opportunity summary (rebuilt in v1.2)
 
-The full register (`opportunities/opportunity-register.md` and `.csv`) has 12 opportunities, each with customer, buyer, evidence, pricing hypothesis, competitors, invalidation criteria and a validation experiment, all scored on the same weighted rubric. The top five:
+The register (`opportunities/opportunity-register.md` and `.csv`) holds 13 opportunities. Each has a customer, buyer, evidence, pricing hypothesis, competitors, invalidation criteria and a validation experiment.
 
-| Rank | Opportunity | Score /100 | Why it ranks high | Main risk |
-|---|---|---|---|---|
-| 1 | Agent security hardening and "lethal trifecta" review for SMEs | 71 | Well-documented incidents and government guidance [S014][S051]; low capital | Competition from security firms; advice liability |
-| 2 | Coding-agent enablement **with measurement** for small dev teams | 70 | Widest real adoption [S062]; productivity unclear [S070] | Vendors provide free enablement |
-| 3 | Independent evaluation and outcome-audit of support agents | 67 (v1.0: 69; GDPR processor duties raise risk) | Per-outcome billing [S071]; automated judges over-rate [S037]; resolution rate dominates cost (§6) | Data-sharing friction |
-| 4 | Agent-readiness service for non-Shopify merchants | 66 | Fast-growing AI referrals [S116]; protocols live [S023] | Platform churn [S025]; small current revenue share |
-| 5 | MCP connector build and migration for vertical SaaS | 64 | MCP broadly adopted; breaking 2026 spec [S032][S034] | Commoditised by code generation |
+**How v1.2 differs from v1.1.**
+- **New entry gate.** v1.1 ranked opportunities on a weighted 1–5 rubric: evidence 20%, pain 15%, willingness to pay 15%, and 10% each for access, feasibility, cost, competition and risk. That rubric hides what matters most for a newcomer: the credentials and customer access needed, liability, and time to first revenue. v1.2 therefore adds an **entry gate** and decides on that, treating the numeric score as an ordinal summary. Differences under about 5 points are noise.
+- **New evidence changed three scores:**
+  - security reviews (O03): willingness to pay up on observed audit prices [S130]; access, feasibility and risk down, because credible buyers want specialists and liability is real;
+  - coding-agent enablement (O07): willingness to pay up on observed training prices [S128][S129];
+  - support-agent evaluation (O02): access and competition down, because of cheap QA substitutes [S134] and data-access friction.
+- **New simpler adjacent service (O13):** small AI workflow automations, with the strongest observed paid demand [S127].
 
-Lowest-ranked: spend-control fintech for agent purchases (30, down from 36), pay-per-call products sold to agents (43, down from 47) and dispute-evidence tooling (44). The v1.1 payment data lowered them: the plausibly agentic share of x402 commerce is about $5–11k a month [S090][S091]. Holding or forwarding clients' funds is also a regulated payment service [S114].
+| Route | Register ID | Score v1.2 (v1.1) | Entry gate (INTERPRETATION) | Strongest evidence | Main reason it could fail |
+|---|---|---|---|---|---|
+| **R2** Coding-agent enablement + measured pilot | O07 | 73 (70) | **Shortlist; recommended first if the owner codes (best first year with warm access to engineering leads)** | Widest real adoption [S062][S088]; paid training at €890 per person for 2 days [S128]; productivity uncertain [S070] | Vendors and partners teach it free or cheaply |
+| **R4** Small AI workflow automations (simpler adjacent) | O13 | 68 (new) | **Shortlist; first if the owner does not code** | Upwork AI-related work +22% YoY [S127] | Price competition; marketplace control |
+| **R1** Limited agent risk review | O03 | 68 (71) | **Shortlist only with security credentials** | Security is the top adoption barrier (80% of large US firms [S131]); audit prices $6k–50k [S130] | Buyers want credentialed firms; liability |
+| **R3** Support-agent evaluation and outcome audit | O02 | 63 (67) | **Defer** | Per-outcome pricing [S071]; 91% of service leaders under AI pressure [S133] | No observed paid demand; data access; QA substitutes [S134] |
+| Products bought autonomously by agents | O09 | 43 | **Reject for now** | Agentic x402 commerce about $5–11k a month [S090] | Market too small to measure |
+| Spend controls for agent purchases | O08 | 30 | **Reject** | — | Regulated payment service [S114] |
 
-**Operating from Latvia (v1.1).** The top three are B2B services. That is the administratively simplest model for a Latvian operator: reverse charge for EU business clients, outside Latvian VAT for non-EU clients, no consumer-law withdrawal rights (§15.8). Global demand evidence is unchanged by the operator's location. Lower labour costs in markets such as Latvia shrink automation savings (§6.9), so evaluation and enablement services are likely worth more to clients in high-wage markets (INTERPRETATION).
+**Security: what a newcomer can and cannot sell.**
+- A *limited risk review* is a structured configuration and architecture review against public checklists, with stated exclusions.
+- A *security audit or penetration test* involves authorised technical testing by specialists, typically $16k–50k [S130].
+- A *certification* can only be issued by accredited bodies.
+
+Marketing a limited review as either of the latter is misleading and creates liability.
+
+**Economics (CALCULATION, `models/route_economics.py`; base revised downward after the independent commercial review).**
+- **Newcomer** without track record or warm contacts: the first year yields about €3–11 per owner-hour after Latvian taxes (once steady, €15–27).
+- **With a network** or strong public proof: €23–36 per hour in the first year.
+- **Benchmark:** a Latvian professional's mean pay is €13.04 gross [S126], about €8.7 net (CALCULATION with [S100]).
+- **Adverse case:** the first year is a loss on every route.
+- **Risk:** setup cash is small (€150–900). The real risk is about 215–285 unpaid hours before the first sale on R1–R3.
+- **INTERPRETATION:** the owner's access to buyers matters more than the choice of route.
+
+**Operating from Latvia (corrected in v1.2).**
+- B2B services remain the simplest model, but **client mix decides the admin load**:
+  - non-EU clients, or Latvian clients under €50,000, allow the micro-enterprise tax plus the special registration for foreign tool purchases [S122][S124];
+  - the first EU VAT-registered client forces full VAT registration [S122].
+- v1.1 said B2B services were simplest "with reverse charge for EU clients" without noting that this requires full registration. That has been corrected.
 
 **Important caveats.**
 - These are hypotheses. No customer was contacted, so no willingness to pay has been observed.
-- The rubric favours low-capital services because the project assumed a zero budget.
-- Score differences under ~5 points are not meaningful.
-- The register separates revenue, cost reduction and learning value, and lists the cheapest validation experiment for each. Every such experiment needs the owner's approval before anyone is contacted or money is spent.
+- The decision package (`package/`) sets out conditional recommendations, route dossiers, economics and prepared validation plans.
+- Every validation step that contacts people, opens accounts or spends money needs the owner's approval.
 
 ### 12.5 Common claims, checked
 

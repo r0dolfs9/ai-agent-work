@@ -33,3 +33,21 @@ Owner actions that would unlock more evidence:
 | Python venv with pyarrow/fsspec (scratchpad only; not a repo dependency) | created | yes | n/a | local, reversible | yes | yes | Used only for the AIDev analysis |
 | pdftotext | yes | yes | n/a | yes | yes | yes | OECD, OpenAI DSA cover letter, KPMG tax card |
 | GitHub/Gmail/Calendar MCP | intermittently connected | not used | — | **no** (no outward action needed) | no | n/a | — |
+
+## v1.2 capability record (2026-10-12)
+
+The handoff was treated as navigation only. Each capability below was re-attempted in this session.
+
+| Capability | Installed/present | Exposed & invocable | Service connected | Permission & authorization | Attempted | Succeeded | Evidence |
+|---|---|---|---|---|---|---|---|
+| Sub-agents (Agent tool) for independent review | yes | yes | n/a | **yes:** the owner's v1.2 brief asks for separate factual and commercial reviews "if available and permitted" | yes (2 agents, read-only instructions) | yes. Both returned reports; findings verified and applied | `package/06-review-and-open-questions.md` §3 |
+| WebFetch → likumi.lv (Latvian consolidated laws) | yes | yes | yes | yes | yes | yes | S122, S123 |
+| WebFetch → vid.gov.lv PDF | yes | yes | yes | yes | yes | yes (PDF text extracted) | S124 |
+| WebFetch → anthropic.com, visa.com, macrumors.com, golance.com | yes | yes | yes | yes | yes | yes | S088, S094, S091, S138, S140 re-read 2026-10-12 |
+| WebFetch → gesetze-im-internet.de (UWG) | yes | yes | yes | yes | yes | **no** (HTTP 503) | Fallback: IHK guidance via search [S139] |
+| WebFetch → upwork.com resource page, Gartner newsroom | yes | yes | yes | yes | yes | **no** (HTTP 403) | Not bypassed; secondary sources and independent republication used [S140][S136] |
+| Gartner origin host (gcom.pdo.aws.gartner.com) | — | — | — | **withdrawn by our own judgement:** it could sidestep CDN bot controls | no (in v1.2) | n/a | S137 note |
+| pandoc 3.1.3 | yes | yes | n/a | yes | yes | yes | `package/reading-edition.html`, `paper/paper.html` |
+| Playwright + Chromium (`/opt/pw-browsers`) | Chromium present; Playwright npm installed into the scratchpad only | yes | n/a | local, reversible | yes | yes | Screenshots at 1280 px and 390 px; overflow and anchor checks |
+| Artifact publishing, Claude Docs, Gamma, Gmail, GitHub PR | present | not used | — | **no.** Publishing, contacting and pushing are excluded by the owner's v1.2 instruction | no | n/a | Local files only; **no push** |
+| git commit (local) | yes | yes | n/a | yes (local, reversible) | yes | see HANDOFF | Not pushed |

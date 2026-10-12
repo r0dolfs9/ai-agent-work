@@ -27,10 +27,14 @@
 2. **Run the register's validation experiment** before building anything, once the owner approves contact or spend. Pre-commit to the go/no-go threshold.
 3. **Price on outcomes the buyer already measures,** such as hours saved, incidents avoided, or resolution verified. Avoid pricing on activity counts.
 4. **Watch platform risk.** Avoid businesses that need terms-of-service grey zones such as credential capture or undeclared bots [S063][S016].
-5. **If operating from Latvia or the EU, settle the §15.9 questions with an accountant and a lawyer before the first international sale.** Above all, settle whether buying foreign APIs forces VAT registration, and choose between a merchant of record and direct invoicing.
+5. **If operating from Latvia or the EU, know your client mix before the first invoice.**
+   - Buying foreign APIs does not force VAT registration: the special s.139² registration covers it [S122].
+   - Selling to an EU VAT-registered business does force full registration [S122].
+   - Confirm the regime choice with an adviser before invoicing (§15.9 question 1). This does not block testing demand.
+7. **Use the decision package.** `package/00-START-HERE.md` turns this paper into a route comparison, economics and prepared validation plans.
 6. **Re-check this paper's dated facts quarterly.** Protocols, prices and policies moved materially within the six months before this paper.
 
-## 14. Limitations (revised in v1.1)
+## 14. Limitations (revised in v1.1 and v1.2)
 
 The full claim-by-claim account is in `research/limitations-resolution.md`. Summary of the five limitations reported in v1.0 and what happened to each:
 
@@ -44,12 +48,20 @@ The full claim-by-claim account is in `research/limitations-resolution.md`. Summ
 
 **Limitations that remain:**
 - **Freshness.** Evidence was retrieved on 12 October 2026. Several facts changed within weeks of each other: Amazon's agent block, Cloudflare's defaults, the MCP spec, and the discontinuation of OpenAI's Atlas browser.
-- **Access.** Some primaries still block automated retrieval (openai.com, cnbc.com, OpenAI's DSA data pages). We did not bypass these. Gartner's and McKinsey's own alternative hosts (gcom.pdo.aws.gartner.com, karriere.mckinsey.de) served the same documents publicly and were used. No paywalled analyst reports were read.
+- **Access.** Some primaries still block automated retrieval (openai.com, cnbc.com, OpenAI's DSA data pages). We did not bypass these.
+  - In v1.1, Gartner's and McKinsey's alternative hosts were used. In v1.2, their provenance was checked [S137]: DNS records place the Gartner host inside Gartner's own infrastructure, and the pages declare canonical gartner.com or mckinsey.com URLs.
+  - Reading Gartner through its origin host could, however, sidestep the bot controls on www.gartner.com. **That access path was discontinued in v1.2.** The key Gartner table was corroborated through an independent republication [S136].
+  - No paywalled analyst reports were read.
 - **Vendor-sourced evidence.** Much evidence on adoption, transactions and security comes from vendors with an interest in the result (e.g., [S021][S022][S088][S068]). Vendor statements establish what vendors claim, not independent proof.
 - **Survey limits.** Adoption surveys are self-reported and use incompatible definitions (C001). The Gartner 2025 poll was of webinar attendees [S087].
 - **Experimental limits.** Agent-behaviour findings come from simulations, mock marketplaces and small internal pilots [S029][S030][S039][S040].
 - **Cost models.** The scenarios rest on explicit assumptions, not observed deployments. Resolution rates, engineering effort, security budgets and Latvian administrative costs need local quotes or pilots. Incident costs and non-EU indirect taxes are excluded.
-- **Tax and legal (§15).** Simplified summaries of published rules, partly from an outdated official translation of the Latvian VAT Law [S099]. Every ⚖ item needs professional confirmation.
+- **Tax and legal (§15).** v1.1 relied on an outdated English translation of the VAT Law and reached a wrong conclusion about registration and the micro-enterprise tax.
+  - v1.2 re-read the current consolidated Latvian text [S122][S123] and the tax authority's guidance [S124], and corrected it.
+  - Consolidated texts are informative; the official publication prevails.
+  - Remaining questions depend on the owner's circumstances and are stated precisely in `package/01-decision-brief.md` §8, with what each blocks.
+- **Commercial evidence (v1.2).** Route prices come from published list prices and a vendor price guide [S128][S129][S130], not transaction data. Win rates and selling hours are assumptions. Large-company surveys dominate the demand evidence [S131][S133].
+- **Reviews.** v1.2 used two independent AI reviewers (factual and commercial; see `verification/verification-report.md`). They are separate model instances, not human experts.
 - **Timing and enforcement data.** These are narrow: coding agents on public GitHub, chat usage at one provider, and all-cause bans at one provider.
 - **No primary research.** No interviews, surveys or experiments with real customers were conducted, because they need approval. The opportunity register remains hypothesis-only.
-- **Self-review.** The adversarial review was carried out by the same AI system that wrote the paper. No independent human review has taken place.
+- **No human review.** No independent human expert has reviewed the paper.

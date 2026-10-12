@@ -1,20 +1,27 @@
 ---
 title: "AI Agents and the Market Forming Around Them"
 subtitle: "An evidence-based guide for people who want to understand, use, build with, or build a business around AI agents"
-date: "12 October 2026 — v1.1 (limitations follow-up; evidence retrieved 12 October 2026)"
-status: "Version 1.1. Private learning and business development (not for publication or investors). Not investment, legal, tax or security advice."
+date: "12 October 2026 — v1.2 (decision package; evidence retrieved 12 October 2026)"
+status: "Version 1.2. Private learning and business development (not for publication or investors). Not investment, legal, tax or security advice."
 ---
 
 # AI Agents and the Market Forming Around Them
 
-**Version 1.1, 12 October 2026** (supersedes v1.0, preserved in `archive/v1.0/` and git tag `v1.0`). Evidence was retrieved on 12 October 2026. Prices, products and policies in this field change monthly, so re-check anything dated before you rely on it.
+**Version 1.2, 12 October 2026** (supersedes v1.1, preserved in `archive/v1.1/` and local git tag `v1.1`; v1.0 is in `archive/v1.0/`).
+
+v1.2 was written to support one decision: whether the owner should explore a business in this market, and which route to try first. The decision itself is in the separate **decision package** (`package/00-START-HERE.md`). What changed in this paper:
+- the Latvian VAT and micro-enterprise statements were corrected from the current Latvian legal text (§15);
+- labour-cost savings were refined by occupation (§6.9);
+- the opportunity shortlist was rebuilt around realistic entry (§12.4);
+- the Atlas shutdown, the Anthropic figures and the x402 figures were re-checked;
+- the limitations were updated (§14). Evidence was retrieved on 12 October 2026. Prices, products and policies in this field change monthly, so re-check anything dated before you rely on it.
 
 ## How to read this paper
 
 - **If you have 10 minutes**, read the *Executive summary* and the *Practical starting guide* (§13).
 - **If you want to use agents**, read §1–2, §4–5, §7 and §13.
 - **If you want to build agents**, also read §3, §6, §8, Appendix A and Appendix B.
-- **If you want to build a business**, also read §9–12, §15 (operating globally from Latvia/the EU), and the opportunity register (`opportunities/opportunity-register.md`).
+- **If you want to build a business**, also read §9–12 and §15 (operating globally from Latvia/the EU). Then read the decision package (`package/01-decision-brief.md`), the route dossiers and the opportunity register (`opportunities/opportunity-register.md`).
 
 Every factual claim carries a source tag such as **[S037]**. Each tag resolves in the references list at the end and in `research/sources.csv`. That register records the URL, publisher, publication date, retrieval date, the exact passage relied on, caveats and a confidence rating. Where a statement is not a sourced fact, it is labelled:
 
@@ -27,7 +34,7 @@ Every factual claim carries a source tag such as **[S037]**. Each tag resolves i
 | **RECOMMENDATION** | What we suggest doing |
 | **UNKNOWN** | We looked, and the evidence is not public or not adequate |
 
-**Scope (confirmed by the owner for v1.1).**
+**Scope (confirmed by the owner for v1.1 and v1.2).**
 - **Purpose:** private learning and business development. The paper is not intended for publication or investors.
 - **Market scope:** global.
 - **EU and Latvia:** given deeper treatment only where the operator's location materially affects running a global agent business (§15). Latvian demand is *not* prioritised.
@@ -39,9 +46,11 @@ Every factual claim carries a source tag such as **[S037]**. Each tag resolves i
 
 **What an agent is.** An AI agent is software in which a language model decides, step by step, what to do next. It chooses which tools to call (search, email, a database, a browser, a payment API), reads the results, and keeps going until a goal is met or it stops. That separates it from a chatbot, which only answers, and from a *workflow*, where a programmer fixed the steps in advance [S001]. How much an agent does without asking is a design choice, not a property of the model. The same model can be set up to ask before every action or to act and merely report [S002].
 
-**The eleven findings that matter most** (version 1.1: findings 1, 6, 8, 10 and 11 were revised or added after the limitations follow-up; see §14 and `research/limitations-resolution.md`)
+**The twelve findings that matter most**
+- v1.1 revised or added findings 1, 6, 8, 10 and 11 after the limitations follow-up (§14 and `research/limitations-resolution.md`).
+- v1.2 corrected finding 11 from the current Latvian legal text and added finding 12.
 
-1. **Adoption is real but uneven and concentrated.** Gartner's 2026 CIO survey found that only 17% of organizations had deployed AI agents (sample size not published) [S098]. In McKinsey's 2026 global survey (1,719 respondents, 97 countries, May–June 2026), 40% of respondents at companies with more than $1bn revenue said their organization was "scaling" agents, against 22% at smaller firms [S084]. Across the EU, Eurostat's official survey found 20.0% of enterprises with 10+ employees used any AI technology in 2025 (Latvia: 12.2%) [S096]. That is broader than agents and still a minority. These numbers measure different things (§2.2). The most mature, best-evidenced use is **software coding**. Among developers who use AI, 66% use coding agents [S062]. Anthropic disclosed that Claude Code alone passed a $2.5bn revenue run rate in February 2026 [S088].
+1. **Adoption is real but uneven and concentrated.** Gartner's 2026 CIO survey found that only 17% of organizations had deployed AI agents (sample size not published) [S098]. In McKinsey's 2026 global survey (1,719 respondents, 97 countries, May–June 2026), 40% of respondents at companies with more than $1bn revenue said their organization was "scaling" agents, against 22% at smaller firms [S084]. Across the EU, Eurostat's official survey found 20.0% of enterprises with 10+ employees used any AI technology in 2025 (Latvia: 12.2%) [S096]. That is broader than agents and still a minority. These numbers measure different things (§2.2). The most mature, best-evidenced use is **software coding**. Among developers who use AI, 66% use coding agents [S062]. Anthropic disclosed that Claude Code alone passed a $2.5bn revenue run rate in February 2026 [S141].
 
 2. **Capability is rising fast, but reliability on real work is still low.** On paid freelance projects judged by humans, the best agent produced work as good as a professional's 15.8% of the time in July 2026. Eight months earlier the figure was 2.5% [S037]. Benchmarks of self-contained software tasks still show exponential growth [S008]. Controlled studies of developer productivity are inconclusive [S070]. **INTERPRETATION:** agents are dependable for narrow, checkable tasks, and supervision remains the norm for open-ended ones.
 
@@ -70,18 +79,37 @@ Every factual claim carries a source tag such as **[S037]**. Each tag resolves i
 
 11. **A Latvia-based operator can sell agent services and software worldwide, but not without friction or limits** (new §15).
     - **What works:** model and payment providers serve Latvia [S106][S104]. EU VAT rules give cross-border B2B services a reverse charge and give consumer sales a one-stop return [S099][S103].
-    - **What surprises small operators:** buying foreign cloud or AI services appears to remove Latvia's €50,000 VAT-registration exemption [S099]. That interacts badly with the micro-enterprise tax regime [S100] and needs an accountant's confirmation.
+    - **What matters most is the client mix, not the supplier mix** (corrected in v1.2 from the current Latvian text).
+      - Since 1 July 2025, buying foreign AI or cloud services no longer forces full VAT registration. A special registration (s.139²) lets small operators stay below the €50,000 threshold and keep the micro-enterprise tax. The cost is 21% non-deductible VAT on those purchases and a monthly notice [S122][S124].
+      - What does force full registration from the first sale is selling services to a VAT-registered business in another EU state [S122].
     - **What the operator must carry:** customer location still determines which VAT, consumer law and sanctions rules apply [S112][S113].
     - **What limits feasibility:** product type (regulated payments, high-risk AI uses) limits it more than geography does [S114][S107].
+12. **For a newcomer, the credible opportunity is selling services to the people who run agents, not products that agents buy** (v1.2, §12.4 and `package/`).
+    - **Where customers demonstrably pay:**
+      - coding agents [S088][S062];
+      - paid coding-agent training, at list prices of about €890 per person for 2 days [S128];
+      - LLM security assessments, at $6k–45k+ across the market and $16k–50k+ from AI specialists [S130];
+      - AI-related freelance work, up more than 22% year on year on Upwork while its total volume fell [S127].
+    - **What is unproven:** independent evaluation of support agents, and anything sold *to* agents.
+    - **RECOMMENDATION (conditional):** explore coding-agent enablement with measurement if the owner codes professionally. Otherwise explore small AI workflow automations, a simpler adjacent service. A limited agent risk review suits only someone with security credentials, and is not an audit or certification.
+    - **Economics (CALCULATION):**
+      - access to buyers matters more than the route;
+      - for a newcomer without warm contacts, the first year pays about €3–11 an hour after Latvian taxes, around an average Latvian professional's net pay of about €8.7 [S126][S100];
+      - with a network or strong public proof, it pays €23–36 an hour;
+      - the adverse first year is a loss on every route.
+    - **What would settle it:** the decisive unknown is whether buyers choose a newcomer. Only a capped test can settle that (`package/05-validation-plans.md`).
 
 **What this means for you (RECOMMENDATIONS)**
 
 - **Users:** start with tasks whose results you can check quickly, such as drafting, research and code with tests. Keep a human approval step for anything that sends, pays or deletes. Use the provider's official apps or API keys. Don't route consumer-subscription logins through third-party agent tools.
 - **Builders:** start with the simplest design that works [S001]. Measure success per completed task, not per request. Design around the "lethal trifecta" (data + untrusted input + outbound action) [S011], and budget for evaluation and human escalation from day one.
-- **Business builders:** in our scoring, the strongest near-term openings are low-capital B2B services. Top-ranked are agent security hardening, coding-agent enablement with honest measurement, and independent evaluation and audit of agents billed "per outcome" (§12).
-  - These are **hypotheses**. None has been validated with customers.
-  - From Latvia, B2B services to EU and non-EU businesses are the administratively simplest model (§15).
-  - Ideas that depend on agents spending money autonomously remain the weakest-evidenced. The 2026 payment data reinforced this.
+- **Business builders (revised v1.2):** sell services to the people who run agents. After re-scoring with entry barriers (credentials, buyer access, liability, time to first revenue):
+  - **coding-agent enablement with measurement** leads for owners who code;
+  - **small AI workflow automations** suit owners who don't;
+  - a **limited agent risk review** suits only someone with security credentials;
+  - **independent support-agent evaluation** is deferred because data access and sales cycles are slow.
+
+  All are **hypotheses**; none has been validated with customers. From Latvia, keep early clients outside the EU, or Latvian, to minimise VAT administration. Any EU VAT-registered client triggers full registration (§15). Ideas that depend on agents spending money autonomously remain the weakest-evidenced.
 
 **Confidence.**
 - **High:** definitions, protocols, prices, regulation dates, documented incidents, and the adoption figures now read from the primary survey publications.
@@ -134,10 +162,10 @@ Agents run in four modes, and the mode drives cost, risk and "when" agents are a
 
 | Category | What it does | Notable examples (non-exhaustive) | Evidence of real use |
 |---|---|---|---|
-| **Coding agents** | Read, write, run and test code in a repository | Claude Code, GitHub Copilot agent, Cursor, OpenAI Codex | **Strong**: 66% of AI-using developers use coding agents [S062]; Claude Code run-rate >$2.5bn (Feb 2026) [S088]; Cursor disclosed $1bn ARR (Nov 2025) [S054] |
+| **Coding agents** | Read, write, run and test code in a repository | Claude Code, GitHub Copilot agent, Cursor, OpenAI Codex | **Strong**: 66% of AI-using developers use coding agents [S062]; Claude Code run-rate >$2.5bn (Feb 2026) [S141]; Cursor disclosed $1bn ARR (Nov 2025) [S054] |
 | **Enterprise platform agents** | Agents inside CRM/ERP/helpdesk suites | Salesforce Agentforce, Microsoft Copilot Studio, ServiceNow | **Medium**: Agentforce ARR >$1.5bn on a broadened definition; 3.2bn "agentic work units" in one quarter [S055] |
 | **Customer-service agents** | Resolve customer conversations | Intercom Fin, Sierra, Decagon | **Medium**: per-outcome pricing in market [S071]; vendor revenue figures unverified; Klarna partly reversed an AI-first approach over quality [S072] |
-| **Browser / computer-use agents** | Operate websites or desktops like a person | Perplexity Comet, Claude in Chrome; OpenAI moved browser agents into ChatGPT and a Chrome extension after deprecating its Atlas browser (Aug 2026) [S117] | **Early and unstable**: security limits acknowledged by vendors [S068][S118]; legal disputes over access [S015][S063]; a flagship product discontinued within a year [S117] |
+| **Browser / computer-use agents** | Operate websites or desktops like a person | Perplexity Comet, Claude in Chrome; OpenAI moved browser agents into ChatGPT and a Chrome extension after shutting down its standalone Atlas browser on 9 Aug 2026 (announced 9 Jul) [S117][S138] | **Early and unstable**: security limits acknowledged by vendors [S068][S118]; legal disputes over access [S015][S063]; a flagship product discontinued within a year [S117] |
 | **Personal / general assistants** | Email, calendar, research, errands | ChatGPT Work and scheduled tasks [S079], Claude Cowork, OpenClaw (open source) [S013] | **Mixed**: very high interest (OpenClaw 247k GitHub stars by March 2026 [S013]) alongside serious security incidents [S014] |
 | **Commerce agents** | Discover, compare, buy | ChatGPT shopping, Google UCP checkout, Perplexity, Meta Muse | **Discovery yes, buying rare**: §9 |
 | **Autonomous services / machine payments** | Agents paying APIs or other agents per use | Stripe/Tempo MPP, Coinbase x402, Mastercard Agent Pay for Machines | **Very early**: ~$15.0M adjusted x402 volume May 2025–Apr 2026 [S091], of which only 0.6%–7.5% of screened commerce looks agent-driven [S090] |
@@ -314,7 +342,7 @@ The single most useful design heuristic is Simon Willison's **"lethal trifecta"*
 
 ### 5.2 Prompt injection is mitigated, not solved
 
-- OpenAI, when hardening its Atlas browser, wrote that prompt injection, "much like scams and social engineering on the web, is unlikely to ever be fully 'solved'" [S118][S069]. (OpenAI later deprecated the Atlas browser itself, in August 2026, and moved browser agents into ChatGPT and a Chrome extension [S117].)
+- OpenAI, when hardening its Atlas browser, wrote that prompt injection, "much like scams and social engineering on the web, is unlikely to ever be fully 'solved'" [S118][S069]. (OpenAI later deprecated the Atlas browser itself, on 9 August 2026, and moved browser agents into ChatGPT and a Chrome extension [S117][S138].)
 - Anthropic's 2025 red-teaming of its Chrome agent covered 123 test cases. Attack success was 23.6% without mitigations and 11.2% with them. Mitigations included site permissions, confirmations for high-risk actions, and default blocks on financial sites [S068].
 - In simulated marketplaces, some models' payments could be redirected to malicious agents through manipulation and injection [S029].
 
@@ -478,7 +506,7 @@ Regional note: Anthropic charges 1.1× for US-only inference on its newer models
 6. Prefer APIs and MCP tools over browser or computer use: they are fewer tokens, faster and more reliable.
 7. Spend engineering effort on raising the resolution rate before cutting token prices. In our sensitivity analysis, the resolution rate moves cost per conversation about ten times as much as the cache-hit rate does.
 
-### 6.9 Where the operator is located changes the economics (v1.1)
+### 6.9 Where the operator is located changes the economics (v1.1, refined v1.2)
 
 **Labour costs differ by jurisdiction.** The scenarios above price human work at US support-agent wages ([S077] × 1.4). Eurostat's all-in hourly labour costs for 2025 are EU27 €34.9, Germany €45.0, Estonia €21.1 and Latvia €16.3. These are whole-economy averages, not support-agent wages [S119]. Re-running the base cases with these rates gives (**CALCULATION**, `models/cost_model_results.md`):
 
@@ -492,13 +520,28 @@ Regional note: Anthropic charges 1.1× for US-only inference on its newer models
 
 **INTERPRETATION.** Where human labour is cheaper, automation saves a smaller *share*. Model, engineering and security costs are priced globally (engineering is held at US rates in this table), while the human work they replace is cheaper. A Latvian *customer's* business case is therefore weaker than a German or US one at the same resolution rate. That matters for choosing which customers to target globally, independent of where the operator sits.
 
+**v1.2 refinement: occupation-adjusted rates and local engineering (CALCULATION).**
+- **Method.** Whole-economy averages overstate what support work costs. v1.2 scales Eurostat's all-in labour cost [S119] by the ratio of each occupation's mean earnings to the all-occupation mean (Structure of Earnings Survey 2022 [S126]):
+  - clerical support workers stand in for support agents;
+  - professionals stand in for engineers.
+- **Support labour per hour:** about €31.2 (EU27), €40.5 (Germany) and €13.6 (Latvia).
+- **Engineering:** at local professional rates, an engineer costs roughly $4,200 a month in Latvia, against $11,700 in Germany.
+
+| Jurisdiction | Production base saving, engineering at US rates | Production base saving, local engineering |
+|---|---|---|
+| EU27 | 35% | 38% |
+| Germany | 38% | 40% |
+| Latvia | 17% | 28% |
+
+**INTERPRETATION.** The v1.1 direction holds: the same deployment saves a smaller share where support labour is cheap. A Latvian deployment that also hires engineers locally recovers part of the gap. For an operator choosing *whom to sell to*, clients in high-wage markets have the larger automation budgets (see `package/04-economics.md`).
+
 **From revenue to the owner.** `models/operator_economics.py` adds the operator-side costs of a Latvia-based seller (§15):
 - payment processing (Stripe EEA 1.5% + €0.25, international 3.15% + €0.25, +2% FX) or a merchant of record (Paddle 5% + $0.50) [S104][S105];
 - VAT handling by customer type [S099][S103];
 - recurring company administration (ASSUMPTION: about €1,700–6,400 a year);
 - Latvian corporate income tax, charged only on distributed profit (20% of the gross distribution) [S100].
 
-On a €49 net subscription the seller keeps about €44.5–48.0 depending on route and customer, before its own costs (**CALCULATION**).
+On a €49 net subscription the seller keeps about €44.5–48.0 depending on route and customer, before its own costs (**CALCULATION**). That is **not** take-home pay. For service routes, `models/route_economics.py` (v1.2) goes further: it models selling time, rework, fixed costs, VAT by client mix, Latvian social contributions and income tax, through to the owner's take-home per hour. See `package/04-economics.md`.
 
 ## 7. Sites, services and access: what agents can reach and what they may do
 
@@ -871,7 +914,7 @@ The Anthropic figure is account bans for all Usage Policy reasons. It is **not**
 | Evidence type | Example | Strength | Caveat |
 |---|---|---|---|
 | Audited / filed company results | Salesforce Agentforce ARR >$1.5bn (+240% YoY), broadened definition [S055] | **Strong** for that company | Definition change inflates growth |
-| Company disclosures | Anthropic run-rate $14bn (Feb 2026) and >$47bn (May 2026); Claude Code >$2.5bn (Feb 2026) [S088]. Cursor $1bn disclosed (Nov 2025) [S054] | Medium–strong | Run-rate ≠ revenue; most of it is model usage, not "agent products" alone |
+| Company disclosures | Anthropic run-rate $14bn (Feb 2026) [S141] and >$47bn (May 2026) [S088]; Claude Code >$2.5bn (Feb 2026) [S141]. Cursor $1bn disclosed (Nov 2025) [S054] | Medium–strong | Run-rate ≠ revenue; most of it is model usage, not "agent products" alone |
 | Press reports from anonymous sources | Anthropic ~$65bn run-rate by end-July 2026 (one person familiar, via Bloomberg/Reuters) [S089]; Cursor ~$4bn [S054] | Medium–weak | Not confirmed by the companies |
 | Executive surveys | Gartner 17% deployed [S098]; McKinsey 22–40% of respondents report scaling [S084] | Medium | Self-report; definitions differ; samples not representative of all firms |
 | Official statistics | Eurostat: 20.0% of EU enterprises used any AI in 2025 [S096] | **Strong** (for its definition) | AI in general, not agents |
@@ -905,27 +948,52 @@ The Anthropic figure is account bans for all Usage Policy reasons. It is **not**
 
 **RECOMMENDATION.** For the next 12–24 months, build businesses that **sell to the humans responsible for agents**. Treat being selected by agents as a secondary channel. Make your offer machine-readable (structured data, an MCP server, honest labels) because it is cheap to do, but don't depend on it.
 
-### 12.4 Opportunity summary
+### 12.4 Opportunity summary (rebuilt in v1.2)
 
-The full register (`opportunities/opportunity-register.md` and `.csv`) has 12 opportunities, each with customer, buyer, evidence, pricing hypothesis, competitors, invalidation criteria and a validation experiment, all scored on the same weighted rubric. The top five:
+The register (`opportunities/opportunity-register.md` and `.csv`) holds 13 opportunities. Each has a customer, buyer, evidence, pricing hypothesis, competitors, invalidation criteria and a validation experiment.
 
-| Rank | Opportunity | Score /100 | Why it ranks high | Main risk |
-|---|---|---|---|---|
-| 1 | Agent security hardening and "lethal trifecta" review for SMEs | 71 | Well-documented incidents and government guidance [S014][S051]; low capital | Competition from security firms; advice liability |
-| 2 | Coding-agent enablement **with measurement** for small dev teams | 70 | Widest real adoption [S062]; productivity unclear [S070] | Vendors provide free enablement |
-| 3 | Independent evaluation and outcome-audit of support agents | 67 (v1.0: 69; GDPR processor duties raise risk) | Per-outcome billing [S071]; automated judges over-rate [S037]; resolution rate dominates cost (§6) | Data-sharing friction |
-| 4 | Agent-readiness service for non-Shopify merchants | 66 | Fast-growing AI referrals [S116]; protocols live [S023] | Platform churn [S025]; small current revenue share |
-| 5 | MCP connector build and migration for vertical SaaS | 64 | MCP broadly adopted; breaking 2026 spec [S032][S034] | Commoditised by code generation |
+**How v1.2 differs from v1.1.**
+- **New entry gate.** v1.1 ranked opportunities on a weighted 1–5 rubric: evidence 20%, pain 15%, willingness to pay 15%, and 10% each for access, feasibility, cost, competition and risk. That rubric hides what matters most for a newcomer: the credentials and customer access needed, liability, and time to first revenue. v1.2 therefore adds an **entry gate** and decides on that, treating the numeric score as an ordinal summary. Differences under about 5 points are noise.
+- **New evidence changed three scores:**
+  - security reviews (O03): willingness to pay up on observed audit prices [S130]; access, feasibility and risk down, because credible buyers want specialists and liability is real;
+  - coding-agent enablement (O07): willingness to pay up on observed training prices [S128][S129];
+  - support-agent evaluation (O02): access and competition down, because of cheap QA substitutes [S134] and data-access friction.
+- **New simpler adjacent service (O13):** small AI workflow automations, with the strongest observed paid demand [S127].
 
-Lowest-ranked: spend-control fintech for agent purchases (30, down from 36), pay-per-call products sold to agents (43, down from 47) and dispute-evidence tooling (44). The v1.1 payment data lowered them: the plausibly agentic share of x402 commerce is about $5–11k a month [S090][S091]. Holding or forwarding clients' funds is also a regulated payment service [S114].
+| Route | Register ID | Score v1.2 (v1.1) | Entry gate (INTERPRETATION) | Strongest evidence | Main reason it could fail |
+|---|---|---|---|---|---|
+| **R2** Coding-agent enablement + measured pilot | O07 | 73 (70) | **Shortlist; recommended first if the owner codes (best first year with warm access to engineering leads)** | Widest real adoption [S062][S088]; paid training at €890 per person for 2 days [S128]; productivity uncertain [S070] | Vendors and partners teach it free or cheaply |
+| **R4** Small AI workflow automations (simpler adjacent) | O13 | 68 (new) | **Shortlist; first if the owner does not code** | Upwork AI-related work +22% YoY [S127] | Price competition; marketplace control |
+| **R1** Limited agent risk review | O03 | 68 (71) | **Shortlist only with security credentials** | Security is the top adoption barrier (80% of large US firms [S131]); audit prices $6k–50k [S130] | Buyers want credentialed firms; liability |
+| **R3** Support-agent evaluation and outcome audit | O02 | 63 (67) | **Defer** | Per-outcome pricing [S071]; 91% of service leaders under AI pressure [S133] | No observed paid demand; data access; QA substitutes [S134] |
+| Products bought autonomously by agents | O09 | 43 | **Reject for now** | Agentic x402 commerce about $5–11k a month [S090] | Market too small to measure |
+| Spend controls for agent purchases | O08 | 30 | **Reject** | — | Regulated payment service [S114] |
 
-**Operating from Latvia (v1.1).** The top three are B2B services. That is the administratively simplest model for a Latvian operator: reverse charge for EU business clients, outside Latvian VAT for non-EU clients, no consumer-law withdrawal rights (§15.8). Global demand evidence is unchanged by the operator's location. Lower labour costs in markets such as Latvia shrink automation savings (§6.9), so evaluation and enablement services are likely worth more to clients in high-wage markets (INTERPRETATION).
+**Security: what a newcomer can and cannot sell.**
+- A *limited risk review* is a structured configuration and architecture review against public checklists, with stated exclusions.
+- A *security audit or penetration test* involves authorised technical testing by specialists, typically $16k–50k [S130].
+- A *certification* can only be issued by accredited bodies.
+
+Marketing a limited review as either of the latter is misleading and creates liability.
+
+**Economics (CALCULATION, `models/route_economics.py`; base revised downward after the independent commercial review).**
+- **Newcomer** without track record or warm contacts: the first year yields about €3–11 per owner-hour after Latvian taxes (once steady, €15–27).
+- **With a network** or strong public proof: €23–36 per hour in the first year.
+- **Benchmark:** a Latvian professional's mean pay is €13.04 gross [S126], about €8.7 net (CALCULATION with [S100]).
+- **Adverse case:** the first year is a loss on every route.
+- **Risk:** setup cash is small (€150–900). The real risk is about 215–285 unpaid hours before the first sale on R1–R3.
+- **INTERPRETATION:** the owner's access to buyers matters more than the choice of route.
+
+**Operating from Latvia (corrected in v1.2).**
+- B2B services remain the simplest model, but **client mix decides the admin load**:
+  - non-EU clients, or Latvian clients under €50,000, allow the micro-enterprise tax plus the special registration for foreign tool purchases [S122][S124];
+  - the first EU VAT-registered client forces full VAT registration [S122].
+- v1.1 said B2B services were simplest "with reverse charge for EU clients" without noting that this requires full registration. That has been corrected.
 
 **Important caveats.**
 - These are hypotheses. No customer was contacted, so no willingness to pay has been observed.
-- The rubric favours low-capital services because the project assumed a zero budget.
-- Score differences under ~5 points are not meaningful.
-- The register separates revenue, cost reduction and learning value, and lists the cheapest validation experiment for each. Every such experiment needs the owner's approval before anyone is contacted or money is spent.
+- The decision package (`package/`) sets out conditional recommendations, route dossiers, economics and prepared validation plans.
+- Every validation step that contacts people, opens accounts or spends money needs the owner's approval.
 
 ### 12.5 Common claims, checked
 
@@ -969,10 +1037,14 @@ Lowest-ranked: spend-control fintech for agent purchases (30, down from 36), pay
 2. **Run the register's validation experiment** before building anything, once the owner approves contact or spend. Pre-commit to the go/no-go threshold.
 3. **Price on outcomes the buyer already measures,** such as hours saved, incidents avoided, or resolution verified. Avoid pricing on activity counts.
 4. **Watch platform risk.** Avoid businesses that need terms-of-service grey zones such as credential capture or undeclared bots [S063][S016].
-5. **If operating from Latvia or the EU, settle the §15.9 questions with an accountant and a lawyer before the first international sale.** Above all, settle whether buying foreign APIs forces VAT registration, and choose between a merchant of record and direct invoicing.
+5. **If operating from Latvia or the EU, know your client mix before the first invoice.**
+   - Buying foreign APIs does not force VAT registration: the special s.139² registration covers it [S122].
+   - Selling to an EU VAT-registered business does force full registration [S122].
+   - Confirm the regime choice with an adviser before invoicing (§15.9 question 1). This does not block testing demand.
+7. **Use the decision package.** `package/00-START-HERE.md` turns this paper into a route comparison, economics and prepared validation plans.
 6. **Re-check this paper's dated facts quarterly.** Protocols, prices and policies moved materially within the six months before this paper.
 
-## 14. Limitations (revised in v1.1)
+## 14. Limitations (revised in v1.1 and v1.2)
 
 The full claim-by-claim account is in `research/limitations-resolution.md`. Summary of the five limitations reported in v1.0 and what happened to each:
 
@@ -986,19 +1058,32 @@ The full claim-by-claim account is in `research/limitations-resolution.md`. Summ
 
 **Limitations that remain:**
 - **Freshness.** Evidence was retrieved on 12 October 2026. Several facts changed within weeks of each other: Amazon's agent block, Cloudflare's defaults, the MCP spec, and the discontinuation of OpenAI's Atlas browser.
-- **Access.** Some primaries still block automated retrieval (openai.com, cnbc.com, OpenAI's DSA data pages). We did not bypass these. Gartner's and McKinsey's own alternative hosts (gcom.pdo.aws.gartner.com, karriere.mckinsey.de) served the same documents publicly and were used. No paywalled analyst reports were read.
+- **Access.** Some primaries still block automated retrieval (openai.com, cnbc.com, OpenAI's DSA data pages). We did not bypass these.
+  - In v1.1, Gartner's and McKinsey's alternative hosts were used. In v1.2, their provenance was checked [S137]: DNS records place the Gartner host inside Gartner's own infrastructure, and the pages declare canonical gartner.com or mckinsey.com URLs.
+  - Reading Gartner through its origin host could, however, sidestep the bot controls on www.gartner.com. **That access path was discontinued in v1.2.** The key Gartner table was corroborated through an independent republication [S136].
+  - No paywalled analyst reports were read.
 - **Vendor-sourced evidence.** Much evidence on adoption, transactions and security comes from vendors with an interest in the result (e.g., [S021][S022][S088][S068]). Vendor statements establish what vendors claim, not independent proof.
 - **Survey limits.** Adoption surveys are self-reported and use incompatible definitions (C001). The Gartner 2025 poll was of webinar attendees [S087].
 - **Experimental limits.** Agent-behaviour findings come from simulations, mock marketplaces and small internal pilots [S029][S030][S039][S040].
 - **Cost models.** The scenarios rest on explicit assumptions, not observed deployments. Resolution rates, engineering effort, security budgets and Latvian administrative costs need local quotes or pilots. Incident costs and non-EU indirect taxes are excluded.
-- **Tax and legal (§15).** Simplified summaries of published rules, partly from an outdated official translation of the Latvian VAT Law [S099]. Every ⚖ item needs professional confirmation.
+- **Tax and legal (§15).** v1.1 relied on an outdated English translation of the VAT Law and reached a wrong conclusion about registration and the micro-enterprise tax.
+  - v1.2 re-read the current consolidated Latvian text [S122][S123] and the tax authority's guidance [S124], and corrected it.
+  - Consolidated texts are informative; the official publication prevails.
+  - Remaining questions depend on the owner's circumstances and are stated precisely in `package/01-decision-brief.md` §8, with what each blocks.
+- **Commercial evidence (v1.2).** Route prices come from published list prices and a vendor price guide [S128][S129][S130], not transaction data. Win rates and selling hours are assumptions. Large-company surveys dominate the demand evidence [S131][S133].
+- **Reviews.** v1.2 used two independent AI reviewers (factual and commercial; see `verification/verification-report.md`). They are separate model instances, not human experts.
 - **Timing and enforcement data.** These are narrow: coding agents on public GitHub, chat usage at one provider, and all-cause bans at one provider.
 - **No primary research.** No interviews, surveys or experiments with real customers were conducted, because they need approval. The opportunity register remains hypothesis-only.
-- **Self-review.** The adversarial review was carried out by the same AI system that wrote the paper. No independent human review has taken place.
+- **No human review.** No independent human expert has reviewed the paper.
 
 ## 15. Operating a global agent business from Latvia and the EU
 
-> **Status of this section.** It summarises published rules as of 12 October 2026 so you can make better decisions and ask better questions. It is **not tax or legal advice**. Several points depend on facts only an accountant or lawyer can assess, and these are flagged ⚖. The Latvian VAT Law was read in an official English translation marked *outdated*: it is valid for 2024 and excludes amendments of December 2024 and December 2025 [S099]. Check every VAT point against the current Latvian text.
+> **Status of this section (revised v1.2).** It summarises published rules as of 12 October 2026 so you can make better decisions and ask better questions. It is **not tax or legal advice**. Points that depend on facts only an accountant or lawyer can assess are flagged ⚖.
+>
+> **v1.2 correction.** v1.1 relied on an English translation of the VAT Law that was marked outdated [S099]. On that basis it said buying foreign APIs forces VAT registration and makes the micro-enterprise tax unavailable. **That was wrong for the law in force since 1 July 2025.** v1.2 rests on:
+> - the current consolidated **Latvian** text of the VAT Law (s.59 and s.139²) [S122];
+> - the Micro-enterprise Tax Law [S123];
+> - the State Revenue Service (VID) guidance updated 27 June 2025 [S124].
 
 ### 15.1 The hypothesis and the short answer
 
@@ -1028,8 +1113,8 @@ Being in Latvia rather than elsewhere in the EU changes mostly tax mechanics and
 
 | Form | Registration | Liability | Main tax on profit | Notes |
 |---|---|---|---|---|
-| **Self-employed person** (registered with VID as performing economic activity) | With the State Revenue Service | Unlimited (personal) | Progressive PIT 25.5% up to €105,300, 33% above, +3% above €200,000 [S100]; social contributions apply (self-employed rates not in our sources ⚖) | Simplest. Personal liability for an agent's mistakes is a real exposure |
-| **Micro-enterprise taxpayer** (available to individuals and sole proprietors) | Opt-in | Unlimited | 25% of turnover (80% counts as social contributions, 20% as PIT), only if **not a VAT payer** and turnover ≤ €50,000 [S100] | See the VAT trap in §15.3. Appears hard to combine with buying foreign APIs ⚖ |
+| **Self-employed person** (registered with VID as performing economic activity) | With the State Revenue Service | Unlimited (personal) | Progressive PIT 25.5% up to €105,300, 33% above, +3% above €200,000 [S100]. 2026 social contributions: 31.07% on income of at least €780 per month, and 10% pension contribution on income above that base or below it [S125] | Simplest. Personal liability for an agent's mistakes is a real exposure |
+| **Micro-enterprise taxpayer** (natural persons registered with VID, individual merchants, individual enterprises) [S123] | Opt-in | Unlimited | **25% of turnover**, with no deduction for expenses; 80% counts as social contributions and 20% as PIT [S123][S124] | **Available alongside buying foreign APIs** via the s.139² special VAT registration (since 1 Jul 2025). **Lost** if you supply B2B services to a VAT-registered business in another EU state, or if turnover exceeds €50,000 [S124]. Taxing turnover penalises routes with high costs |
 | **Individual merchant (IK)** | Enterprise Register, state fee €30 [S102] | Owner liable with own property [S102] | As self-employed | Rarely better than an SIA for liability-heavy agent work (INTERPRETATION) |
 | **SIA (limited liability company)** | Enterprise Register, state fee €75, electronic filing; share capital ≥ €2,800, or reduced-equity SIA below that [S102] | Limited to the company | **CIT 20% of gross distributed profit** (0.2/0.8 of the net dividend). Retained profit untaxed. Dividends to individuals 0% PIT when CIT has been paid. Optional regime for individual-owned companies: 15% CIT + 6% PIT [S100] | Standard vehicle for selling internationally and limiting liability |
 
@@ -1045,15 +1130,31 @@ Being in Latvia rather than elsewhere in the EU changes mostly tax mechanics and
 | You sell… | To… | VAT treatment (simplified) | Registration consequence |
 |---|---|---|---|
 | Agent services or software subscription | Latvian business or consumer | Latvian VAT 21% | Register once taxable supplies exceed €50,000 [S100][S099] (s.59(1)) |
-| B2B services (consulting, managed agents, SaaS) | Business in another EU state (with VAT ID) | Taxed where the customer is established (s.19(1)); customer self-accounts under reverse charge; you invoice without VAT | **Threshold does not apply**: s.59(4) removes the €50,000 exemption when supplying such services to a taxable person of another Member State, so register from the first such sale [S099] ⚖ |
+| B2B services (consulting, managed agents, SaaS) | Business in another EU state (with VAT ID) | Taxed where the customer is established (s.19(1)); customer self-accounts under reverse charge; you invoice without VAT | **Threshold does not apply**: s.59(8) removes the €50,000 exemption for anyone supplying s.19(1) services to a taxable person of another Member State, so register **before the first such sale**. Also file EU sales (recapitulative) statements [S122]. A micro-enterprise taxpayer loses that regime [S124] |
 | **Electronically supplied** services (automated SaaS, an agent product with minimal human involvement) | Consumers in other EU states | Customer's country VAT (s.27), unless your total cross-border B2C electronic sales and distance sales stay ≤ €10,000 in the current and previous year, in which case Latvian VAT applies; declared through the **Union OSS**, filed quarterly [S103][S099] | OSS registration in Latvia |
 | Human-delivered services (e.g., consulting performed by you, set-up work) | Consumers in other EU states | General B2C rule: supplier's place (s.19(2)), i.e. Latvian VAT 21% [S099] | Classifying a service as "electronically supplied" or not is a fact-specific judgement ⚖ |
 | Any services | Businesses outside the EU | Outside Latvian VAT (place of supply = customer's country) [S099] (s.19(1)) | Check the customer country's rules (some apply reverse charge or require foreign-supplier registration) ⚖ |
 | Electronically supplied services | Consumers outside the EU | Outside EU VAT, but many countries tax foreign digital suppliers (e.g., the UK, and US state sales taxes). Not researched in depth here (UNKNOWN) | A **merchant of record** takes on these registrations [S105][S104] |
 
-**Buying** (the trap for agent businesses):
-- Buying model APIs, cloud and SaaS from foreign providers is a B2B service taxed in Latvia. The Latvian business self-assesses 21% VAT under reverse charge (s.88 for EU suppliers, s.89 for non-EU) [S099]. For a fully taxable, VAT-registered business, this is reported and deducted in the same return, so it is cash-neutral (CALCULATION: about €375 VAT self-assessed and deducted on a $2,000 monthly API bill).
-- **s.59(6)** removes the €50,000 small-business exemption for a taxable person that *receives* such services from another Member State or a third country [S099]. **INTERPRETATION ⚖:** a Latvian agent business that buys foreign AI or cloud services would have to register for VAT even with tiny turnover. Because the micro-enterprise tax requires *not* being a VAT payer [S100], that regime may be unavailable to such businesses. This is the single most important point to confirm with an accountant, against the current (post-2024) text.
+**Buying foreign APIs, cloud and SaaS** (corrected in v1.2):
+- These are B2B services with their place of supply in Latvia. The Latvian buyer self-assesses 21% VAT under reverse charge (s.88 for EU suppliers, s.89 for non-EU) [S099][S122].
+- **Since 1 July 2025, buying them does *not* by itself force full VAT registration.** A taxable person who receives such services may keep the €50,000 small-business exemption (s.59(9)) by registering under the **special procedure of s.139²** [S122]:
+  - the VAT number is used only for those purchases;
+  - there is no obligation to issue VAT invoices;
+  - VAT is due only on those purchases, and there is **no right to deduct it** (s.139²(9));
+  - a notice is due by the 20th of the following month for each month with such purchases, with payment within 23 days of the month's end.
+  - Before 1 July 2025 this option did not exist (transitional provision 47).
+- **Cost of the special route (CALCULATION):** 21% of foreign purchases becomes a real cost. On €150 a month of model and tool subscriptions that is **€31.50 a month (€378 a year)**. Fully registered businesses instead self-assess and deduct the same VAT in one return, so for them it is cash-neutral.
+- **Micro-enterprise tax:** it can be combined with the special registration. The VID guidance confirms this as long as the taxpayer does not supply s.19(1) services to VAT-registered businesses in other Member States and turnover stays at or below €50,000 [S124][S123].
+- **Practical consequence (INTERPRETATION):** client mix, not supplier mix, drives the VAT burden.
+
+| Client mix | Registration | Admin burden (INTERPRETATION) |
+|---|---|---|
+| Non-EU businesses only, plus Latvian clients under €50k | s.139² special registration if buying foreign tools; micro-enterprise tax possible | **Lowest** |
+| Any VAT-registered business in another EU state | Full VAT registration from the first such sale, plus EU sales statements | Medium |
+| EU consumers buying an electronically supplied product | OSS above €10k, or a merchant of record | Medium–high |
+
+- **v1.1's "trap" statement is withdrawn.** v1.1 cited s.59(6) of the outdated translation and said a micro-enterprise could not buy foreign APIs. The claim ledger (L51/L52 → L65/L66) records the correction.
 - Some providers bill EU customers with VAT unless a valid VAT ID is supplied. Third-party guides report that Anthropic invoices EU customers through a non-resident VAT scheme and switches to reverse charge when a business VAT ID is added. That is unverified, and a job posting names Ireland as the EU billing entity, which conflicts with it [S120]. Check the invoice seller block.
 
 ### 15.4 Payments, invoicing, currencies, refunds and disputes
@@ -1114,19 +1215,19 @@ Being in Latvia rather than elsewhere in the EU changes mostly tax mechanics and
 | | **1. Agent services to businesses** (build, harden or audit agents; managed agent operations) | **2. Agent software subscription** (self-serve SaaS) | **3. Internal agent procuring business services** |
 |---|---|---|---|
 | Typical customer | EU and non-EU companies | Global SMBs and consumers | Your own company |
-| VAT on sales | EU B2B: reverse charge, register from first sale (s.59(4)). Non-EU B2B: outside scope. Latvia: 21% | EU consumers: OSS at customer-country rates (above €10k). EU B2B: reverse charge. Non-EU consumers: foreign digital-services taxes, so a MoR is advisable | n/a |
-| VAT on purchases | Reverse charge on foreign APIs and cloud; registration trigger s.59(6) | Same | Same. Self-assess and deduct |
+| VAT on sales | EU B2B: reverse charge, register before first sale (s.59(8)) [S122]. Non-EU B2B: outside scope. Latvia: 21% | EU consumers: OSS at customer-country rates (above €10k). EU B2B: reverse charge. Non-EU consumers: foreign digital-services taxes, so a MoR is advisable | n/a |
+| VAT on purchases | Reverse charge on foreign APIs and cloud. If not fully registered, use the s.139² special registration (21% becomes a non-deductible cost) [S122] | Same | Same |
 | GDPR role | Processor (client data) | Controller + processor | Controller |
 | AI Act role | Deployer, or provider if you deliver your own branded system | **Provider** of the AI system. Art. 50 disclosure if it interacts with people | Deployer; AI literacy |
 | Consumer law | Usually none (B2B) | 14-day withdrawal unless properly waived for immediate performance [S113] | n/a |
 | Payments | Bank transfer / Stripe invoices; e-invoicing from 2028 | MoR or Stripe + OSS | Company card or per-agent cards with limits |
 | Main risks | Professional liability; sanctions screening | Global indirect tax; chargebacks; product liability from Dec 2026 | Unauthorised commitments; spend leakage |
-| Administrative burden (INTERPRETATION) | **Low–medium** | **Medium–high** (lower with MoR) | Low |
-| Fit with top opportunities | O03, O07, O02, O04 | O05 (kit), O06 (care plan) | All (cost base) |
+| Administrative burden (INTERPRETATION) | **Low** if clients are non-EU (or Latvian, below €50k). **Medium** once any EU VAT-registered client is served | **Medium–high** (lower with MoR) | Low |
+| Fit with shortlisted routes (v1.2) | R2 (O07), R4 (O13), R1 (O03); R3 (O02) deferred | O05 (kit), O06 (care plan) | All (cost base) |
 
 ### 15.9 Questions to take to an accountant or lawyer (⚖)
 
-1. Under the **current** Latvian VAT Law, does receiving foreign B2B services (APIs, cloud) still remove the €50,000 registration exemption (s.59(6))? If so, which tax regimes stay available?
+1. *(Answered from primary sources in v1.2; confirm before the first invoice.)* Given my expected client mix, should I use the s.139² special registration plus micro-enterprise tax, the self-employed general regime, or a full registration? At what client mix does full registration become cheaper? (**Blocks:** the first invoice. **Does not block:** investigating, or unpaid validation.)
 2. Is my agent product an "electronically supplied service" (OSS, customer-country VAT) or a professional service (Latvian VAT for consumers)?
 3. Which non-EU countries require registration for my digital sales, and is a merchant of record cheaper than registering myself?
 4. Standard vs alternative CIT regime: what actually differs for my ownership structure?
@@ -1345,12 +1446,12 @@ Each entry gives the ID, title, publisher, publication date, URL, retrieval date
 - **[S079]** Scheduled Tasks in ChatGPT; ChatGPT agent (help center); ChatGPT release notes. OpenAI Help Center. 2026 (release note 2026-06-17). <https://help.openai.com/en/articles/10291617-what-is-agent-mode> (retrieved 2026-10-12; search-extract; confidence medium)
 - **[S080]** Claude Managed Agents — Scheduled deployments. Anthropic (platform docs). beta (managed-agents-2026-04-01). <https://platform.claude.com/docs/en/managed-agents/scheduled-deployments> (retrieved 2026-10-12; fetched; confidence high)
 - **[S081]** awesome-ai-agent-attacks: curated timeline of AI agent security incidents (2024-2026); MCP security statistics roundups. webpro255 (GitHub) / Practical DevSecOps (secondary aggregations). 2026. <https://github.com/webpro255/awesome-ai-agent-attacks> (retrieved 2026-10-12; search-extract; confidence low)
-- **[S082]** Gartner Forecasts Worldwide AI Spending to Grow 49.5% in 2026 (press release, Table 1). Gartner (press release). 2026-09-16. <https://www.gartner.com/en/newsroom/press-releases/2026-09-16-gartner-forecasts-worldwide-ai-spending-to-grow-49-point-5-percent-in-2026> (retrieved 2026-10-12; fetched via Gartner-hosted mirror gcom.pdo.aws.gartner.com (www.gartner.com returns 403 to automated clients); confidence high (that Gartner states it); low (as market measurement))
-- **[S083]** Forecast Analysis: Agentic AI Spending in Software Markets (summary page). Gartner. 2026-02-17. <https://www.gartner.com/en/documents/7455226> (retrieved 2026-10-12; fetched abstract via Gartner-hosted mirror; full report behind client login (not accessed); confidence medium)
+- **[S082]** Gartner Forecasts Worldwide AI Spending to Grow 49.5% in 2026 (press release, Table 1). Gartner (press release). 2026-09-16. <https://www.gartner.com/en/newsroom/press-releases/2026-09-16-gartner-forecasts-worldwide-ai-spending-to-grow-49-point-5-percent-in-2026> (retrieved 2026-10-12; fetched via Gartner-hosted mirror gcom.pdo.aws.gartner.com (www.gartner.com returns 403 to automated clients) | v1.2: provenance established (S137); origin-host access path discontinued; S082 corroborated independently by S136; confidence high (that Gartner states it); low (as market measurement))
+- **[S083]** Forecast Analysis: Agentic AI Spending in Software Markets (summary page). Gartner. 2026-02-17. <https://www.gartner.com/en/documents/7455226> (retrieved 2026-10-12; fetched abstract via Gartner-hosted mirror; full report behind client login (not accessed) | v1.2: provenance established (S137); origin-host access path discontinued; S082 corroborated independently by S136; confidence medium)
 - **[S084]** The state of AI in 2026: On the road to ROI (McKinsey Global Survey) — publisher-hosted page. McKinsey & Company (QuantumBlack). 2026-08-25. <https://karriere.mckinsey.de/capabilities/quantumblack/our-insights/the-state-of-ai> (retrieved 2026-10-12; fetched (McKinsey-hosted karriere.mckinsey.de; mckinsey.com unreachable from this environment); confidence high)
 - **[S085]** The state of AI in 2025: Agents, innovation, and transformation — publisher-hosted page. McKinsey & Company (QuantumBlack). 2025-11-05. <https://karriere.mckinsey.de/capabilities/quantumblack/our-insights/the-state-of-ai-2025> (retrieved 2026-10-12; fetched (McKinsey-hosted mirror); confidence high)
 - **[S086]** The agentic commerce opportunity — publisher-hosted page. McKinsey & Company. 2025-10-17. <https://karriere.mckinsey.de/capabilities/quantumblack/our-insights/the-agentic-commerce-opportunity-how-ai-agents-are-ushering-in-a-new-era-for-consumers-and-merchants> (retrieved 2026-10-12; fetched (McKinsey-hosted mirror); confidence high (that McKinsey states it); low (as forecast))
-- **[S087]** Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027 — full release. Gartner (press release). 2025-06-25. <https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027> (retrieved 2026-10-12; fetched via Gartner-hosted mirror gcom.pdo.aws.gartner.com; confidence high)
+- **[S087]** Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027 — full release. Gartner (press release). 2025-06-25. <https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027> (retrieved 2026-10-12; fetched via Gartner-hosted mirror gcom.pdo.aws.gartner.com | v1.2: provenance established (S137); origin-host access path discontinued; S082 corroborated independently by S136; confidence high)
 - **[S088]** Anthropic raises $30B Series G (Feb 2026) and $65B Series H (May 2026) — run-rate disclosures. Anthropic (newsroom). 2026-02-12; 2026-05-28. <https://www.anthropic.com/news/series-h> (retrieved 2026-10-12; fetched (both posts); confidence high)
 - **[S089]** Anthropic revenue run rate tops $65 billion, source says (Reuters via The Star). Reuters (syndicated by The Star). 2026-08-17/18. <https://www.thestar.com.my/tech/tech-news/2026/08/18/anthropic-revenue-run-rate-tops-65-billion-source-says> (retrieved 2026-10-12; fetched; confidence medium)
 - **[S090]** Who's Actually Paying? Measuring AI Agent Payments Onchain. TRM Labs. 2026-09-09. <https://www.trmlabs.com/trm-tech-blog/whos-actually-paying-measuring-ai-agent-payments-onchain> (retrieved 2026-10-12; fetched; confidence high)
@@ -1361,7 +1462,7 @@ Each entry gives the ID, title, publisher, publication date, URL, retrieval date
 - **[S095]** OpenAI Ireland Limited 2025 EU Digital Services Act Transparency Report (cover letter). OpenAI Ireland Limited. 2026 (reporting period 2025-01-01 to 2025-12-31). <https://cdn.openai.com/trust-and-transparency/2025-openai-ireland-limited-dsa-transparency-report-cover-letter.pdf> (retrieved 2026-10-12; PDF fetched and text extracted; machine-readable data at openai.com/trust-and-transparency returned 403 (not accessed); confidence medium)
 - **[S096]** Eurostat: 20% of EU enterprises use AI technologies (news) and dataset isoc_eb_ai (API). Eurostat. 2025-12-11. <https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20251211-2> (retrieved 2026-10-12; fetched news page; values queried from Eurostat dissemination API (isoc_eb_ai, size_emp=GE10, indic_is=E_AI_TANY, unit=PC_ENT); confidence high)
 - **[S097]** Agentic AI in organisations: Early insights from practitioner interviews (OECD AI Papers). OECD (with GPAI). 2026-09 (PDF created 2026-09-16). <https://www.oecd.org/en/publications/agentic-ai-in-organisations_1257a26f-en.html> (retrieved 2026-10-12; PDF fetched and text extracted (HTML page 403); confidence high)
-- **[S098]** Gartner 2026 Hype Cycle for Agentic AI — article (direct read). Gartner (Rajesh Kandaswamy). 2026-04-15. <https://www.gartner.com/en/articles/hype-cycle-for-agentic-ai> (retrieved 2026-10-12; fetched via Gartner-hosted mirror gcom.pdo.aws.gartner.com; confidence high (statement); medium (representativeness))
+- **[S098]** Gartner 2026 Hype Cycle for Agentic AI — article (direct read). Gartner (Rajesh Kandaswamy). 2026-04-15. <https://www.gartner.com/en/articles/hype-cycle-for-agentic-ai> (retrieved 2026-10-12; fetched via Gartner-hosted mirror gcom.pdo.aws.gartner.com | v1.2: provenance established (S137); origin-host access path discontinued; S082 corroborated independently by S136; confidence high (statement); medium (representativeness))
 - **[S099]** Latvian Value Added Tax Law (English translation, Sections 19, 27, 59, 88, 89). Saeima / Likumi.lv (Valsts valodas centrs translation). translation valid 2024-01-01 to 2024-12-31 (marked outdated; excludes amendments of 2024-12-04, 2024-12-12, 2025-12-03). <https://likumi.lv/ta/en/en/id/253451-value-added-tax-law> (retrieved 2026-10-12; downloaded and text-searched; confidence medium-high)
 - **[S100]** KPMG Baltics Tax Card Latvia 2026. KPMG Baltics SIA. effective 2026-01-01. <https://assets.kpmg.com/content/dam/kpmgsites/lv/pdf/2026/v%202.0%20Tax_card_Latvia_2026_96x180mm.pdf.coredownload.inline.pdf> (retrieved 2026-10-12; PDF fetched and text extracted; confidence high)
 - **[S101]** Latvia B2B e-invoicing mandate postponed to 1 January 2028 (Accounting Law amendments). Sovos; Fiscal Requirements; EDICOM (secondary reporting). 2025-06 (Saeima adoption 2025-06-05; published 2025-06-11). <https://sovos.com/regulatory-updates/trr/latvia-confirms-new-go-live-date-for-mandatory-b2b-e-invoicing/> (retrieved 2026-10-12; search-extract; confidence medium)
@@ -1385,5 +1486,21 @@ Each entry gives the ID, title, publisher, publication date, URL, retrieval date
 - **[S119]** Labour cost levels by NACE Rev. 2 activity (lc_lci_lev) — hourly labour costs 2025. Eurostat. 2025 data (released 2026). <https://ec.europa.eu/eurostat/databrowser/view/lc_lci_lev/default/table> (retrieved 2026-10-12; Eurostat dissemination API query (unit=EUR, lcstruct=D1_D4_MD5, nace_r2=B-S_X_O); confidence high)
 - **[S120]** Third-party guides on Anthropic VAT invoicing for EU customers. fazm.ai (secondary). 2026. <https://fazm.ai/blog/anthropic-vat> (retrieved 2026-10-12; search-extract; confidence low)
 - **[S121]** Visa Q3 FY2026 earnings call (coverage/transcripts). Secondary transcript sites (roic.ai, Forkast). 2026-07-28. <https://www.roic.ai/quote/VISA.NE/transcripts/2026-year/3-quarter> (retrieved 2026-10-12; search-extract; confidence low)
+- **[S122]** Pievienotās vērtības nodokļa likums (Latvian VAT Law) — current consolidated Latvian text: 59. pants, 139.² pants, pārejas noteikumi 47. Saeima; consolidated by Latvijas Vēstnesis (likumi.lv). s.59 in 12.12.2024 wording, in force 2025-01-01; s.59(9) and s.139² in force 2025-07-01. <https://likumi.lv/ta/id/253451-pievienotas-vertibas-nodokla-likums> (retrieved 2026-10-12; downloaded and text-searched (status 'spēkā esošs'); confidence high)
+- **[S123]** Mikrouzņēmumu nodokļa likums (Micro-enterprise Tax Law) — current consolidated text. Saeima; likumi.lv. current consolidated text (retrieved 2026-10-12). <https://likumi.lv/ta/id/215302-mikrouznemumu-nodokla-likums> (retrieved 2026-10-12; downloaded and text-searched; confidence high)
+- **[S124]** Mikrouzņēmumu nodoklis (VID methodological material). Valsts ieņēmumu dienests (State Revenue Service). prepared 2022-01-05; last updated 2025-06-27. <https://www.vid.gov.lv/lv/media/30731/download> (retrieved 2026-10-12; PDF downloaded, text extracted; confidence high)
+- **[S125]** Kā pašnodarbinātajam jāmaksā nodokļi 2026. gadā (e-konsultācija). LV portāls (official publisher Latvijas Vēstnesis). 2025-12-30. <https://lvportals.lv/e-konsultacijas/37771-ka-pasnodarbinatajam-jamaksa-nodokli-2026-gada-2025> (retrieved 2026-10-12; fetched; confidence medium-high)
+- **[S126]** Mean hourly earnings by sex, age and occupation (Structure of Earnings Survey 2022), earn_ses22_14. Eurostat. SES 2022 (released 2024-2025). <https://ec.europa.eu/eurostat/databrowser/view/earn_ses22_14/default/table> (retrieved 2026-10-12; Eurostat API (sex=T, age=TOTAL, sizeclas=GE10, unit=EUR, indic_se=ERN); confidence high)
+- **[S127]** Upwork Reports Second Quarter 2026 Financial Results (Form 8-K exhibit). Upwork Inc. via SEC EDGAR. 2026-08-10. <https://www.sec.gov/Archives/edgar/data/0001627475/000162747526000046/upwork2q26-pressrelease.htm> (retrieved 2026-10-12; fetched (investors.upwork.com 403; SEC copy read); confidence high)
+- **[S128]** Claude Code for Developers (training). valantic (Anthropic Select Partner). live page (sessions Aug-Sep 2026). <https://www.valantic.com/en/training-center/claude-code-for-developers/> (retrieved 2026-10-12; fetched; confidence high)
+- **[S129]** Professional Claude Code Workshops for Your Team. MentorCruise. live page. <https://mentorcruise.com/workshop/claudecode/> (retrieved 2026-10-12; fetched; confidence high)
+- **[S130]** LLM Security Audit Cost (2026). SecurityWall (vendor blog). 2026-06-13. <https://securitywall.co/blog/llm-security-audit-cost> (retrieved 2026-10-12; fetched; confidence medium)
+- **[S131]** KPMG AI Quarterly Pulse Survey Q4 2025 (news release). KPMG US. 2026-01-15. <https://kpmg.com/us/en/media/news/q4-ai-pulse.html> (retrieved 2026-10-12; fetched; confidence high)
+- **[S133]** Gartner Survey Finds 91% of Customer Service Leaders Under Pressure to Implement AI in 2026. Gartner (press release). 2026-02-18. <https://www.gartner.com/en/newsroom/press-releases/2026-02-18-gartner-survey-finds-ninety-one-percent-of-customer-service-leaders-under-pressure-to-implement-ai-in-2026> (retrieved 2026-10-12; search-extract (www.gartner.com 403; origin host deliberately NOT used after v1.2 access review); confidence medium)
+- **[S134]** Zendesk QA pricing (secondary price guides). eesel.ai; voiceflow (secondary). 2026. <https://www.voiceflow.com/blog/zendesk-pricing> (retrieved 2026-10-12; search-extract; confidence low)
+- **[S136]** Worldwide AI Spending to Grow 49.5% in 2026 (republication of Gartner release). FintechBizNews. 2026-09-20. <https://fintechbiznews.com/fintech-technology/worldwide-ai-spending-to-grow-495-in-2026> (retrieved 2026-10-12; fetched; confidence high)
+- **[S137]** Provenance check of publisher alternative hosts (DNS and canonical links). This project (verification note). 2026-10-12. <verification/verification-report.md#v12> (retrieved 2026-10-12; DNS lookups (getent), HTTP headers, HTML canonical tags; confidence high)
+- **[S138]** OpenAI's ChatGPT Atlas Browser Is Shutting Down. MacRumors. 2026-07-10. <https://www.macrumors.com/2026/07/10/openais-chatgpt-atlas-browser-shutting-down/> (retrieved 2026-10-12; fetched; confidence medium-high)
+- **[S141]** Anthropic raises $30 billion Series G (Feb 2026). Anthropic. 2026-02-12. <https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation> (retrieved 2026-10-12; URL confirmed via site-restricted search 2026-10-12; content verified by independent factual reviewer fetch; confidence medium-high)
 
-*111 sources cited in the paper; 10 further registered sources used for background: S003, S004, S005, S006, S027, S031, S049, S053, S057, S058.*
+*127 sources cited in the paper; 14 further registered sources used for background: S003, S004, S005, S006, S027, S031, S049, S053, S057, S058, S132, S135, S139, S140.*
