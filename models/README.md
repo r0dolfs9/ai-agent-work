@@ -52,3 +52,25 @@ Reproduce with `python3 models/cost_model.py`. The script writes `cost_model_res
 - Cache-storage fees on Gemini.
 
 The incidents line is potentially the largest omitted cost. Treat it qualitatively using the failure-mode section of the paper.
+
+## v1.1 additions (2026-10-12)
+
+### Labour-cost jurisdiction sensitivity (in `cost_model.py`)
+- **Input (VERIFIED FACT):** Eurostat hourly labour costs, 2025, all-in, whole economy excl. public administration [S119]: EU27 €34.9, DE €45.0, EE €21.1, LV €16.3. Converted at the ECB rate of 1.1206 USD/EUR (2026-10-09).
+- **ASSUMPTION:** a whole-economy average is used as a proxy for support labour. Engineering FTE stays at US BLS rates in every row.
+- **Output:** the base production-scenario saving falls from 33% (US) to 22% (LV average).
+
+### Operator economics (`operator_economics.py`, new)
+
+| Input | Value | Source / label |
+|---|---|---|
+| Stripe Latvia card fees | EEA 1.5% + €0.25; premium EEA 2.8% + €0.25; UK 2.5% + €0.25; international 3.15% + €0.25; +2% FX; dispute €20; Tax Basic 0.5% | S104 |
+| Stripe Managed Payments (MoR) | +3.5% on gross incl. tax (Latvian eligibility unconfirmed) | S104 |
+| Paddle (MoR) | 5% + $0.50 | S105 |
+| Latvian VAT | 21% | S100 |
+| Typical EU B2C VAT for illustration | 21% (actual 17–27%) | ASSUMPTION |
+| CIT | 20% of gross distribution; alt 15% + 6% PIT | S100 |
+| SIA state fee | €75 | S102 |
+| Bookkeeping/bank/tools | €1,740 / €3,300 / €6,360 per year | ASSUMPTION; get quotes |
+
+Not modelled: non-EU indirect taxes (US sales tax, UK VAT registration for B2C), social contributions for self-employed operators, currency risk, and insurance.

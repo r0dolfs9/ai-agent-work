@@ -1,20 +1,20 @@
 ---
 title: "AI Agents and the Market Forming Around Them"
 subtitle: "An evidence-based guide for people who want to understand, use, build with, or build a business around AI agents"
-date: "12 October 2026 (evidence retrieved 12 October 2026)"
-status: "Version 1.0. Research draft for private learning and business development. Not investment, legal or security advice."
+date: "12 October 2026 — v1.1 (limitations follow-up; evidence retrieved 12 October 2026)"
+status: "Version 1.1. Private learning and business development (not for publication or investors). Not investment, legal, tax or security advice."
 ---
 
 # AI Agents and the Market Forming Around Them
 
-**Version 1.0, 12 October 2026.** Evidence was retrieved on 12 October 2026. Prices, products and policies in this field change monthly, so re-check anything dated before you rely on it.
+**Version 1.1, 12 October 2026** (supersedes v1.0, preserved in `archive/v1.0/` and git tag `v1.0`). Evidence was retrieved on 12 October 2026. Prices, products and policies in this field change monthly, so re-check anything dated before you rely on it.
 
 ## How to read this paper
 
 - **If you have 10 minutes**, read the *Executive summary* and the *Practical starting guide* (§13).
 - **If you want to use agents**, read §1–2, §4–5, §7 and §13.
 - **If you want to build agents**, also read §3, §6, §8, Appendix A and Appendix B.
-- **If you want to build a business**, also read §9–12 and the opportunity register (`opportunities/opportunity-register.md`).
+- **If you want to build a business**, also read §9–12, §15 (operating globally from Latvia/the EU), and the opportunity register (`opportunities/opportunity-register.md`).
 
 Every factual claim carries a source tag such as **[S037]**. Each tag resolves in the references list at the end and in `research/sources.csv`. That register records the URL, publisher, publication date, retrieval date, the exact passage relied on, caveats and a confidence rating. Where a statement is not a sourced fact, it is labelled:
 
@@ -27,41 +27,67 @@ Every factual claim carries a source tag such as **[S037]**. Each tag resolves i
 | **RECOMMENDATION** | What we suggest doing |
 | **UNKNOWN** | We looked, and the evidence is not public or not adequate |
 
-**Scope (ASSUMPTION, see `project/brief.md`).** The paper covers the world, written in English, for an informed non-technical reader, with technical depth in appendices. It covers enterprise, personal, coding, commerce and autonomous-service agents, and calls out regional differences (US, EU, UK, Singapore, China) where evidence exists. Research used public sources only. No money was spent, and no vendor, customer or platform was contacted.
+**Scope (confirmed by the owner for v1.1).**
+- **Purpose:** private learning and business development. The paper is not intended for publication or investors.
+- **Market scope:** global.
+- **EU and Latvia:** given deeper treatment only where the operator's location materially affects running a global agent business (§15). Latvian demand is *not* prioritised.
+- **Reader:** an informed non-technical reader, with technical depth in the appendices.
+- **Agent types covered:** enterprise, personal, coding, commerce and autonomous-service agents.
+- **Method:** public sources only. No money was spent, no accounts were opened, and no vendor, customer or platform was contacted.
 
 ## Executive summary
 
 **What an agent is.** An AI agent is software in which a language model decides, step by step, what to do next. It chooses which tools to call (search, email, a database, a browser, a payment API), reads the results, and keeps going until a goal is met or it stops. That separates it from a chatbot, which only answers, and from a *workflow*, where a programmer fixed the steps in advance [S001]. How much an agent does without asking is a design choice, not a property of the model. The same model can be set up to ask before every action or to act and merely report [S002].
 
-**The ten findings that matter most**
+**The eleven findings that matter most** (version 1.1: findings 1, 6, 8, 10 and 11 were revised or added after the limitations follow-up; see §14 and `research/limitations-resolution.md`)
 
-1. **Adoption is real but uneven and concentrated.** Gartner's 2026 CIO survey found that only 17% of organizations had deployed AI agents [S005]. In McKinsey's mid-2026 survey, 40% of respondents at companies with more than $1bn revenue said they were "scaling" agents, against 22% at smaller firms [S004]. These numbers measure different things (§2). The most mature, best-evidenced use is **software coding**. Among developers who use AI, 66% use coding agents [S062], and coding-agent vendors report multi-billion-dollar revenue run rates [S053][S054].
+1. **Adoption is real but uneven and concentrated.** Gartner's 2026 CIO survey found that only 17% of organizations had deployed AI agents (sample size not published) [S098]. In McKinsey's 2026 global survey (1,719 respondents, 97 countries, May–June 2026), 40% of respondents at companies with more than $1bn revenue said their organization was "scaling" agents, against 22% at smaller firms [S084]. Across the EU, Eurostat's official survey found 20.0% of enterprises with 10+ employees used any AI technology in 2025 (Latvia: 12.2%) [S096]. That is broader than agents and still a minority. These numbers measure different things (§2.2). The most mature, best-evidenced use is **software coding**. Among developers who use AI, 66% use coding agents [S062]. Anthropic disclosed that Claude Code alone passed a $2.5bn revenue run rate in February 2026 [S088].
 
 2. **Capability is rising fast, but reliability on real work is still low.** On paid freelance projects judged by humans, the best agent produced work as good as a professional's 15.8% of the time in July 2026. Eight months earlier the figure was 2.5% [S037]. Benchmarks of self-contained software tasks still show exponential growth [S008]. Controlled studies of developer productivity are inconclusive [S070]. **INTERPRETATION:** agents are dependable for narrow, checkable tasks, and supervision remains the norm for open-ended ones.
 
-3. **Security is the binding constraint, and it is not solved.** OpenAI says prompt injection is "unlikely to ever be fully solved" [S069]. Prompt injection means hostile instructions hidden in content the agent reads. Anthropic's own browser-agent tests cut attack success from 23.6% to 11.2%, not to zero [S068]. Documented incidents include an agent deleting a production database during a code freeze [S012], and tens of thousands of internet-exposed personal-agent installations plus hundreds of malicious add-ons [S013][S014]. The core design rule: never give one agent private data, untrusted input *and* the ability to send data out [S011].
+3. **Security is the binding constraint, and it is not solved.** OpenAI says prompt injection is "unlikely to ever be fully solved" [S118][S069]. Prompt injection means hostile instructions hidden in content the agent reads. Anthropic's own browser-agent tests cut attack success from 23.6% to 11.2%, not to zero [S068]. Documented incidents include an agent deleting a production database during a code freeze [S012], and tens of thousands of internet-exposed personal-agent installations plus hundreds of malicious add-ons [S013][S014]. The core design rule: never give one agent private data, untrusted input *and* the ability to send data out [S011].
 
 4. **In business deployments, people, not tokens, are usually the biggest cost.** In our base model of a support agent handling 50,000 conversations a month, model usage is about **8%** of total cost. Human handling of the conversations the agent cannot resolve is about **74%**, and engineering, infrastructure and security about **17%** (**CALCULATION**, §6). The share of cases the agent fully resolves is the dominant lever. Moving it from 70% to 20% (all else equal) cuts the saving against an all-human team from 52% to 3%. In our pessimistic case the deployment costs 24% *more* than humans alone. Prompt caching roughly halves token cost and is the cheapest lever (**CALCULATION**). The exception is heavy individual or developer use with no human in the loop, where long agent runs make token bills dominant. Our heavy personal case costs about $4,600 a month (§6.4).
 
 5. **Agents reach the world through tools, and the plumbing is standardising quickly.** The Model Context Protocol (MCP) is now the default way to connect agents to tools. It moved to a neutral Linux Foundation home with more than 10,000 published servers [S034], and shipped a major breaking revision on 28 July 2026 [S032]. Agent-to-agent communication (A2A) reached v1.0 [S035][S036]. Commerce and payment protocols (ACP, UCP, AP2, MPP, x402, Visa TAP, Mastercard Agent Pay) are **implemented but early**. Several compete (§8).
 
-6. **"Agentic commerce" is mostly discovery today, not autonomous buying.** OpenAI scaled back in-chat checkout in March 2026 to focus on product discovery [S025]. AI-referred traffic to US retailers is growing fast and converts well, but it is mostly humans clicking through from AI answers [S031]. Card networks announce "first live agentic transactions" without volumes; Visa reported "hundreds" of controlled ones [S021][S022]. Crypto-rail agent payments total roughly $19M after removing test and wash activity, concentrated in about 4,000 buyers [S028].
+6. **"Agentic commerce" is mostly discovery today, and verified autonomous buying is tiny.** OpenAI scaled back in-chat checkout in March 2026 to focus on product discovery [S025]. AI-referred traffic to US retailers grew 138% year on year in May 2026 and converts better than other traffic. The source does not say this includes agents buying [S116]. Card networks announce "first live agentic transactions" without volumes; Visa reported "hundreds" of controlled ones [S021][S022].
+   - **Best verified figure for autonomous machine payments:** on the x402 payment rail, Visa's own analysis found about **$15.0M** of adjusted volume from May 2025 to April 2026 [S091].
+   - **How much of that is agents:** an independent analysis classed only **0.6%–7.5%** of screened x402 commerce as plausibly agent-driven, roughly **$5,000–11,000 a month** [S090].
+   - **Global value:** no public source supports a global value for purchases agents complete without human approval (§9.2).
 
 7. **There is no stable "agent buying preference" to optimise for.** Controlled experiments show that AI shoppers have strong position and first-offer biases. They penalise "sponsored" labels, and their preferences shift when the model is updated [S029][S030]. Agents can be talked into bad deals [S039]. People represented by a weaker agent got measurably worse prices and did not notice [S040].
 
-8. **Platforms decide what agents may do, and they enforce it.** Amazon blocked Meta's shopping agent in September 2026 under its Conditions of Use [S063], weeks after a US appeals court found Amazon unlikely to win anti-hacking claims against Perplexity's user-directed agent, because the user, not the agent's developer, "accessed" Amazon. Contract claims remain open [S015]. AI providers restrict using consumer subscriptions to power third-party agents, and some users report suspensions [S016][S075]. Cloudflare announced that from 15 September 2026 "agent" bots are blocked by default on new sites' ad-supported pages [S019]. **INTERPRETATION:** being technically able to reach a site is not the same as being permitted to, and building on someone else's platform carries real risk of being cut off.
+8. **Platforms decide what agents may do, and they enforce it, but no one publishes an agent ban *rate*.** Amazon blocked Meta's shopping agent in September 2026 under its Conditions of Use [S063]. That came weeks after a US appeals court found Amazon unlikely to win anti-hacking claims against Perplexity's user-directed agent. Contract claims remain open [S015]. AI providers restrict using consumer subscriptions to power third-party agents, and some users report suspensions [S016][S075]. Anthropic's transparency report shows 11.4 million accounts banned in January–June 2026, all policy reasons combined. Of the 398,000 appeals, 10.6% were overturned [S094]. No platform publishes how many of its users run agents, so **no defensible agent ban rate exists in public data** (§11.3). Cloudflare announced that from 15 September 2026 "agent" bots are blocked by default on new sites' ad-supported pages [S019]. **INTERPRETATION:** being technically able to reach a site is not the same as being permitted to, and building on someone else's platform carries real risk of being cut off.
 
-9. **Regulation is arriving in layers.** In the EU, AI systems that interact with people must disclose that they are AI from 2 August 2026, and agents are included [S074]. The heavier "high-risk" obligations were pushed to December 2027 [S049]. The US relies on voluntary standards work, with no final agent standard yet [S050]. Six national cyber agencies jointly advise restrictive access controls [S051]. Singapore published the first dedicated agentic-AI governance framework [S052].
+9. **Regulation is arriving in layers.** In the EU, AI systems that interact with people must disclose that they are AI from 2 August 2026, and agents are included [S074]. The heavier "high-risk" obligations were pushed to 2 December 2027 [S107]. The US relies on voluntary standards work, with no final agent standard yet [S050]. Six national cyber agencies jointly advise restrictive access controls [S051]. Singapore published the first dedicated agentic-AI governance framework [S052].
 
-10. **Market-size forecasts are weak evidence; company revenues are stronger.** Analysts' 2030 forecasts for "the AI agents market" cluster around $50bn, but their 2025 baselines disagree by more than two to one [S056]. McKinsey's "$3–5 trillion agentic commerce by 2030" is a scenario that includes AI-*influenced* purchases [S057]. Disclosed figures are firmer, though not GAAP revenue. Anthropic's annualised run rate was reported at about $65bn in July 2026 [S053], and Salesforce's agent product passed $1.5bn ARR on a broadened definition [S055].
+10. **Market-size forecasts are weak evidence, and they disagree by an order of magnitude depending on definition.**
+    - Gartner's own table puts "AI agents and assistants" at **$29.2bn** of 2026 spending, out of $2.67trn total AI spending [S082]. Separately, Gartner projects **$985bn** of "agentic AI software spend" by 2030, a far broader concept [S083].
+    - Analysts' 2030 forecasts for "the AI agents market" cluster around $50bn, but their 2025 baselines disagree by more than two to one [S056].
+    - McKinsey's "$3–5 trillion agentic commerce by 2030" is a scenario. It is built from US Census data and adoption rates that McKinsey does not disclose [S086].
+    - Company disclosures are firmer, though they are not GAAP revenue. Anthropic disclosed a $47bn run rate in May 2026, and one anonymous source reported $65bn by end-July [S088][S089]. Salesforce's agent product passed $1.5bn ARR on a broadened definition [S055].
+
+11. **A Latvia-based operator can sell agent services and software worldwide, but not without friction or limits** (new §15).
+    - **What works:** model and payment providers serve Latvia [S106][S104]. EU VAT rules give cross-border B2B services a reverse charge and give consumer sales a one-stop return [S099][S103].
+    - **What surprises small operators:** buying foreign cloud or AI services appears to remove Latvia's €50,000 VAT-registration exemption [S099]. That interacts badly with the micro-enterprise tax regime [S100] and needs an accountant's confirmation.
+    - **What the operator must carry:** customer location still determines which VAT, consumer law and sanctions rules apply [S112][S113].
+    - **What limits feasibility:** product type (regulated payments, high-risk AI uses) limits it more than geography does [S114][S107].
 
 **What this means for you (RECOMMENDATIONS)**
 
 - **Users:** start with tasks whose results you can check quickly, such as drafting, research and code with tests. Keep a human approval step for anything that sends, pays or deletes. Use the provider's official apps or API keys. Don't route consumer-subscription logins through third-party agent tools.
 - **Builders:** start with the simplest design that works [S001]. Measure success per completed task, not per request. Design around the "lethal trifecta" (data + untrusted input + outbound action) [S011], and budget for evaluation and human escalation from day one.
-- **Business builders:** in our scoring, the strongest near-term openings are low-capital services. Top-ranked are agent security hardening, coding-agent enablement with honest measurement, independent evaluation and audit of agents billed "per outcome", and agent-readiness for merchants outside the big platforms (§12). These are **hypotheses**. None has been validated with customers. Ideas that depend on agents spending money autonomously are currently the weakest-evidenced.
+- **Business builders:** in our scoring, the strongest near-term openings are low-capital B2B services. Top-ranked are agent security hardening, coding-agent enablement with honest measurement, and independent evaluation and audit of agents billed "per outcome" (§12).
+  - These are **hypotheses**. None has been validated with customers.
+  - From Latvia, B2B services to EU and non-EU businesses are the administratively simplest model (§15).
+  - Ideas that depend on agents spending money autonomously remain the weakest-evidenced. The 2026 payment data reinforced this.
 
-**Confidence.** High for definitions, protocols, prices, regulation dates and documented incidents. Medium for adoption shares, which rest on self-reported surveys with differing definitions. Low for market-size forecasts and anything about autonomous-agent purchasing volumes or timing, where public evidence is thin (§14).
+**Confidence.**
+- **High:** definitions, protocols, prices, regulation dates, documented incidents, and the adoption figures now read from the primary survey publications.
+- **Medium:** comparisons across adoption surveys, which use different definitions.
+- **Low:** market-size forecasts and autonomous-agent purchase volumes. Agent activity timing now has a narrow evidence base (coding agents, chat), not a representative one.
+- **Not available in public data:** agent-specific ban rates (§14).
 
 ## 1. What is an AI agent?
 
@@ -77,7 +103,7 @@ In this paper an **AI agent** is a software system in which a large language mod
 | **AI agent** | The LLM, at run time, within limits | Yes, via tools it selects | "Resolve this support ticket" with access to order lookup, refund tool, email |
 | Multi-agent system | Several LLM agents delegate to each other | Yes | A "coordinator" agent assigning research and coding to worker agents |
 
-**INTERPRETATION.** The boundary is a spectrum, not a wall. Many commercial "agents" are really workflows with one LLM step, which is often *good engineering* rather than a failing. But it also enables **"agent washing"**: Gartner applies the term to rebranding chatbots, robotic process automation (RPA) and assistants as agents, and estimated in mid-2025 that only about 130 of the thousands of vendors claiming agentic AI were real [S006].
+**INTERPRETATION.** The boundary is a spectrum, not a wall. Many commercial "agents" are really workflows with one LLM step, which is often *good engineering* rather than a failing. But it also enables **"agent washing"**: Gartner applies the term to rebranding chatbots, robotic process automation (RPA) and assistants as agents, and estimated in mid-2025 that only about 130 of the thousands of vendors claiming agentic AI were real [S087].
 
 ### 1.2 Levels of autonomy and the human role
 
@@ -108,13 +134,13 @@ Agents run in four modes, and the mode drives cost, risk and "when" agents are a
 
 | Category | What it does | Notable examples (non-exhaustive) | Evidence of real use |
 |---|---|---|---|
-| **Coding agents** | Read, write, run and test code in a repository | Claude Code, GitHub Copilot agent, Cursor, OpenAI Codex | **Strong**: 66% of AI-using developers use coding agents [S062]; Claude Code run-rate >$2.5bn (Feb 2026) [S053]; Cursor disclosed $1bn ARR (Nov 2025) [S054] |
+| **Coding agents** | Read, write, run and test code in a repository | Claude Code, GitHub Copilot agent, Cursor, OpenAI Codex | **Strong**: 66% of AI-using developers use coding agents [S062]; Claude Code run-rate >$2.5bn (Feb 2026) [S088]; Cursor disclosed $1bn ARR (Nov 2025) [S054] |
 | **Enterprise platform agents** | Agents inside CRM/ERP/helpdesk suites | Salesforce Agentforce, Microsoft Copilot Studio, ServiceNow | **Medium**: Agentforce ARR >$1.5bn on a broadened definition; 3.2bn "agentic work units" in one quarter [S055] |
 | **Customer-service agents** | Resolve customer conversations | Intercom Fin, Sierra, Decagon | **Medium**: per-outcome pricing in market [S071]; vendor revenue figures unverified; Klarna partly reversed an AI-first approach over quality [S072] |
-| **Browser / computer-use agents** | Operate websites or desktops like a person | Perplexity Comet, Claude in Chrome, ChatGPT Atlas | **Early**: security limits acknowledged by vendors [S068][S069]; legal disputes over access [S015][S063] |
+| **Browser / computer-use agents** | Operate websites or desktops like a person | Perplexity Comet, Claude in Chrome; OpenAI moved browser agents into ChatGPT and a Chrome extension after deprecating its Atlas browser (Aug 2026) [S117] | **Early and unstable**: security limits acknowledged by vendors [S068][S118]; legal disputes over access [S015][S063]; a flagship product discontinued within a year [S117] |
 | **Personal / general assistants** | Email, calendar, research, errands | ChatGPT Work and scheduled tasks [S079], Claude Cowork, OpenClaw (open source) [S013] | **Mixed**: very high interest (OpenClaw 247k GitHub stars by March 2026 [S013]) alongside serious security incidents [S014] |
 | **Commerce agents** | Discover, compare, buy | ChatGPT shopping, Google UCP checkout, Perplexity, Meta Muse | **Discovery yes, buying rare**: §9 |
-| **Autonomous services / machine payments** | Agents paying APIs or other agents per use | Stripe/Tempo MPP, Coinbase x402, Mastercard Agent Pay for Machines | **Very early**: ~$19M adjusted x402 volume to April 2026 [S028] |
+| **Autonomous services / machine payments** | Agents paying APIs or other agents per use | Stripe/Tempo MPP, Coinbase x402, Mastercard Agent Pay for Machines | **Very early**: ~$15.0M adjusted x402 volume May 2025–Apr 2026 [S091], of which only 0.6%–7.5% of screened commerce looks agent-driven [S090] |
 
 ### 2.2 Adoption: reading the surveys correctly
 
@@ -122,14 +148,19 @@ Different surveys ask different questions, and headline numbers diverge (conflic
 
 | Source | Population | Question | Result |
 |---|---|---|---|
-| Gartner 2026 CIO survey [S005] | CIOs/tech executives | Has your organization *deployed* AI agents? | **17%** yes; >60% expect to within two years |
-| McKinsey State of AI 2026 [S004] | 1,719 respondents, May–June 2026 | Is your organization *scaling* agents? | **40%** at >$1bn-revenue firms (27% a year earlier); **22%** at smaller firms |
-| McKinsey State of AI 2025 [S003] | Global executives | At least *experimenting*? | **62%**; no more than 10% scaling in any one function |
+| Gartner 2026 CIO and Technology Executive Survey [S098] | CIOs/tech executives; sample size and geography not published on the article | Has your organization *deployed* AI agents? | **17%** yes; >60% expect to within two years |
+| McKinsey State of AI 2026 [S084] | 1,719 respondents in 97 nations, online, 4 May–8 Jun 2026, weighted by national GDP share; 36% at >$1bn firms | Is your organization *scaling* agents? ("scaling" not defined) | **40%** of respondents at >$1bn-revenue firms (27% a year earlier); **22%** at smaller firms |
+| McKinsey State of AI 2025 [S085] | 1,993 respondents in 105 nations, 25 Jun–29 Jul 2025 | At least *experimenting*? | **62%** (23% scaling somewhere + 39% experimenting); no more than 10% scaling in any one function |
+| Gartner poll, Jan 2025 [S087] | 3,412 **webinar attendees** (self-selected) | Investment in agentic AI | 19% significant, 42% conservative, 8% none, 31% waiting/unsure |
+| Eurostat ICT usage in enterprises 2025 [S096] | Official EU survey, enterprises with 10+ employees | Use of *any* AI technology (not agents specifically) | **EU 20.0%** (2024: 13.5%); Latvia 12.2%, Estonia 23.4%, Lithuania 21.3%; range 5.2% (Romania) to 42.0% (Denmark) |
+| OECD practitioner interviews, Sep 2026 [S097] | 25 organisations (74 contacted) in 11 countries across Americas, Europe, Asia, Africa | How are agents deployed and governed? | Qualitative: moving into workflows; safeguards = incremental autonomy and human checkpoints for high-stakes actions; "illustrative rather than representative" |
 | Stack Overflow 2026 [S062] | >30,000 developers | Use coding agents? | **66%** of AI users; only **20%** use AI for deploying/operating production systems |
 
-**INTERPRETATION.** The defensible summary is: *most large organizations are experimenting; a minority (roughly one-fifth to two-fifths, depending on definition) have agents in production somewhere; production use is narrow and concentrated in coding, customer service and internal knowledge work.* Gartner itself places agentic AI at the "Peak of Inflated Expectations" and notes most deployments are narrowly scoped [S005], while predicting that over 40% of agentic AI projects will be cancelled by the end of 2027 for cost, unclear value or weak risk controls [S006]. That prediction and the rapid revenue growth at a few vendors (§12) are compatible: spend is concentrating in a few proven uses while many generic projects fail (conflict C002).
+**Geographic note.** The McKinsey and Gartner figures are global or unspecified and weighted toward large organizations. The official EU statistic is lower and broader: 20% of EU enterprises use *any* AI, and Latvia is below the EU average at 12.2% [S096]. These sources do not justify stating a single "agent adoption rate" for any one country.
 
-A telling data point on substitution: 32% of McKinsey respondents said their organization had declined to buy at least one software product because it could be built in-house with agentic coding tools [S004]. **INTERPRETATION:** coding agents are starting to change *build-versus-buy* decisions — a risk for small software vendors and an opportunity for builders.
+**INTERPRETATION.** The defensible summary is: *most large organizations are experimenting; a minority (roughly one-fifth to two-fifths, depending on definition) have agents in production somewhere; production use is narrow and concentrated in coding, customer service and internal knowledge work.* Gartner itself places agentic AI at the "Peak of Inflated Expectations" and notes most deployments are narrowly scoped [S098], while predicting that over 40% of agentic AI projects will be cancelled by the end of 2027 for cost, unclear value or weak risk controls [S087]. That prediction and the rapid revenue growth at a few vendors (§12) are compatible: spend is concentrating in a few proven uses while many generic projects fail (conflict C002).
+
+A telling data point on substitution: 32% of McKinsey respondents said their organization had decided against buying at least one software product or feature because it could be built in-house with agentic coding tools [S084]. **INTERPRETATION:** coding agents are starting to change *build-versus-buy* decisions — a risk for small software vendors and an opportunity for builders.
 
 ### 2.3 Demonstration versus operation
 
@@ -283,7 +314,7 @@ The single most useful design heuristic is Simon Willison's **"lethal trifecta"*
 
 ### 5.2 Prompt injection is mitigated, not solved
 
-- OpenAI, when hardening its Atlas browser, wrote that prompt injection, "much like scams and social engineering on the web, is unlikely to ever be fully 'solved'" [S069].
+- OpenAI, when hardening its Atlas browser, wrote that prompt injection, "much like scams and social engineering on the web, is unlikely to ever be fully 'solved'" [S118][S069]. (OpenAI later deprecated the Atlas browser itself, in August 2026, and moved browser agents into ChatGPT and a Chrome extension [S117].)
 - Anthropic's 2025 red-teaming of its Chrome agent covered 123 test cases. Attack success was 23.6% without mitigations and 11.2% with them. Mitigations included site permissions, confirmations for high-risk actions, and default blocks on financial sites [S068].
 - In simulated marketplaces, some models' payments could be redirected to malicious agents through manipulation and injection [S029].
 
@@ -447,6 +478,28 @@ Regional note: Anthropic charges 1.1× for US-only inference on its newer models
 6. Prefer APIs and MCP tools over browser or computer use: they are fewer tokens, faster and more reliable.
 7. Spend engineering effort on raising the resolution rate before cutting token prices. In our sensitivity analysis, the resolution rate moves cost per conversation about ten times as much as the cache-hit rate does.
 
+### 6.9 Where the operator is located changes the economics (v1.1)
+
+**Labour costs differ by jurisdiction.** The scenarios above price human work at US support-agent wages ([S077] × 1.4). Eurostat's all-in hourly labour costs for 2025 are EU27 €34.9, Germany €45.0, Estonia €21.1 and Latvia €16.3. These are whole-economy averages, not support-agent wages [S119]. Re-running the base cases with these rates gives (**CALCULATION**, `models/cost_model_results.md`):
+
+| Labour basis | Production base: saving vs all-human | Small-business base: saving |
+|---|---|---|
+| US support agent (BLS × 1.4) | 33% | 49% |
+| EU27 average | 36% | 51% |
+| Germany average | 39% | 53% |
+| Estonia average | 28% | 46% |
+| Latvia average | 22% | 42% |
+
+**INTERPRETATION.** Where human labour is cheaper, automation saves a smaller *share*. Model, engineering and security costs are priced globally (engineering is held at US rates in this table), while the human work they replace is cheaper. A Latvian *customer's* business case is therefore weaker than a German or US one at the same resolution rate. That matters for choosing which customers to target globally, independent of where the operator sits.
+
+**From revenue to the owner.** `models/operator_economics.py` adds the operator-side costs of a Latvia-based seller (§15):
+- payment processing (Stripe EEA 1.5% + €0.25, international 3.15% + €0.25, +2% FX) or a merchant of record (Paddle 5% + $0.50) [S104][S105];
+- VAT handling by customer type [S099][S103];
+- recurring company administration (ASSUMPTION: about €1,700–6,400 a year);
+- Latvian corporate income tax, charged only on distributed profit (20% of the gross distribution) [S100].
+
+On a €49 net subscription the seller keeps about €44.5–48.0 depending on route and customer, before its own costs (**CALCULATION**).
+
 ## 7. Sites, services and access: what agents can reach and what they may do
 
 ### 7.1 Four different questions
@@ -512,7 +565,7 @@ Status categories (our classification): **Proposed** (draft or announcement), **
 | Commerce: catalog to post-purchase | **Universal Commerce Protocol (UCP)** | Google & Shopify (+ retailers) | **Implemented** (US checkout live; expanding) | Launched 2026-01-11 [S023] |
 | Payment authorization | **AP2** (Agent Payments Protocol; mandates as verifiable credentials) | Google (A2A extension) | **Experimental/Implemented** in pilots | 60+ supporting orgs [S035] |
 | Agent payments (HTTP-native) | **MPP** (Machine Payments Protocol) | Stripe & Tempo | **Implemented** (since 2026-03-18) | Stripe launch [S024]; ~20,000 tx/day reported [S028] |
-| Agent payments (HTTP 402, stablecoins) | **x402** | x402 Foundation (Coinbase, Cloudflare; Linux Foundation) | **Implemented**, small real volume | ~$19M adjusted volume [S028] |
+| Agent payments (HTTP 402, stablecoins) | **x402** | x402 Foundation (Coinbase, Cloudflare; Linux Foundation) | **Implemented**, small real volume | ~$15.0M adjusted volume to Apr 2026 [S091]; agentic share 0.6%–7.5% [S090] |
 | Agent identification to merchants | **Visa Trusted Agent Protocol (TAP)** | Visa (with Cloudflare) | **Implemented** in pilots | HTTP Message Signatures [S020]; "hundreds" of controlled transactions [S021] |
 | Agent payment tokens | **Mastercard Agent Pay** (+ Verifiable Intent with Google) | Mastercard | **Implemented** (live transactions in several markets) | [S022] |
 | Bot/agent authentication | **Web Bot Auth** (HTTP Message Signatures) | IETF WG (drafts) | **Proposed** standard; **implemented** by CDNs | No adopted WG drafts as of Aug 2026 [S059] |
@@ -532,23 +585,51 @@ Status categories (our classification): **Proposed** (draft or announcement), **
 
 | Situation | Economic buyer (whose money) | Decision-maker | Evidence |
 |---|---|---|---|
-| Consumer shopping assistant | The consumer | Mostly the human. The agent compares and recommends, the human clicks "buy" | OpenAI's pivot to discovery [S025]; Adobe referral data [S031] |
+| Consumer shopping assistant | The consumer | Mostly the human. The agent compares and recommends, the human clicks "buy" | OpenAI's pivot to discovery [S025]; Adobe referral data [S116] |
 | Delegated consumer purchase with mandate | The consumer | The agent, within pre-signed limits | AP2 "intent mandates" design; pilots only [S035] |
 | Employee using an agent at work | Employer | Employee, under procurement policy | Organizations set usage limits (38%) and review spend (28%) [S062] |
-| Developer agent buying API calls/compute | Developer or company | Agent, within a programmatic budget | MPP/x402 [S024][S028]; managed-agent budgets [S080] |
+| Developer agent buying API calls/compute | Developer or company | Agent, within a programmatic budget | MPP/x402 [S024][S091]; managed-agent budgets [S080] |
 | Agent buying from agent | The owners behind each agent | Agents, within budgets | Experiments only [S029][S040] |
 
 **INTERPRETATION.** Today the economic buyer is almost always a **human or an organization**, and agents are mostly **influencers and executors**. Fully delegated purchasing exists in pilots, in machine-to-machine micro-payments, and in experiments.
 
 ### 9.2 What agents have demonstrably bought
 
-- **Controlled, real-money pilots.** Visa reported "hundreds" of agent-initiated transactions with partners [S021]. Mastercard announced first live authenticated agentic transactions in the US, Latin America, Korea, Singapore and Malaysia, Australia and Hong Kong (for example, a ride booking) [S022].
-- **Machine payments.** Stripe's MPP launch partners let agents pay for browser sessions, physical mail, and even sandwiches for pickup in New York [S024]. On x402, adjusted spend was about $19M across ~134M transactions to April 2026. The top ~1% of buyers (about 4,000 wallets) accounted for ~90% of adjusted volume [S028]. Gross counts of "160M+ agentic payments" are far larger because they include test and gamified activity (conflict C006).
-- **Experimental marketplaces.** In Anthropic's internal "Project Deal", Claude agents representing 69 employees closed 186 deals worth just over $4,000 with no human involvement during negotiation [S040].
-- **Checkout inside AI surfaces, with human confirmation.** Google's UCP-powered checkout with Google Pay is reported live in the US with major retailers and Shopify merchants. The shopper still confirms the purchase [S023].
-- **In-chat checkout.** OpenAI's Instant Checkout launched with Etsy and promised Shopify merchants [S026]. In March 2026 OpenAI said the first version "did not offer the level of flexibility that we aspire to provide" and let merchants use their own checkout [S025]. One unverified analysis claims only ~30 Shopify merchants went live [S027].
+**First, define autonomy.** Purchase figures are only comparable at the same level of autonomy.
 
-**UNKNOWN.** No public source gives the total value of purchases *completed end-to-end by agents*. Retail "AI traffic" figures (+393% year on year, converting 42% better than other traffic [S031]) describe humans arriving from AI answers.
+| Level | Description | Who presses "pay"? |
+|---|---|---|
+| P1 | Agent recommends; human purchases separately | Human |
+| P2 | Agent prepares the cart or checkout; human approves in the flow | Human, inside the AI surface |
+| P3 | Agent executes under limits the human delegated earlier (mandate, scoped token, budget) | Agent, within pre-set limits |
+| P4 | Agent transacts with no human approval at the time of purchase and no purchase-specific mandate | Agent |
+
+**Bounded, attributable evidence** (no figure below can be added to another: they use different units, periods and populations):
+
+| Evidence | Level | Unit | Period / population | Value | Source |
+|---|---|---|---|---|---|
+| AI-referred visits to US retail sites | P1 | Traffic and conversion, not purchases by agents | May 2026 vs May 2025; >1trn visits in Adobe Analytics | +138% YoY; converts 54% better than non-AI traffic; "AI-referred" undefined | [S116] |
+| Google UCP checkout in AI surfaces | P2 | Availability | US, 2026 | Live with named retailers; volumes not disclosed | [S023] |
+| ChatGPT Instant Checkout | P2 | Availability | Sep 2025 to Mar 2026 | Scaled back in Mar 2026; volumes not disclosed | [S026][S025] |
+| Visa controlled agent transactions | P2–P3 | Count | To Dec 2025, partners | "Hundreds" | [S021] |
+| Mastercard "first live agentic transactions" | P2–P3 | Announcements | 2025–2026, several countries | No volumes | [S022] |
+| x402 payments (Visa/Artemis), adjusted | P3–P4 (agent, script or human cannot be distinguished) | Payment volume | May 2025 to 21 Apr 2026, onchain | **$15.0M across 109.6M transactions** after removing identified wash and test activity | [S091] |
+| x402 payments (TRM Labs), screened | P3–P4 | Payment volume | May 2025 to mid-2026 | $52.7M raw; **$25.62M** "screened commerce"; only **0.6%–7.5%** looks agentic; agents moved "roughly $5,000–11,000 a month" | [S090] |
+| MPP (Stripe/Tempo) | P3–P4 | Transactions | Since Mar 2026 | ~20,000 transactions/day, per a Visa executive's social-media post (no volume, no agent share) | [S028] (low confidence) |
+| Anthropic Project Deal | P4 within an experiment | Gross value | One week, Dec 2025, 69 employees | 186 deals, just over $4,000 | [S040] |
+
+**CALCULATION.** Applying TRM's agentic share to its screened total gives a cumulative upper bound of about $0.15M–$1.9M (0.6%–7.5% × $25.62M) of x402 commerce that looks agent-driven, over roughly a year. That is the largest *independently analysed*, plausibly autonomous (P3–P4) purchase stream found in this study. TRM notes that "a scheduled script and an agent look identical onchain" [S090].
+
+**Why no global total can be built.**
+- The figures above mix different units: traffic, availability, counts and payment volume.
+- They mix different autonomy levels.
+- Card networks publish no agent-transaction volumes. Visa's July 2026 earnings call gave none, according to secondary transcripts [S121].
+- Payment volume is not gross purchase value, and it is not provider revenue.
+- Gross onchain counts include wash, test and script activity. For x402, Coinbase's gross "160M+ agentic payments" against Visa's adjusted $15.0M shows the gap (conflict C006).
+
+**UNKNOWN.** The global value of P3–P4 purchases is not established in any public source found in this study. The defensible statement is narrower: *verified autonomous agent purchasing is, as of October 2026, small, concentrated in machine-to-machine micro-payments and experiments, and dwarfed by human purchasing that agents influence.*
+
+**What changed since v1.0.** The v1.0 x402 figure ($19M across ~134M transactions; top 1% of buyers ≈90% of volume) came from a social-media post reported by a crypto news site. It is replaced by Visa's published report ($15.0M / 109.6M) and TRM's independent analysis. The concentration statistic is dropped because it does not appear in the Visa report as read.
 
 ### 9.3 How payment works
 
@@ -588,28 +669,89 @@ Keep four layers separate:
 
 ### 9.6 Do people want agents to buy for them?
 
-Stated attitudes vary with wording (conflict C009). Accenture surveyed 25,590 consumers in 16 countries. A headline 74% said they would trust a personal agent more than their best friend to make a purchase, but only **9%** were open to fully autonomous purchases including payment, and about 32% would let an agent pick products within set limits [S067]. A separate US/UK survey by Riskified found 55% not comfortable with agents buying for them (reported via secondary coverage; see caveat on [S067]). **INTERPRETATION:** delegated *selection* is accepted far more readily than delegated *payment*. In Anthropic's experiment, 46% of participants *said* they would pay for a negotiating agent [S040]. That is a stated intention, not demonstrated willingness to pay.
+Stated attitudes vary with wording (conflict C009). Accenture surveyed 25,590 consumers in 16 countries, including France, Germany, Italy, Spain, Sweden and the UK, online on 7–22 January 2026 [S115]:
+- 74% said they would trust a personal agent more than their best friend to make a purchase.
+- 32% would let an agent decide within set boundaries, with the consumer still validating before paying.
+- Only **9%** were open to an agent initiating *and completing* purchases autonomously. Elsewhere the same publication says 12%, an internal inconsistency we note rather than resolve.
+
+A separate US/UK survey by Riskified found 55% not comfortable with agents buying for them (reported via secondary coverage; see caveat on [S067]).
+
+**INTERPRETATION:** delegated *selection* (P2) is accepted far more readily than delegated *payment* (P3–P4), and this holds across the 16 countries surveyed. In Anthropic's experiment, 46% of participants *said* they would pay for a negotiating agent [S040]. That is a stated intention, not demonstrated willingness to pay.
 
 ## 10. Activity and timing: when do agents work?
 
-### 10.1 What is known
+### 10.1 What "active" means
 
-- **Human-triggered chat follows human rhythms.** Anthropic's June 2026 Economic Index sampled conversations daily (Apr–Jun 2026). The personal-use share rises from about 35% on weekdays to just under 50% at weekends. News requests peak around 7 a.m. local time, business correspondence at 10–11 a.m., and recipes at 2.3× average at 6 p.m. US tax conversations were ~8× normal on 14 April [S041].
-- **Agentic API use is more directive.** In Anthropic's data, API traffic is 64% "directive" (vs 32% on the consumer app), and about three-quarters is classified as automation [S042]. Sales-outreach and automated-trading workflows roughly doubled their share in three months [S042].
-- **Agentic workloads are growing in token terms.** On OpenRouter, reasoning models carried over half of all tokens by late 2025. Average prompts grew from ~1.5k to over 6k tokens, and programming prompts routinely exceed 20k [S043].
-- **Geography (one developer platform, by billing location).** US 47%, Singapore 9%, Germany 7.5%, China 6%. Asia's share rose from ~13% to ~31% within the study period [S043].
-- **Scheduled agents are spread deliberately.** Managed schedulers add jitter (Anthropic: up to 15% of the interval, max 9 minutes) [S080]. ChatGPT caps scheduled tasks at no more than hourly [S079].
+Six different things get called agent "activity". No public source reports more than two of them for the same population:
+1. **Model requests** (API calls or tokens).
+2. **Execution runs** (a session or task from start to finish).
+3. **Background or scheduled tasks** started without a human.
+4. **Tool calls** (including web fetches).
+5. **Completed workflows or outputs** (for example, a pull request opened).
+6. **Transactions** (payments).
 
-### 10.2 What is not known
+Each must also be split by trigger: human-triggered, scheduled, event-driven, continuously operating, or research and synthetic workloads.
 
-**UNKNOWN.** We found no public data on:
-- hourly or weekday patterns of *autonomous* or *API-based* agent activity (Anthropic's hourly analysis covers chat and Cowork only [S041]; OpenRouter aggregates weekly in UTC [S043]);
-- when agents make *purchases*;
-- activity by deployment type across providers.
+### 10.2 What the evidence shows
 
-Requests, active agents, transactions and completed tasks are different units, and no source reports all four.
+| Trigger / unit | Evidence | Observation period, time zone, population | Finding | Strength |
+|---|---|---|---|---|
+| Human-triggered **chat and Cowork conversations** | Anthropic Economic Index "Cadences" [S041] | 10 Apr–10 Jun 2026; local time from IP; consumer accounts | Personal share ~35% on weekdays, just under 50% at weekends. News peaks ~7 a.m., business correspondence 10–11 a.m., recipes 2.3× average at 6 p.m. | High for that population; not autonomous agents |
+| Human-triggered **agent web fetches** (fetching pages on a person's behalf) | Cloudflare network telemetry [S092] | Year to Sep 2026; global Cloudflare network | Daily agent requests grew >1,700%. Agent traffic "follows human routines, with a weekly rhythm and a dip over the summer holidays". No figures published | Medium (qualitative) |
+| Human- or event-triggered **coding-agent outputs** (pull requests opened by agents) | **Our analysis** of the public AIDev dataset [S093] (`research/analysis/aidev_timing.py`) | 2,743,854 agent-authored PRs on public GitHub, 24 Dec 2024–24 Oct 2025, UTC | See below | High for public GitHub PR creation; not general agent activity |
+| **Model requests** on a developer marketplace | OpenRouter study [S043] | Weekly, UTC, to late 2025 | No time-of-day analysis. Shows growth of agentic token use | Medium |
+| **API traffic mix** | Anthropic Economic Index [S042] | Jan–Mar 2026 | API traffic 64% directive, ~75% automation. No timing published for API or Claude Code | Medium |
+| **Scheduled tasks** | Platform documentation [S079][S080] | Current | Schedulers deliberately add jitter (Anthropic: up to 15% of the interval, max 9 minutes). ChatGPT tasks run at most hourly | Mechanism only; no usage data |
+| **Continuously operating** agents | — | — | **No representative public dataset was found within the documented search scope** | Gap |
+| **Purchases** by agents | §9.2 [S090][S091] | Onchain | Monthly totals only; TRM reports agent transaction counts rose to a mid-2026 peak and then fell | Low for timing |
 
-**INTERPRETATION / RECOMMENDATION.** There is no evidence-based "peak hour" or "purchase window" for agents in general. Human-triggered agent use will follow local working and living patterns. Scheduled and event-driven agents run whenever their owners or triggering events dictate, increasingly around the clock and spread across time zones. If timing matters to your business (capacity planning, flash offers to agents), **measure it on your own traffic** by identifying agents through signed requests [S020][S059].
+**Coding-agent pull requests (CALCULATION, our analysis of AIDev [S093]):**
+- **Weekends:** 25.8% of agent-authored PRs, against 28.6% if activity were spread evenly across the week. Weekday shares range from 14.3% (Monday) to 15.4% (Wednesday). Saturday is 12.7% and Sunday 13.1%.
+- **Hours:** the busiest UTC hours are 14:00–17:00 (~5.0–5.1% each) and the quietest 00:00–05:00 (~3.2–3.4% each). The peak-to-trough ratio is only **1.57**. 20% of PRs are opened between 00:00 and 06:00 UTC.
+- **By agent:** the pattern holds for every agent. Weekend share runs from 21.4% (Devin) to 28.0% (Google Jules), and peak-to-trough from 1.53 to 1.77. OpenAI Codex, 75% of the sample, peaks at 20:00 UTC.
+
+**INTERPRETATION.**
+- Coding-agent output is *much flatter* across the day than a single-time-zone office pattern would be. That is consistent with a globally distributed user base and some agents running unattended.
+- There is still a measurable weekday/working-hours lean, so human triggering still shapes activity.
+- This dataset does **not** tell us when agents *ran* (a pull request is the end of a run). It does not tell us user time zones, or how much of the activity was scheduled versus human-started. There is also no human baseline in the dataset to compare against.
+
+### 10.3 Conclusion and what remains unknown
+
+- **Supported:** human-triggered agent use (chat, web fetches) follows human weekly and daily rhythms [S041][S092]. Coding-agent output on public GitHub runs around the clock, with only a mild working-hours peak [S093].
+- **Not supported:** any universal "peak hour" or "purchase window" for agents. No representative public dataset was found within the documented search scope for:
+  - hour-of-day activity of *scheduled* or *continuously operating* agents;
+  - agent *purchases* by time;
+  - activity by deployment type across providers.
+- **What would resolve it:** provider telemetry split by trigger type (scheduled vs human vs event), or merchant logs of signed-agent requests [S020][S059].
+
+### 10.4 Proposed measurement method for a future authorised deployment (PROPOSED METHOD, not observed behaviour)
+
+**Events to log** (one row each, UTC timestamp plus the requester's IANA time zone where known):
+- `run_started` and `run_ended`, with the trigger type (human, schedule, webhook or event, continuous loop) and outcome (completed, failed, escalated, budget-stopped);
+- `model_call`, with tokens and cost;
+- `tool_call`, with tool name and read/write class;
+- `approval_requested` and `approval_decided`, with latency;
+- `payment_attempted` and `payment_settled`, with amount, currency, mandate ID and autonomy level P1–P4;
+- `external_block`, with HTTP status, site and reason (to feed §11.3).
+
+**Privacy controls:**
+- Pseudonymous user IDs, with no prompt or response content in timing tables.
+- Coarsen location to country and time zone.
+- Aggregate to at least hourly bins with a minimum cell size (for example ≥10 users) before analysis.
+- Retention: 90 days for raw events, then aggregates only.
+- Document the legal basis under the GDPR (legitimate interest assessment, or consent for consumer products) and list the logging in the privacy notice.
+
+**Observation period:** at least 8 full weeks, including one public-holiday period, to separate weekly from seasonal effects.
+
+**Metrics:**
+- Share of runs by trigger type.
+- Hour-of-week distribution per trigger type in *local* time and in UTC.
+- Peak-to-trough ratio.
+- Weekend share against 2/7.
+- Concurrency (95th-percentile simultaneous runs) for capacity planning.
+- Median approval latency by hour.
+- Payment attempts by autonomy level and hour.
+- Block events per 1,000 external requests by site.
 
 ## 11. Audits, governance and enforcement
 
@@ -634,7 +776,7 @@ Requests, active agents, transactions and completed tasks are different units, a
 | Jurisdiction | Instrument | What it requires of agents | Status / date | Source |
 |---|---|---|---|---|
 | **EU** | AI Act Art. 50 | Providers of AI systems interacting directly with people (including AI agents) must disclose that it is AI unless obvious; content-marking duties | Applies from **2 Aug 2026** (marking for existing systems: 2 Dec 2026); fines up to €15m or 3% of turnover | [S074] |
-| **EU** | AI Act high-risk rules (Annex III, e.g., hiring, credit) | Risk management, documentation, human oversight | **Deferred to 2 Dec 2027** by the Digital Omnibus; product-embedded systems to 2 Aug 2028 | [S049] |
+| **EU** | AI Act high-risk rules (Annex III, e.g., hiring, credit) | Risk management, documentation, human oversight | **Deferred to 2 Dec 2027** by the AI Omnibus (in force 27 Jul 2026); product-embedded systems to 2 Aug 2028 | [S107] |
 | **US** | NIST CAISI AI Agent Standards Initiative; NCCoE agent identity concept paper | Voluntary standards on security, identity and authorization, interoperability | Initiative launched Feb 2026; no final standard | [S050] |
 | **US/UK/CA/AU/NZ** | Joint guidance "Careful adoption of agentic AI services" | Layered defence, strict access control; secure design and operation | Published ~1 May 2026 | [S051] |
 | **Singapore** | Model AI Governance Framework for Agentic AI | Bound risks up front; keep humans meaningfully accountable; technical controls; end-user responsibility. Organisations remain legally accountable | Launched 22 Jan 2026 (voluntary) | [S052] |
@@ -660,18 +802,67 @@ Not legal advice. **UNKNOWN:** how national regulators (for example in Latvia or
 - **Respect rate limits and robots policies,** and keep logs that show you did.
 - **If suspended:** stop the triggering automation, use the platform's appeal route, move to sanctioned access, and keep a second provider ready (§7.3).
 
+#### 11.3.1 How often are agents banned? Separating rules, incidents and rates
+
+A ban *rate* needs:
+- a numerator (agent-related enforcement actions of one type);
+- a denominator (agents or agent-using accounts exposed);
+- the same defined period for both.
+
+No platform publishes all three. What exists:
+
+| Evidence type | Example | What it can support | What it cannot support |
+|---|---|---|---|
+| **Published rules** | Anthropic credential policy [S016]; Amazon Conditions of Use [S064]; LinkedIn User Agreement §8.2 [S076]; Shopify robots policy [S065] | Which agent behaviours are prohibited | How often enforcement happens |
+| **Aggregate enforcement statistics (all causes)** | Anthropic, Jan–Jun 2026: **11.4M accounts banned; 398k appeals; 42k overturned** [S094] (Jul–Dec 2025: 1.45M banned, per earlier hub version). OpenAI publishes EU-only Digital Services Act data, not read because of a 403 [S095] | Scale of enforcement overall. Appeal overturn rate (42k/398k ≈ **10.6%** of appeals, ≈0.37% of bans; CALCULATION) | Agent-specific bans; a rate per active account (no denominator published); causes |
+| **Individual incidents** | Third-party harness blocks (Jan–Apr 2026) [S017]; Google 403 suspensions (Feb 2026) [S075]; Amazon's block of Meta Muse (Sep 2026) [S063]; Perplexity litigation [S015] | That enforcement happens, its triggers and appeal paths | Frequency |
+| **Site-level blocking shares** | Cloudflare: <1% of sites block search crawlers, 17% block training crawlers (2026) [S092]; default blocking of "Agent" bots on new domains' ad pages [S019] | Prevalence of *crawler* blocking among Cloudflare sites | Blocking of user-directed agents specifically (not published) |
+
+**Types of enforcement are different events.** Count them separately:
+- account suspensions or bans;
+- API-key revocations;
+- rate limits;
+- automated-access blocks (HTTP 403 or block pages);
+- payment restrictions;
+- marketplace or registry removals (for example, malicious skills removed from ClawHub [S014]).
+
+The Anthropic figure is account bans for all Usage Policy reasons. It is **not** an agent ban count.
+
+**Conclusion (UNKNOWN, narrowed).** No defensible public estimate of how often platforms ban agents or agent operators was found within the documented search scope. The evidence supports three narrower statements:
+1. Major AI providers ban accounts at large scale for all reasons, and roughly 1 in 10 appeals succeed at Anthropic [S094].
+2. Agent-specific enforcement clusters around a few triggers: reusing subscription credentials in third-party tools, unidentified browsing agents, credential capture, and automated outreach on social networks [S016][S063][S075][S076].
+3. Blocking of *crawlers* by websites is common for training (17%) and rare for search (<1%) [S092].
+
+**What would resolve it:** platform transparency reports that break out automation-related enforcement, with active-account denominators, or an operator's own block logs (§10.4 `external_block`).
+
 ### 11.4 Regional differences at a glance
 
 | Region | Regulatory posture toward agents | Commerce and payments evidence | Notes |
 |---|---|---|---|
 | **United States** | Voluntary standards (NIST CAISI) [S050]; joint security guidance [S051]; access disputes run through courts. Anti-hacking law (CFAA) was held a weak tool against user-directed agents in the Ninth Circuit [S015] | Most pilots and launches: ACP, UCP checkout, Visa/Mastercard pilots [S023][S025][S021][S022] | Largest share of developer AI usage by billing (47% on OpenRouter) [S043] |
-| **European Union** | AI Act Art. 50 disclosure in force since 2 Aug 2026; high-risk rules deferred to Dec 2027 [S074][S049] | Little public agent-commerce evidence. UCP expansion plans name Canada, Australia and the UK, not the EU (secondary) [S023] | Germany ~7.5% of OpenRouter tokens [S043]; GDPR applies to agent logs and transcripts |
+| **European Union** | AI Act: prohibited practices and AI literacy from 2 Feb 2025; GPAI obligations from 2 Aug 2025; Art. 50 disclosure from 2 Aug 2026; high-risk Annex III deferred to 2 Dec 2027 [S107][S074]. DSA transparency reporting covers some AI services [S095]. Product liability extends to software for products placed on the market after 9 Dec 2026 [S111] | Little public agent-commerce evidence. UCP expansion plans name Canada, Australia and the UK, not the EU (secondary) [S023]. Stripe/Paddle/MoR infrastructure available [S104][S105] | **Official statistic:** 20.0% of enterprises (10+ staff) used any AI in 2025; range 5.2%–42.0% by country [S096]. Germany ~7.5% of OpenRouter tokens [S043]. GDPR applies to agent logs and transcripts |
 | **United Kingdom** | Co-author of the Five Eyes guidance [S051]; 2026 payments consultation reopening consent and liability [S066] | Limited | — |
 | **Singapore / ASEAN** | First dedicated agentic-AI governance framework (voluntary) [S052] | Mastercard live agentic transactions in Singapore and Malaysia [S022] | Singapore ~9% of OpenRouter tokens, likely regional billing hubs [S043] |
 | **China** | Administrative restrictions on running OpenClaw in state bodies [S013] | Not examined (evidence gap) | Chinese open-weight models significant on OpenRouter [S043] |
 | **Latin America, Korea, Australia, Hong Kong** | Not examined | Mastercard "first live agentic transactions" announced [S022] | Pilots, not volumes |
 
-**UNKNOWN:** Baltic or Latvia-specific adoption, pricing or enforcement data. None was found in public sources.
+**Baltics (operator-relevant facts only).** Latvia 12.2%, Estonia 23.4% and Lithuania 21.3% of enterprises used AI in 2025 [S096]. Latvia is a supported country for the main model APIs [S106]. Latvian tax and legal operating conditions are in §15. Latvian customer demand is deliberately not analysed (scope decision).
+
+**Transferability of the paper's main conclusions (INTERPRETATION).**
+
+| Conclusion | Broadly applicable technically | Provider-specific | Jurisdiction-specific | Limited sample |
+|---|---|---|---|---|
+| Workflows vs agents; autonomy is a design choice (§1) | ✔ | | | |
+| Security: prompt injection unsolved; lethal trifecta (§5) | ✔ (vendor tests from Anthropic and OpenAI, but mechanism is model-agnostic) | partly | | |
+| Reliability: RLI 15.8%, METR trends (§4) | ✔ for digital/software work | | | ✔ (task sets: freelance, software) |
+| Adoption levels (§2.2) | | | ✔ (Eurostat EU differs from global executive surveys) | ✔ (executive self-report) |
+| Cost structure: humans dominate supervised deployments (§6) | ✔ (structure) | prices provider-specific | labour cost **jurisdiction-specific** (US BLS wages used; Latvian/EU wages lower, which *reduces* human costs and therefore the savings) | |
+| Commerce is mostly discovery; autonomous buying tiny (§9) | | ✔ (OpenAI, Visa, Mastercard, Coinbase rails) | US-heavy evidence; the 16-country Accenture survey points the same way | ✔ |
+| No stable agent buying preference (§9.5) | ✔ | models tested | | ✔ (mock markets) |
+| Platform enforcement patterns (§11.3) | | ✔ (Amazon, Anthropic, Google, LinkedIn) | US litigation (CFAA) is US-specific; ToS enforcement is global | ✔ (incidents) |
+| Activity timing (§10) | | ✔ (Anthropic, Cloudflare) | | ✔ (public GitHub coding agents) |
+| Regulation (§11.2) | | | ✔ by definition | |
+
 
 ## 12. Market and business implications
 
@@ -680,11 +871,13 @@ Not legal advice. **UNKNOWN:** how national regulators (for example in Latvia or
 | Evidence type | Example | Strength | Caveat |
 |---|---|---|---|
 | Audited / filed company results | Salesforce Agentforce ARR >$1.5bn (+240% YoY), broadened definition [S055] | **Strong** for that company | Definition change inflates growth |
-| Company statements via press | Anthropic run-rate ~$65bn (Jul 2026), Claude Code >$2.5bn (Feb 2026) [S053]; Cursor $1bn disclosed, ~$4bn press-reported [S054] | Medium | Run-rate ≠ revenue; most of it is model usage, not "agent products" alone |
-| Executive surveys | Gartner 17% deployed [S005]; McKinsey 22–40% scaling [S004] | Medium | Self-report; definitions differ |
-| Analyst forecasts | "AI agents market" ~$48–53bn in 2030 [S056]; Gartner agentic AI spending ~$202bn in 2026 [S058]; 40% of enterprise apps to embed task-specific agents by end-2026, up from <5% in 2025 [S007] | **Weak** (feature counts and spend definitions, not usage) | Paywalled methods; 2025 base estimates differ >2× (conflict C013) |
-| Scenarios | McKinsey: up to $1trn US / $3–5trn global agent-orchestrated goods commerce by 2030 [S057] | Weak–medium | Includes AI-influenced purchases; "up to" |
-| On-chain / usage data | x402 ~$19M adjusted volume [S028] | Medium | Narrow slice |
+| Company disclosures | Anthropic run-rate $14bn (Feb 2026) and >$47bn (May 2026); Claude Code >$2.5bn (Feb 2026) [S088]. Cursor $1bn disclosed (Nov 2025) [S054] | Medium–strong | Run-rate ≠ revenue; most of it is model usage, not "agent products" alone |
+| Press reports from anonymous sources | Anthropic ~$65bn run-rate by end-July 2026 (one person familiar, via Bloomberg/Reuters) [S089]; Cursor ~$4bn [S054] | Medium–weak | Not confirmed by the companies |
+| Executive surveys | Gartner 17% deployed [S098]; McKinsey 22–40% of respondents report scaling [S084] | Medium | Self-report; definitions differ; samples not representative of all firms |
+| Official statistics | Eurostat: 20.0% of EU enterprises used any AI in 2025 [S096] | **Strong** (for its definition) | AI in general, not agents |
+| Analyst forecasts | Gartner "AI agents and assistants" spending $16.5bn (2025), **$29.2bn (2026)**, $65.5bn (2027), within total AI spending of $2.67trn in 2026 [S082]; Gartner "agentic AI software spend" $985bn by 2030 [S083]; "AI agents market" ~$48–53bn in 2030 (other firms) [S056]; 40% of enterprise apps to embed task-specific agents by end-2026 [S007] | **Weak** (definitions vary by ~30×; feature counts and spend categories, not usage) | Paywalled methods; Gartner's category definitions are in client documents; 2025 base estimates differ >2× (C013). The v1.0 figure "~$202bn agentic AI spending 2026" could not be found in any Gartner primary and was **removed** |
+| Scenarios | McKinsey: up to $1trn ("$900 billion to $1 trillion") US B2C / $3–5trn global "orchestrated revenue" in goods by 2030 [S086] | Weak | "Orchestrated revenue" undefined; built from US Census data and undisclosed adoption rates; excludes services and B2B |
+| On-chain / usage data | x402 $15.0M adjusted (to Apr 2026) [S091]; TRM: 0.6%–7.5% of $25.6M screened looks agentic [S090] | Medium–strong | Narrow slice; agent vs script indistinguishable |
 
 **INTERPRETATION.**
 - Spending is real and large, but it is concentrated in model providers, coding agents and enterprise suites.
@@ -693,7 +886,7 @@ Not legal advice. **UNKNOWN:** how national regulators (for example in Latvia or
 
 ### 12.2 Where value is accruing (INTERPRETATION)
 
-1. **Model providers** capture the largest share of spend, because every agent step is billable inference [S053].
+1. **Model providers** capture the largest share of spend, because every agent step is billable inference [S088].
 2. **Owners of distribution and data** (CRM/ERP suites, marketplaces, payment networks) set terms of access and capture agent features as upsells [S055][S063][S022].
 3. **Coding agents** are the first breakout application category [S062][S054].
 4. **Infrastructure for trust**, meaning identity, evaluation, observability, security and insurance, is attracting investment because enterprises cannot deploy without it [S060][S073][S061].
@@ -705,10 +898,10 @@ Not legal advice. **UNKNOWN:** how national regulators (for example in Latvia or
 |---|---|---|
 | Who decides | A person with a budget | A model within its owner's instructions |
 | How you are found | Sales, content, partners, marketplaces | Structured data, MCP/registry listings, protocol feeds, price and position in agent results |
-| Evidence that it works | Established B2B motions; vendor revenues [S055][S053] | Agents' choices are biased and unstable across models [S029][S030]; volume of agent-made purchases unknown |
+| Evidence that it works | Established B2B motions; vendor revenues [S055][S088] | Agents' choices are biased and unstable across models [S029][S030]; volume of agent-made purchases unknown |
 | Advantages | Relationships, contracts, higher price points, lower churn | Potentially low acquisition cost; 24/7 demand; machine-readable comparison may favour good value |
 | Disadvantages | Slower sales cycles; must prove ROI | Platform and model dependence; "optimising for the model" is a moving target; commoditisation on price; manipulation and regulatory risk |
-| Payment | Contracts, cards, invoices | Scoped tokens, mandates, MPP/x402 micro-payments [S024][S028] |
+| Payment | Contracts, cards, invoices | Scoped tokens, mandates, MPP/x402 micro-payments [S024][S090] |
 
 **RECOMMENDATION.** For the next 12–24 months, build businesses that **sell to the humans responsible for agents**. Treat being selected by agents as a secondary channel. Make your offer machine-readable (structured data, an MCP server, honest labels) because it is cheap to do, but don't depend on it.
 
@@ -720,11 +913,13 @@ The full register (`opportunities/opportunity-register.md` and `.csv`) has 12 op
 |---|---|---|---|---|
 | 1 | Agent security hardening and "lethal trifecta" review for SMEs | 71 | Well-documented incidents and government guidance [S014][S051]; low capital | Competition from security firms; advice liability |
 | 2 | Coding-agent enablement **with measurement** for small dev teams | 70 | Widest real adoption [S062]; productivity unclear [S070] | Vendors provide free enablement |
-| 3 | Independent evaluation and outcome-audit of support agents | 69 | Per-outcome billing [S071]; automated judges over-rate [S037]; resolution rate dominates cost (§6) | Data-sharing friction |
-| 4 | Agent-readiness service for non-Shopify merchants | 66 | Fast-growing AI referrals [S031]; protocols live [S023] | Platform churn [S025]; small current revenue share |
+| 3 | Independent evaluation and outcome-audit of support agents | 67 (v1.0: 69; GDPR processor duties raise risk) | Per-outcome billing [S071]; automated judges over-rate [S037]; resolution rate dominates cost (§6) | Data-sharing friction |
+| 4 | Agent-readiness service for non-Shopify merchants | 66 | Fast-growing AI referrals [S116]; protocols live [S023] | Platform churn [S025]; small current revenue share |
 | 5 | MCP connector build and migration for vertical SaaS | 64 | MCP broadly adopted; breaking 2026 spec [S032][S034] | Commoditised by code generation |
 
-Lowest-ranked: spend-control fintech for agent purchases (36) and dispute-evidence tooling (44). Both depend on agent purchasing volumes that are not yet evidenced [S028] and on regulated infrastructure.
+Lowest-ranked: spend-control fintech for agent purchases (30, down from 36), pay-per-call products sold to agents (43, down from 47) and dispute-evidence tooling (44). The v1.1 payment data lowered them: the plausibly agentic share of x402 commerce is about $5–11k a month [S090][S091]. Holding or forwarding clients' funds is also a regulated payment service [S114].
+
+**Operating from Latvia (v1.1).** The top three are B2B services. That is the administratively simplest model for a Latvian operator: reverse charge for EU business clients, outside Latvian VAT for non-EU clients, no consumer-law withdrawal rights (§15.8). Global demand evidence is unchanged by the operator's location. Lower labour costs in markets such as Latvia shrink automation savings (§6.9), so evaluation and enablement services are likely worth more to clients in high-wage markets (INTERPRETATION).
 
 **Important caveats.**
 - These are hypotheses. No customer was contacted, so no willingness to pay has been observed.
@@ -738,7 +933,8 @@ Lowest-ranked: spend-control fintech for agent purchases (36) and dispute-eviden
 |---|---|
 | "Agents will do most knowledge work soon" | On real freelance projects the best agent matched professionals 15.8% of the time (Jul 2026), up fast from 2.5% [S037]. The trend is steep, but most work still needs humans today |
 | "Agents make developers 10× faster" | Controlled studies are inconclusive. Developers overestimate their own speed-up [S070] |
-| "Agentic commerce is a $5 trillion market" | That is a 2030 *scenario* that counts AI-influenced purchases [S057]. Measured agent-made payments are tiny [S028] |
+| "Agentic commerce is a $5 trillion market" | That is a 2030 *scenario* of "orchestrated revenue" from undisclosed adoption assumptions [S086]. Measured agent-made payments are tiny: the plausibly agentic share of x402 commerce is about $5k–11k a month [S090] |
+| "AI agents are a $30bn or a $1trn market" | Both are Gartner figures for different definitions: $29.2bn of 2026 spending on agents and assistants [S082] vs $985bn agentic software spend by 2030 [S083]. Always ask which definition is meant |
 | "Optimise your products for what AI agents prefer" | Agent choices show biases that change with model versions. There is no stable preference [S030] |
 | "Agents are safe if you tell them the rules" | Prompts are not controls. Agents get persuaded and injected [S039][S068]. Put limits in code |
 | "It's fine to plug my subscription into any agent tool" | Not under major providers' terms; suspensions have been reported [S016][S075] |
@@ -753,7 +949,7 @@ Lowest-ranked: spend-control fintech for agent purchases (36) and dispute-eviden
 3. **Begin at autonomy level 3–4.** The agent proposes and you approve sending, paying and deleting [S002].
 4. **Break the trifecta.** An agent that reads the open web shouldn't also hold your mailbox *and* be able to send [S011].
 5. **Set a monthly spend cap** and check cost per *useful* result after two weeks (§6.4).
-6. **Review the logs** of anything that acted on your behalf. Assume it can be fooled [S069].
+6. **Review the logs** of anything that acted on your behalf. Assume it can be fooled [S118][S069].
 
 ### 13.2 If you want to *build* agents
 
@@ -773,26 +969,184 @@ Lowest-ranked: spend-control fintech for agent purchases (36) and dispute-eviden
 2. **Run the register's validation experiment** before building anything, once the owner approves contact or spend. Pre-commit to the go/no-go threshold.
 3. **Price on outcomes the buyer already measures,** such as hours saved, incidents avoided, or resolution verified. Avoid pricing on activity counts.
 4. **Watch platform risk.** Avoid businesses that need terms-of-service grey zones such as credential capture or undeclared bots [S063][S016].
-5. **Re-check this paper's dated facts quarterly.** Protocols, prices and policies moved materially within the six months before this paper.
+5. **If operating from Latvia or the EU, settle the §15.9 questions with an accountant and a lawyer before the first international sale.** Above all, settle whether buying foreign APIs forces VAT registration, and choose between a merchant of record and direct invoicing.
+6. **Re-check this paper's dated facts quarterly.** Protocols, prices and policies moved materially within the six months before this paper.
 
-## 14. Limitations
+## 14. Limitations (revised in v1.1)
 
-- **Freshness.** Evidence was retrieved on 12 October 2026. Several facts changed within weeks of each other: Amazon's agent block, Cloudflare's defaults, and the MCP spec.
-- **Access limits.** Several primary sources blocked automated retrieval: Gartner, McKinsey, CNBC, OpenAI's site, White & Case. For those, we relied on search-engine extracts of the primary text or reputable secondary reporting, and marked confidence "medium". No paywalled analyst reports were read.
-- **Vendor-sourced evidence.** Much evidence on adoption, transactions and security comes from vendors with an interest in the result (e.g., [S021][S022][S053][S068]). Vendor statements establish what vendors claim, not independent proof.
-- **Survey limits.** Adoption surveys are self-reported and use incompatible definitions (C001).
-- **Experimental limits.** Agent-behaviour findings come from simulations, mock marketplaces and small internal pilots [S029][S030][S039][S040]. Generalising to open markets is uncertain.
-- **Cost model.** The scenarios rest on explicit assumptions, not observed deployments. The resolution rates, engineering effort and security budgets most need local validation (gaps G-COST-1 to -3). Incident costs, taxes and currency effects are excluded.
-- **Geography.** Evidence is US-heavy. EU coverage is mainly regulatory. Asian evidence is limited to payments pilots, OpenRouter geography and Singapore's framework. No Baltic-specific market data was found.
-- **No primary research.** No interviews, surveys or experiments with real customers were conducted, because they need approval. The opportunity register is therefore hypothesis-only.
-- **Self-review.** The adversarial review (see `verification/verification-report.md`) was carried out by the same AI system that wrote the paper. No independent human review has taken place.
+The full claim-by-claim account is in `research/limitations-resolution.md`. Summary of the five limitations reported in v1.0 and what happened to each:
+
+| v1.0 limitation | Outcome | What changed |
+|---|---|---|
+| Gartner, McKinsey and OpenAI figures supported only by search extracts | **PARTIALLY RESOLVED** | Gartner and McKinsey releases were read directly on publisher-hosted pages. Populations, samples and dates were added [S084][S085][S086][S087][S098][S082][S083]. One Gartner figure (~$202bn) was **removed** because no primary contained it. Anthropic revenue now rests on company posts, with $65bn kept as a single-source press report [S088][S089]. The OpenAI March 2026 checkout quote and Atlas security quote still rely on search extracts of the primary, corroborated by independent coverage [S025][S118] |
+| When autonomous agents are active | **PARTIALLY RESOLVED** | "Active" defined in six units (§10.1). New evidence: Cloudflare (agent fetches follow weekly human rhythms) [S092] and our analysis of 2.74M agent-authored pull requests (flat daily profile, mild weekday lean) [S093]. No representative dataset found for scheduled or continuous agents or for purchase timing. Measurement plan in §10.4 |
+| How often platforms ban agents | **UNRESOLVED AFTER DOCUMENTED SEARCH** (rate); partially improved (context) | Policy, incident and frequency evidence separated (§11.3.1). Anthropic's all-cause enforcement totals added (11.4M bans, 10.6% of appeals overturned, H1 2026) [S094]. No agent-specific numerator or exposure denominator is published, so no rate is given |
+| Value of purchases completed autonomously | **PARTIALLY RESOLVED** (bounded) | Autonomy levels P1–P4 defined. The social-media x402 figure was replaced by Visa's report ($15.0M adjusted) [S091] and TRM's analysis (0.6%–7.5% looks agentic; ~$5–11k a month) [S090]. A global total remains unknown, and we explain why one cannot be built (§9.2) |
+| US-heavy evidence | **PARTIALLY RESOLVED** | Added Eurostat (EU and Latvia AI use) [S096], OECD 11-country interviews [S097], an Accenture 16-country survey read directly [S115], Eurostat labour costs [S119], EU legal sources [S107][S103][S113][S114], and Latvian tax and registry sources [S099][S100][S102]. Added a transferability classification for each conclusion (§11.4). Commerce and enforcement evidence remains US-centred because that is where the activity and litigation are |
+
+**Limitations that remain:**
+- **Freshness.** Evidence was retrieved on 12 October 2026. Several facts changed within weeks of each other: Amazon's agent block, Cloudflare's defaults, the MCP spec, and the discontinuation of OpenAI's Atlas browser.
+- **Access.** Some primaries still block automated retrieval (openai.com, cnbc.com, OpenAI's DSA data pages). We did not bypass these. Gartner's and McKinsey's own alternative hosts (gcom.pdo.aws.gartner.com, karriere.mckinsey.de) served the same documents publicly and were used. No paywalled analyst reports were read.
+- **Vendor-sourced evidence.** Much evidence on adoption, transactions and security comes from vendors with an interest in the result (e.g., [S021][S022][S088][S068]). Vendor statements establish what vendors claim, not independent proof.
+- **Survey limits.** Adoption surveys are self-reported and use incompatible definitions (C001). The Gartner 2025 poll was of webinar attendees [S087].
+- **Experimental limits.** Agent-behaviour findings come from simulations, mock marketplaces and small internal pilots [S029][S030][S039][S040].
+- **Cost models.** The scenarios rest on explicit assumptions, not observed deployments. Resolution rates, engineering effort, security budgets and Latvian administrative costs need local quotes or pilots. Incident costs and non-EU indirect taxes are excluded.
+- **Tax and legal (§15).** Simplified summaries of published rules, partly from an outdated official translation of the Latvian VAT Law [S099]. Every ⚖ item needs professional confirmation.
+- **Timing and enforcement data.** These are narrow: coding agents on public GitHub, chat usage at one provider, and all-cause bans at one provider.
+- **No primary research.** No interviews, surveys or experiments with real customers were conducted, because they need approval. The opportunity register remains hypothesis-only.
+- **Self-review.** The adversarial review was carried out by the same AI system that wrote the paper. No independent human review has taken place.
+
+## 15. Operating a global agent business from Latvia and the EU
+
+> **Status of this section.** It summarises published rules as of 12 October 2026 so you can make better decisions and ask better questions. It is **not tax or legal advice**. Several points depend on facts only an accountant or lawyer can assess, and these are flagged ⚖. The Latvian VAT Law was read in an official English translation marked *outdated*: it is valid for 2024 and excludes amendments of December 2024 and December 2025 [S099]. Check every VAT point against the current Latvian text.
+
+### 15.1 The hypothesis and the short answer
+
+**Hypothesis tested:** *an operator based in Latvia can serve customers internationally through agents.*
+
+**Short answer (INTERPRETATION):** **yes for most B2B agent services and software, with conditions.** It is **not** unrestricted global trading. What actually limits feasibility is, in order:
+1. **product type**, such as handling customers' money or high-risk AI uses;
+2. **customer location**, which sets the VAT, consumer-law and sanctions rules;
+3. **provider and payment availability** where the *customer* is;
+4. the operator's own **administrative capacity**.
+
+Being in Latvia rather than elsewhere in the EU changes mostly tax mechanics and costs, not market access.
+
+| Factor | Does Latvian location materially matter? | Evidence |
+|---|---|---|
+| Access to model APIs | **No** for Latvia itself. Latvia is a supported country for Claude API, Claude.ai and the OpenAI API | [S106] |
+| Customers in unsupported or sanctioned places | **Yes**, through EU law: EU sanctions bar IT consultancy, enterprise-management software and other services to Russia-established entities (FIU authorisation needed even for subsidiaries of EU groups since 1 Oct 2024) | [S112] |
+| Payment acceptance | Little. Stripe publishes Latvian pricing (EEA cards 1.5% + €0.25); merchants of record (Paddle 5% + $0.50) can take over global tax collection | [S104][S105] |
+| VAT | **Yes.** EU-harmonised place-of-supply rules plus Latvian specifics (registration triggers, 21% rate) | [S099][S100][S103] |
+| Company income tax | **Yes.** Latvia taxes company profit only when distributed (20% of the gross distribution) | [S100] |
+| Data protection | EU-wide: GDPR applies to EU operators regardless of customer location | [S109][S110] |
+| AI regulation | EU-wide: the AI Act applies by role and use case | [S107][S108] |
+| Consumer law | Depends on the *customer's* country. EU consumers have a 14-day withdrawal right with exceptions | [S113] |
+| Invoicing | Latvian specifics: B2B structured e-invoicing becomes mandatory on 1 Jan 2028; B2G already mandatory | [S101] |
+
+### 15.2 Establishment options
+
+| Form | Registration | Liability | Main tax on profit | Notes |
+|---|---|---|---|---|
+| **Self-employed person** (registered with VID as performing economic activity) | With the State Revenue Service | Unlimited (personal) | Progressive PIT 25.5% up to €105,300, 33% above, +3% above €200,000 [S100]; social contributions apply (self-employed rates not in our sources ⚖) | Simplest. Personal liability for an agent's mistakes is a real exposure |
+| **Micro-enterprise taxpayer** (available to individuals and sole proprietors) | Opt-in | Unlimited | 25% of turnover (80% counts as social contributions, 20% as PIT), only if **not a VAT payer** and turnover ≤ €50,000 [S100] | See the VAT trap in §15.3. Appears hard to combine with buying foreign APIs ⚖ |
+| **Individual merchant (IK)** | Enterprise Register, state fee €30 [S102] | Owner liable with own property [S102] | As self-employed | Rarely better than an SIA for liability-heavy agent work (INTERPRETATION) |
+| **SIA (limited liability company)** | Enterprise Register, state fee €75, electronic filing; share capital ≥ €2,800, or reduced-equity SIA below that [S102] | Limited to the company | **CIT 20% of gross distributed profit** (0.2/0.8 of the net dividend). Retained profit untaxed. Dividends to individuals 0% PIT when CIT has been paid. Optional regime for individual-owned companies: 15% CIT + 6% PIT [S100] | Standard vehicle for selling internationally and limiting liability |
+
+**Costs (CALCULATION, `models/operator_economics_results.md`).**
+- **One-off:** €75 SIA state fee. Share capital is equity, not a cost.
+- **Recurring admin** (bookkeeping incl. VAT/OSS returns, bank, tools): roughly **€1,700–6,400 a year** (ASSUMPTION: no official price list exists; get quotes).
+- **Profit distribution:** on €50,000 of distributed profit, the owner receives €40,000 under the standard regime and €39,950 under the alternative regime. The two are almost identical as described [S100]. Ask an accountant what the alternative regime changes in practice ⚖.
+
+### 15.3 VAT: who charges what, and when you must register
+
+**Selling** (the place of supply decides which country's VAT applies) [S099][S103]:
+
+| You sell… | To… | VAT treatment (simplified) | Registration consequence |
+|---|---|---|---|
+| Agent services or software subscription | Latvian business or consumer | Latvian VAT 21% | Register once taxable supplies exceed €50,000 [S100][S099] (s.59(1)) |
+| B2B services (consulting, managed agents, SaaS) | Business in another EU state (with VAT ID) | Taxed where the customer is established (s.19(1)); customer self-accounts under reverse charge; you invoice without VAT | **Threshold does not apply**: s.59(4) removes the €50,000 exemption when supplying such services to a taxable person of another Member State, so register from the first such sale [S099] ⚖ |
+| **Electronically supplied** services (automated SaaS, an agent product with minimal human involvement) | Consumers in other EU states | Customer's country VAT (s.27), unless your total cross-border B2C electronic sales and distance sales stay ≤ €10,000 in the current and previous year, in which case Latvian VAT applies; declared through the **Union OSS**, filed quarterly [S103][S099] | OSS registration in Latvia |
+| Human-delivered services (e.g., consulting performed by you, set-up work) | Consumers in other EU states | General B2C rule: supplier's place (s.19(2)), i.e. Latvian VAT 21% [S099] | Classifying a service as "electronically supplied" or not is a fact-specific judgement ⚖ |
+| Any services | Businesses outside the EU | Outside Latvian VAT (place of supply = customer's country) [S099] (s.19(1)) | Check the customer country's rules (some apply reverse charge or require foreign-supplier registration) ⚖ |
+| Electronically supplied services | Consumers outside the EU | Outside EU VAT, but many countries tax foreign digital suppliers (e.g., the UK, and US state sales taxes). Not researched in depth here (UNKNOWN) | A **merchant of record** takes on these registrations [S105][S104] |
+
+**Buying** (the trap for agent businesses):
+- Buying model APIs, cloud and SaaS from foreign providers is a B2B service taxed in Latvia. The Latvian business self-assesses 21% VAT under reverse charge (s.88 for EU suppliers, s.89 for non-EU) [S099]. For a fully taxable, VAT-registered business, this is reported and deducted in the same return, so it is cash-neutral (CALCULATION: about €375 VAT self-assessed and deducted on a $2,000 monthly API bill).
+- **s.59(6)** removes the €50,000 small-business exemption for a taxable person that *receives* such services from another Member State or a third country [S099]. **INTERPRETATION ⚖:** a Latvian agent business that buys foreign AI or cloud services would have to register for VAT even with tiny turnover. Because the micro-enterprise tax requires *not* being a VAT payer [S100], that regime may be unavailable to such businesses. This is the single most important point to confirm with an accountant, against the current (post-2024) text.
+- Some providers bill EU customers with VAT unless a valid VAT ID is supplied. Third-party guides report that Anthropic invoices EU customers through a non-resident VAT scheme and switches to reverse charge when a business VAT ID is added. That is unverified, and a job posting names Ireland as the EU billing entity, which conflicts with it [S120]. Check the invoice seller block.
+
+### 15.4 Payments, invoicing, currencies, refunds and disputes
+
+- **Processing costs** (CALCULATION from [S104][S105]). On a €49 net subscription, the seller keeps:
+  - **Stripe direct:** €46.2–48.0, but files VAT and OSS itself.
+  - **Paddle (merchant of record):** €45.6–46.1.
+  - **Stripe Managed Payments:** €44.5–46.3. Eligibility for Latvian sellers is not confirmed.
+  - The MoR premium is €0.1–2.3 per sale. In exchange, the MoR becomes the legal seller, handles foreign indirect taxes and runs disputes. **RECOMMENDATION:** use a MoR for self-serve consumer and global SaaS. Invoice directly for B2B services.
+- **Disputes:** Stripe charges €20 per dispute [S104]. For agent-initiated purchases, liability rules are still unsettled (§9.4).
+- **Consumer refunds (EU):** 14-day withdrawal right for online services from the contract date. It is lost only if the consumer expressly agreed to immediate performance and the service was fully performed. For digital content, it is lost once streaming or download starts with express consent [S113]. Build these consents into checkout.
+- **E-invoicing:** structured B2B e-invoices become mandatory in Latvia on **1 Jan 2028** (moved from 2026). Invoices to Latvian public bodies have been mandatory since 1 Jan 2025. Peppol BIS 3.0 / EN 16931 formats apply [S101]. Choose invoicing software that already supports Peppol.
+- **Currencies:** pricing in USD for global customers is commercially normal. Payment processors add about 2% when they convert [S104]. How foreign-currency invoices must show VAT amounts in Latvia was not researched (⚖).
+
+### 15.5 Data protection (GDPR) and international transfers
+
+| Operating role | Typical GDPR role (INTERPRETATION ⚖) | Practical requirement |
+|---|---|---|
+| You run agents on a client's data (B2B service) | **Processor** for the client | Art. 28 data processing agreement with the client. Flow your model provider down as a **sub-processor**. Document transfers |
+| You sell a SaaS agent to users | **Controller** for account and usage data; often processor for customer content | Privacy notice, legal basis, retention schedule, DPAs with providers |
+| You use agents internally | **Controller** | Minimise personal data sent to models; check the providers' DPAs |
+
+- **Transfers to US providers:** Anthropic's DPA incorporates the EU Standard Contractual Clauses (Modules 2 and 3) [S110]. The EU–US Data Privacy Framework was upheld by the General Court on 3 Sep 2025, but an appeal to the Court of Justice (C-703/25 P) is pending [S109]. **RECOMMENDATION:** rely on SCCs plus a transfer impact assessment, not on the DPF alone, and use EU data-residency options where providers offer them.
+- **Retention and security:** agent logs and traces contain personal data (§10.4). Set retention limits and access controls. Joint government guidance recommends strict access control for agentic systems [S051].
+
+### 15.6 EU AI Act: roles, use cases and dates
+
+- **Dates** [S107]:
+  - in force 1 Aug 2024;
+  - prohibited practices and **AI literacy** duties from 2 Feb 2025;
+  - general-purpose model (GPAI) obligations from 2 Aug 2025;
+  - **transparency (Art. 50)** from 2 Aug 2026;
+  - high-risk Annex III uses from **2 Dec 2027**; Annex I product-embedded uses from 2 Aug 2028.
+- **Roles** [S108]:
+  - A **provider** develops an AI system (or has it developed) and places it on the market under its own name. A Latvian company selling its *own* agent product is a provider of that AI system, even if it uses a third-party model.
+  - A **deployer** uses an AI system under its authority, for example an internal procurement agent or a client running your tool.
+  - GPAI-model obligations fall on the model developers (Anthropic, OpenAI and similar), not on companies calling their APIs (INTERPRETATION ⚖).
+- **What applies to most small agent businesses:**
+  - Art. 50 disclosure when an agent interacts with people. Fines are up to €15m or 3% of turnover [S074].
+  - AI literacy for staff [S107].
+  - High-risk obligations from Dec 2027 **if** the use case falls in Annex III, such as hiring, credit or education. Avoid those uses unless you are ready for the conformity work.
+
+### 15.7 Liability, delegated authority, regulated activities and sanctions
+
+- **Product liability:** the revised Product Liability Directive brings software, including AI systems, under strict liability for products placed on the market after **9 Dec 2026**. National transposition is uneven [S111]. The proposed AI Liability Directive was withdrawn [S111]. **RECOMMENDATION:** contractual liability caps, professional indemnity insurance (pricing UNKNOWN), and logs that let you reconstruct what an agent did.
+- **Authority delegated to an agent:** when your agent signs up for services, accepts terms or pays, the legal question is whether the company is bound as if an employee had acted. EU law did not provide an agent-specific answer in the sources reviewed (UNKNOWN ⚖). Practical controls are:
+  - spend caps and allow-lists;
+  - human approval for new contracts;
+  - an agent identity distinct from staff credentials (§3.4).
+- **Handling customers' money is a regulated activity.** Receiving and forwarding funds is a payment service under PSD2, possibly money remittance. The commercial-agent exclusion is narrow and is being narrowed further by the Payment Services Regulation [S114]. **INTERPRETATION ⚖:** an agent business that pays suppliers *on behalf of clients* from its own account likely needs a licence or a licensed partner. That is why opportunity O08 stays low-ranked.
+- **Sanctions and export:**
+  - EU Russia sanctions prohibit IT consultancy, enterprise-management software and other services to Russia-established entities [S112].
+  - Model providers do not support several countries; Russia, Belarus, China and Iran are not on Anthropic's list [S106].
+  - **RECOMMENDATION:** screen customers by country and ownership at onboarding.
+
+### 15.8 Three operating models compared
+
+| | **1. Agent services to businesses** (build, harden or audit agents; managed agent operations) | **2. Agent software subscription** (self-serve SaaS) | **3. Internal agent procuring business services** |
+|---|---|---|---|
+| Typical customer | EU and non-EU companies | Global SMBs and consumers | Your own company |
+| VAT on sales | EU B2B: reverse charge, register from first sale (s.59(4)). Non-EU B2B: outside scope. Latvia: 21% | EU consumers: OSS at customer-country rates (above €10k). EU B2B: reverse charge. Non-EU consumers: foreign digital-services taxes, so a MoR is advisable | n/a |
+| VAT on purchases | Reverse charge on foreign APIs and cloud; registration trigger s.59(6) | Same | Same. Self-assess and deduct |
+| GDPR role | Processor (client data) | Controller + processor | Controller |
+| AI Act role | Deployer, or provider if you deliver your own branded system | **Provider** of the AI system. Art. 50 disclosure if it interacts with people | Deployer; AI literacy |
+| Consumer law | Usually none (B2B) | 14-day withdrawal unless properly waived for immediate performance [S113] | n/a |
+| Payments | Bank transfer / Stripe invoices; e-invoicing from 2028 | MoR or Stripe + OSS | Company card or per-agent cards with limits |
+| Main risks | Professional liability; sanctions screening | Global indirect tax; chargebacks; product liability from Dec 2026 | Unauthorised commitments; spend leakage |
+| Administrative burden (INTERPRETATION) | **Low–medium** | **Medium–high** (lower with MoR) | Low |
+| Fit with top opportunities | O03, O07, O02, O04 | O05 (kit), O06 (care plan) | All (cost base) |
+
+### 15.9 Questions to take to an accountant or lawyer (⚖)
+
+1. Under the **current** Latvian VAT Law, does receiving foreign B2B services (APIs, cloud) still remove the €50,000 registration exemption (s.59(6))? If so, which tax regimes stay available?
+2. Is my agent product an "electronically supplied service" (OSS, customer-country VAT) or a professional service (Latvian VAT for consumers)?
+3. Which non-EU countries require registration for my digital sales, and is a merchant of record cheaper than registering myself?
+4. Standard vs alternative CIT regime: what actually differs for my ownership structure?
+5. For my contracts: liability caps, the product-liability exposure after 9 Dec 2026, and insurance.
+6. Does any planned feature involve holding or forwarding client funds (PSD2/PSR licensing)?
+7. Sanctions screening procedure, and whether any target customer group touches restricted jurisdictions.
+8. GDPR: processor vs controller allocation, transfer impact assessment for US model providers, and retention policy for agent logs.
+
+### 15.10 Verdict on the operating hypothesis
+
+- **Supported (with conditions):** a Latvia-based SIA can sell agent services to businesses across the EU and in most non-EU countries, buy the necessary model and cloud services, and get paid through mainstream processors. EU VAT and GDPR frameworks are harmonised and workable for small operators.
+- **Narrowed:** consumer-facing global SaaS is feasible but administratively heavier, and is usually best run through a merchant of record. Handling customers' funds, high-risk AI uses and sanctioned markets are **not** freely available.
+- **Not shown:** that demand exists in any particular country. Worldwide reach is theoretical until validated (see the opportunity register).
 
 ## Glossary
 
 - **A2A (Agent2Agent):** open protocol for agents to discover and message other agents. Uses "Agent Cards" describing an agent's skills and endpoint [S036].
 - **ACP (Agentic Commerce Protocol):** OpenAI/Stripe protocol for merchants to expose products and checkout to AI assistants [S026].
 - **Agent:** an LLM-driven system that chooses its own actions and tools at run time (§1).
-- **Agent washing:** marketing a non-agentic product as an agent [S006].
+- **Agent washing:** marketing a non-agentic product as an agent [S087].
 - **AGENTS.md:** a plain-text file in a code repository that tells coding agents how to work on it [S034].
 - **AP2 (Agent Payments Protocol):** Google-led protocol using signed "mandates" to prove what a user authorised [S035].
 - **ARR / run-rate:** annualised recurring revenue, or current revenue extrapolated to a year. Not the same as annual revenue.
@@ -807,7 +1161,7 @@ Lowest-ranked: spend-control fintech for agent purchases (36) and dispute-eviden
 - **Mandate:** a signed statement of what an agent is authorised to buy [S035].
 - **MCP (Model Context Protocol):** open standard for connecting agents to tools and data [S032].
 - **MPP (Machine Payments Protocol):** Stripe/Tempo protocol letting agents pay for services programmatically [S024].
-- **Prompt injection:** hidden instructions in content the agent reads that hijack its behaviour [S069].
+- **Prompt injection:** hidden instructions in content the agent reads that hijack its behaviour [S118][S069].
 - **Resolution rate:** the share of cases an agent completes without a human.
 - **Sandbox:** isolated environment limiting what an agent's actions can affect.
 - **Signed agent / Web Bot Auth:** an agent that cryptographically signs its web requests so sites can verify who it is [S059].
@@ -816,6 +1170,13 @@ Lowest-ranked: spend-control fintech for agent purchases (36) and dispute-eviden
 - **TAP (Trusted Agent Protocol):** Visa's protocol for merchants to recognise legitimate shopping agents [S020].
 - **UCP (Universal Commerce Protocol):** Google/Shopify-led open protocol for agentic shopping from catalog to post-purchase [S023].
 - **x402:** protocol using the HTTP "402 Payment Required" status to let agents pay per request, typically in stablecoins [S028].
+- **Autonomy levels P1–P4 (purchases):** P1 agent recommends, human buys; P2 agent prepares, human approves; P3 agent executes within limits delegated earlier; P4 agent transacts with no approval at the moment of purchase (§9.2).
+- **DPA (data processing agreement):** GDPR Art. 28 contract between a controller and a processor; SCCs are the EU standard clauses for transfers outside the EEA [S110].
+- **Merchant of record (MoR):** a company (e.g., Paddle) that legally sells your product to the customer, collects and remits taxes worldwide and handles disputes, for a fee [S105].
+- **OSS (One Stop Shop):** EU scheme letting a seller declare VAT on cross-border consumer sales in all member states through one quarterly return in its home state [S103].
+- **Reverse charge:** for B2B services across borders, the *buyer* self-accounts for VAT instead of the seller charging it [S099].
+- **SIA:** Latvian limited liability company (sabiedrība ar ierobežotu atbildību) [S102].
+- **VID:** Latvian State Revenue Service (Valsts ieņēmumu dienests).
 
 # Appendices
 
@@ -893,7 +1254,7 @@ while not done:
 
 1. **Disclosure (AI Act Art. 50, from 2 Aug 2026).** Does any agent interact directly with people (chat, voice, email)? Is it obvious that it's AI? If not, disclose at first interaction [S074].
 2. **Content marking.** Do you generate synthetic audio, image, video or text published to others? Check marking obligations; existing systems have until 2 Dec 2026 [S074].
-3. **High-risk screen.** Is the agent used in hiring, credit, education, essential services or other Annex III areas? If so, plan for obligations applying from 2 Dec 2027 [S049].
+3. **High-risk screen.** Is the agent used in hiring, credit, education, essential services or other Annex III areas? If so, plan for obligations applying from 2 Dec 2027 [S107].
 4. **Accountability.** Name a responsible human per agent, and document its purpose, tools, permissions and limits (Singapore MGF dimension 2 [S052]).
 5. **Risk bounding.** Write down what the agent may never do (amount limits, data classes, external parties) (MGF dimension 1 [S052]).
 6. **Controls.** Apply Appendix B.
@@ -905,7 +1266,8 @@ while not done:
 - **Process.** Inspect → baseline → plan → research → reconcile → draft → verify → revise (see `research/research-plan.md`).
 - **Search and retrieval.** Web search plus direct page retrieval, 12 October 2026. Where direct retrieval failed (HTTP 403/503), we used search-engine extracts quoting the primary and marked the access method in the register.
 - **Source hierarchy.** Specifications, official docs, pricing pages, terms, court decisions, filings, then independent research, then reputable news, then vendor blogs and aggregators. Vendor claims are labelled as claims.
-- **Registers.** Sources (`research/sources.csv`, 81 entries); claims and conflicts (`research/claims-ledger.md`); coverage (`research/coverage-matrix.md`); opportunities (`opportunities/`); cost model (`models/`).
+- **Registers.** Sources (`research/sources.csv`, 121 entries after v1.1, superseded entries kept and annotated); claims and conflicts (`research/claims-ledger.md`); limitations resolution (`research/limitations-resolution.md`); coverage (`research/coverage-matrix.md`); opportunities (`opportunities/`); cost models (`models/cost_model.py`, `models/operator_economics.py`); public-data analysis (`research/analysis/aidev_timing.py`).
+- **v1.1 access paths.** Publisher-hosted alternative domains served the same public documents (gcom.pdo.aws.gartner.com for Gartner; karriere.mckinsey.de for McKinsey). Official APIs were used for Eurostat and ECB data. A public CC-BY dataset was downloaded column-by-column from Hugging Face. The tool used here could not reach web.archive.org, so no archived copies were used. No paywall, login or anti-bot protection was bypassed.
 - **Verification.** See `verification/verification-report.md`, which covers the citation-resolution check, number reconciliation between prose and model outputs, and the adversarial self-review.
 
 # References
@@ -914,11 +1276,7 @@ Each entry gives the ID, title, publisher, publication date, URL, retrieval date
 
 - **[S001]** Building effective agents. Anthropic. 2024-12-19. <https://www.anthropic.com/engineering/building-effective-agents> (retrieved 2026-10-12; fetched; confidence high)
 - **[S002]** Levels of Autonomy for AI Agents (arXiv 2506.12469; Knight First Amendment Institute). Feng, McDonald, Zhang (Univ. of Washington). 2025-06 (v2 2025-07-28). <https://arxiv.org/abs/2506.12469> (retrieved 2026-10-12; search-extract; confidence high)
-- **[S003]** The state of AI in 2025: Agents, innovation, and transformation. McKinsey & Company. 2025-11. <https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-2025> (retrieved 2026-10-12; search-extract (direct fetch 503); confidence medium)
-- **[S004]** The state of AI in 2026: On the road to ROI. McKinsey & Company. 2026-08. <https://www.mckinsey.com/~/media/mckinsey/business%20functions/quantumblack/our%20insights/the%20state%20of%20ai/the-state-of-ai-in-2026-on-the-road-to-roi.pdf> (retrieved 2026-10-12; search-extract (direct fetch 503; curl HTTP/2 error); confidence medium)
-- **[S005]** What the 2026 Hype Cycle for Agentic AI Reveals. Gartner. 2026 (reported 2026-04-15). <https://www.gartner.com/en/articles/hype-cycle-for-agentic-ai> (retrieved 2026-10-12; search-extract (direct fetch 403); confidence medium)
-- **[S006]** Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027. Gartner (press release). 2025-06-25. <https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027> (retrieved 2026-10-12; search-extract via multiple secondary outlets (direct fetch 403); confidence medium)
-- **[S007]** Gartner Predicts 40% of Enterprise Apps Will Feature Task-Specific AI Agents by 2026. Gartner (press release). 2025-08-26. <https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025> (retrieved 2026-10-12; search-extract; confidence medium)
+- **[S007]** Gartner Predicts 40% of Enterprise Apps Will Feature Task-Specific AI Agents by 2026. Gartner (press release). 2025-08-26. <https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025> (retrieved 2026-10-12; search-extract | 2026-10-12 follow-up: fetched via Gartner-hosted mirror 2026-10-12; confidence medium)
 - **[S008]** Time horizons of AI agents (METR). METR. page shows 2026-09-08 (no longer actively updated). <https://metr.org/time-horizons/> (retrieved 2026-10-12; fetched; confidence high)
 - **[S009]** Time Horizon 1.1 / secondary summaries of METR doubling time. LessWrong & others (secondary). 2026. <https://www.lesswrong.com/posts/EYb2K9acKfyG2bome/metr-time-horizons-now-10x-year> (retrieved 2026-10-12; search-extract; confidence low)
 - **[S010]** OWASP Top 10 for Agentic Applications for 2026. OWASP GenAI Security Project. 2025-12-09. <https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/> (retrieved 2026-10-12; fetched (landing page) + search-extract for item names; confidence medium)
@@ -936,13 +1294,11 @@ Each entry gives the ID, title, publisher, publication date, URL, retrieval date
 - **[S022]** Mastercard Agent Pay press releases (Agent Pay for Machines Jun 2026; trust & intelligence services Sep 2026; APAC/LAC live transactions). Mastercard. 2026-03 to 2026-09. <https://www.mastercard.com/global/en/news-and-trends/press/2026/june/mastercard-launches-agent-pay-for-machines.html> (retrieved 2026-10-12; search-extract; confidence medium)
 - **[S023]** Universal Commerce Protocol (UCP) launch and rollout. Google & Shopify (via Shopify news and secondary). 2026-01-11 launch. <https://www.shopify.com/news/spring-26-edition-dev> (retrieved 2026-10-12; search-extract; confidence medium)
 - **[S024]** Introducing the Machine Payments Protocol. Stripe. 2026-03-18. <https://stripe.com/blog/machine-payments-protocol> (retrieved 2026-10-12; fetched; confidence high)
-- **[S025]** Powering Product Discovery in ChatGPT. OpenAI. 2026-03-24. <https://openai.com/index/powering-product-discovery-in-chatgpt/> (retrieved 2026-10-12; search-extract (direct fetch 403); confidence medium)
-- **[S026]** Buy it in ChatGPT: Instant Checkout and the Agentic Commerce Protocol; Stripe newsroom. OpenAI; Stripe. 2025-09-29. <https://stripe.com/newsroom/news/stripe-openai-instant-checkout> (retrieved 2026-10-12; search-extract; confidence high)
-- **[S027]** ChatGPT Instant Checkout merchant adoption (secondary analyses). laioutr.com; eesel.ai. 2026. <https://www.laioutr.com/en/blog/chatgpt-instant-checkout-merchant-adoption-agentic-readiness-2026> (retrieved 2026-10-12; search-extract; confidence low)
-- **[S028]** x402 adjusted volume analysis (Visa/Artemis via The Defiant). The Defiant reporting Visa's Cuy Sheffield / Artemis. 2026-04. <https://thedefiant.io/news/infrastructure/visa-s-sheffield-pegs-adjusted-x402-volume-at-19m> (retrieved 2026-10-12; search-extract; confidence medium)
+- **[S025]** Powering Product Discovery in ChatGPT. OpenAI. 2026-03-24. <https://openai.com/index/powering-product-discovery-in-chatgpt/> (retrieved 2026-10-12; search-extract (direct fetch 403) | 2026-10-12 follow-up: search-extract of primary; corroborated by independent coverage (CNBC headline 2026-03-24; Talon.One read 2026-10-12); confidence medium)
+- **[S026]** Buy it in ChatGPT: Instant Checkout and the Agentic Commerce Protocol; Stripe newsroom. OpenAI; Stripe. 2025-09-29. <https://stripe.com/newsroom/news/stripe-openai-instant-checkout> (retrieved 2026-10-12; search-extract | 2026-10-12 follow-up: Stripe newsroom fetched directly (date 2025-09-29; Etsy live US; Shopify coming; SPT scoped to merchant and cart total); confidence high)
+- **[S028]** x402 adjusted volume analysis (Visa/Artemis via The Defiant). The Defiant reporting Visa's Cuy Sheffield / Artemis. 2026-04. <https://thedefiant.io/news/infrastructure/visa-s-sheffield-pegs-adjusted-x402-volume-at-19m> (retrieved 2026-10-12; search-extract | 2026-10-12 follow-up: SUPERSEDED: replaced by Visa primary S091 and TRM S090; confidence medium)
 - **[S029]** Magentic Marketplace: An Open-Source Environment for Studying Agentic Markets. Microsoft Research. 2025-10. <https://www.microsoft.com/en-us/research/publication/magentic-marketplace-an-open-source-environment-for-studying-agentic-markets/> (retrieved 2026-10-12; search-extract; confidence medium)
 - **[S030]** What Is Your AI Agent Buying? Evaluation, Biases, Model Dependence & Emerging Implications (arXiv 2508.02630). Allouah, Besbes, Figueroa, Kanoria, Kumar. 2025-08 (v3 later). <https://arxiv.org/abs/2508.02630> (retrieved 2026-10-12; search-extract; confidence high)
-- **[S031]** Adobe Analytics AI traffic to US retail (via Digital Commerce 360 / Decrypt). Adobe (via trade press). 2026-04 to 2026-06. <https://www.digitalcommerce360.com/2026/06/17/adobe-ai-referred-traffic-to-retail-sites-doubles-in-a-year/> (retrieved 2026-10-12; search-extract; confidence medium)
 - **[S032]** MCP specification 2026-07-28 — Key Changes (changelog). Model Context Protocol project (Agentic AI Foundation / Linux Foundation). 2026-07-28. <https://modelcontextprotocol.io/specification/2026-07-28/changelog> (retrieved 2026-10-12; fetched; confidence high)
 - **[S033]** MCP blog — 2026-07-28 Specification Release Candidate / release posts. Model Context Protocol blog. 2026-05-21 (RC); 2026-07-28 (final). <https://blog.modelcontextprotocol.io/tags/protocol/> (retrieved 2026-10-12; fetched; confidence medium)
 - **[S034]** Linux Foundation Announces the Formation of the Agentic AI Foundation (AAIF). Linux Foundation (press release). 2025-12-09. <https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation> (retrieved 2026-10-12; fetched; confidence high)
@@ -960,16 +1316,12 @@ Each entry gives the ID, title, publisher, publication date, URL, retrieval date
 - **[S046]** Gemini Developer API pricing. Google. last updated 2026-10-09. <https://ai.google.dev/gemini-api/docs/pricing> (retrieved 2026-10-12; fetched; confidence high)
 - **[S047]** Claude plans & pricing. Anthropic. live page. <https://claude.com/pricing> (retrieved 2026-10-12; fetched; confidence high)
 - **[S048]** LangSmith pricing. LangChain. live page. <https://www.langchain.com/pricing> (retrieved 2026-10-12; fetched; confidence high)
-- **[S049]** AI Omnibus enters into force; AI Act policy page. European Commission (DG CONNECT). 2026-07 (entry into force reported 2026-07-27). <https://digital-strategy.ec.europa.eu/en/news/ai-omnibus-enters-force> (retrieved 2026-10-12; search-extract; confidence medium)
 - **[S050]** NIST CAISI AI Agent Standards Initiative; NCCoE concept paper on Software and AI Agent Identity and Authorization. NIST (via secondary: CSA research notes, law-firm summaries). 2026-02-17 (initiative); 2026-02-05 (concept paper). <https://labs.cloudsecurityalliance.org/research/csa-research-note-nist-caisi-ai-agent-standards-compliance-2/> (retrieved 2026-10-12; search-extract; confidence medium)
 - **[S051]** Joint guidance on the careful adoption of agentic artificial intelligence services. Canadian Centre for Cyber Security with CISA, NSA, ASD ACSC, NCSC-UK, NCSC-NZ. 2026-05-01 (date modified). <https://cyber.gc.ca/en/news-events/joint-guidance-careful-adoption-agentic-artificial-intelligence-services> (retrieved 2026-10-12; fetched (summary page); confidence medium)
 - **[S052]** Singapore Model AI Governance Framework for Agentic AI (law-firm summary). IMDA Singapore via Baker McKenzie. 2026-01-22. <https://www.bakermckenzie.com/en/insight/publications/2026/01/singapore-governance-framework-for-agentic-ai-launched> (retrieved 2026-10-12; search-extract; confidence medium)
-- **[S053]** Anthropic run-rate revenue (CNBC; VentureBeat). CNBC citing investor update; VentureBeat. 2026-08-17. <https://www.cnbc.com/2026/08/17/anthropic-says-annualized-revenue-climbed-to-65-billion-in-july.html> (retrieved 2026-10-12; search-extract (direct fetch 403); confidence medium)
 - **[S054]** Cursor/Anysphere revenue and acquisition (Wikipedia; Dealroom; press). Wikipedia; Dealroom; others. 2026. <https://en.wikipedia.org/wiki/Cursor_(company)> (retrieved 2026-10-12; search-extract; confidence low)
 - **[S055]** Salesforce Delivers Record Second Quarter Fiscal 2027 Results. Salesforce (investor relations). 2026-08-26. <https://investor.salesforce.com/news/news-details/2026/Salesforce-Delivers-Record-Second-Quarter-Fiscal-2027-Results/default.aspx> (retrieved 2026-10-12; fetched; confidence high)
 - **[S056]** AI agents market size forecasts (Grand View Research; MarketsandMarkets; BCC; TBRC). Market research firms (press releases/report pages). 2025-05 to 2026-03. <https://www.marketsandmarkets.com/Market-Reports/ai-agent-market-15761548.html> (retrieved 2026-10-12; search-extract; confidence low)
-- **[S057]** The agentic commerce opportunity (McKinsey); Shopping in the Age of AI (ICSC & McKinsey). McKinsey & Company. 2025-10; 2026-04-27. <https://www.mckinsey.com/industries/retail/our-insights/the-agentic-commerce-opportunity-how-ai-agents-are-ushering-in-a-new-era-for-consumers-and-merchants> (retrieved 2026-10-12; search-extract; confidence medium)
-- **[S058]** Gartner agentic AI spending forecasts (via Software Strategies blog). Gartner via secondary blog. 2026-01/02. <https://softwarestrategiesblog.com/2026/02/26/roundup-of-agentic-ai-forecasts-and-market-estimates-2026/> (retrieved 2026-10-12; search-extract; confidence low)
 - **[S059]** IETF Web Bot Auth (webbotauth) working group. IETF Datatracker + secondary. 2025-2026. <https://datatracker.ietf.org/group/webbotauth/about/> (retrieved 2026-10-12; search-extract; confidence medium)
 - **[S060]** Microsoft Entra Agent ID — What's new. Microsoft Learn. 2026. <https://learn.microsoft.com/en-us/entra/agent-id/whats-new-agent-id> (retrieved 2026-10-12; search-extract; confidence medium)
 - **[S061]** AIUC-1 standard and AI agent insurance (secondary coverage). AIUC via secondary (CO/AI; FourWeekMBA; CSA crosswalk). 2025-2026. <https://labs.cloudsecurityalliance.org/wp-content/uploads/2026/08/CSA_research_note_aiuc1_owasp_agentic_crosswalk_20260804-csa-styled.pdf> (retrieved 2026-10-12; search-extract; confidence low)
@@ -978,9 +1330,9 @@ Each entry gives the ID, title, publisher, publication date, URL, retrieval date
 - **[S064]** Amazon Conditions of Use agent provisions (secondary: ConductAtlas; EcomCrew; Canopy). Amazon via secondary. 2025-05-30 / 2026-03-04 (conflicting). <https://conductatlas.com/platform/amazon/amazon-conditions-of-use/provision/CA-P-018576/agent-must-identify-itself-in-all-requests/> (retrieved 2026-10-12; search-extract; confidence low)
 - **[S065]** Shopify has quietly set boundaries for 'buy for me' AI bots. Modern Retail; Retail TouchPoints. 2025-07-14. <https://www.modernretail.co/technology/shopify-has-quietly-set-boundaries-for-buy-for-me-ai-bots-on-merchant-sites/> (retrieved 2026-10-12; search-extract; confidence medium)
 - **[S066]** Agentic commerce chargeback liability (vendor analyses). Chargeflow; Shopappy. 2026. <https://www.chargeflow.io/blog/ai-agent-chargeback-liability> (retrieved 2026-10-12; search-extract; confidence low)
-- **[S067]** Accenture Consumer Pulse Research 2026 ('Talk to my AI agent'). Accenture. 2026. <https://www.accenture.com/gb-en/insights/consulting/talk-my-ai-agent> (retrieved 2026-10-12; search-extract; confidence medium)
+- **[S067]** Accenture Consumer Pulse Research 2026 ('Talk to my AI agent'). Accenture. 2026. <https://www.accenture.com/gb-en/insights/consulting/talk-my-ai-agent> (retrieved 2026-10-12; search-extract | 2026-10-12 follow-up: superseded-by S115 (read directly); confidence medium)
 - **[S068]** Piloting Claude for Chrome. Anthropic. 2025-08-26. <https://www.anthropic.com/news/claude-for-chrome> (retrieved 2026-10-12; search-extract; confidence medium)
-- **[S069]** OpenAI says AI browsers may always be vulnerable to prompt injection attacks (coverage of OpenAI Atlas hardening post). TechCrunch (reporting OpenAI blog). 2025-12-22. <https://techcrunch.com/2025/12/22/openai-says-ai-browsers-may-always-be-vulnerable-to-prompt-injection-attacks/> (retrieved 2026-10-12; search-extract; confidence medium)
+- **[S069]** OpenAI says AI browsers may always be vulnerable to prompt injection attacks (coverage of OpenAI Atlas hardening post). TechCrunch (reporting OpenAI blog). 2025-12-22. <https://techcrunch.com/2025/12/22/openai-says-ai-browsers-may-always-be-vulnerable-to-prompt-injection-attacks/> (retrieved 2026-10-12; search-extract | 2026-10-12 follow-up: corroborated by primary-title search extract S118; confidence medium)
 - **[S070]** We are Changing our Developer Productivity Experiment Design. METR. 2026-02-24. <https://metr.org/blog/2026-02-24-uplift-update/> (retrieved 2026-10-12; search-extract; confidence high)
 - **[S071]** Intercom pricing (Fin AI Agent). Intercom. live page. <https://www.intercom.com/pricing> (retrieved 2026-10-12; fetched; confidence high)
 - **[S072]** Klarna reverses AI customer-service overhaul (coverage). Entrepreneur; Tech.co; eMarketer. 2025-05. <https://www.entrepreneur.com/business-news/klarna-ceo-reverses-course-by-hiring-more-humans-not-ai/491396> (retrieved 2026-10-12; search-extract; confidence medium)
@@ -993,5 +1345,45 @@ Each entry gives the ID, title, publisher, publication date, URL, retrieval date
 - **[S079]** Scheduled Tasks in ChatGPT; ChatGPT agent (help center); ChatGPT release notes. OpenAI Help Center. 2026 (release note 2026-06-17). <https://help.openai.com/en/articles/10291617-what-is-agent-mode> (retrieved 2026-10-12; search-extract; confidence medium)
 - **[S080]** Claude Managed Agents — Scheduled deployments. Anthropic (platform docs). beta (managed-agents-2026-04-01). <https://platform.claude.com/docs/en/managed-agents/scheduled-deployments> (retrieved 2026-10-12; fetched; confidence high)
 - **[S081]** awesome-ai-agent-attacks: curated timeline of AI agent security incidents (2024-2026); MCP security statistics roundups. webpro255 (GitHub) / Practical DevSecOps (secondary aggregations). 2026. <https://github.com/webpro255/awesome-ai-agent-attacks> (retrieved 2026-10-12; search-extract; confidence low)
+- **[S082]** Gartner Forecasts Worldwide AI Spending to Grow 49.5% in 2026 (press release, Table 1). Gartner (press release). 2026-09-16. <https://www.gartner.com/en/newsroom/press-releases/2026-09-16-gartner-forecasts-worldwide-ai-spending-to-grow-49-point-5-percent-in-2026> (retrieved 2026-10-12; fetched via Gartner-hosted mirror gcom.pdo.aws.gartner.com (www.gartner.com returns 403 to automated clients); confidence high (that Gartner states it); low (as market measurement))
+- **[S083]** Forecast Analysis: Agentic AI Spending in Software Markets (summary page). Gartner. 2026-02-17. <https://www.gartner.com/en/documents/7455226> (retrieved 2026-10-12; fetched abstract via Gartner-hosted mirror; full report behind client login (not accessed); confidence medium)
+- **[S084]** The state of AI in 2026: On the road to ROI (McKinsey Global Survey) — publisher-hosted page. McKinsey & Company (QuantumBlack). 2026-08-25. <https://karriere.mckinsey.de/capabilities/quantumblack/our-insights/the-state-of-ai> (retrieved 2026-10-12; fetched (McKinsey-hosted karriere.mckinsey.de; mckinsey.com unreachable from this environment); confidence high)
+- **[S085]** The state of AI in 2025: Agents, innovation, and transformation — publisher-hosted page. McKinsey & Company (QuantumBlack). 2025-11-05. <https://karriere.mckinsey.de/capabilities/quantumblack/our-insights/the-state-of-ai-2025> (retrieved 2026-10-12; fetched (McKinsey-hosted mirror); confidence high)
+- **[S086]** The agentic commerce opportunity — publisher-hosted page. McKinsey & Company. 2025-10-17. <https://karriere.mckinsey.de/capabilities/quantumblack/our-insights/the-agentic-commerce-opportunity-how-ai-agents-are-ushering-in-a-new-era-for-consumers-and-merchants> (retrieved 2026-10-12; fetched (McKinsey-hosted mirror); confidence high (that McKinsey states it); low (as forecast))
+- **[S087]** Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027 — full release. Gartner (press release). 2025-06-25. <https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027> (retrieved 2026-10-12; fetched via Gartner-hosted mirror gcom.pdo.aws.gartner.com; confidence high)
+- **[S088]** Anthropic raises $30B Series G (Feb 2026) and $65B Series H (May 2026) — run-rate disclosures. Anthropic (newsroom). 2026-02-12; 2026-05-28. <https://www.anthropic.com/news/series-h> (retrieved 2026-10-12; fetched (both posts); confidence high)
+- **[S089]** Anthropic revenue run rate tops $65 billion, source says (Reuters via The Star). Reuters (syndicated by The Star). 2026-08-17/18. <https://www.thestar.com.my/tech/tech-news/2026/08/18/anthropic-revenue-run-rate-tops-65-billion-source-says> (retrieved 2026-10-12; fetched; confidence medium)
+- **[S090]** Who's Actually Paying? Measuring AI Agent Payments Onchain. TRM Labs. 2026-09-09. <https://www.trmlabs.com/trm-tech-blog/whos-actually-paying-measuring-ai-agent-payments-onchain> (retrieved 2026-10-12; fetched; confidence high)
+- **[S091]** Agentic payments from the ground up: What the onchain data tells us. Visa (with Artemis). updated 2026-07-14. <https://www.visa.com/en-us/thought-leadership/innovation/agentic-payments-from-the-ground-up> (retrieved 2026-10-12; fetched; confidence high)
+- **[S092]** The Internet has a second audience. Cloudflare (blog). 2026-09-30. <https://blog.cloudflare.com/agentic-web/> (retrieved 2026-10-12; fetched; confidence medium)
+- **[S093]** AIDev: Studying AI Coding Agents on GitHub (dataset hao-li/AIDev, CC-BY-4.0). Li, Zhang, Hassan (MSR '26); Hugging Face dataset. arXiv 2602.09185 (Feb 2026); dataset snapshot read 2026-10-12. <https://huggingface.co/datasets/hao-li/AIDev> (retrieved 2026-10-12; downloaded columns created_at, agent from all_pull_request.parquet (public, no login) and analysed locally (research/analysis/aidev_timing.py); confidence high (data); medium (interpretation))
+- **[S094]** Anthropic Transparency Hub — System Trust and Reporting (enforcement statistics). Anthropic. updated 2026-07-23 (covers Jan-Jun 2026). <https://www.anthropic.com/transparency/system-trust-reporting> (retrieved 2026-10-12; fetched; confidence high)
+- **[S095]** OpenAI Ireland Limited 2025 EU Digital Services Act Transparency Report (cover letter). OpenAI Ireland Limited. 2026 (reporting period 2025-01-01 to 2025-12-31). <https://cdn.openai.com/trust-and-transparency/2025-openai-ireland-limited-dsa-transparency-report-cover-letter.pdf> (retrieved 2026-10-12; PDF fetched and text extracted; machine-readable data at openai.com/trust-and-transparency returned 403 (not accessed); confidence medium)
+- **[S096]** Eurostat: 20% of EU enterprises use AI technologies (news) and dataset isoc_eb_ai (API). Eurostat. 2025-12-11. <https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20251211-2> (retrieved 2026-10-12; fetched news page; values queried from Eurostat dissemination API (isoc_eb_ai, size_emp=GE10, indic_is=E_AI_TANY, unit=PC_ENT); confidence high)
+- **[S097]** Agentic AI in organisations: Early insights from practitioner interviews (OECD AI Papers). OECD (with GPAI). 2026-09 (PDF created 2026-09-16). <https://www.oecd.org/en/publications/agentic-ai-in-organisations_1257a26f-en.html> (retrieved 2026-10-12; PDF fetched and text extracted (HTML page 403); confidence high)
+- **[S098]** Gartner 2026 Hype Cycle for Agentic AI — article (direct read). Gartner (Rajesh Kandaswamy). 2026-04-15. <https://www.gartner.com/en/articles/hype-cycle-for-agentic-ai> (retrieved 2026-10-12; fetched via Gartner-hosted mirror gcom.pdo.aws.gartner.com; confidence high (statement); medium (representativeness))
+- **[S099]** Latvian Value Added Tax Law (English translation, Sections 19, 27, 59, 88, 89). Saeima / Likumi.lv (Valsts valodas centrs translation). translation valid 2024-01-01 to 2024-12-31 (marked outdated; excludes amendments of 2024-12-04, 2024-12-12, 2025-12-03). <https://likumi.lv/ta/en/en/id/253451-value-added-tax-law> (retrieved 2026-10-12; downloaded and text-searched; confidence medium-high)
+- **[S100]** KPMG Baltics Tax Card Latvia 2026. KPMG Baltics SIA. effective 2026-01-01. <https://assets.kpmg.com/content/dam/kpmgsites/lv/pdf/2026/v%202.0%20Tax_card_Latvia_2026_96x180mm.pdf.coredownload.inline.pdf> (retrieved 2026-10-12; PDF fetched and text extracted; confidence high)
+- **[S101]** Latvia B2B e-invoicing mandate postponed to 1 January 2028 (Accounting Law amendments). Sovos; Fiscal Requirements; EDICOM (secondary reporting). 2025-06 (Saeima adoption 2025-06-05; published 2025-06-11). <https://sovos.com/regulatory-updates/trr/latvia-confirms-new-go-live-date-for-mandatory-b2b-e-invoicing/> (retrieved 2026-10-12; search-extract; confidence medium)
+- **[S102]** Enterprise Register of Latvia — Compare business types; SIA registration fees. Uzņēmumu reģistrs (Register of Enterprises of the Republic of Latvia). undated (retrieved live). <https://www.ur.gov.lv/en/compare-business-types> (retrieved 2026-10-12; fetched; confidence medium-high)
+- **[S103]** VAT One Stop Shop — The One Stop Shop (Union and non-Union schemes). European Commission (DG TAXUD). live page. <https://vat-one-stop-shop.ec.europa.eu/one-stop-shop_en> (retrieved 2026-10-12; fetched; confidence high)
+- **[S104]** Stripe pricing — Latvia. Stripe. live page. <https://stripe.com/en-lv/pricing> (retrieved 2026-10-12; fetched; confidence high)
+- **[S105]** Paddle pricing. Paddle. live page. <https://www.paddle.com/pricing> (retrieved 2026-10-12; fetched; confidence high)
+- **[S106]** Anthropic supported countries & regions; OpenAI API supported countries. Anthropic; OpenAI. live pages. <https://www.anthropic.com/supported-countries> (retrieved 2026-10-12; Anthropic fetched; OpenAI via search-extract of developers.openai.com/api/docs/supported-countries; confidence high (Anthropic) / medium (OpenAI))
+- **[S107]** AI Act — regulatory framework page (application timeline). European Commission (DG CONNECT). updated 2026-08-03. <https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai> (retrieved 2026-10-12; fetched; confidence high)
+- **[S108]** AI Act Article 3 definitions (provider, deployer, placing on the market). EUR-Lex consolidated Regulation (EU) 2024/1689 (version 2026-07-27); artificialintelligenceact.eu. consolidated 2026-07-27. <https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng> (retrieved 2026-10-12; search-extract; confidence medium-high)
+- **[S109]** Latombe v Commission (T-553/23) — General Court upholds EU-US Data Privacy Framework; appeal C-703/25 P. Lewis Silkin; Digital Policy Alert (secondary). 2025-09-03; appeal filed 2025-10-31. <https://www.lewissilkin.com/en/insights/2025/09/03/transatlantic-trouble-not-this-time-latombes-challenge-to-eu-us-data-transfers-fails> (retrieved 2026-10-12; search-extract; confidence medium)
+- **[S110]** Anthropic Data Processing Addendum. Anthropic. live page. <https://www.anthropic.com/legal/data-processing-addendum> (retrieved 2026-10-12; search-extract; confidence medium)
+- **[S111]** Directive (EU) 2024/2853 on liability for defective products (software in scope) — law-firm summaries; AI Liability Directive withdrawal. Hogan Lovells; Norton Rose Fulbright (secondary). 2024-2026. <https://www.hoganlovells.com/en/publications/eu-introduces-comprehensive-digitalera-product-liability-directive> (retrieved 2026-10-12; search-extract; confidence medium)
+- **[S112]** FIU Latvia: Latvian companies may not provide certain services and software to Russia-established subsidiaries without FIU authorisation. Financial Intelligence Unit of Latvia (sankcijas.fid.gov.lv). 2024-10-18. <https://sankcijas.fid.gov.lv/en/aktualitates-apskate/turpmak-latvija-registretam-sabiedribam-nav-atlauts-sniegt-noteiktus-pakalpojumus-un-programmaturu-to-krievija-dibinatam-meitas-sabiedribam-ja-nav-sanemta-atseviska-fid-atlauja> (retrieved 2026-10-12; fetched; confidence high)
+- **[S113]** Your Europe — Returns and the 14-day right of withdrawal. European Union (Your Europe). last checked 2026-04-28. <https://europa.eu/youreurope/citizens/consumers/shopping/returns/index_en.htm> (retrieved 2026-10-12; fetched; confidence high)
+- **[S114]** EBA Single Rulebook Q&A on receipt and forwarding of funds and the commercial agent exclusion; PSR changes. European Banking Authority; paytechlaw (secondary on PSR). 2020-2026. <https://www.eba.europa.eu/single-rule-book-qa/qna/view/publicId/2020_5216> (retrieved 2026-10-12; search-extract; confidence medium)
+- **[S115]** Accenture Consumer Pulse Research 2026 — direct read. Accenture. 2026 (after 2026-05-20). <https://www.accenture.com/gb-en/insights/consulting/talk-my-ai-agent> (retrieved 2026-10-12; fetched; confidence high (figures as published))
+- **[S116]** Adobe: AI-referred traffic to retail sites (Digital Commerce 360) — direct read. Digital Commerce 360 reporting Adobe Analytics. 2026-06-17. <https://www.digitalcommerce360.com/2026/06/17/adobe-ai-referred-traffic-to-retail-sites-doubles-in-a-year/> (retrieved 2026-10-12; fetched; confidence medium)
+- **[S117]** ChatGPT Atlas deprecation (OpenAI Help Center via search; press). OpenAI Help Center (search-extract); Gigazine; Wikipedia. announced 2026-07-09; shutdown 2026-08-09. <https://help.openai.com/articles/20001371> (retrieved 2026-10-12; search-extract (help center 403); confidence medium)
+- **[S118]** Continuously hardening ChatGPT Atlas against prompt injection. OpenAI. 2025-12-22. <https://openai.com/index/hardening-atlas-against-prompt-injection/> (retrieved 2026-10-12; search-extract of primary (openai.com 403); consistent with independent coverage S069; confidence medium-high)
+- **[S119]** Labour cost levels by NACE Rev. 2 activity (lc_lci_lev) — hourly labour costs 2025. Eurostat. 2025 data (released 2026). <https://ec.europa.eu/eurostat/databrowser/view/lc_lci_lev/default/table> (retrieved 2026-10-12; Eurostat dissemination API query (unit=EUR, lcstruct=D1_D4_MD5, nace_r2=B-S_X_O); confidence high)
+- **[S120]** Third-party guides on Anthropic VAT invoicing for EU customers. fazm.ai (secondary). 2026. <https://fazm.ai/blog/anthropic-vat> (retrieved 2026-10-12; search-extract; confidence low)
+- **[S121]** Visa Q3 FY2026 earnings call (coverage/transcripts). Secondary transcript sites (roic.ai, Forkast). 2026-07-28. <https://www.roic.ai/quote/VISA.NE/transcripts/2026-year/3-quarter> (retrieved 2026-10-12; search-extract; confidence low)
 
-*81 sources cited in the paper; 0 further registered sources used for background: none.*
+*111 sources cited in the paper; 10 further registered sources used for background: S003, S004, S005, S006, S027, S031, S049, S053, S057, S058.*

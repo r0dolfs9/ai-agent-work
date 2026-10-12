@@ -78,3 +78,74 @@ Confidence: H/M/L. "Location" points into the source register entry (`key_extrac
 | U05 | Insurance pricing for agent risks | Cost of risk transfer | Broker quotes (needs approval to contact). |
 | U06 | Liability allocation in agent payment disputes | Commerce risk | Watch Visa/Mastercard rule releases and the CFPB/HM Treasury outcomes. |
 | U07 | Enterprise budgets earmarked for agent tooling | Opportunity sizing | Customer interviews (needs approval). |
+
+## D. v1.1 updates (limitations follow-up, 2026-10-12)
+
+### D.1 Amended v1.0 claims
+
+| ID | v1.1 status | Change |
+|---|---|---|
+| L03 | VF (read on Gartner-hosted mirror, S098) | Sample size still not published → representativeness UNKNOWN |
+| L04, L05 | VF (read on McKinsey-hosted mirror, S084) | n=1,719, 97 nations, GDP-weighted; "scaling" undefined; figure is share of *respondents* at large orgs |
+| L17 | **REPLACED** | $19M/134M and top-1% concentration (social media via S028) → Visa report $15.0M / 109.6M to 2026-04-21 (S091); TRM screened $25.62M, agentic 0.6–7.5% (S090) |
+| L31 | Re-sourced | $14bn (Feb) and >$47bn (May) run-rate and Claude Code >$2.5bn = company-disclosed (S088); $65bn = single anonymous source (S089) |
+| L33 | Extended | Gartner primaries: agents & assistants $29.2bn (2026) vs agentic software $985bn (2030) (S082, S083); "$202bn" (S058) **removed** |
+| L34 | VF (S086) | Method footnote recorded ("US Census data and forecasted adoption rates"); "orchestrated revenue" undefined |
+| L35 | Re-sourced (S116) | May 2026 +138% YoY, 54% better conversion; "AI-referred" undefined by source |
+| L39 | VF (S115) | 16 countries incl. 5 EU states + UK; 9% vs 12% internal inconsistency |
+| L10 | Partially strengthened | Primary title/text extract S118; Atlas itself deprecated (S117) |
+
+### D.2 New load-bearing claims
+
+| ID | Claim | Label | Source(s) | Caveat | Conf. |
+|---|---|---|---|---|---|
+| L41 | 20.0% of EU enterprises (10+ staff) used any AI technology in 2025; Latvia 12.2%; range 5.2–42.0% | VF | S096 | AI in general, not agents | H |
+| L42 | OECD's 25-organisation, 11-country interviews: agentic AI moving into workflows; safeguards = incremental autonomy, human checkpoints; "illustrative rather than representative" | VF | S097 | Qualitative | H |
+| L43 | Gartner Jan 2025 investment poll respondents were 3,412 webinar attendees | VF | S087 | — | H |
+| L44 | Coding-agent PRs (2.74M, Dec 2024–Oct 2025): weekend share 25.8% vs 28.6% uniform; peak/trough hourly ratio 1.57 (UTC) | CALC | S093; research/analysis/aidev_timing.py | Creation time ≠ activity; public GitHub only; no human baseline | M |
+| L45 | Agent web-fetch traffic follows weekly human rhythms; daily agent requests +1,700% YoY | VF (vendor) | S092 | No figures for rhythm | M |
+| L46 | Anthropic H1 2026: 11.4M banned accounts, 398k appeals, 42k overturned (all causes) | VF | S094 | No denominator; not agent-specific | H |
+| L47 | No public agent-specific ban rate (numerator + exposure denominator) found within documented search scope | UNK | §3 of limitations-resolution | — | — |
+| L48 | Plausibly agentic x402 commerce ≈ $0.15M–$1.9M cumulative (≈$5–11k/month recently) | CALC + VF | S090 | Agent vs script indistinguishable | M |
+| L49 | Latvia: CIT 20% of gross distributed profit, retained profits untaxed; alt regime 15% + 6% PIT | VF | S100 | Professional summary | H |
+| L50 | Latvia VAT standard 21%; registration threshold €50,000 | VF | S100, S099 | — | H |
+| L51 | Supplying B2B services to taxable persons in other Member States, or receiving B2B services from abroad, disapplies the €50,000 registration exemption (s.59(4), s.59(6)) | VF (statute text, outdated translation) + ⚖ | S099 | Translation valid 2024; confirm current text | M |
+| L52 | Micro-enterprise tax requires not being a VAT payer and turnover ≤ €50,000 → likely incompatible with buying foreign APIs | INT ⚖ | S100 + L51 | Needs accountant | L-M |
+| L53 | B2C cross-border electronically supplied services: customer-country VAT via Union OSS above €10,000 (current + previous year) | VF | S103 | — | H |
+| L54 | Latvian B2B e-invoicing mandatory from 2028-01-01 (B2G since 2025) | VF (secondary) | S101 | Not checked on likumi.lv | M |
+| L55 | SIA: state fee €75; capital ≥ €2,800 (or reduced-equity SIA); IK fee €30 | VF | S102 | Page shows "(?)" on some figures | M-H |
+| L56 | Stripe Latvia: EEA standard 1.5% + €0.25; international 3.15% + €0.25; +2% FX; disputes €20; Paddle 5% + $0.50 | VF | S104, S105 | Prices change | H |
+| L57 | Seller keeps €44.5–48.0 of a €49 net subscription depending on route and customer type | CALC | models/operator_economics.py | Excludes non-EU taxes | M |
+| L58 | Latvia is supported for Claude API/Claude.ai and OpenAI API; Russia, Belarus, China, Iran not on Anthropic's list | VF | S106 | Lists change | H |
+| L59 | EU sanctions (Art. 5n Reg. 833/2014) prohibit IT consultancy and enterprise-management software for Russia-established entities; FIU authorisation needed for subsidiaries since 2024-10-01 | VF | S112 | Check consolidated text | H |
+| L60 | AI Act dates: in force 2024-08-01; prohibitions and AI literacy from 2025-02-02; GPAI 2025-08-02; Art 50 2026-08-02; Annex III 2027-12-02; Annex I 2028-08-02 | VF | S107 | — | H |
+| L61 | Revised Product Liability Directive covers software for products placed on the market after 2026-12-09; AI Liability Directive withdrawn | VF (secondary) | S111 | Transposition uneven | M |
+| L62 | Receiving and forwarding funds is a PSD2 payment service; commercial-agent exclusion narrow | VF (regulator Q&A) | S114 | Not legal advice | M |
+| L63 | Labour-cost jurisdiction: base production saving 33% (US) vs 22% (Latvia average) vs 39% (Germany average) | CALC | S119; cost model | Whole-economy averages; engineering at US rates | M |
+| L64 | OpenAI deprecated the Atlas browser (announced 2026-07-09; stops 2026-08-09) | VF (search extract of help center) | S117 | Primary not read | M |
+
+### D.3 New conflicts
+
+| ID | Topic | Conflict | Resolution |
+|---|---|---|---|
+| C015 | x402 adjusted volume | Visa report $15.0M / 109.6M (to 2026-04-21) vs Visa executive's post ~$19M / ~134M | Report used; post not reproduced in report |
+| C016 | Accenture autonomous-purchase share | 9% vs 12% within the same publication | Both reported; 9% used as "initiate and complete" |
+| C017 | Gartner "agent market" size | $29.2bn (2026 agents and assistants) vs $985bn (2030 agentic software spend) | Different definitions; both reported, with the definitional warning |
+| C018 | Anthropic EU billing entity | Third-party guides: US PBC with non-resident VAT; job posting: Ireland as primary EU billing entity | Unresolved; check invoices (S120) |
+| C019 | Latvian VAT threshold test | 12-month test (2024 translation) vs calendar-year test (2025 secondary sources) | Calendar year per KPMG/secondary; confirm with current law |
+| C020 | Alternative CIT regime value | Calculated owner take ~equal to standard regime | Flagged ⚖; possible features not captured by summaries |
+
+### D.4 Unknowns: status after v1.1
+
+| ID | Status |
+|---|---|
+| U01 production resolution rates | Unchanged (UNKNOWN) |
+| U02 value of agent-completed purchases | Narrowed: bounded examples (L48); global total UNKNOWN |
+| U03 timing of autonomous agents | Narrowed: coding-agent PRs and human-triggered agents covered; scheduled and continuous UNKNOWN |
+| U04 ban frequency | UNKNOWN (rate); context improved (L46) |
+| U05 insurance pricing | Unchanged |
+| U06 payment dispute liability | Unchanged |
+| U07 enterprise budgets | Partly informed by Gartner category spend (S082); budgets per buyer UNKNOWN |
+| U08 (new) current consolidated text of Latvian VAT Law s.59 | UNKNOWN (outdated translation read) |
+| U09 (new) Latvian bookkeeping/compliance costs | UNKNOWN (assumption €1.7–6.4k/yr) |
+| U10 (new) non-EU indirect-tax registration duties for digital sales | Not researched; MoR recommended |

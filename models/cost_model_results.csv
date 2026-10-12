@@ -99,3 +99,8 @@ prod_buy,vendor,high,escalation,195923.0
 prod_buy,vendor,high,qa,3516.5667
 prod_buy,vendor,high,total,229713.4
 prod_buy,vendor,high,per_conv,4.5943
+labour_sensitivity,claude-sonnet-5.5,US support agent (BLS × 1.4),prod_saving_pct,0.3267
+labour_sensitivity,claude-sonnet-5.5,EU27 average,prod_saving_pct,0.3643
+labour_sensitivity,claude-sonnet-5.5,Germany average,prod_saving_pct,0.3926
+labour_sensitivity,claude-sonnet-5.5,Estonia average,prod_saving_pct,0.2816
+labour_sensitivity,claude-sonnet-5.5,Latvia average,prod_saving_pct,0.2201

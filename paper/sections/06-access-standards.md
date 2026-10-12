@@ -63,7 +63,7 @@ Status categories (our classification): **Proposed** (draft or announcement), **
 | Commerce: catalog to post-purchase | **Universal Commerce Protocol (UCP)** | Google & Shopify (+ retailers) | **Implemented** (US checkout live; expanding) | Launched 2026-01-11 [S023] |
 | Payment authorization | **AP2** (Agent Payments Protocol; mandates as verifiable credentials) | Google (A2A extension) | **Experimental/Implemented** in pilots | 60+ supporting orgs [S035] |
 | Agent payments (HTTP-native) | **MPP** (Machine Payments Protocol) | Stripe & Tempo | **Implemented** (since 2026-03-18) | Stripe launch [S024]; ~20,000 tx/day reported [S028] |
-| Agent payments (HTTP 402, stablecoins) | **x402** | x402 Foundation (Coinbase, Cloudflare; Linux Foundation) | **Implemented**, small real volume | ~$19M adjusted volume [S028] |
+| Agent payments (HTTP 402, stablecoins) | **x402** | x402 Foundation (Coinbase, Cloudflare; Linux Foundation) | **Implemented**, small real volume | ~$15.0M adjusted volume to Apr 2026 [S091]; agentic share 0.6%–7.5% [S090] |
 | Agent identification to merchants | **Visa Trusted Agent Protocol (TAP)** | Visa (with Cloudflare) | **Implemented** in pilots | HTTP Message Signatures [S020]; "hundreds" of controlled transactions [S021] |
 | Agent payment tokens | **Mastercard Agent Pay** (+ Verifiable Intent with Google) | Mastercard | **Implemented** (live transactions in several markets) | [S022] |
 | Bot/agent authentication | **Web Bot Auth** (HTTP Message Signatures) | IETF WG (drafts) | **Proposed** standard; **implemented** by CDNs | No adopted WG drafts as of Aug 2026 [S059] |

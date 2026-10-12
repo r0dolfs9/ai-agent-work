@@ -7,7 +7,7 @@
 3. **Begin at autonomy level 3–4.** The agent proposes and you approve sending, paying and deleting [S002].
 4. **Break the trifecta.** An agent that reads the open web shouldn't also hold your mailbox *and* be able to send [S011].
 5. **Set a monthly spend cap** and check cost per *useful* result after two weeks (§6.4).
-6. **Review the logs** of anything that acted on your behalf. Assume it can be fooled [S069].
+6. **Review the logs** of anything that acted on your behalf. Assume it can be fooled [S118][S069].
 
 ### 13.2 If you want to *build* agents
 
@@ -27,46 +27,29 @@
 2. **Run the register's validation experiment** before building anything, once the owner approves contact or spend. Pre-commit to the go/no-go threshold.
 3. **Price on outcomes the buyer already measures,** such as hours saved, incidents avoided, or resolution verified. Avoid pricing on activity counts.
 4. **Watch platform risk.** Avoid businesses that need terms-of-service grey zones such as credential capture or undeclared bots [S063][S016].
-5. **Re-check this paper's dated facts quarterly.** Protocols, prices and policies moved materially within the six months before this paper.
+5. **If operating from Latvia or the EU, settle the §15.9 questions with an accountant and a lawyer before the first international sale.** Above all, settle whether buying foreign APIs forces VAT registration, and choose between a merchant of record and direct invoicing.
+6. **Re-check this paper's dated facts quarterly.** Protocols, prices and policies moved materially within the six months before this paper.
 
-## 14. Limitations
+## 14. Limitations (revised in v1.1)
 
-- **Freshness.** Evidence was retrieved on 12 October 2026. Several facts changed within weeks of each other: Amazon's agent block, Cloudflare's defaults, and the MCP spec.
-- **Access limits.** Several primary sources blocked automated retrieval: Gartner, McKinsey, CNBC, OpenAI's site, White & Case. For those, we relied on search-engine extracts of the primary text or reputable secondary reporting, and marked confidence "medium". No paywalled analyst reports were read.
-- **Vendor-sourced evidence.** Much evidence on adoption, transactions and security comes from vendors with an interest in the result (e.g., [S021][S022][S053][S068]). Vendor statements establish what vendors claim, not independent proof.
-- **Survey limits.** Adoption surveys are self-reported and use incompatible definitions (C001).
-- **Experimental limits.** Agent-behaviour findings come from simulations, mock marketplaces and small internal pilots [S029][S030][S039][S040]. Generalising to open markets is uncertain.
-- **Cost model.** The scenarios rest on explicit assumptions, not observed deployments. The resolution rates, engineering effort and security budgets most need local validation (gaps G-COST-1 to -3). Incident costs, taxes and currency effects are excluded.
-- **Geography.** Evidence is US-heavy. EU coverage is mainly regulatory. Asian evidence is limited to payments pilots, OpenRouter geography and Singapore's framework. No Baltic-specific market data was found.
-- **No primary research.** No interviews, surveys or experiments with real customers were conducted, because they need approval. The opportunity register is therefore hypothesis-only.
-- **Self-review.** The adversarial review (see `verification/verification-report.md`) was carried out by the same AI system that wrote the paper. No independent human review has taken place.
+The full claim-by-claim account is in `research/limitations-resolution.md`. Summary of the five limitations reported in v1.0 and what happened to each:
 
-## Glossary
+| v1.0 limitation | Outcome | What changed |
+|---|---|---|
+| Gartner, McKinsey and OpenAI figures supported only by search extracts | **PARTIALLY RESOLVED** | Gartner and McKinsey releases were read directly on publisher-hosted pages. Populations, samples and dates were added [S084][S085][S086][S087][S098][S082][S083]. One Gartner figure (~$202bn) was **removed** because no primary contained it. Anthropic revenue now rests on company posts, with $65bn kept as a single-source press report [S088][S089]. The OpenAI March 2026 checkout quote and Atlas security quote still rely on search extracts of the primary, corroborated by independent coverage [S025][S118] |
+| When autonomous agents are active | **PARTIALLY RESOLVED** | "Active" defined in six units (§10.1). New evidence: Cloudflare (agent fetches follow weekly human rhythms) [S092] and our analysis of 2.74M agent-authored pull requests (flat daily profile, mild weekday lean) [S093]. No representative dataset found for scheduled or continuous agents or for purchase timing. Measurement plan in §10.4 |
+| How often platforms ban agents | **UNRESOLVED AFTER DOCUMENTED SEARCH** (rate); partially improved (context) | Policy, incident and frequency evidence separated (§11.3.1). Anthropic's all-cause enforcement totals added (11.4M bans, 10.6% of appeals overturned, H1 2026) [S094]. No agent-specific numerator or exposure denominator is published, so no rate is given |
+| Value of purchases completed autonomously | **PARTIALLY RESOLVED** (bounded) | Autonomy levels P1–P4 defined. The social-media x402 figure was replaced by Visa's report ($15.0M adjusted) [S091] and TRM's analysis (0.6%–7.5% looks agentic; ~$5–11k a month) [S090]. A global total remains unknown, and we explain why one cannot be built (§9.2) |
+| US-heavy evidence | **PARTIALLY RESOLVED** | Added Eurostat (EU and Latvia AI use) [S096], OECD 11-country interviews [S097], an Accenture 16-country survey read directly [S115], Eurostat labour costs [S119], EU legal sources [S107][S103][S113][S114], and Latvian tax and registry sources [S099][S100][S102]. Added a transferability classification for each conclusion (§11.4). Commerce and enforcement evidence remains US-centred because that is where the activity and litigation are |
 
-- **A2A (Agent2Agent):** open protocol for agents to discover and message other agents. Uses "Agent Cards" describing an agent's skills and endpoint [S036].
-- **ACP (Agentic Commerce Protocol):** OpenAI/Stripe protocol for merchants to expose products and checkout to AI assistants [S026].
-- **Agent:** an LLM-driven system that chooses its own actions and tools at run time (§1).
-- **Agent washing:** marketing a non-agentic product as an agent [S006].
-- **AGENTS.md:** a plain-text file in a code repository that tells coding agents how to work on it [S034].
-- **AP2 (Agent Payments Protocol):** Google-led protocol using signed "mandates" to prove what a user authorised [S035].
-- **ARR / run-rate:** annualised recurring revenue, or current revenue extrapolated to a year. Not the same as annual revenue.
-- **Cache (prompt caching):** the provider stores a repeated prompt prefix and bills re-reads at a fraction of the price [S044].
-- **Computer use / browser use:** the agent controls a screen or browser by "seeing" screenshots and clicking.
-- **Context window:** the text the model can consider at once. Agent loops fill it as they go.
-- **Escalation:** handing a case from the agent to a human.
-- **Harness:** the software around the model that runs tools, enforces limits and records traces.
-- **Human-in-the-loop:** a person approves or edits before an action takes effect.
-- **Lethal trifecta:** private data + untrusted content + outbound communication in one agent [S011].
-- **LLM:** large language model.
-- **Mandate:** a signed statement of what an agent is authorised to buy [S035].
-- **MCP (Model Context Protocol):** open standard for connecting agents to tools and data [S032].
-- **MPP (Machine Payments Protocol):** Stripe/Tempo protocol letting agents pay for services programmatically [S024].
-- **Prompt injection:** hidden instructions in content the agent reads that hijack its behaviour [S069].
-- **Resolution rate:** the share of cases an agent completes without a human.
-- **Sandbox:** isolated environment limiting what an agent's actions can affect.
-- **Signed agent / Web Bot Auth:** an agent that cryptographically signs its web requests so sites can verify who it is [S059].
-- **Time horizon (METR):** the length of tasks (in human time) that an agent completes 50% of the time [S008].
-- **Token:** a chunk of text (~¾ of an English word) used for model billing.
-- **TAP (Trusted Agent Protocol):** Visa's protocol for merchants to recognise legitimate shopping agents [S020].
-- **UCP (Universal Commerce Protocol):** Google/Shopify-led open protocol for agentic shopping from catalog to post-purchase [S023].
-- **x402:** protocol using the HTTP "402 Payment Required" status to let agents pay per request, typically in stablecoins [S028].
+**Limitations that remain:**
+- **Freshness.** Evidence was retrieved on 12 October 2026. Several facts changed within weeks of each other: Amazon's agent block, Cloudflare's defaults, the MCP spec, and the discontinuation of OpenAI's Atlas browser.
+- **Access.** Some primaries still block automated retrieval (openai.com, cnbc.com, OpenAI's DSA data pages). We did not bypass these. Gartner's and McKinsey's own alternative hosts (gcom.pdo.aws.gartner.com, karriere.mckinsey.de) served the same documents publicly and were used. No paywalled analyst reports were read.
+- **Vendor-sourced evidence.** Much evidence on adoption, transactions and security comes from vendors with an interest in the result (e.g., [S021][S022][S088][S068]). Vendor statements establish what vendors claim, not independent proof.
+- **Survey limits.** Adoption surveys are self-reported and use incompatible definitions (C001). The Gartner 2025 poll was of webinar attendees [S087].
+- **Experimental limits.** Agent-behaviour findings come from simulations, mock marketplaces and small internal pilots [S029][S030][S039][S040].
+- **Cost models.** The scenarios rest on explicit assumptions, not observed deployments. Resolution rates, engineering effort, security budgets and Latvian administrative costs need local quotes or pilots. Incident costs and non-EU indirect taxes are excluded.
+- **Tax and legal (§15).** Simplified summaries of published rules, partly from an outdated official translation of the Latvian VAT Law [S099]. Every ⚖ item needs professional confirmation.
+- **Timing and enforcement data.** These are narrow: coding agents on public GitHub, chat usage at one provider, and all-cause bans at one provider.
+- **No primary research.** No interviews, surveys or experiments with real customers were conducted, because they need approval. The opportunity register remains hypothesis-only.
+- **Self-review.** The adversarial review was carried out by the same AI system that wrote the paper. No independent human review has taken place.

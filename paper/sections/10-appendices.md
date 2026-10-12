@@ -74,7 +74,7 @@ while not done:
 
 1. **Disclosure (AI Act Art. 50, from 2 Aug 2026).** Does any agent interact directly with people (chat, voice, email)? Is it obvious that it's AI? If not, disclose at first interaction [S074].
 2. **Content marking.** Do you generate synthetic audio, image, video or text published to others? Check marking obligations; existing systems have until 2 Dec 2026 [S074].
-3. **High-risk screen.** Is the agent used in hiring, credit, education, essential services or other Annex III areas? If so, plan for obligations applying from 2 Dec 2027 [S049].
+3. **High-risk screen.** Is the agent used in hiring, credit, education, essential services or other Annex III areas? If so, plan for obligations applying from 2 Dec 2027 [S107].
 4. **Accountability.** Name a responsible human per agent, and document its purpose, tools, permissions and limits (Singapore MGF dimension 2 [S052]).
 5. **Risk bounding.** Write down what the agent may never do (amount limits, data classes, external parties) (MGF dimension 1 [S052]).
 6. **Controls.** Apply Appendix B.
@@ -86,5 +86,6 @@ while not done:
 - **Process.** Inspect → baseline → plan → research → reconcile → draft → verify → revise (see `research/research-plan.md`).
 - **Search and retrieval.** Web search plus direct page retrieval, 12 October 2026. Where direct retrieval failed (HTTP 403/503), we used search-engine extracts quoting the primary and marked the access method in the register.
 - **Source hierarchy.** Specifications, official docs, pricing pages, terms, court decisions, filings, then independent research, then reputable news, then vendor blogs and aggregators. Vendor claims are labelled as claims.
-- **Registers.** Sources (`research/sources.csv`, 81 entries); claims and conflicts (`research/claims-ledger.md`); coverage (`research/coverage-matrix.md`); opportunities (`opportunities/`); cost model (`models/`).
+- **Registers.** Sources (`research/sources.csv`, 121 entries after v1.1, superseded entries kept and annotated); claims and conflicts (`research/claims-ledger.md`); limitations resolution (`research/limitations-resolution.md`); coverage (`research/coverage-matrix.md`); opportunities (`opportunities/`); cost models (`models/cost_model.py`, `models/operator_economics.py`); public-data analysis (`research/analysis/aidev_timing.py`).
+- **v1.1 access paths.** Publisher-hosted alternative domains served the same public documents (gcom.pdo.aws.gartner.com for Gartner; karriere.mckinsey.de for McKinsey). Official APIs were used for Eurostat and ECB data. A public CC-BY dataset was downloaded column-by-column from Hugging Face. The tool used here could not reach web.archive.org, so no archived copies were used. No paywall, login or anti-bot protection was bypassed.
 - **Verification.** See `verification/verification-report.md`, which covers the citation-resolution check, number reconciliation between prose and model outputs, and the adversarial self-review.

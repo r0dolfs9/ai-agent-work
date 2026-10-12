@@ -24,6 +24,17 @@ None of the intake questions had been answered at kickoff. None of them blocks r
 | Available data / existing research | None found in repo | Public sources only. |
 | Authorized tools | Session tools | Web search, web fetch, local files, git push to the designated branch (see `project/capabilities.md`). |
 
+## 2a. Intake answers confirmed by the owner (v1.1, 2026-10-12)
+
+| Item | Confirmed answer |
+|---|---|
+| Purpose | Private learning and business development. Not for publication or investors. Rigorous evidence standards retained |
+| Market scope | Global |
+| EU / Latvia | Deeper treatment only where location materially affects operating a global agent business: establishment, costs, taxes, invoicing, payments, legal obligations, privacy, access restrictions, cross-border operations. Latvian demand and market size are **not** prioritised |
+| Working hypothesis to test | "An operator based in Latvia can serve customers internationally through agents." Not to be read as unrestricted global trading |
+
+The assumptions in §2 for audience, format, language and budget remain in force.
+
 ## 3. Scope
 
 **Included:** definitions; architecture; operation; security; costs; access to sites and services; standards and protocols; purchasing and payments; activity and timing; audits, governance and enforcement; market sizing claims; business opportunities.

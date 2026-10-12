@@ -37,3 +37,21 @@ Each research area from the assignment is mapped to its research questions, key 
 | **Added during research:** platform credential policies for AI subscriptions | RQ16 | S016, S017, S075 | Moderate | §7.1, §11.3 | Added because it is a top practical risk for personal-agent users and builders |
 | **Added:** agent insurance and certification | RQ15 | S061 | Weak | §11.1 | Added because risk transfer is an emerging cost and opportunity |
 | **Added:** regional differences | RQ15 | S013, S022, S043, S049–S052 | Moderate | §11.4 | Baltic/EU commerce data gap |
+
+## v1.1 additions (2026-10-12)
+
+| Area / topic | Key sources | Evidence strength | Paper section | Remaining gaps |
+|---|---|---|---|---|
+| Adoption, EU official statistics and international qualitative | S096, S097, S084, S085, S098, S087 | Strong (EU stats), medium (surveys) | §2.2 | Agent-specific official statistics |
+| Activity definitions and timing by trigger | S041, S092, S093 (own analysis), S043, S079, S080 | Medium (narrow populations) | §10 | Scheduled/continuous agent timing; purchase timing |
+| Enforcement frequency (policy vs incidents vs rates) | S094, S095, S092, incident sources | Strong (policy/incidents), gap (rates) | §11.3.1 | Agent-specific numerator + denominator |
+| Autonomous purchase value by autonomy level | S090, S091, S116, S115, S021, S022, S121 | Medium–strong (bounded examples) | §9.2 | Card-network agent volumes; global total |
+| Transferability of conclusions by geography/provider | All | Interpretation | §11.4 | — |
+| Latvia/EU establishment, tax, VAT, invoicing | S099, S100, S101, S102, S103 | Medium–high (statute translation outdated) | §15.2–15.4 | Current VAT Law text; accountant costs |
+| Payments, MoR, currencies, refunds | S104, S105, S113, ECB FX | High (prices) | §15.4 | MoR seller eligibility for Latvia |
+| Provider availability, sanctions | S106, S112 | High | §15.1, §15.7 | Provider terms on serving unsupported regions |
+| GDPR roles and transfers | S109, S110 | Medium | §15.5 | DPF appeal outcome (C-703/25 P) |
+| AI Act roles and dates | S107, S108, S074 | High | §15.6 | National enforcement priorities |
+| Liability, delegated authority, payment licensing | S111, S114 | Medium | §15.7 | Agent-authority law (UNKNOWN) |
+| Operator economics model | models/operator_economics.py | CALCULATION | §6.9, §15 | Non-EU taxes not modelled |
+| Labour-cost jurisdiction sensitivity | S119 | CALCULATION on official stats | §6.9 | Occupation-specific EU wages |

@@ -272,6 +272,64 @@ dict(
  why="evidence: liability gap documented only by vendor commentary (S066); volumes small"),
 ]
 
+# ---------------------------------------------------------------- v1.1 updates (limitations follow-up, 2026-10-12)
+# Global demand evidence is kept separate from Latvian/EU operating conditions.
+V11 = {
+ "O01": dict(simpler_alternative="Merchant uses Shopify/Google Merchant Center native AI feeds; platform self-serve onboarding",
+   operating_model="1 (B2B services)", latvia_eu_operating="B2B services: EU clients reverse charge (register for VAT from first EU B2B sale, s.59(4) [S099]); non-EU clients outside LV VAT; GDPR processor only if handling shopper data",
+   global_demand_note="AI-referred retail traffic evidence is US-only (Adobe) [S116]; UCP checkout live in US, expansion named for CA/AU/UK not EU [S023] — target non-EU and large-EU merchants, not Latvian demand",
+   v11_change="No score change; evidence base re-sourced (S116 replaces S031)"),
+ "O02": dict(simpler_alternative="Client's own QA team samples transcripts; vendor dashboards",
+   operating_model="1 (B2B services)", latvia_eu_operating="Processing customer transcripts makes the operator a GDPR processor: Art.28 DPA, transfer assessment if US model used [S110][S109]; reverse-charge B2B invoicing",
+   global_demand_note="Per-outcome pricing (Intercom) is global [S071]; labour-cost sensitivity shows bigger automation savings (and thus bigger audit value) in high-wage markets (DE/US) than LV [S119]",
+   v11_change="Access 3→3; risk 4→3 (GDPR processor obligations add friction)"),
+ "O03": dict(simpler_alternative="Free checklists (OWASP ASI, Five-Eyes guidance); vendor security defaults (sandbox on by default)",
+   operating_model="1 (B2B services)", latvia_eu_operating="B2B service, simplest VAT path; professional indemnity insurance needed; product liability not applicable to pure services (PLD covers products/software) [S111] ⚖",
+   global_demand_note="Incidents and guidance are global [S014][S051]; OECD interviews show organisations still building safeguards (incremental autonomy, human checkpoints) [S097]",
+   v11_change="No score change"),
+ "O04": dict(simpler_alternative="Coding agents generate MCP servers from OpenAPI specs; API-management vendors auto-expose MCP",
+   operating_model="1 (B2B services) or 2 (maintenance subscription)", latvia_eu_operating="B2B; software delivered may fall under the revised Product Liability Directive if placed on market after 9 Dec 2026 [S111] ⚖ — contract allocation of liability",
+   global_demand_note="MCP adoption global [S034]; buyer pull unverified",
+   v11_change="No score change"),
+ "O05": dict(simpler_alternative="Free Commission guidelines and Code of Practice on Art.50; generic AI policy templates",
+   operating_model="2 (digital product to SMEs) — B2B mostly", latvia_eu_operating="Digital kit sold to EU businesses: reverse charge; to consumers/sole traders without VAT ID: OSS above EUR 10k [S103]; must avoid unauthorised legal advice ⚖",
+   global_demand_note="EU-only obligation (Art.50 since 2 Aug 2026) [S074][S107]; no demand evidence",
+   v11_change="No score change"),
+ "O06": dict(simpler_alternative="Vendor-native assistants with scheduled tasks and connectors (ChatGPT Work/Tasks, Claude Cowork) [S079]",
+   operating_model="1 (service to individuals) — B2C", latvia_eu_operating="Consumers: 14-day withdrawal unless express consent to immediate performance [S113]; human-delivered setup to EU consumers taxed in LV at 21% (s.19(2)) [S099]; credential handling liability",
+   global_demand_note="Interest in DIY agents high (OpenClaw stars) but vendors consolidating (OpenAI folded Atlas into ChatGPT) [S013][S117]",
+   v11_change="Risk 2→2; competition 2→1 (vendor-native agents improving and consolidating)"),
+ "O07": dict(simpler_alternative="Vendor solution engineers and free docs; internal champion",
+   operating_model="1 (B2B services)", latvia_eu_operating="B2B; reverse charge for EU clients; remote delivery feasible",
+   global_demand_note="Coding-agent use is global (66% of AI-using developers) [S062]; McKinsey: ~2 in 10 scaling coding agents [S084]; prioritise high-wage markets where savings are larger [S119]",
+   v11_change="No score change"),
+ "O08": dict(simpler_alternative="Company card with limits in agent config; incumbent spend platforms' agent cards",
+   operating_model="2 (fintech SaaS)", latvia_eu_operating="Holding/forwarding client funds is a PSD2 payment service; commercial-agent exclusion narrow and narrowing under PSR [S114] → licence or licensed partner needed ⚖",
+   global_demand_note="Verified autonomous payment volumes tiny: agentic share of x402 commerce ~$5-11k/month [S090]; Visa gives no card-side volumes [S091][S121]",
+   v11_change="Evidence 2→1; cost 1→1; risk 2→1 (licensing)"),
+ "O09": dict(simpler_alternative="Sell the same data via conventional API subscriptions to developers",
+   operating_model="2 (pay-per-call product)", latvia_eu_operating="Stablecoin settlement adds crypto-asset and AML considerations (not researched) ⚖; B2B digital service VAT treatment applies to fiat channels",
+   global_demand_note="TRM: only 0.6%-7.5% of $25.6M screened x402 commerce looks agentic; agents moved ~$5-11k/month [S090]",
+   v11_change="Evidence 2→1 (new data shows even smaller agent demand)"),
+ "O10": dict(simpler_alternative="Accept CDN defaults; Cloudflare dashboard toggles",
+   operating_model="1 (B2B advisory)", latvia_eu_operating="B2B; reverse charge",
+   global_demand_note="Cloudflare: 17% of sites block training crawlers, <1% search [S092]",
+   v11_change="No score change"),
+ "O11": dict(simpler_alternative="Academic studies; consumer organisations' tests",
+   operating_model="2 (content/reports)", latvia_eu_operating="Testing third-party agents must respect their ToS; no evasion",
+   global_demand_note="No buyer demand observed",
+   v11_change="No score change"),
+ "O12": dict(simpler_alternative="Generic chargeback tools; PSP-native evidence features",
+   operating_model="2 (SaaS)", latvia_eu_operating="Standard SaaS VAT treatment (OSS/MoR for small merchants)",
+   global_demand_note="Agent-initiated payment volumes small [S090][S091]; dispute rules unsettled [S066]",
+   v11_change="No score change"),
+}
+SCORE_CHANGES = {"O02": {"risk": 3}, "O06": {"competition": 1}, "O08": {"evidence": 1, "risk": 1}, "O09": {"evidence": 1}}
+for o in OPPS:
+    o.update(V11[o["id"]])
+    o["v10_total"] = round(sum(WEIGHTS[k] * v for k, v in o["scores"].items()) * 20, 1)
+    o["scores"].update(SCORE_CHANGES.get(o["id"], {}))
+
 def total(s):
     return round(sum(WEIGHTS[k] * v for k, v in s.items()) * 20, 1)
 
@@ -288,14 +346,15 @@ def main():
     md = ["# Opportunity register (ranked)\n",
           "Generated by `opportunities/build_register.py` and kept in sync with `opportunity-register.csv`, which holds the full fields. "
           "Every entry is a **commercial hypothesis**. No customer has been contacted, so no demand, sales or willingness to pay has been validated.\n",
+          "**v1.1 (2026-10-12):** scores re-checked against the limitations follow-up. Each entry now also records a simpler alternative, the operating model (§15.8), Latvia/EU operating conditions, and the *global* demand evidence. Global demand is kept separate from the operator's location. Changed scores: O02 risk, O06 competition, O08 evidence and risk, O09 evidence.\n",
           "**Rubric** (1–5 each, 5 = favourable; for cost, competition and risk 5 = low): "
           + ", ".join(f"{k} {int(v*100)}%" for k, v in WEIGHTS.items()) + ". Total = weighted mean × 20 (0–100).\n",
-          "| Rank | ID | Opportunity | Buyer type | Ev | Pain | WTP | Access | Feas | Cost | Comp | Risk | **Total** | Value type |",
-          "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+          "| Rank | ID | Opportunity | Buyer type | Ev | Pain | WTP | Access | Feas | Cost | Comp | Risk | **Total** | v1.0 | Value type |",
+          "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for i, o in enumerate(ranked, 1):
         s = o["scores"]
         md.append(f"| {i} | {o['id']} | {o['name']} | {o['buyer_type']} | {s['evidence']} | {s['pain']} | {s['wtp']} | {s['access']} | "
-                  f"{s['feasibility']} | {s['cost']} | {s['competition']} | {s['risk']} | **{o['total']}** | {o['value_type']} |")
+                  f"{s['feasibility']} | {s['cost']} | {s['competition']} | {s['risk']} | **{o['total']}** | {o['v10_total']} | {o['value_type']} |")
     md.append("\n## Details\n")
     for i, o in enumerate(ranked, 1):
         md.append(f"### {i}. {o['id']} — {o['name']} (score {o['total']})\n")
@@ -308,7 +367,10 @@ def main():
                            ("Defensibility", "defensibility"), ("Platform risk", "platform_risk"), ("Failure conditions", "failure"),
                            ("Evidence that would invalidate", "invalidation"), ("Cheapest credible validation", "experiment"),
                            ("Metric", "metric"), ("Go/no-go threshold", "threshold"), ("Next action", "next_action"),
-                           ("Open questions", "open_questions"), ("Value type", "value_type"), ("Score rationale", "why")]:
+                           ("Open questions", "open_questions"), ("Value type", "value_type"), ("Score rationale", "why"),
+                           ("Simpler alternative", "simpler_alternative"), ("Operating model (§15.8)", "operating_model"),
+                           ("Latvia/EU operating conditions", "latvia_eu_operating"), ("Global demand evidence (separate from operator location)", "global_demand_note"),
+                           ("v1.1 change", "v11_change"), ("v1.0 total score", "v10_total")]:
             md.append(f"- **{label}:** {o[key]}")
         md.append("")
     (HERE / "opportunity-register.md").write_text("\n".join(md) + "\n")

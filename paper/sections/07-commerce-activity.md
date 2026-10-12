@@ -4,23 +4,51 @@
 
 | Situation | Economic buyer (whose money) | Decision-maker | Evidence |
 |---|---|---|---|
-| Consumer shopping assistant | The consumer | Mostly the human. The agent compares and recommends, the human clicks "buy" | OpenAI's pivot to discovery [S025]; Adobe referral data [S031] |
+| Consumer shopping assistant | The consumer | Mostly the human. The agent compares and recommends, the human clicks "buy" | OpenAI's pivot to discovery [S025]; Adobe referral data [S116] |
 | Delegated consumer purchase with mandate | The consumer | The agent, within pre-signed limits | AP2 "intent mandates" design; pilots only [S035] |
 | Employee using an agent at work | Employer | Employee, under procurement policy | Organizations set usage limits (38%) and review spend (28%) [S062] |
-| Developer agent buying API calls/compute | Developer or company | Agent, within a programmatic budget | MPP/x402 [S024][S028]; managed-agent budgets [S080] |
+| Developer agent buying API calls/compute | Developer or company | Agent, within a programmatic budget | MPP/x402 [S024][S091]; managed-agent budgets [S080] |
 | Agent buying from agent | The owners behind each agent | Agents, within budgets | Experiments only [S029][S040] |
 
 **INTERPRETATION.** Today the economic buyer is almost always a **human or an organization**, and agents are mostly **influencers and executors**. Fully delegated purchasing exists in pilots, in machine-to-machine micro-payments, and in experiments.
 
 ### 9.2 What agents have demonstrably bought
 
-- **Controlled, real-money pilots.** Visa reported "hundreds" of agent-initiated transactions with partners [S021]. Mastercard announced first live authenticated agentic transactions in the US, Latin America, Korea, Singapore and Malaysia, Australia and Hong Kong (for example, a ride booking) [S022].
-- **Machine payments.** Stripe's MPP launch partners let agents pay for browser sessions, physical mail, and even sandwiches for pickup in New York [S024]. On x402, adjusted spend was about $19M across ~134M transactions to April 2026. The top ~1% of buyers (about 4,000 wallets) accounted for ~90% of adjusted volume [S028]. Gross counts of "160M+ agentic payments" are far larger because they include test and gamified activity (conflict C006).
-- **Experimental marketplaces.** In Anthropic's internal "Project Deal", Claude agents representing 69 employees closed 186 deals worth just over $4,000 with no human involvement during negotiation [S040].
-- **Checkout inside AI surfaces, with human confirmation.** Google's UCP-powered checkout with Google Pay is reported live in the US with major retailers and Shopify merchants. The shopper still confirms the purchase [S023].
-- **In-chat checkout.** OpenAI's Instant Checkout launched with Etsy and promised Shopify merchants [S026]. In March 2026 OpenAI said the first version "did not offer the level of flexibility that we aspire to provide" and let merchants use their own checkout [S025]. One unverified analysis claims only ~30 Shopify merchants went live [S027].
+**First, define autonomy.** Purchase figures are only comparable at the same level of autonomy.
 
-**UNKNOWN.** No public source gives the total value of purchases *completed end-to-end by agents*. Retail "AI traffic" figures (+393% year on year, converting 42% better than other traffic [S031]) describe humans arriving from AI answers.
+| Level | Description | Who presses "pay"? |
+|---|---|---|
+| P1 | Agent recommends; human purchases separately | Human |
+| P2 | Agent prepares the cart or checkout; human approves in the flow | Human, inside the AI surface |
+| P3 | Agent executes under limits the human delegated earlier (mandate, scoped token, budget) | Agent, within pre-set limits |
+| P4 | Agent transacts with no human approval at the time of purchase and no purchase-specific mandate | Agent |
+
+**Bounded, attributable evidence** (no figure below can be added to another: they use different units, periods and populations):
+
+| Evidence | Level | Unit | Period / population | Value | Source |
+|---|---|---|---|---|---|
+| AI-referred visits to US retail sites | P1 | Traffic and conversion, not purchases by agents | May 2026 vs May 2025; >1trn visits in Adobe Analytics | +138% YoY; converts 54% better than non-AI traffic; "AI-referred" undefined | [S116] |
+| Google UCP checkout in AI surfaces | P2 | Availability | US, 2026 | Live with named retailers; volumes not disclosed | [S023] |
+| ChatGPT Instant Checkout | P2 | Availability | Sep 2025 to Mar 2026 | Scaled back in Mar 2026; volumes not disclosed | [S026][S025] |
+| Visa controlled agent transactions | P2–P3 | Count | To Dec 2025, partners | "Hundreds" | [S021] |
+| Mastercard "first live agentic transactions" | P2–P3 | Announcements | 2025–2026, several countries | No volumes | [S022] |
+| x402 payments (Visa/Artemis), adjusted | P3–P4 (agent, script or human cannot be distinguished) | Payment volume | May 2025 to 21 Apr 2026, onchain | **$15.0M across 109.6M transactions** after removing identified wash and test activity | [S091] |
+| x402 payments (TRM Labs), screened | P3–P4 | Payment volume | May 2025 to mid-2026 | $52.7M raw; **$25.62M** "screened commerce"; only **0.6%–7.5%** looks agentic; agents moved "roughly $5,000–11,000 a month" | [S090] |
+| MPP (Stripe/Tempo) | P3–P4 | Transactions | Since Mar 2026 | ~20,000 transactions/day, per a Visa executive's social-media post (no volume, no agent share) | [S028] (low confidence) |
+| Anthropic Project Deal | P4 within an experiment | Gross value | One week, Dec 2025, 69 employees | 186 deals, just over $4,000 | [S040] |
+
+**CALCULATION.** Applying TRM's agentic share to its screened total gives a cumulative upper bound of about $0.15M–$1.9M (0.6%–7.5% × $25.62M) of x402 commerce that looks agent-driven, over roughly a year. That is the largest *independently analysed*, plausibly autonomous (P3–P4) purchase stream found in this study. TRM notes that "a scheduled script and an agent look identical onchain" [S090].
+
+**Why no global total can be built.**
+- The figures above mix different units: traffic, availability, counts and payment volume.
+- They mix different autonomy levels.
+- Card networks publish no agent-transaction volumes. Visa's July 2026 earnings call gave none, according to secondary transcripts [S121].
+- Payment volume is not gross purchase value, and it is not provider revenue.
+- Gross onchain counts include wash, test and script activity. For x402, Coinbase's gross "160M+ agentic payments" against Visa's adjusted $15.0M shows the gap (conflict C006).
+
+**UNKNOWN.** The global value of P3–P4 purchases is not established in any public source found in this study. The defensible statement is narrower: *verified autonomous agent purchasing is, as of October 2026, small, concentrated in machine-to-machine micro-payments and experiments, and dwarfed by human purchasing that agents influence.*
+
+**What changed since v1.0.** The v1.0 x402 figure ($19M across ~134M transactions; top 1% of buyers ≈90% of volume) came from a social-media post reported by a crypto news site. It is replaced by Visa's published report ($15.0M / 109.6M) and TRM's independent analysis. The concentration statistic is dropped because it does not appear in the Visa report as read.
 
 ### 9.3 How payment works
 
@@ -60,25 +88,86 @@ Keep four layers separate:
 
 ### 9.6 Do people want agents to buy for them?
 
-Stated attitudes vary with wording (conflict C009). Accenture surveyed 25,590 consumers in 16 countries. A headline 74% said they would trust a personal agent more than their best friend to make a purchase, but only **9%** were open to fully autonomous purchases including payment, and about 32% would let an agent pick products within set limits [S067]. A separate US/UK survey by Riskified found 55% not comfortable with agents buying for them (reported via secondary coverage; see caveat on [S067]). **INTERPRETATION:** delegated *selection* is accepted far more readily than delegated *payment*. In Anthropic's experiment, 46% of participants *said* they would pay for a negotiating agent [S040]. That is a stated intention, not demonstrated willingness to pay.
+Stated attitudes vary with wording (conflict C009). Accenture surveyed 25,590 consumers in 16 countries, including France, Germany, Italy, Spain, Sweden and the UK, online on 7–22 January 2026 [S115]:
+- 74% said they would trust a personal agent more than their best friend to make a purchase.
+- 32% would let an agent decide within set boundaries, with the consumer still validating before paying.
+- Only **9%** were open to an agent initiating *and completing* purchases autonomously. Elsewhere the same publication says 12%, an internal inconsistency we note rather than resolve.
+
+A separate US/UK survey by Riskified found 55% not comfortable with agents buying for them (reported via secondary coverage; see caveat on [S067]).
+
+**INTERPRETATION:** delegated *selection* (P2) is accepted far more readily than delegated *payment* (P3–P4), and this holds across the 16 countries surveyed. In Anthropic's experiment, 46% of participants *said* they would pay for a negotiating agent [S040]. That is a stated intention, not demonstrated willingness to pay.
 
 ## 10. Activity and timing: when do agents work?
 
-### 10.1 What is known
+### 10.1 What "active" means
 
-- **Human-triggered chat follows human rhythms.** Anthropic's June 2026 Economic Index sampled conversations daily (Apr–Jun 2026). The personal-use share rises from about 35% on weekdays to just under 50% at weekends. News requests peak around 7 a.m. local time, business correspondence at 10–11 a.m., and recipes at 2.3× average at 6 p.m. US tax conversations were ~8× normal on 14 April [S041].
-- **Agentic API use is more directive.** In Anthropic's data, API traffic is 64% "directive" (vs 32% on the consumer app), and about three-quarters is classified as automation [S042]. Sales-outreach and automated-trading workflows roughly doubled their share in three months [S042].
-- **Agentic workloads are growing in token terms.** On OpenRouter, reasoning models carried over half of all tokens by late 2025. Average prompts grew from ~1.5k to over 6k tokens, and programming prompts routinely exceed 20k [S043].
-- **Geography (one developer platform, by billing location).** US 47%, Singapore 9%, Germany 7.5%, China 6%. Asia's share rose from ~13% to ~31% within the study period [S043].
-- **Scheduled agents are spread deliberately.** Managed schedulers add jitter (Anthropic: up to 15% of the interval, max 9 minutes) [S080]. ChatGPT caps scheduled tasks at no more than hourly [S079].
+Six different things get called agent "activity". No public source reports more than two of them for the same population:
+1. **Model requests** (API calls or tokens).
+2. **Execution runs** (a session or task from start to finish).
+3. **Background or scheduled tasks** started without a human.
+4. **Tool calls** (including web fetches).
+5. **Completed workflows or outputs** (for example, a pull request opened).
+6. **Transactions** (payments).
 
-### 10.2 What is not known
+Each must also be split by trigger: human-triggered, scheduled, event-driven, continuously operating, or research and synthetic workloads.
 
-**UNKNOWN.** We found no public data on:
-- hourly or weekday patterns of *autonomous* or *API-based* agent activity (Anthropic's hourly analysis covers chat and Cowork only [S041]; OpenRouter aggregates weekly in UTC [S043]);
-- when agents make *purchases*;
-- activity by deployment type across providers.
+### 10.2 What the evidence shows
 
-Requests, active agents, transactions and completed tasks are different units, and no source reports all four.
+| Trigger / unit | Evidence | Observation period, time zone, population | Finding | Strength |
+|---|---|---|---|---|
+| Human-triggered **chat and Cowork conversations** | Anthropic Economic Index "Cadences" [S041] | 10 Apr–10 Jun 2026; local time from IP; consumer accounts | Personal share ~35% on weekdays, just under 50% at weekends. News peaks ~7 a.m., business correspondence 10–11 a.m., recipes 2.3× average at 6 p.m. | High for that population; not autonomous agents |
+| Human-triggered **agent web fetches** (fetching pages on a person's behalf) | Cloudflare network telemetry [S092] | Year to Sep 2026; global Cloudflare network | Daily agent requests grew >1,700%. Agent traffic "follows human routines, with a weekly rhythm and a dip over the summer holidays". No figures published | Medium (qualitative) |
+| Human- or event-triggered **coding-agent outputs** (pull requests opened by agents) | **Our analysis** of the public AIDev dataset [S093] (`research/analysis/aidev_timing.py`) | 2,743,854 agent-authored PRs on public GitHub, 24 Dec 2024–24 Oct 2025, UTC | See below | High for public GitHub PR creation; not general agent activity |
+| **Model requests** on a developer marketplace | OpenRouter study [S043] | Weekly, UTC, to late 2025 | No time-of-day analysis. Shows growth of agentic token use | Medium |
+| **API traffic mix** | Anthropic Economic Index [S042] | Jan–Mar 2026 | API traffic 64% directive, ~75% automation. No timing published for API or Claude Code | Medium |
+| **Scheduled tasks** | Platform documentation [S079][S080] | Current | Schedulers deliberately add jitter (Anthropic: up to 15% of the interval, max 9 minutes). ChatGPT tasks run at most hourly | Mechanism only; no usage data |
+| **Continuously operating** agents | — | — | **No representative public dataset was found within the documented search scope** | Gap |
+| **Purchases** by agents | §9.2 [S090][S091] | Onchain | Monthly totals only; TRM reports agent transaction counts rose to a mid-2026 peak and then fell | Low for timing |
 
-**INTERPRETATION / RECOMMENDATION.** There is no evidence-based "peak hour" or "purchase window" for agents in general. Human-triggered agent use will follow local working and living patterns. Scheduled and event-driven agents run whenever their owners or triggering events dictate, increasingly around the clock and spread across time zones. If timing matters to your business (capacity planning, flash offers to agents), **measure it on your own traffic** by identifying agents through signed requests [S020][S059].
+**Coding-agent pull requests (CALCULATION, our analysis of AIDev [S093]):**
+- **Weekends:** 25.8% of agent-authored PRs, against 28.6% if activity were spread evenly across the week. Weekday shares range from 14.3% (Monday) to 15.4% (Wednesday). Saturday is 12.7% and Sunday 13.1%.
+- **Hours:** the busiest UTC hours are 14:00–17:00 (~5.0–5.1% each) and the quietest 00:00–05:00 (~3.2–3.4% each). The peak-to-trough ratio is only **1.57**. 20% of PRs are opened between 00:00 and 06:00 UTC.
+- **By agent:** the pattern holds for every agent. Weekend share runs from 21.4% (Devin) to 28.0% (Google Jules), and peak-to-trough from 1.53 to 1.77. OpenAI Codex, 75% of the sample, peaks at 20:00 UTC.
+
+**INTERPRETATION.**
+- Coding-agent output is *much flatter* across the day than a single-time-zone office pattern would be. That is consistent with a globally distributed user base and some agents running unattended.
+- There is still a measurable weekday/working-hours lean, so human triggering still shapes activity.
+- This dataset does **not** tell us when agents *ran* (a pull request is the end of a run). It does not tell us user time zones, or how much of the activity was scheduled versus human-started. There is also no human baseline in the dataset to compare against.
+
+### 10.3 Conclusion and what remains unknown
+
+- **Supported:** human-triggered agent use (chat, web fetches) follows human weekly and daily rhythms [S041][S092]. Coding-agent output on public GitHub runs around the clock, with only a mild working-hours peak [S093].
+- **Not supported:** any universal "peak hour" or "purchase window" for agents. No representative public dataset was found within the documented search scope for:
+  - hour-of-day activity of *scheduled* or *continuously operating* agents;
+  - agent *purchases* by time;
+  - activity by deployment type across providers.
+- **What would resolve it:** provider telemetry split by trigger type (scheduled vs human vs event), or merchant logs of signed-agent requests [S020][S059].
+
+### 10.4 Proposed measurement method for a future authorised deployment (PROPOSED METHOD, not observed behaviour)
+
+**Events to log** (one row each, UTC timestamp plus the requester's IANA time zone where known):
+- `run_started` and `run_ended`, with the trigger type (human, schedule, webhook or event, continuous loop) and outcome (completed, failed, escalated, budget-stopped);
+- `model_call`, with tokens and cost;
+- `tool_call`, with tool name and read/write class;
+- `approval_requested` and `approval_decided`, with latency;
+- `payment_attempted` and `payment_settled`, with amount, currency, mandate ID and autonomy level P1–P4;
+- `external_block`, with HTTP status, site and reason (to feed §11.3).
+
+**Privacy controls:**
+- Pseudonymous user IDs, with no prompt or response content in timing tables.
+- Coarsen location to country and time zone.
+- Aggregate to at least hourly bins with a minimum cell size (for example ≥10 users) before analysis.
+- Retention: 90 days for raw events, then aggregates only.
+- Document the legal basis under the GDPR (legitimate interest assessment, or consent for consumer products) and list the logging in the privacy notice.
+
+**Observation period:** at least 8 full weeks, including one public-holiday period, to separate weekly from seasonal effects.
+
+**Metrics:**
+- Share of runs by trigger type.
+- Hour-of-week distribution per trigger type in *local* time and in UTC.
+- Peak-to-trough ratio.
+- Weekend share against 2/7.
+- Concurrency (95th-percentile simultaneous runs) for capacity planning.
+- Median approval latency by hour.
+- Payment attempts by autonomy level and hour.
+- Block events per 1,000 external requests by site.

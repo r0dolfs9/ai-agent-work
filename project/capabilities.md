@@ -19,3 +19,17 @@ Owner actions that would unlock more evidence:
 1. Approve a budget or provide credentials for analyst reports.
 2. Approve customer-discovery outreach.
 3. Share any first-party agent usage logs.
+
+## v1.1 capability record (2026-10-12)
+
+| Capability | Installed/present | Exposed & invocable | Service connected | Permission & authorization | Attempted | Succeeded | Evidence |
+|---|---|---|---|---|---|---|---|
+| WebFetch → web.archive.org | yes | tool refuses this host | n/a | read-only research authorised | yes | **no** ("unable to fetch from web.archive.org") | Not worked around; archived copies not used |
+| WebFetch → publisher-hosted alternative domains (gcom.pdo.aws.gartner.com, karriere.mckinsey.de) | yes | yes | yes | yes (public pages, no login or spoofing) | yes | yes | S082–S087, S098; disclosed as owner decision point V1 |
+| WebFetch → openai.com, help.openai.com, cnbc.com, oecd.org HTML | yes | yes | yes | yes | yes | no (HTTP 403) | Not bypassed; alternatives used (PDF on oecd.org fetched; developer docs) |
+| Eurostat dissemination API | n/a (public HTTP) | yes (curl) | yes | yes | yes | yes | isoc_eb_ai, lc_lci_lev queries |
+| ECB Data API (FX) | n/a | yes | yes | yes | yes | yes | EXR D.USD.EUR, 2026-10-09 = 1.1206 |
+| Hugging Face public dataset (AIDev, CC-BY-4.0) | n/a | yes (HTTP range reads) | no account | yes (public, licensed) | yes | yes | 2,743,854 rows, two columns read |
+| Python venv with pyarrow/fsspec (scratchpad only; not a repo dependency) | created | yes | n/a | local, reversible | yes | yes | Used only for the AIDev analysis |
+| pdftotext | yes | yes | n/a | yes | yes | yes | OECD, OpenAI DSA cover letter, KPMG tax card |
+| GitHub/Gmail/Calendar MCP | intermittently connected | not used | — | **no** (no outward action needed) | no | n/a | — |

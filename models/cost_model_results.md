@@ -99,3 +99,18 @@ Base total $135,304: LLM tokens are 8%, human escalations 74%, fixed engineering
 - resolve 50%: total $135,304 vs human-only $200,947 → saving 33%
 - resolve 60%: total $115,586 vs human-only $200,947 → saving 42%
 - resolve 70%: total $95,869 vs human-only $200,947 → saving 52%
+
+## Labour-cost jurisdiction sensitivity (v1.1)
+
+Eurostat hourly labour cost levels, 2025, whole economy excl. public administration, all-in employer cost (lc_lci_lev, D1_D4_MD5) [S119]: EU27 €34.9, Germany €45.0, Estonia €21.1, Latvia €16.3. Converted at 1.1206 USD/EUR (ECB, 2026-10-09). **Caveat:** whole-economy averages, not support-agent wages. The US figure is the occupation-specific BLS median × 1.4 (ASSUMPTION).
+
+| Labour cost basis | $/hour | Production base: total $/month | Human-only baseline | Saving | Small-business base: total | Human-only | Saving |
+|---|---|---|---|---|---|---|---|
+| US support agent (BLS × 1.4) | 30.14 | $135,304 | $200,947 | 33% | $6,159 | $12,057 | 49% |
+| EU27 average | 39.11 | $165,755 | $260,726 | 36% | $7,616 | $15,644 | 51% |
+| Germany average | 50.43 | $204,189 | $336,180 | 39% | $9,455 | $20,171 | 53% |
+| Estonia average | 23.64 | $113,240 | $157,631 | 28% | $5,103 | $9,458 | 46% |
+| Latvia average | 18.27 | $94,975 | $121,772 | 22% | $4,229 | $7,306 | 42% |
+
+INTERPRETATION: cheaper labour shrinks the *percentage* saving from automation, because fixed engineering, security and model costs are priced globally (in USD) while the human work replaced is cheaper. An EU/Latvia-based deployment therefore needs a higher resolution rate to beat an all-human team than a US one. Engineering FTE is held at the US BLS rate in every row; with local engineering salaries the gap narrows (not modelled).
+

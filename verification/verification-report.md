@@ -69,3 +69,41 @@ See `research/claims-ledger.md` §C (U01–U07) and the coverage-matrix gaps. Mo
 - Gartner, OpenAI, CNBC and White & Case pages: HTTP 403 to automated retrieval.
 - McKinsey: connection errors from this environment.
 - These were handled with search-engine extracts of the primary, marked as `search-extract` in the register.
+
+---
+
+# v1.1 verification (limitations follow-up, 2026-10-12)
+
+Reviewer: the same AI system (**self-review**). No independent reviewer was used, because the owner did not request one and none was authorised.
+
+## A. Automated checks
+
+| Check | Command | Result |
+|---|---|---|
+| Citations resolve (121 registered sources; 111 cited; 10 superseded, removed or background) | `python3 paper/build_paper.py` | **Pass** |
+| v1.0 cost figures unchanged and still match | `python3 -I verification/check_numbers.py` | **Pass, 44/44** |
+| v1.1 figures (labour sensitivity, operator economics, AIDev, opportunity scores) + 5 arithmetic checks | `python3 -I verification/check_numbers_v11.py` | **Pass, 32/32** |
+| Models and register regenerate | `python3 models/cost_model.py`; `python3 models/operator_economics.py`; `python3 opportunities/build_register.py` | **Pass** (deterministic) |
+| AIDev analysis reproducible | `research/analysis/aidev_timing.py` (needs pyarrow and fsspec; reads two columns of a public CC-BY parquet over HTTP) | **Pass**. Results in `research/analysis/aidev_timing_results.md` |
+| Link check (read-only GET) | `python3 -I verification/check_links.py` | 98 OK, 20 blocked to automated clients, 3 errors (the McKinsey .com URLs, which refuse connections from this environment; their content was read on the McKinsey-hosted mirror) |
+
+## B. Adversarial review (v1.1)
+
+| # | Attempt to disprove | Finding | Action |
+|---|---|---|---|
+| V1 | *Is the use of alternative publisher hosts (gcom.pdo.aws.gartner.com, karriere.mckinsey.de) a bypass of anti-bot protection?* | These are the publishers' own domains, surfaced by ordinary search, serving the same public press pages without login, spoofing or any circumvention. www.gartner.com returns 403 to automated clients. mckinsey.com produced connection errors, not a block page | Treated as a lawful alternative access path and **disclosed** in the source register and §14. **Owner decision point:** if you consider this inappropriate, the affected citations (S082–S087, S098) revert to "search extract" status. The conclusions would not change, but their confidence would drop to medium |
+| V2 | Strongest global-market claim: "AI agents market" numbers | Gartner's own figures differ ~30× by definition. Analyst 2030 figures converge from divergent bases. McKinsey's scenario method is undisclosed | Market numbers are kept in the paper only as definitional illustrations, labelled weak |
+| V3 | Universal agent buying behaviour | No new evidence of a stable preference. Accenture's 16-country survey supports the gap between selecting and paying | Conclusion retained |
+| V4 | Validity of the activity metric (AIDev) | (a) PR creation is the *end* of a run; (b) 75% is OpenAI Codex, so the profile is dominated by one product; (c) there is no human-PR baseline, and human GitHub activity is also globally distributed, so "flatness" cannot be attributed to autonomy; (d) agent attribution heuristics miss untagged work | All four caveats are stated in §10.2. The interpretation is limited to "consistent with a global user base and some unattended runs". No claim about autonomy share is made |
+| V5 | Validity of the enforcement metric | Anthropic's ban counts are all-cause, with no denominator. The 10.6% overturn rate is appeals-based, not a ban error rate | Stated explicitly. No ban *rate* reported |
+| V6 | Validity of purchase metrics | x402 volume ≠ purchases (it includes scripts). TRM's agentic share is heuristic. Visa's adjustment method is undisclosed. Units differ across rows | The table states units and autonomy levels. No summation. "Global total unknown" |
+| V7 | Feasibility of the leading opportunities from Latvia | B2B services are feasible (reverse charge, no consumer-law withdrawal). O02 requires a GDPR processor role (friction) | O02 risk score lowered. Others unchanged. Demand is still unvalidated |
+| V8 | Unrestricted cross-border operation | Disproved as stated: sanctions (Art. 5n), provider-unsupported countries, PSD2 licensing for client funds, non-EU indirect taxes and high-risk AI uses all restrict it | §15.1 verdict: "supported with conditions, not unrestricted" |
+| V9 | Tax interpretation risk (s.59(6) → VAT registration → micro-enterprise regime unavailable) | Based on an English translation explicitly marked outdated (valid 2024). The 2025 amendments changed the threshold test. Paragraphs (4) and (6) may also have changed | Marked ⚖ everywhere, listed first in §15.9, recorded as conflict C019 and unknown U08 |
+| V10 | Alternative CIT regime calculation shows no advantage, which is suspicious | Likely reflects features not captured by the summaries | Flagged ⚖ (C020). No recommendation made |
+| V11 | Currency consistency | Operator economics in EUR. Cost model in USD. Conversions use the ECB rate of 1.1206 (2026-10-09), stated in both | OK |
+| V12 | Effective dates | AI Act dates read from the Commission page (updated 2026-08-03). PLD 9 Dec 2026 from secondary sources. E-invoicing 2028 from secondary sources | Confidence labels set accordingly |
+| V13 | Source independence | Bloomberg and Reuters ($65bn) share one anonymous source. TRM and Visa use overlapping onchain data but independent methods. Talon.One and CNBC coverage of the OpenAI quote both derive from OpenAI's post | Independence limits stated. No double counting |
+| V14 | Consistency across artifacts | Opportunity scores in the paper (§12.4) match the register. Labour-sensitivity and operator figures match the model outputs (automated check) | OK |
+
+**No critical unsupported claim was found to remain** after the fixes above. The highest residual risks are V1 (access-path judgement) and V9 (Latvian VAT interpretation).
