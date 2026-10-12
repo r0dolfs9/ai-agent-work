@@ -47,6 +47,19 @@ Not legal advice. **UNKNOWN:** how national regulators (for example in Latvia or
 - **Respect rate limits and robots policies,** and keep logs that show you did.
 - **If suspended:** stop the triggering automation, use the platform's appeal route, move to sanctioned access, and keep a second provider ready (§7.3).
 
+### 11.4 Regional differences at a glance
+
+| Region | Regulatory posture toward agents | Commerce and payments evidence | Notes |
+|---|---|---|---|
+| **United States** | Voluntary standards (NIST CAISI) [S050]; joint security guidance [S051]; access disputes run through courts. Anti-hacking law (CFAA) was held a weak tool against user-directed agents in the Ninth Circuit [S015] | Most pilots and launches: ACP, UCP checkout, Visa/Mastercard pilots [S023][S025][S021][S022] | Largest share of developer AI usage by billing (47% on OpenRouter) [S043] |
+| **European Union** | AI Act Art. 50 disclosure in force since 2 Aug 2026; high-risk rules deferred to Dec 2027 [S074][S049] | Little public agent-commerce evidence. UCP expansion plans name Canada, Australia and the UK, not the EU (secondary) [S023] | Germany ~7.5% of OpenRouter tokens [S043]; GDPR applies to agent logs and transcripts |
+| **United Kingdom** | Co-author of the Five Eyes guidance [S051]; 2026 payments consultation reopening consent and liability [S066] | Limited | — |
+| **Singapore / ASEAN** | First dedicated agentic-AI governance framework (voluntary) [S052] | Mastercard live agentic transactions in Singapore and Malaysia [S022] | Singapore ~9% of OpenRouter tokens, likely regional billing hubs [S043] |
+| **China** | Administrative restrictions on running OpenClaw in state bodies [S013] | Not examined (evidence gap) | Chinese open-weight models significant on OpenRouter [S043] |
+| **Latin America, Korea, Australia, Hong Kong** | Not examined | Mastercard "first live agentic transactions" announced [S022] | Pilots, not volumes |
+
+**UNKNOWN:** Baltic or Latvia-specific adoption, pricing or enforcement data. None was found in public sources.
+
 ## 12. Market and business implications
 
 ### 12.1 How big is it? Weigh the evidence types
@@ -105,3 +118,15 @@ Lowest-ranked: spend-control fintech for agent purchases (36) and dispute-eviden
 - The rubric favours low-capital services because the project assumed a zero budget.
 - Score differences under ~5 points are not meaningful.
 - The register separates revenue, cost reduction and learning value, and lists the cheapest validation experiment for each. Every such experiment needs the owner's approval before anyone is contacted or money is spent.
+
+### 12.5 Common claims, checked
+
+| Claim you will hear | What the evidence says |
+|---|---|
+| "Agents will do most knowledge work soon" | On real freelance projects the best agent matched professionals 15.8% of the time (Jul 2026), up fast from 2.5% [S037]. The trend is steep, but most work still needs humans today |
+| "Agents make developers 10× faster" | Controlled studies are inconclusive. Developers overestimate their own speed-up [S070] |
+| "Agentic commerce is a $5 trillion market" | That is a 2030 *scenario* that counts AI-influenced purchases [S057]. Measured agent-made payments are tiny [S028] |
+| "Optimise your products for what AI agents prefer" | Agent choices show biases that change with model versions. There is no stable preference [S030] |
+| "Agents are safe if you tell them the rules" | Prompts are not controls. Agents get persuaded and injected [S039][S068]. Put limits in code |
+| "It's fine to plug my subscription into any agent tool" | Not under major providers' terms; suspensions have been reported [S016][S075] |
+| "Model price is the main cost" | Only for heavy, unsupervised use. In supervised business deployments, human review and escalation dominate (§6) |

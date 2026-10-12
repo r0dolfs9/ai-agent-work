@@ -41,7 +41,7 @@ Every factual claim carries a source tag such as **[S037]**. Each tag resolves i
 
 3. **Security is the binding constraint, and it is not solved.** OpenAI says prompt injection is "unlikely to ever be fully solved" [S069]. Prompt injection means hostile instructions hidden in content the agent reads. Anthropic's own browser-agent tests cut attack success from 23.6% to 11.2%, not to zero [S068]. Documented incidents include an agent deleting a production database during a code freeze [S012], and tens of thousands of internet-exposed personal-agent installations plus hundreds of malicious add-ons [S013][S014]. The core design rule: never give one agent private data, untrusted input *and* the ability to send data out [S011].
 
-4. **People, not tokens, are usually the biggest cost.** In our base model of a support agent handling 50,000 conversations a month, model usage is about **8%** of total cost. Human handling of the conversations the agent cannot resolve is about **74%**, and engineering, infrastructure and security about **17%** (**CALCULATION**, §6). The share of cases the agent fully resolves is the dominant lever. Moving it from 70% to 20% (all else equal) cuts the saving against an all-human team from 52% to 3%. In our pessimistic case the deployment costs 24% *more* than humans alone. Prompt caching roughly halves token cost and is the cheapest lever (**CALCULATION**).
+4. **In business deployments, people, not tokens, are usually the biggest cost.** In our base model of a support agent handling 50,000 conversations a month, model usage is about **8%** of total cost. Human handling of the conversations the agent cannot resolve is about **74%**, and engineering, infrastructure and security about **17%** (**CALCULATION**, §6). The share of cases the agent fully resolves is the dominant lever. Moving it from 70% to 20% (all else equal) cuts the saving against an all-human team from 52% to 3%. In our pessimistic case the deployment costs 24% *more* than humans alone. Prompt caching roughly halves token cost and is the cheapest lever (**CALCULATION**). The exception is heavy individual or developer use with no human in the loop, where long agent runs make token bills dominant. Our heavy personal case costs about $4,600 a month (§6.4).
 
 5. **Agents reach the world through tools, and the plumbing is standardising quickly.** The Model Context Protocol (MCP) is now the default way to connect agents to tools. It moved to a neutral Linux Foundation home with more than 10,000 published servers [S034], and shipped a major breaking revision on 28 July 2026 [S032]. Agent-to-agent communication (A2A) reached v1.0 [S035][S036]. Commerce and payment protocols (ACP, UCP, AP2, MPP, x402, Visa TAP, Mastercard Agent Pay) are **implemented but early**. Several compete (§8).
 
@@ -49,7 +49,7 @@ Every factual claim carries a source tag such as **[S037]**. Each tag resolves i
 
 7. **There is no stable "agent buying preference" to optimise for.** Controlled experiments show that AI shoppers have strong position and first-offer biases. They penalise "sponsored" labels, and their preferences shift when the model is updated [S029][S030]. Agents can be talked into bad deals [S039]. People represented by a weaker agent got measurably worse prices and did not notice [S040].
 
-8. **Platforms decide what agents may do, and they enforce it.** Amazon blocked Meta's shopping agent in September 2026 under its Conditions of Use [S063], even after a US appeals court held that Perplexity's agent did not "hack" Amazon by acting for its user [S015]. AI providers restrict using consumer subscriptions to power third-party agents, and some users report suspensions [S016][S075]. Since 15 September 2026, Cloudflare blocks "agent" bots by default on new sites' ad-supported pages [S019]. **INTERPRETATION:** being technically able to reach a site is not the same as being permitted to, and building on someone else's platform carries real risk of being cut off.
+8. **Platforms decide what agents may do, and they enforce it.** Amazon blocked Meta's shopping agent in September 2026 under its Conditions of Use [S063], weeks after a US appeals court found Amazon unlikely to win anti-hacking claims against Perplexity's user-directed agent, because the user, not the agent's developer, "accessed" Amazon. Contract claims remain open [S015]. AI providers restrict using consumer subscriptions to power third-party agents, and some users report suspensions [S016][S075]. Cloudflare announced that from 15 September 2026 "agent" bots are blocked by default on new sites' ad-supported pages [S019]. **INTERPRETATION:** being technically able to reach a site is not the same as being permitted to, and building on someone else's platform carries real risk of being cut off.
 
 9. **Regulation is arriving in layers.** In the EU, AI systems that interact with people must disclose that they are AI from 2 August 2026, and agents are included [S074]. The heavier "high-risk" obligations were pushed to December 2027 [S049]. The US relies on voluntary standards work, with no final agent standard yet [S050]. Six national cyber agencies jointly advise restrictive access controls [S051]. Singapore published the first dedicated agentic-AI governance framework [S052].
 
@@ -545,6 +545,7 @@ Status categories (our classification): **Proposed** (draft or announcement), **
 - **Controlled, real-money pilots.** Visa reported "hundreds" of agent-initiated transactions with partners [S021]. Mastercard announced first live authenticated agentic transactions in the US, Latin America, Korea, Singapore and Malaysia, Australia and Hong Kong (for example, a ride booking) [S022].
 - **Machine payments.** Stripe's MPP launch partners let agents pay for browser sessions, physical mail, and even sandwiches for pickup in New York [S024]. On x402, adjusted spend was about $19M across ~134M transactions to April 2026. The top ~1% of buyers (about 4,000 wallets) accounted for ~90% of adjusted volume [S028]. Gross counts of "160M+ agentic payments" are far larger because they include test and gamified activity (conflict C006).
 - **Experimental marketplaces.** In Anthropic's internal "Project Deal", Claude agents representing 69 employees closed 186 deals worth just over $4,000 with no human involvement during negotiation [S040].
+- **Checkout inside AI surfaces, with human confirmation.** Google's UCP-powered checkout with Google Pay is reported live in the US with major retailers and Shopify merchants. The shopper still confirms the purchase [S023].
 - **In-chat checkout.** OpenAI's Instant Checkout launched with Etsy and promised Shopify merchants [S026]. In March 2026 OpenAI said the first version "did not offer the level of flexibility that we aspire to provide" and let merchants use their own checkout [S025]. One unverified analysis claims only ~30 Shopify merchants went live [S027].
 
 **UNKNOWN.** No public source gives the total value of purchases *completed end-to-end by agents*. Retail "AI traffic" figures (+393% year on year, converting 42% better than other traffic [S031]) describe humans arriving from AI answers.
@@ -659,6 +660,19 @@ Not legal advice. **UNKNOWN:** how national regulators (for example in Latvia or
 - **Respect rate limits and robots policies,** and keep logs that show you did.
 - **If suspended:** stop the triggering automation, use the platform's appeal route, move to sanctioned access, and keep a second provider ready (§7.3).
 
+### 11.4 Regional differences at a glance
+
+| Region | Regulatory posture toward agents | Commerce and payments evidence | Notes |
+|---|---|---|---|
+| **United States** | Voluntary standards (NIST CAISI) [S050]; joint security guidance [S051]; access disputes run through courts. Anti-hacking law (CFAA) was held a weak tool against user-directed agents in the Ninth Circuit [S015] | Most pilots and launches: ACP, UCP checkout, Visa/Mastercard pilots [S023][S025][S021][S022] | Largest share of developer AI usage by billing (47% on OpenRouter) [S043] |
+| **European Union** | AI Act Art. 50 disclosure in force since 2 Aug 2026; high-risk rules deferred to Dec 2027 [S074][S049] | Little public agent-commerce evidence. UCP expansion plans name Canada, Australia and the UK, not the EU (secondary) [S023] | Germany ~7.5% of OpenRouter tokens [S043]; GDPR applies to agent logs and transcripts |
+| **United Kingdom** | Co-author of the Five Eyes guidance [S051]; 2026 payments consultation reopening consent and liability [S066] | Limited | — |
+| **Singapore / ASEAN** | First dedicated agentic-AI governance framework (voluntary) [S052] | Mastercard live agentic transactions in Singapore and Malaysia [S022] | Singapore ~9% of OpenRouter tokens, likely regional billing hubs [S043] |
+| **China** | Administrative restrictions on running OpenClaw in state bodies [S013] | Not examined (evidence gap) | Chinese open-weight models significant on OpenRouter [S043] |
+| **Latin America, Korea, Australia, Hong Kong** | Not examined | Mastercard "first live agentic transactions" announced [S022] | Pilots, not volumes |
+
+**UNKNOWN:** Baltic or Latvia-specific adoption, pricing or enforcement data. None was found in public sources.
+
 ## 12. Market and business implications
 
 ### 12.1 How big is it? Weigh the evidence types
@@ -717,6 +731,18 @@ Lowest-ranked: spend-control fintech for agent purchases (36) and dispute-eviden
 - The rubric favours low-capital services because the project assumed a zero budget.
 - Score differences under ~5 points are not meaningful.
 - The register separates revenue, cost reduction and learning value, and lists the cheapest validation experiment for each. Every such experiment needs the owner's approval before anyone is contacted or money is spent.
+
+### 12.5 Common claims, checked
+
+| Claim you will hear | What the evidence says |
+|---|---|
+| "Agents will do most knowledge work soon" | On real freelance projects the best agent matched professionals 15.8% of the time (Jul 2026), up fast from 2.5% [S037]. The trend is steep, but most work still needs humans today |
+| "Agents make developers 10× faster" | Controlled studies are inconclusive. Developers overestimate their own speed-up [S070] |
+| "Agentic commerce is a $5 trillion market" | That is a 2030 *scenario* that counts AI-influenced purchases [S057]. Measured agent-made payments are tiny [S028] |
+| "Optimise your products for what AI agents prefer" | Agent choices show biases that change with model versions. There is no stable preference [S030] |
+| "Agents are safe if you tell them the rules" | Prompts are not controls. Agents get persuaded and injected [S039][S068]. Put limits in code |
+| "It's fine to plug my subscription into any agent tool" | Not under major providers' terms; suspensions have been reported [S016][S075] |
+| "Model price is the main cost" | Only for heavy, unsupervised use. In supervised business deployments, human review and escalation dominate (§6) |
 
 ## 13. Practical starting guide
 
