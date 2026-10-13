@@ -6,7 +6,8 @@ What it models (low / base / high):
      recall audit, sweep for purely national rules), project management, hosting, and LLM API spend.
   2. A fully manual comparison of the same scope, as a benchmark.
   3. Monthly upkeep after the pilot (re-checking provisions that changed).
-  4. How sure we can be: the statistical bounds that review samples of a given size support.
+  4. Optional: comparing Latvia with other EU countries on rules the EU leaves to each country (parameter matrix).
+  5. How sure we can be: the statistical bounds that review samples of a given size support.
 
 Every number is a dated source [S###] or an explicit ASSUMPTION. Nothing here has been measured on this task;
 the pilot's proof-of-concept phase exists to replace these assumptions with observed figures.
@@ -82,6 +83,27 @@ CASES = {
                  60, 85, 150, 8, 0.75, 0.45, 0.60, 300, 0.30, 10, 0.20, 85, 150, 6.0,
                  1.50, 120, 4),
 }
+
+
+# ---------------------------------------------------------------- optional: Latvia vs other Member States (ASSUMPTION)
+# Not EU-vs-LV but LV-vs-country X, for rules the EU leaves to each country (e.g. overtime pay rates [S165]-[S172]).
+# Designed as a "parameter matrix": a fixed list of key rules/numbers for the industry, one cell per country.
+#   params: rules in the matrix; h_per_cell: reviewer time to check one AI-extracted cell against that country's
+#   official text; dev_days: adding one country's legal portal; tokens per cell: search + extraction (Opus 5.5).
+COMPARE = {
+    "low":  dict(params=40,  h_per_cell=10 / 60, dev_days=1, cell_in=20_000, cell_out=2_000, runs=1.5),
+    "base": dict(params=80,  h_per_cell=15 / 60, dev_days=2, cell_in=30_000, cell_out=3_000, runs=2.0),
+    "high": dict(params=150, h_per_cell=25 / 60, dev_days=4, cell_in=50_000, cell_out=5_000, runs=3.0),
+}
+
+
+def per_country(k: str) -> dict:
+    c, x = CASES[k], COMPARE[k]
+    review_h = x["params"] * x["h_per_cell"]
+    dev_h = x["dev_days"] * 8
+    llm = x["params"] * usd("opus-5.5", x["cell_in"], x["cell_out"]) * x["runs"] / USD_PER_EUR
+    eur = review_h * c.legal_rate + dev_h * c.dev_rate + (review_h + dev_h) * c.pm_share * c.pm_rate + llm
+    return dict(review_h=review_h, dev_h=dev_h, llm=llm, eur=eur)
 
 
 def usd(model: str, tin: float, tout: float, cached: float = 0.0) -> float:
@@ -233,7 +255,25 @@ def main() -> None:
     w(f"| Expert hours | {R['low']['upkeep_legal_h']:,.0f} | {R['base']['upkeep_legal_h']:,.0f} | {R['high']['upkeep_legal_h']:,.0f} |")
     w(f"| **Total per month, EUR** | {fmt(R['low']['upkeep'])} | {fmt(R['base']['upkeep'])} | {fmt(R['high']['upkeep'])} |\n")
 
-    w("## 6. How sure can we be? What review samples support\n")
+    w("## 6. Optional: compare Latvia with other EU countries (parameter matrix)\n")
+    w("For rules the EU leaves to each country (for example, overtime pay rates), the comparison is Latvia against other "
+      "countries, not against EU law. Modelled as a fixed list of key rules per industry, one cell per country, each cell "
+      "AI-extracted from that country's official text and checked by a reviewer who reads its language. ASSUMPTIONS in `COMPARE`.\n")
+    w("| | Low | Base | High |\n|---|---:|---:|---:|")
+    PC = {k: per_country(k) for k in CASES}
+    w(f"| Rules in the matrix | {COMPARE['low']['params']} | {COMPARE['base']['params']} | {COMPARE['high']['params']} |")
+    w(f"| Reviewer minutes per cell | {COMPARE['low']['h_per_cell']*60:.0f} | {COMPARE['base']['h_per_cell']*60:.0f} | {COMPARE['high']['h_per_cell']*60:.0f} |")
+    w(f"| Reviewer hours per country | {PC['low']['review_h']:,.0f} | {PC['base']['review_h']:,.0f} | {PC['high']['review_h']:,.0f} |")
+    w(f"| AI usage per country, EUR | {PC['low']['llm']:,.0f} | {PC['base']['llm']:,.0f} | {PC['high']['llm']:,.0f} |")
+    w(f"| **Cost per added country, EUR** | **{fmt(PC['low']['eur'])}** | **{fmt(PC['base']['eur'])}** | **{fmt(PC['high']['eur'])}** |")
+    for n in (3, 8, 26):
+        w(f"| {n} countries | {fmt(PC['low']['eur']*n)} | {fmt(PC['base']['eur']*n)} | {fmt(PC['high']['eur']*n)} |")
+    w("\nThe hard part is not money but finding a reviewer for each country's law and language. A cheaper first pass can use "
+      "EU-level comparative sources, with country experts only for disputed cells. A full EU-law comparison for another country "
+      "(not just a matrix) would cost about as much as a new pilot (section 1).\n")
+    for k in CASES:
+        R[k]["per_country"] = PC[k]["eur"]
+    w("## 7. How sure can we be? What review samples support\n")
     w("**A. Missed differences.** The expert re-checks a random sample of items the system marked \"no difference\". "
       "If none turn out to be a missed difference, the true miss rate is below the bound shown, with 95% confidence "
       "(exact one-sided bound; the 'rule of three' gives about 3/n).\n")
@@ -257,7 +297,7 @@ def main() -> None:
         cw.writerow(["metric", "low", "base", "high"])
         for k in ["engineering build", "legal expert", "project management / QA", "hosting and tools", "LLM API"]:
             cw.writerow([f"cost_eur:{k}"] + [round(R[c]["cost"][k], 2) for c in CASES])
-        for m in ["total", "poc", "next_ind", "manual_eur", "upkeep", "llm_eur", "legal_hours", "dev_hours", "pm_hours", "arts", "rel", "flags", "saving"]:
+        for m in ["total", "poc", "next_ind", "per_country", "manual_eur", "upkeep", "llm_eur", "legal_hours", "dev_hours", "pm_hours", "arts", "rel", "flags", "saving"]:
             cw.writerow([m] + [round(R[c][m], 4) for c in CASES])
     print("wrote", OUT / "cost_model_results.md")
     for k in CASES:

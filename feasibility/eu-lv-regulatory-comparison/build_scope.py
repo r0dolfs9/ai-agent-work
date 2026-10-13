@@ -23,6 +23,7 @@ GROUPS = [
     ("Feed, food hygiene, by-products and official controls", ["32005R0183", "32009R1069", "32017R0625", "32002R0178", "32004R0852", "32004R0853"]),
     ("Organic production", ["32018R0848"]),
     ("Supply chain, trade and state aid", ["32019L0633", "32023R1115", "32022R2472", "32013R1408"]),
+    ("Farm employment: working time, working conditions, safety, seasonal workers", ["32003L0088", "32019L1152", "31989L0391", "32009L0104", "32014L0036"]),
 ]
 POC = {"31991L0676", "32016L2284", "32019R1009",                      # nutrients
        "32009R1107", "32009L0128",                                    # plant protection
@@ -55,6 +56,10 @@ for name, cs in GROUPS:
 regs = [c for c in ROWS if c[5] == "R"]
 dirs = [c for c in ROWS if c[5] == "L"]
 L.append("\n## Summary\n")
+L.append("- The employment group was added after the owner's overtime-pay example. EU law sets the 48-hour average limit "
+         "including overtime (Directive 2003/88, Art. 6) and requires employers to tell workers in writing how overtime is "
+         "paid (Directive 2019/1152, Art. 4(2)(l)). It does **not** set an overtime pay rate; that rate is purely national. "
+         "Directives 2019/1152, 89/391 and 2009/104 are also part of CAP social conditionality (Regulation 2021/2115, Annex IV) [S166][S167][S168].")
 L.append(f"- {len(ROWS)} acts: {len(dirs)} directives and {len(regs)} regulations. Proof of concept: {n_poc} acts in 3 sub-domains.")
 L.append(f"- Latvian implementing-measure records: {sum(int(ROWS[c]['lv_nim']) for c in dirs)} across the directives, "
          f"{sum(int(ROWS[c]['lv_nim']) for c in regs)} across the regulations.")

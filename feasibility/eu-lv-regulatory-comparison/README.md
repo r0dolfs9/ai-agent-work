@@ -20,7 +20,8 @@
 | **How sure would we be?** | **Measured, not promised.** Every reported difference is human-checked. Missed differences are the real risk, so they are measured by sampling. For example, if the reviewer re-checks 200 random "no difference" results and finds no miss, we can say with 95% confidence that fewer than **1.5%** are missed (Calculation, §7.3). |
 | **Why this is more feasible than it sounds** | Much of the matching already exists as public machine-readable data. EUR-Lex lists the Latvian acts notified for each directive: 208 of 270 agriculture directives have at least one [S143]. Latvian acts on likumi.lv name the directives they transpose [S144]. Latvian draft-law explanatory notes ("anotācijas") are open data (CC0, since September 2021). When an act touches EU law, its note has a table comparing it with that law, including a column for **stricter requirements** [S146][S147]. Legal texts are not protected by copyright in Latvia [S151]. |
 | **Main downsides** | Silent misses. Stale or incomplete source data (we found examples, §3.3). Regulations have no ready-made mapping. People may over-trust the AI. Rules in practice go beyond the text. Each has a prevention (§8). |
-| **Recommendation** | Answer the 2 decisions in §9, then run the proof of concept with clear go/no-go thresholds (§6). Do not commit to the full pilot until the proof of concept has measured recall, review time per finding and reviewer agreement on real data. |
+| **Update, 13 Oct** | You confirmed that you mean **rules (laws)**, with differences like overtime pay. Checking that example showed something important. The EU sets **no** overtime pay rate. Latvia's default is **at least 2x**; 1.5x is allowed only under a sector-wide collective agreement [S165][S166]. So "Latvia vs most of Europe" is a comparison with **other countries' laws**, not with EU law. It can be added as an option for about **€3,100 per country** in the base case (§2.5, §5.2). |
+| **Recommendation** | Answer the open decisions in §9, then run the proof of concept with clear go/no-go thresholds (§6). Do not commit to the full pilot until the proof of concept has measured recall, review time per finding and reviewer agreement on real data. |
 
 ---
 
@@ -37,7 +38,7 @@
 
 The Commission itself separates **transposition checks** (is everything there?) from **conformity checks** (is it correct?) [S160]. This project would do both, at provision level.
 
-> **If you meant technical *standards* (EN / LVS EN), this is a different project.** European standards are normally adopted unchanged as Latvian standards (Interpretation). The interesting question is then which standards Latvian law makes mandatory. An open dataset of standards referenced in Latvian law exists [S163], but the standard texts themselves are paid. This study assumes **EU legislation**. See decision 1 in §9.
+> **If you meant technical *standards* (EN / LVS EN), this is a different project.** European standards are normally adopted unchanged as Latvian standards (Interpretation). The interesting question is then which standards Latvian law makes mandatory. An open dataset of standards referenced in Latvian law exists [S163], but the standard texts themselves are paid. This study covers **EU legislation**, as the owner confirmed on 13 Oct (§9).
 
 ### 2.2 Types of difference (the taxonomy the agents would use)
 
@@ -51,7 +52,7 @@ The Commission itself separates **transposition checks** (is everything there?) 
 | D6 | **Procedure / competent authority** | (found during the pilot) |
 | D7 | **Penalties and enforcement** | (found during the pilot) |
 | D8 | **Timing** (late transposition, transitional periods) | (found during the pilot; the D4 check above may turn out to be one) |
-| D9 | **Purely national rule** with no EU counterpart | Fur-farming ban [S157] |
+| D9 | **Purely national rule** with no EU counterpart | Fur-farming ban [S157]. Overtime pay rate: Latvia requires at least 2x, while the EU sets no rate at all [S165][S166] |
 | D10 | **No difference** (faithful) | The fertiliser-law amendment's note says Regulation 2019/1009 is applied with "no stricter requirements" [S147]. This is a ministry's own statement, so it is checked, not trusted |
 
 ### 2.3 What "connections" means
@@ -75,6 +76,24 @@ Each link in the output is typed. Examples: *transposes* (directive → Latvian 
 
 The register is delivered as a spreadsheet/CSV and a small database, plus the connection list and a short summary per sub-domain.
 
+### 2.5 The owner's example: overtime pay (added 13 Oct 2026)
+
+The owner's example was that overtime is paid at about 1.25x "in most of Europe" and 1.5x in Latvia. This is exactly the kind of difference the register should catch. Checking it at source shows three levels:
+
+| Level | What the rule says | Source |
+|---|---|---|
+| **EU law** | Sets limits, not pay. The average working week is at most 48 hours **including overtime** (Directive 2003/88, Art. 6(b)). Employers must tell workers in writing about "any arrangements for overtime and its remuneration" (Directive 2019/1152, Art. 4(2)(l)). **There is no EU overtime pay rate.** | [S166][S167] |
+| **Latvia** | Overtime and public-holiday work earn a supplement of **at least 100%**, so at least **2x** the hourly rate. A sector-wide general collective agreement that substantially raises pay above the minimum wage may lower this, but not below 50%, so **1.5x** (Labour Law s.68, as amended from 1 May 2019) | [S165] |
+| **Other countries** (secondary sources, to verify) | **Lithuania:** at least 1.5x; 2x at night or on unscheduled rest days; 2.5x on public holidays (from 2025) [S170]. **Estonia:** time off by default, or 1.5x if paid in money [S171]. **France:** +25% for the first 8 overtime hours a week, then +50%; agreements may set as low as +10% [S169]. **Germany:** no statutory premium; contracts or collective agreements decide [S172] | [S169]–[S172] |
+
+What this means for the project:
+1. **Comparison A: Latvia vs EU law** (what the pilot does). Overtime appears three times:
+   - Latvia's working-time limits are compared with the 48-hour rule (D1 if stricter).
+   - Latvia's duty to inform workers is compared with Directive 2019/1152 (D10 or D4).
+   - The 2x pay rate is recorded as a **purely national rule (D9)**, because the EU sets none.
+2. **A connection worth knowing.** Articles 3–6, 8, 10 and 13 of Directive 2019/1152 are part of the CAP's **social conditionality** (Regulation 2021/2115, Annex IV) [S168]. A farm employer's duty to give workers written terms, including how overtime is paid, therefore links labour law to CAP payments. How Latvia applies this to payment reductions is something the pilot would check (Unknown now). Because of this link, the scope now includes a farm-employment group of 5 directives ([`pilot-scope-agriculture.md`](pilot-scope-agriculture.md)).
+3. **Comparison B: Latvia vs other countries.** "Most of Europe pays 1.25x" compares Latvia with other Member States' national laws, not with EU law. That is a different, additional job, best done as a **parameter matrix**: a fixed list of key rules for the industry, with one cell per country (§5.2). The quick check above shows why it needs verification. Rates range from no statutory premium (Germany) to 2x (Latvia), and Latvia's default is 2x, not 1.5x.
+
 ---
 
 ## 3. What we found when we looked (evidence gathered in this session)
@@ -83,7 +102,7 @@ The register is delivered as a spreadsheet/CSV and a small database, plus the co
 
 - **Fact** [S142]: the EU's own database classifies about **8,300 acts in force** (8,293) under the agriculture chapter. They include 2,536 implementing regulations, 2,121 regulations, 1,716 addressed decisions and 209 directives. Most of them are market-management and trade acts that do not set rules farmers must follow.
 - **Fact** [S142]: important farm rules sit **outside** that chapter. The Nitrates Directive, for example, is filed under environment. Scope therefore has to be built by topic, not by database category.
-- **Recommendation**: a **core slice of about 50 base acts** covers what binds farms and agri-businesses: CAP and conditionality, nutrients, plant protection, seeds and GMOs, animal health and welfare, feed and food hygiene, organic, supply chain and state aid. We verified a candidate list of **49 acts, all in force** (21 directives, 28 regulations): [`pilot-scope-agriculture.md`](pilot-scope-agriculture.md).
+- **Recommendation**: a **core slice of about 50 base acts** covers what binds farms and agri-businesses: CAP and conditionality, nutrients, plant protection, seeds and GMOs, animal health and welfare, feed and food hygiene, organic, supply chain and state aid. We verified a candidate list of **54 acts, all in force** (26 directives, 28 regulations), including 5 farm-employment directives added after the overtime example (§2.5): [`pilot-scope-agriculture.md`](pilot-scope-agriculture.md). The cost model's base case assumes about 50 acts (range 40–70).
 
 ### 3.2 Ready-made links exist and give the agents a head start
 
@@ -192,6 +211,22 @@ The AI bill barely matters: even three times more tokens than assumed adds only 
 
 **If you build it yourself** with an AI coding assistant, most of the engineering line becomes your own time, not cash. The reviewer cost stays.
 
+### 5.2 Optional: compare Latvia with other EU countries
+
+This covers rules the EU leaves to each country, such as overtime pay (§2.5). It is a parameter matrix: a fixed list of key rules for the industry. For each rule and country, AI extracts the value from that country's official legal text, and a reviewer who reads that language checks it (Assumptions in `COMPARE` in the model; Calculation):
+
+| | Low | Base | High |
+|---|---:|---:|---:|
+| Rules in the matrix | 40 | 80 | 150 |
+| Reviewer minutes per cell | 10 | 15 | 25 |
+| **Cost per added country (EUR)** | **832** | **3,110** | **13,822** |
+| 3 countries (e.g. Estonia, Lithuania, Poland) | 2,497 | 9,329 | 41,466 |
+| All 26 other Member States | 21,643 | 80,852 | 359,371 |
+
+- **Latvia's own column** comes mostly from the main register. Rules not already covered there count as one more country.
+- **The hard part is people.** You need a reviewer for each country's law and language, and that is harder to find than budget. A cheaper first pass can use EU-level comparative sources, with country experts checking only the disputed cells.
+- **A full EU-law comparison** for another country, rather than a matrix, would cost about as much as a new pilot.
+
 ---
 
 ## 6. Provisional timeline (Assumption)
@@ -284,17 +319,13 @@ The register would not cover:
 
 ## 9. Decisions needed from you
 
-1. **What does "European standard rules" mean here?**
-   - (a) **EU legislation**: regulations, directives and their implementing acts. This is what this study assumes.
-   - (b) Technical **standards** (EN / LVS EN).
-   - (c) Both.
-
-   The answer changes the sources, the costs and the outputs (§2.1).
+1. ~~What does "European standard rules" mean?~~ **Answered on 13 Oct:** you mean **rules (laws)**, with differences like overtime pay. So the scope is EU legislation plus Latvian national rules; technical standards are out. Your example also raises decision 3.
 2. **Who reviews, and what is the register for?**
    - (a) **Internal research or business development.** A capable in-house or academic reviewer is enough; this points to the low or base case.
    - (b) **A product for clients**, for example farmers, advisers or agri-businesses. This needs a practising lawyer, terms of use and probably insurance; it points to the high case.
 
    The answer moves the cost more than anything else does.
+3. **Should Latvia also be compared with other countries (§2.5, §5.2)? If so, which, and on which rules?** For example, Estonia, Lithuania and Poland on 40–80 key farm rules: overtime pay, working-time limits, seasonal work, fertiliser limits, buffer strips, stocking densities. The base case is about €9,300 for 3 countries.
 
 Nothing has been spent and no one has been contacted. Engaging a reviewer, buying API credits or contacting anyone needs your approval of that specific action.
 
@@ -305,9 +336,9 @@ Nothing has been spent and no one has been contacted. Engaging a reviewer, buyin
 | File | What it is |
 |---|---|
 | [`README.md`](README.md) | This study |
-| [`cost_model.py`](cost_model.py) → [`cost_model_results.md`](cost_model_results.md) / `.csv` | Costs, effort, timeline inputs, upkeep, certainty tables (`python3 feasibility/eu-lv-regulatory-comparison/cost_model.py`) |
-| [`pilot-scope-agriculture.md`](pilot-scope-agriculture.md) ← [`build_scope.py`](build_scope.py) | The 49 verified core EU acts, grouped, with Latvian record counts and the proof-of-concept selection |
+| [`cost_model.py`](cost_model.py) → [`cost_model_results.md`](cost_model_results.md) / `.csv` | Costs, effort, timeline inputs, upkeep, other-country add-on, certainty tables (`python3 feasibility/eu-lv-regulatory-comparison/cost_model.py`) |
+| [`pilot-scope-agriculture.md`](pilot-scope-agriculture.md) ← [`build_scope.py`](build_scope.py) | The 54 verified core EU acts, grouped, with Latvian record counts and the proof-of-concept selection |
 | [`data/queries/*.rq`](data/queries/), [`data/run_queries.sh`](data/run_queries.sh), [`data/results/`](data/results/) | The EUR-Lex SPARQL queries and their results (retrieved 2026-10-13) |
-| [`../../research/sources.csv`](../../research/sources.csv) | Sources S142–S164 added for this study (S044 = API prices) |
+| [`../../research/sources.csv`](../../research/sources.csv) | Sources S142–S172 added for this study (S044 = API prices) |
 
 Rebuild: `bash feasibility/eu-lv-regulatory-comparison/data/run_queries.sh && python3 feasibility/eu-lv-regulatory-comparison/build_scope.py && python3 feasibility/eu-lv-regulatory-comparison/cost_model.py`

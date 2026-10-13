@@ -11,6 +11,18 @@ The owner asked whether AI agents could compare EU rules with Latvian law for an
 | Scope | 49 candidate core EU acts | All confirmed in force via SPARQL | `pilot-scope-agriculture.md` (generated) |
 | Writing | — | All 24 cited source IDs resolve; all new IDs cited | `feasibility/eu-lv-regulatory-comparison/README.md` |
 
+**Update, same day (owner's overtime example).** The owner confirmed that "European standard rules" means rules (laws), with differences like overtime pay (decision 1 closed). Findings, verified at source:
+- EU law sets no overtime pay rate. Directive 2003/88 Art. 6(b) sets only the 48 h average including overtime [S166].
+- Directive 2019/1152 Art. 4(2)(l) requires written information on overtime arrangements and pay [S167].
+- Latvia's Labour Law s.68 requires a supplement of at least 100% (2x). A sector-wide general agreement may set it at 50% or more (1.5x) [S165].
+- Directive 2019/1152 Arts 3–6, 8, 10 and 13 are part of CAP social conditionality (Reg. 2021/2115 Annex IV) [S168].
+- Other countries were checked from secondary sources only [S169]–[S172].
+
+Changes:
+- Scope extended to 54 acts (farm-employment group of 5 directives).
+- Cost model §6 adds an optional parameter matrix comparing Latvia with other countries: about €3,100 per country in the base case (€800–€13,800).
+- New open decision 3: which comparator countries and which rules, if any.
+
 HANDOFF (feasibility study)
 GOAL: Answer the owner's feasibility question for an AI-agent system comparing EU rules with Latvian law by industry, with agriculture as the pilot.
 STATE: Complete as a research and planning document. Nothing built, bought or sent.
@@ -33,8 +45,9 @@ UNVERIFIED:
 - **Latvian datasets:** the Ministry of Justice transposition dataset (S149) was unreachable.
 - **IED 2024/1785:** whether Latvia has transposed it (no NIM record on 2026-10-13) is unknown.
 BLOCKERS: Owner decisions:
-- (1) Does "European standard rules" mean EU legislation (assumed), technical standards, or both?
+- (1) Closed: rules (laws).
 - (2) Is the register for internal research or a client product? This sets reviewer level and cost case.
+- (3) Should Latvia also be compared with other countries? If so, which countries and which rules?
 NEXT: If approved:
 - Engage a reviewer.
 - Run the proof of concept: nutrients, plant protection, farm-animal welfare; 10 acts; gold set of about 200 provisions.
@@ -44,7 +57,7 @@ FILES:
 - **New:** `feasibility/eu-lv-regulatory-comparison/` (README, cost_model.py + results, build_scope.py, pilot-scope-agriculture.md, check_numbers.py, data/queries, data/results, data/run_queries.sh).
 - **Updated:** `research/sources.csv` (S142–S164), `research/bookmarks.html`, `README.md`, `paper/build_paper.py` (S142+ excluded from the paper's background-source line; paper.md unchanged).
 DO NOT REPEAT:
-- The next source ID is S165.
+- The next source ID is S173.
 - Query NIM links on BOTH `measure_national_implementing_implements_resource_legal` and `..._implements_directive`.
 - Do not treat EUR-Lex NIM lists as current law; check status on likumi.lv.
 

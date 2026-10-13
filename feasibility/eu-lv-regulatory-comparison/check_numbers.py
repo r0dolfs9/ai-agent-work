@@ -33,6 +33,10 @@ expect(f"about €{float(m['poc']['base'])/1000:,.0f},000 (€{float(m['poc']['l
 expect(f"€{float(m['manual_eur']['base'])/1000:,.0f},000 in the base case", "manual benchmark")
 expect(f"{float(m['saving']['low']):.0%}–{float(m['saving']['high']):.0%} cheaper".replace("%–", "–"), "saving range")
 expect(f"about {float(m['flags']['base']):,.0f} flagged findings", "flags base")
+for case in ("low", "base", "high"):
+    expect(f"**{eur(m['per_country'][case])}**", f"cost per added country {case}")
+expect(f"about **€{round(float(m['per_country']['base']), -2):,.0f} per country** in the base case", "headline per country (rounded)")
+expect(f"about €{round(3 * float(m['per_country']['base']), -2):,.0f} for 3 countries", "decision 3: three countries (rounded)")
 
 # query results
 dirs = list(csv.DictReader(open(HERE / "data/results/03_agri_directives_lv_nim_counts.csv", encoding="utf-8")))

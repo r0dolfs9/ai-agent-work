@@ -83,7 +83,24 @@ The manual benchmark also assumes an expert, so the saving comes from less searc
 | Expert hours | 7 | 17 | 53 |
 | **Total per month, EUR** | 804 | 2,549 | 10,906 |
 
-## 6. How sure can we be? What review samples support
+## 6. Optional: compare Latvia with other EU countries (parameter matrix)
+
+For rules the EU leaves to each country (for example, overtime pay rates), the comparison is Latvia against other countries, not against EU law. Modelled as a fixed list of key rules per industry, one cell per country, each cell AI-extracted from that country's official text and checked by a reviewer who reads its language. ASSUMPTIONS in `COMPARE`.
+
+| | Low | Base | High |
+|---|---:|---:|---:|
+| Rules in the matrix | 40 | 80 | 150 |
+| Reviewer minutes per cell | 10 | 15 | 25 |
+| Reviewer hours per country | 7 | 20 | 62 |
+| AI usage per country, EUR | 6 | 26 | 120 |
+| **Cost per added country, EUR** | **832** | **3,110** | **13,822** |
+| 3 countries | 2,497 | 9,329 | 41,466 |
+| 8 countries | 6,659 | 24,878 | 110,576 |
+| 26 countries | 21,643 | 80,852 | 359,371 |
+
+The hard part is not money but finding a reviewer for each country's law and language. A cheaper first pass can use EU-level comparative sources, with country experts only for disputed cells. A full EU-law comparison for another country (not just a matrix) would cost about as much as a new pilot (section 1).
+
+## 7. How sure can we be? What review samples support
 
 **A. Missed differences.** The expert re-checks a random sample of items the system marked "no difference". If none turn out to be a missed difference, the true miss rate is below the bound shown, with 95% confidence (exact one-sided bound; the 'rule of three' gives about 3/n).
 
