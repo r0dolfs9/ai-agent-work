@@ -37,10 +37,34 @@ Delivered `agent-stack-plan.md` and `stack_costs.py`:
 - **Timeline:** about 12 weeks part-time.
 - **Sources:** S173–S182.
 
-The next source ID is S183. Open decisions:
+Open decisions:
 - (a) the rule list and the 10 jurisdictions;
 - (b) n8n or code;
 - (c) the budget cap.
+
+**Update 3 (setup v2, same day).** The owner kept n8n and asked for better model options and the right number of agents. Delivered `agent-setup-v2.md` and `stack_costs_v2.py`.
+
+The pipeline is 8 fixed steps:
+1. Rule list (EU first, owner approves).
+2. Fetch (code).
+3. Find.
+4. Extract and translate.
+5. Check (code plus a small model).
+6. Real-world context (must cite a source).
+7. Compare.
+8. Independent verify (a model from a different company), then page, QA and PDF.
+
+Evidence for preferring fewer agents: S001, S183 (multi-agent systems use about 15x the tokens of a chat), S184 (most failures come from system design and agents misunderstanding each other).
+
+- **Model shortlist:** per step, with prices.
+- **Specialist tools:** DeepL (supports all target languages, with glossaries), TildeOpen (base model only), search APIs, embeddings.
+- **Law sources:** official source and API status for each jurisdiction (S192–S199).
+- **n8n stack:** main, 2 workers, Postgres, Redis, Gotenberg, Caddy. n8n 2.0 turns off Execute Command by default (S189).
+- **Costs:** AI about €590 per full run with the suggested mix (range €170–€2,000); about €1,700 cash for the first 3 months (range €320–€5,100).
+- **Timeline:** about 13 weeks part-time.
+- **Sources:** S183–S202.
+
+The next source ID is S203.
 
 HANDOFF (feasibility study)
 GOAL: Answer the owner's feasibility question for an AI-agent system comparing EU rules with Latvian law by industry, with agriculture as the pilot.
@@ -76,7 +100,7 @@ FILES:
 - **New:** `feasibility/eu-lv-regulatory-comparison/` (README, cost_model.py + results, build_scope.py, pilot-scope-agriculture.md, check_numbers.py, data/queries, data/results, data/run_queries.sh).
 - **Updated:** `research/sources.csv` (S142–S164), `research/bookmarks.html`, `README.md`, `paper/build_paper.py` (S142+ excluded from the paper's background-source line; paper.md unchanged).
 DO NOT REPEAT:
-- The next source ID is S183.
+- The next source ID is S203.
 - Query NIM links on BOTH `measure_national_implementing_implements_resource_legal` and `..._implements_directive`.
 - Do not treat EUR-Lex NIM lists as current law; check status on likumi.lv.
 

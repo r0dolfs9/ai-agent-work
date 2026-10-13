@@ -66,5 +66,15 @@ for line in res.splitlines():
             ok = n in plan
             fails += not ok
             print(("OK  " if ok else "FAIL"), "plan figure", line.split("|")[1].strip()[:30], "->", n)
+# agent-setup-v2 figures == stack_costs_v2_results.md
+v2 = (HERE / "agent-setup-v2.md").read_text(encoding="utf-8")
+r2 = (HERE / "stack_costs_v2_results.md").read_text(encoding="utf-8")
+r2 = r2.split("## Where the money goes")[0] + r2.split("## Cash budget")[1]
+for line in r2.splitlines():
+    if line.startswith("| ") and not line.startswith("| Mix") and not line.startswith("| Item") and "---" not in line:
+        for n in re.findall(r"\*{0,2}([\d,]{3,})\*{0,2} \|", line)[-3:]:
+            ok = n in v2
+            fails += not ok
+            print(("OK  " if ok else "FAIL"), "v2 figure", line.split("|")[1].strip()[:30], "->", n)
 print("\nfailures:", fails)
 sys.exit(1 if fails else 0)

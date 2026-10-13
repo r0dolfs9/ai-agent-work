@@ -2,6 +2,8 @@
 
 *13 October 2026. Planning only: nothing has been set up, bought or run.*
 
+> **Superseded by [`agent-setup-v2.md`](agent-setup-v2.md)**, which has fewer free-roaming agents and more fixed steps, more model options for each step, official law sources for each country, and the concrete n8n server setup. This file is kept for the history of the decision.
+
 This follows the owner's description of the system:
 - Reader agents, one per language, file the EU rules and the same rules in about 10 countries into a topic-sorted database.
 - A supervisor keeps the readers on task.
