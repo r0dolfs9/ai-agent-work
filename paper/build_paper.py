@@ -19,7 +19,7 @@ for c in cited:
     r = src[c]
     refs.append(f"- **[{c}]** {r['title']}. {r['publisher']}. {r['pub_date']}. <{r['url']}> "
                 f"(retrieved {r['retrieved']}; {r['access']}; confidence {r['confidence']})")
-uncited = sorted(set(src) - set(cited))
+uncited = sorted(i for i in set(src) - set(cited) if int(i[1:]) < 142)  # S142+ were registered for feasibility/, not the paper
 refs.append(f"\n*{len(cited)} sources cited in the paper; {len(uncited)} further registered sources used for background: "
             f"{', '.join(uncited) if uncited else 'none'}.*")
 out = body + "\n".join(refs) + "\n"

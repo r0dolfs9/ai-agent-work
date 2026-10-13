@@ -1,0 +1,9 @@
+PREFIX cdm: <http://publications.europa.eu/ontology/cdm#>
+SELECT DISTINCT ?celex ?title ?date WHERE {
+  ?work cdm:resource_legal_id_celex "31991L0676"^^<http://www.w3.org/2001/XMLSchema#string> .
+  { ?m cdm:measure_national_implementing_implements_resource_legal ?work } UNION { ?m cdm:measure_national_implementing_implements_directive ?work }
+  ?m cdm:resource_legal_id_celex ?celex .
+  FILTER(CONTAINS(?celex, "LVA"))
+  OPTIONAL { ?m cdm:work_title ?title }
+  OPTIONAL { ?m cdm:work_date_document ?date }
+} ORDER BY ?date

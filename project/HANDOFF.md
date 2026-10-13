@@ -1,5 +1,53 @@
 # Progress log and handoff
 
+## Feasibility study: EU vs Latvian rules by industry with AI agents (2026-10-13)
+
+The owner asked whether AI agents could compare EU rules with Latvian law for an industry, starting with agriculture. They wanted to know the setup costs, time, result quality, certainty, negatives and how to prevent them, plus a provisional timeframe.
+
+| Stage | Inputs | Verification | Output |
+|---|---|---|---|
+| Evidence | EU Publications Office SPARQL (Cellar); likumi.lv; TAP open data (data.gov.lv CKAN); studies on legal-AI accuracy; Latvian regulators and Saeima | Queries saved and re-run; counts re-derived from saved CSVs; one near-miss (single-property NIM query) caught and corrected | Sources S142–S164 |
+| Model | Anthropic prices [S044]; ECB rate 1.1206 | `check_numbers.py`: every README figure equals model or query output (0 failures) | `cost_model.py` → results .md/.csv |
+| Scope | 49 candidate core EU acts | All confirmed in force via SPARQL | `pilot-scope-agriculture.md` (generated) |
+| Writing | — | All 24 cited source IDs resolve; all new IDs cited | `feasibility/eu-lv-regulatory-comparison/README.md` |
+
+HANDOFF (feasibility study)
+GOAL: Answer the owner's feasibility question for an AI-agent system comparing EU rules with Latvian law by industry, with agriculture as the pilot.
+STATE: Complete as a research and planning document. Nothing built, bought or sent.
+- Base pilot: about €63k (range €19k–€275k), about 98% of it people.
+- Proof of concept: about €28k (range €10k–€96k).
+- AI usage: about €1k.
+- Time: about 17 weeks (range 11–25).
+VERIFIED:
+- **EUR-Lex counts:** 8,293 in-force acts in chapter 03. 208 of 270 agriculture directives have Latvian NIM records, 428 records in total.
+- **MK No. 834:** in force, amended 5 times. MK No. 33: repealed 2015-01-08.
+- **TAP annotations:** CC0 open data, Sep 2021–Sep 2026. Section 5.4 conformity table confirmed in a real agriculture annotation.
+- **Copyright:** Art. 6 of the Copyright Law excludes official texts.
+- **Latvian deviations, all read at source:**
+  - UTP law scope [S155][S164];
+  - fur-farming ban from 2028 [S157];
+  - MON 810 exclusion [S158].
+UNVERIFIED:
+- **Model inputs:** all model inputs except prices are assumptions, including reviewer rates, minutes per finding, tokens per step and manual hours.
+- **Legal-AI evidence:** S153, S154 and S160 were read via search extracts.
+- **Latvian datasets:** the Ministry of Justice transposition dataset (S149) was unreachable.
+- **IED 2024/1785:** whether Latvia has transposed it (no NIM record on 2026-10-13) is unknown.
+BLOCKERS: Owner decisions:
+- (1) Does "European standard rules" mean EU legislation (assumed), technical standards, or both?
+- (2) Is the register for internal research or a client product? This sets reviewer level and cost case.
+NEXT: If approved:
+- Engage a reviewer.
+- Run the proof of concept: nutrients, plant protection, farm-animal welfare; 10 acts; gold set of about 200 provisions.
+- Apply the Gate 1 thresholds in README §6.
+- Replace the model assumptions with measured figures.
+FILES:
+- **New:** `feasibility/eu-lv-regulatory-comparison/` (README, cost_model.py + results, build_scope.py, pilot-scope-agriculture.md, check_numbers.py, data/queries, data/results, data/run_queries.sh).
+- **Updated:** `research/sources.csv` (S142–S164), `research/bookmarks.html`, `README.md`, `paper/build_paper.py` (S142+ excluded from the paper's background-source line; paper.md unchanged).
+DO NOT REPEAT:
+- The next source ID is S165.
+- Query NIM links on BOTH `measure_national_implementing_implements_resource_legal` and `..._implements_directive`.
+- Do not treat EUR-Lex NIM lists as current law; check status on likumi.lv.
+
 ## v1.2: reading and decision package (2026-10-12)
 
 | Stage | Inputs | Verification | Output |

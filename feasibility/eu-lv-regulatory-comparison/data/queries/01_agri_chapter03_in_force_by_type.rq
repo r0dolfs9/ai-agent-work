@@ -1,0 +1,7 @@
+PREFIX cdm: <http://publications.europa.eu/ontology/cdm#>
+SELECT ?type (COUNT(DISTINCT ?work) AS ?n) WHERE {
+  ?work cdm:resource_legal_is_about_concept_directory-code ?dc .
+  FILTER(STRSTARTS(STR(?dc), "http://publications.europa.eu/resource/authority/dir-eu-legal-act/03"))
+  ?work cdm:resource_legal_in-force ?f . FILTER(STR(?f) IN ("1","true"))
+  ?work cdm:work_has_resource-type ?type .
+} GROUP BY ?type ORDER BY DESC(?n)
