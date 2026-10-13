@@ -1,0 +1,8 @@
+act_type,filter,rows
+laws,spe=1,7280
+laws,spe=1&ngr=1,1783
+laws,all,9569
+cabinet_regulations,spe=1,13277
+cabinet_regulations,spe=1&ngr=1,4630
+cabinet_regulations,all,27207
+retrieved 2026-10-13T16:44Z

@@ -64,7 +64,7 @@ Evidence for preferring fewer agents: S001, S183 (multi-agent systems use about 
 - **Timeline:** about 13 weeks part-time.
 - **Sources:** S183–S202.
 
-The next source ID is S203.
+The next source ID is S206.
 
 HANDOFF (feasibility study)
 GOAL: Answer the owner's feasibility question for an AI-agent system comparing EU rules with Latvian law by industry, with agriculture as the pilot.
@@ -100,7 +100,7 @@ FILES:
 - **New:** `feasibility/eu-lv-regulatory-comparison/` (README, cost_model.py + results, build_scope.py, pilot-scope-agriculture.md, check_numbers.py, data/queries, data/results, data/run_queries.sh).
 - **Updated:** `research/sources.csv` (S142–S164), `research/bookmarks.html`, `README.md`, `paper/build_paper.py` (S142+ excluded from the paper's background-source line; paper.md unchanged).
 DO NOT REPEAT:
-- The next source ID is S203.
+- The next source ID is S206.
 - Query NIM links on BOTH `measure_national_implementing_implements_resource_legal` and `..._implements_directive`.
 - Do not treat EUR-Lex NIM lists as current law; check status on likumi.lv.
 

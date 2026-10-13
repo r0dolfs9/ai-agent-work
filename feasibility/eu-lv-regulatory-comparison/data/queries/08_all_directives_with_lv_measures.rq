@@ -1,0 +1,10 @@
+PREFIX cdm: <http://publications.europa.eu/ontology/cdm#>
+SELECT (COUNT(DISTINCT ?work) AS ?directives_with_lv) (COUNT(DISTINCT ?m) AS ?lv_records) (COUNT(DISTINCT ?t) AS ?lv_distinct_titles) WHERE {
+  ?work cdm:resource_legal_in-force ?f . FILTER(STR(?f) IN ("1","true"))
+  ?work cdm:work_has_resource-type ?type .
+  FILTER(?type IN (<http://publications.europa.eu/resource/authority/resource-type/DIR>, <http://publications.europa.eu/resource/authority/resource-type/DIR_IMPL>, <http://publications.europa.eu/resource/authority/resource-type/DIR_DEL>))
+  ?work cdm:resource_legal_id_sector "3"^^<http://www.w3.org/2001/XMLSchema#string> .
+  { ?m cdm:measure_national_implementing_implements_resource_legal ?work } UNION { ?m cdm:measure_national_implementing_implements_directive ?work }
+  ?m cdm:measure_national_implementing_implemented_by_country <http://publications.europa.eu/resource/authority/country/LVA> .
+  OPTIONAL { ?m cdm:work_title ?t }
+}
