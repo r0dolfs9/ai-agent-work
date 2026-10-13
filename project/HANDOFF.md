@@ -23,6 +23,25 @@ Changes:
 - Cost model §6 adds an optional parameter matrix comparing Latvia with other countries: about €3,100 per country in the base case (€800–€13,800).
 - New open decision 3: which comparator countries and which rules, if any.
 
+**Update 2 (owner's own design, same day).** The owner wants:
+- a single non-lawyer operator;
+- agents on an outside server (their PC lacks RAM);
+- a model mix per agent (asked about Qwen and DeepSeek);
+- the EU plus about 10 countries;
+- a one-rule-per-page PDF.
+
+Delivered `agent-stack-plan.md` and `stack_costs.py`:
+- **Stack:** n8n self-hosted on an EU server, OpenRouter, a Markdown notes folder (Obsidian) and pandoc.
+- **Suggested mix B:** Qwen 3.7 Plus reader, DeepSeek Flash supervisor, Claude Opus comparer, GPT-5.5 verifier, Claude Sonnet final check.
+- **Costs:** about €630 AI per full run (range €190–€2,100); about €1,500 cash for the first 3 months (range €350–€4,900).
+- **Timeline:** about 12 weeks part-time.
+- **Sources:** S173–S182.
+
+The next source ID is S183. Open decisions:
+- (a) the rule list and the 10 jurisdictions;
+- (b) n8n or code;
+- (c) the budget cap.
+
 HANDOFF (feasibility study)
 GOAL: Answer the owner's feasibility question for an AI-agent system comparing EU rules with Latvian law by industry, with agriculture as the pilot.
 STATE: Complete as a research and planning document. Nothing built, bought or sent.
@@ -57,7 +76,7 @@ FILES:
 - **New:** `feasibility/eu-lv-regulatory-comparison/` (README, cost_model.py + results, build_scope.py, pilot-scope-agriculture.md, check_numbers.py, data/queries, data/results, data/run_queries.sh).
 - **Updated:** `research/sources.csv` (S142–S164), `research/bookmarks.html`, `README.md`, `paper/build_paper.py` (S142+ excluded from the paper's background-source line; paper.md unchanged).
 DO NOT REPEAT:
-- The next source ID is S173.
+- The next source ID is S183.
 - Query NIM links on BOTH `measure_national_implementing_implements_resource_legal` and `..._implements_directive`.
 - Do not treat EUR-Lex NIM lists as current law; check status on likumi.lv.
 

@@ -2,6 +2,8 @@
 
 *13 October 2026. Research and planning only. Nothing has been built, bought, sent or published, and no one has been contacted.*
 
+> **Newer, simpler plan (13 Oct, later):** the owner's own design is a single person, no lawyer, agents on a rented server, a mix of models, the EU plus about 10 countries, and a one-rule-per-page PDF. It is costed in **[`agent-stack-plan.md`](agent-stack-plan.md)**: about €1,500 cash for the first 3 months in the base case, and about 3 months part-time. Read that first. This document remains the detailed background on sources, risks and certainty.
+
 **The question.** Could a system of AI agents compare EU rules with Latvian law for one industry, find where Latvia deviates, and produce a list of every difference and connection? Start with agriculture. What would it cost, how long would it take, how good would the results be, and how sure could we be? What are the downsides, and how do we prevent them?
 
 **Labels used** (as in the rest of this repository): **Fact** [S###] = read in a source registered in [`research/sources.csv`](../../research/sources.csv). **Calculation** = computed by a script in this folder. **Assumption** = an input we chose. **Interpretation** = our judgement. **Recommendation** = what we suggest. **Unknown** = looked for, not found.

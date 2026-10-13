@@ -4,7 +4,7 @@ This is an evidence-based research paper on AI agents and the market forming aro
 
 **Status: v1.2 (reading and decision package), 2026-10-12.** Committed locally at the time; now on the remote branch.
 
-**New, 2026-10-13: [feasibility study](feasibility/eu-lv-regulatory-comparison/README.md)** on using AI agents to compare EU rules with Latvian law, industry by industry, with agriculture as the pilot. It covers costs, timeline, expected quality and certainty, risks and how to prevent them.
+**New, 2026-10-13: [feasibility study](feasibility/eu-lv-regulatory-comparison/README.md)** on using AI agents to compare EU rules with Latvian law, industry by industry, with agriculture as the pilot. It covers costs, timeline, expected quality and certainty, risks and how to prevent them. **Simpler follow-up plan:** [`agent-stack-plan.md`](feasibility/eu-lv-regulatory-comparison/agent-stack-plan.md) (server, model mix including Qwen and DeepSeek, budget, timeline).
 
 The rest of this README describes v1.2. v1.1 is preserved in `archive/v1.1/` and local tag `v1.1`; v1.0 in `archive/v1.0/` and tag `v1.0`. Nothing has been published externally, no one has been contacted, and no money has been spent.
 
@@ -47,6 +47,7 @@ python3 -I research/tools/make_bookmarks.py  # regenerate bookmarks.html
 bash feasibility/eu-lv-regulatory-comparison/data/run_queries.sh      # re-run EUR-Lex scope queries (network)
 python3 feasibility/eu-lv-regulatory-comparison/build_scope.py        # regenerate pilot-scope-agriculture.md
 python3 feasibility/eu-lv-regulatory-comparison/cost_model.py         # feasibility cost/effort/certainty tables
+python3 feasibility/eu-lv-regulatory-comparison/stack_costs.py        # model-mix and 3-month budget for the agent plan
 python3 -I feasibility/eu-lv-regulatory-comparison/check_numbers.py   # study figures == model and query output
 ```
 

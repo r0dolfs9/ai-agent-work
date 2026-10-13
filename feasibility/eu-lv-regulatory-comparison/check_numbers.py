@@ -54,5 +54,17 @@ expect(f"{len(pilot)} acts, all in force", "pilot candidates")
 n_reg = sum(1 for r in pilot if r["celex"][5] == "R")
 expect(f"The {n_reg} regulations in the core list", "regulations in core list")
 
+# agent-stack plan figures == stack_costs_results.md
+import re
+plan = (HERE / "agent-stack-plan.md").read_text(encoding="utf-8")
+res = (HERE / "stack_costs_results.md").read_text(encoding="utf-8")
+res = res.split("## Where the money goes")[0] + res.split("## Cash budget")[1]  # skip the USD breakdown table
+for line in res.splitlines():
+    if line.startswith("| A.") or line.startswith("| B.") or line.startswith("| C.") or line.startswith("| D.") or line.startswith("| **Total**"):
+        nums = re.findall(r"\*{0,2}([\d,]{3,})\*{0,2} \|", line)[-3:]
+        for n in nums:
+            ok = n in plan
+            fails += not ok
+            print(("OK  " if ok else "FAIL"), "plan figure", line.split("|")[1].strip()[:30], "->", n)
 print("\nfailures:", fails)
 sys.exit(1 if fails else 0)
