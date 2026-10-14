@@ -1,0 +1,152 @@
+[
+ {
+  "cell": "EMP-01:EU",
+  "check": "PASS",
+  "hash": "hash ok 0d23ad4953be"
+ },
+ {
+  "cell": "EMP-01:LV",
+  "check": "PASS",
+  "hash": "hash ok 7c74b90d8671"
+ },
+ {
+  "cell": "EMP-01:DE",
+  "check": "PASS",
+  "hash": "hash ok 566daf410781"
+ },
+ {
+  "cell": "EMP-01:NL",
+  "check": "PASS",
+  "hash": "hash ok 2c3965185805"
+ },
+ {
+  "cell": "EMP-01:FR",
+  "check": "PASS",
+  "hash": "hash ok 5687b90d9c72"
+ },
+ {
+  "cell": "EMP-01:ES",
+  "check": "PASS",
+  "hash": "hash ok 09fdf0868e32"
+ },
+ {
+  "cell": "EMP-01:SE",
+  "check": "PASS",
+  "hash": "hash ok be88a1cde279"
+ },
+ {
+  "cell": "EMP-01:EE",
+  "check": "PASS",
+  "hash": "hash ok a3d6507deca9"
+ },
+ {
+  "cell": "EMP-01:PL",
+  "check": "PASS",
+  "hash": "hash ok 5e1722965c4e"
+ },
+ {
+  "cell": "EMP-01:IT",
+  "check": "PASS",
+  "hash": "hash ok 4c1a6bcb89d8"
+ },
+ {
+  "cell": "NIT-01:EU",
+  "check": "PASS",
+  "hash": "hash ok 050a4911c797"
+ },
+ {
+  "cell": "NIT-01:LV",
+  "check": "PASS",
+  "hash": "hash ok 5a6b20af0002"
+ },
+ {
+  "cell": "NIT-01:DE",
+  "check": "PASS",
+  "hash": "hash ok 2c0b2ffa71fe"
+ },
+ {
+  "cell": "NIT-01:NL",
+  "check": "PASS",
+  "hash": "hash ok 595a9f247dce"
+ },
+ {
+  "cell": "NIT-01:FR",
+  "check": "PASS",
+  "hash": "hash ok 17b8aa435fab"
+ },
+ {
+  "cell": "NIT-01:ES",
+  "check": "PASS",
+  "hash": "hash ok 1611b83dc6c1"
+ },
+ {
+  "cell": "NIT-01:SE",
+  "check": "PASS",
+  "hash": "hash ok f837923b54b9"
+ },
+ {
+  "cell": "NIT-01:EE",
+  "check": "PASS",
+  "hash": "hash ok 500a71b3ad01"
+ },
+ {
+  "cell": "NIT-01:PL",
+  "check": "PASS",
+  "hash": "hash ok 7b9531f2804e"
+ },
+ {
+  "cell": "NIT-01:IT",
+  "check": "NO SOURCE",
+  "hash": ""
+ },
+ {
+  "cell": "AW-01:EU",
+  "check": "PASS",
+  "hash": "hash ok 308a290b3e0e"
+ },
+ {
+  "cell": "AW-01:LV",
+  "check": "PASS",
+  "hash": "hash ok fa9b8100caa6"
+ },
+ {
+  "cell": "AW-01:DE",
+  "check": "PASS",
+  "hash": "hash ok 3ec9ede69903"
+ },
+ {
+  "cell": "AW-01:NL",
+  "check": "PASS",
+  "hash": "hash ok 863cd949e486"
+ },
+ {
+  "cell": "AW-01:FR",
+  "check": "PASS",
+  "hash": "hash ok 3ae7beb59bb1"
+ },
+ {
+  "cell": "AW-01:ES",
+  "check": "PASS",
+  "hash": "hash ok ea2da8f9d68a"
+ },
+ {
+  "cell": "AW-01:SE",
+  "check": "PASS",
+  "hash": "hash ok 327dd6109b37"
+ },
+ {
+  "cell": "AW-01:EE",
+  "check": "PASS",
+  "hash": "hash ok 61eec0d3a961"
+ },
+ {
+  "cell": "AW-01:PL",
+  "check": "PASS",
+  "hash": "hash ok 54116b16c924"
+ },
+ {
+  "cell": "AW-01:IT",
+  "check": "NO SOURCE",
+  "hash": ""
+ }
+]
