@@ -1,6 +1,6 @@
 # D. Jurisdiction and official-source matrix
 
-*Research date: 14 October 2026. Every "probe" below is one HTTP request by script. Each is logged with a timestamp in [`evidence/probe-log.txt`](evidence/probe-log.txt), with response hashes in [`evidence/snapshot-hashes.csv`](evidence/snapshot-hashes.csv). [S##] IDs resolve in [`evidence/sources.csv`](evidence/sources.csv). No account was created, no key requested, and nothing was bulk-downloaded.*
+*Research date: 14 October 2026. Every "probe" below is one HTTP request by script. Each is logged with a timestamp in [`evidence/probe-log.txt`](evidence/probe-log.txt), with response hashes in [`evidence/snapshot-hashes.csv`](evidence/snapshot-hashes.csv). The first 7 probes ran before logging was set up, so they were re-run once at 09:52Z with logging, giving the same status codes; the log says so. [S##] IDs resolve in [`evidence/sources.csv`](evidence/sources.csv). No account was created, no key requested, and nothing was bulk-downloaded.*
 
 ## D.1 The access matrix
 
