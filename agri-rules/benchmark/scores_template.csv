@@ -1,0 +1,1 @@
+item_id,rule_id,jurisdiction,stage,candidate,rater,retrieval_ok,provision_ok,scope_ok,threshold_ok,exception_ok,date_ok,citation_ok,schema_valid,translation_0_3,comparison_0_3,hallucinations,unsupported_claims,latency_s,tokens_in,tokens_out,cost_usd,critical_flags,error_signature,rater_notes

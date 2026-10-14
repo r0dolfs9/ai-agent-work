@@ -4,6 +4,8 @@ This is an evidence-based research paper on AI agents and the market forming aro
 
 **Status: v1.2 (reading and decision package), 2026-10-12.** Committed locally only, not pushed. v1.1 is preserved in `archive/v1.1/` and local tag `v1.1`; v1.0 in `archive/v1.0/` and tag `v1.0`. Nothing has been published externally, no one has been contacted, and no money has been spent.
 
+> **Separate project in this repo:** [`agri-rules/`](agri-rules/00-START-HERE.md) is the planning package for an EU agricultural-rules comparison system (v0.1, 2026-10-14).
+
 **Start with [`package/00-START-HERE.md`](package/00-START-HERE.md)**, or open the single-file reading edition [`package/reading-edition.html`](package/reading-edition.html).
 
 ## Start here

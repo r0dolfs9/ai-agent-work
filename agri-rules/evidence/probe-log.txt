@@ -1,0 +1,34 @@
+2026-10-14T09:24:42Z | nl_sru | 406 | application/xml;charset=UTF-8 | 3535B | final=https://zoekservice.overheid.nl/sru/Search?x-connection=BWB&operation=searchRetrieve&version=2.0&query=overheidbwb.titel%3DMeststoffenwet&maximumRecords=1 | https://zoekservice.overheid.nl/sru/Search?x-connection=BWB&operation=searchRetrieve&version=2.0&query=overheidbwb.titel%3DMeststoffenwet&maximumRecords=1
+2026-10-14T09:24:45Z | nl_wetten | 200 | text/html;charset=UTF-8 | 878314B | final=https://wetten.overheid.nl/BWBR0004054/2025-12-09 | https://wetten.overheid.nl/BWBR0004054/
+2026-10-14T09:24:46Z | ee_rt | 200 | text/html | 62048B | final=https://www.riigiteataja.ee/akt/ATS | https://www.riigiteataja.ee/akt/ATS
+2026-10-14T09:24:47Z | ee_api | 200 | application/json;charset=UTF-8 | 628B | final=https://www.riigiteataja.ee/api/oigusakt_otsing/1/otsi?leht=1&limiit=1 | https://www.riigiteataja.ee/api/oigusakt_otsing/1/otsi?leht=1&limiit=1
+2026-10-14T09:24:48Z | lv_likumi | 200 | text/html; charset=utf-8 | 456412B | final=https://likumi.lv/ta/id/26019-darba-likums | https://likumi.lv/ta/id/26019-darba-likums
+2026-10-14T09:24:50Z | fr_legi_bulk | 200 | text/html;charset=ISO-8859-1 | 73228B | final=https://echanges.dila.gouv.fr/OPENDATA/LEGI/ | https://echanges.dila.gouv.fr/OPENDATA/LEGI/
+2026-10-14T09:24:50Z | fr_legifrance | 403 | text/html; charset=UTF-8 | 5595B | final=https://www.legifrance.gouv.fr/codes/texte_lc/LEGITEXT000022197698/ | https://www.legifrance.gouv.fr/codes/texte_lc/LEGITEXT000022197698/
+2026-10-14T09:24:51Z | eurlex_eli | 202 | text/html; charset=UTF-8 | 0B | final=https://eur-lex.europa.eu/eli/dir/2003/88/oj/eng | https://eur-lex.europa.eu/eli/dir/2003/88/oj/eng
+2026-10-14T09:24:53Z | it_normattiva | 200 | text/html;charset=UTF-8 | 46815B | final=https://www.normattiva.it/ | https://www.normattiva.it/
+2026-10-14T09:24:56Z | at_ris | 200 | application/json; charset=utf-8 | 18971B | final=https://data.bka.gv.at/ris/api/v2.6/Bundesrecht?Suchworte=Tierschutzgesetz&DokumenteProSeite=Ten | https://data.bka.gv.at/ris/api/v2.6/Bundesrecht?Suchworte=Tierschutzgesetz&DokumenteProSeite=Ten
+2026-10-14T09:24:57Z | dk_retsinfo | 200 | application/json; charset=utf-8 | 5128B | final=https://api.retsinformation.dk/v1/Documents?date=2026-10-13 | https://api.retsinformation.dk/v1/Documents?date=2026-10-13
+2026-10-14T09:24:59Z | fi_finlex | 200 | application/json | 128B | final=https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute-consolidated/list?format=json&page=1&limit=1 | https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute-consolidated/list?format=json&page=1&limit=1
+2026-10-14T09:25:00Z | lt_tar | 403 | text/html; charset=UTF-8 | 5547B | final=https://www.e-tar.lt/portal/lt/legalAct/TAR.0D6B7A23E36F | https://www.e-tar.lt/portal/lt/legalAct/TAR.0D6B7A23E36F
+2026-10-14T09:25:01Z | ie_isb | 200 | text/html | 65359B | final=https://www.irishstatutebook.ie/eli/1997/act/20/enacted/en/html | https://www.irishstatutebook.ie/eli/1997/act/20/enacted/en/html
+2026-10-14T09:29:38Z eurostat https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/aact_eaa01?format=JSON&lang=EN&itm_newa=18000&unit=MIO_EUR&indic_ag=PROD_BP&time=2024&time=2025
+2026-10-14T09:29:56Z eurostat https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/aact_eaa01?format=JSON&lang=EN&am_item=AM180000&unit=MIO_EUR&indic_agr=PRD_BP&time=2024
+2026-10-14T09:30:10Z | ro_just | 000 |  | 0B | final=https://legislatie.just.ro/Public/DetaliiDocument/1 | https://legislatie.just.ro/Public/DetaliiDocument/1
+2026-10-14T09:30:19Z | it_dati | 200 | text/html | 57789B | final=https://dati.normattiva.it/ | https://dati.normattiva.it/
+2026-10-14T09:30:25Z | it_api | 000 |  | 0B | final=https://api.normattiva.it/ | https://api.normattiva.it/
+2026-10-14T09:30:26Z | lt_tar_search | 403 | text/html; charset=UTF-8 | 5493B | final=https://www.e-tar.lt/portal/lt/legalActSearch | https://www.e-tar.lt/portal/lt/legalActSearch
+2026-10-14T09:30:27Z | ie_revised | 200 | text/html; charset=UTF-8 | 10268B | final=https://revisedacts.lawreform.ie/revacts/intro | https://revisedacts.lawreform.ie/
+2026-10-14T09:30:28Z | eurlex_cellar_rest | 400 |  | 197B | final=https://publications.europa.eu/resource/celex/32003L0088 | https://publications.europa.eu/resource/celex/32003L0088 -H Accept: application/xml;notice=branch
+2026-10-14T09:30:36Z | cellar_wtd | 404  214 https://publications.europa.eu/resource/celex/32003L0088
+2026-10-14T09:30:45Z | cellar Accept=text/html | 200 text/html;charset=UTF-8 37616
+2026-10-14T09:30:45Z | cellar Accept=application/xhtml+xml;type=simplified | 404  214
+2026-10-14T09:30:46Z | cellar Accept=application/pdf | 200 application/pdf;charset=UTF-8 118061
+2026-10-14T09:31:07Z | cellar_31991L0676 | 200 28531
+2026-10-14T09:31:07Z | cellar_32014L0036 | 404 214
+2026-10-14T09:31:08Z | cellar_31998L0058 | 200 20501
+2026-10-14T09:31:09Z | cellar_32021R2115 | 404 214
+2026-10-14T09:31:18Z | cellar_32014L0036 xhtml | 200 195524
+2026-10-14T09:31:19Z | cellar_32021R2115 xhtml | 200 1588381
+2026-10-14T09:32:02Z | arbzg3 | gesetze-im-internet.de/arbzg/__3.html
+2026-10-14T09:33:26Z | ecb_usd | data-api.ecb.europa.eu EXR D.USD.EUR.SP00.A

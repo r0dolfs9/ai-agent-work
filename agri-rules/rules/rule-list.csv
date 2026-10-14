@@ -1,0 +1,101 @@
+rule_id,rank,pilot,domain,comparison_question,answer_type,scope_must_specify,eu_baseline,regulation_level,comparability,trap,status_note
+EMP-01,1,Y,EMP,What is the maximum average weekly working time (including overtime) for an adult farm employee?,hours/week + reference period,adult employee; non-family; sector agreement in force?,Dir 2003/88/EC Art 6(b): 48 h average [S01],EU minimum + national + collective,H,,EU baseline VERIFIED
+EMP-02,5,Y,EMP,Over what reference period may weekly working time be averaged for agricultural work?,months,seasonal vs permanent; collective agreement?,Dir 2003/88/EC Art 16(b) 4 months; Art 17(3)(c)(vii)/(d)(i) agriculture derogation; Art 19 max 6 (12 by agreement) [S01],EU minimum + national + collective,M,T2,EU baseline VERIFIED
+EMP-03,23,N,EMP,What is the normal maximum daily working time for an adult farm employee?,hours/day,adult; averaging allowed?,None (EU sets daily rest not daily max),National,H,,DE ArbZG § 3: 8 h; 10 h if averaged [S10]
+EMP-04,4,Y,EMP,What statutory minimum premium is payable for overtime work by a farm employee?,% of hourly rate or 'none statutory',statutory vs collective agreement; piece-rate workers,None,National + collective,M,T1,LV DL Art 68: ≥100 %; general agreement may set ≥50 % [S15]
+EMP-05,24,N,EMP,What is the maximum amount of overtime an employee may work per period?,hours per period,consent; exceptional cases,None (only Art 6 average),National,M,,LV DL Art 136(5): avg 8 h / 7 days over ≤4 months [S15]
+EMP-06,25,N,EMP,Is written employee consent required before overtime may be ordered?,yes/no + exceptions,emergency exceptions,None,National,H,,
+EMP-07,12,N,EMP,What minimum daily rest must a farm employee receive and may agriculture derogate from it?,hours + derogation conditions,compensatory rest,Dir 2003/88/EC Art 3 (11 h); Art 17(3) [S01],EU minimum + national,M,,
+EMP-08,22,N,EMP,What weekly rest and Sunday-work rules apply to farm employees?,hours + Sunday rule,livestock care exceptions,Dir 2003/88/EC Art 5 (24 h + 11 h),EU minimum + national,M,,
+EMP-09,44,N,EMP,What break entitlement applies during a farm working day?,minutes after X hours,,Dir 2003/88/EC Art 4,EU minimum + national,H,,
+EMP-10,45,N,EMP,How is night work defined and limited for farm employees?,hours window + limit,,Dir 2003/88/EC Art 2(3)-(4) and Art 8,EU minimum + national,M,,
+EMP-11,3,Y,EMP,What is the minimum paid annual leave for a farm employee?,working days or weeks,"5- vs 6-day week basis; seasonal, part-year",Dir 2003/88/EC Art 7 (4 weeks),EU minimum + national,H,,Unit trap: days vs weeks
+EMP-12,46,N,EMP,May unused annual leave be paid out instead of taken (including for seasonal workers)?,yes/no + conditions,termination vs ongoing,Dir 2003/88/EC Art 7(2) + CJEU case law,EU + national + courts,M,,Court-decision layer
+EMP-13,10,N,EMP,What minimum wage applies to farm employees and how is it set?,EUR/hour or 'collective only',statutory vs sector agreement,Dir (EU) 2022/2041 framework (no wage level),National + collective,M,,Needs date of rate
+EMP-14,31,N,EMP,Is there a sector collective agreement for agriculture and is it extended to all employers?,yes/no + extension mechanism,,None,National + collective,L,,Comparability low by design: report mechanism not content
+EMP-15,6,Y,EMP,What is the maximum authorised stay of a third-country seasonal farm worker?,months per 12 months,permit type,Dir 2014/36/EU Art 14(1): 5–9 months [S03],EU harmonised range + national choice,H,,EU baseline VERIFIED
+EMP-16,32,N,EMP,What accommodation standards must employers meet for seasonal workers they house?,list of standards,third-country vs EU workers,Dir 2014/36/EU Art 20,EU + national,L,,
+EMP-17,15,Y,EMP,Must a farm employer record each employee's daily working time?,yes/no + form + retention,,No express directive text; CJEU C-55/18 (CCOO) interpretation,EU case law + national,M,T6,Binding-law vs court-decision distinction
+EMP-18,33,N,EMP,What are the minimum age and working-time limits for young people working on farms?,age + hours,family farm exemptions,Dir 94/33/EC,EU minimum + national,M,,
+EMP-19,47,N,EMP,May farm workers be paid by piece rate and must piece rates meet the minimum wage?,yes/no + rule,,None,National + collective,M,,
+EMP-20,48,N,EMP,Which host-state terms apply to workers posted to farms from another member state?,list,,Dir 96/71/EC as amended by Dir (EU) 2018/957,EU harmonised + national,M,,
+OSH-01,70,N,OSH,What roll-over protection and seat-belt obligations apply to farm tractors in use?,rule,old tractors exemption,Dir 2009/104/EC (work equipment); Reg (EU) 167/2013 (type approval),EU + national,M,,
+OSH-02,42,N,OSH,Must a farm employer carry out and document a workplace risk assessment?,yes/no + threshold,micro-employer simplification,Dir 89/391/EEC,EU minimum + national,H,,
+OSH-03,43,Y,OSH,Are there binding rules restricting outdoor farm work during extreme heat?,binding rule / guidance only / none,binding vs guidance,None,National,L,T7,Binding-law vs official-guidance trap
+OSH-04,71,N,OSH,What noise and vibration exposure limits apply to farm work?,dB(A) and m/s²,,Dir 2003/10/EC; Dir 2002/44/EC,EU harmonised minimum,H,,
+OSH-05,72,N,OSH,Do occupational-safety duties apply to family members and self-employed farmers?,yes/no + scope,,Framework Dir scope (workers),National,M,,Scope trap
+OSH-06,73,N,OSH,Is accident insurance compulsory for farmers and farm employees?,yes/no + scheme,self-employed vs employee,None,National,M,,
+OSH-07,99,N,OSH,What manual-handling obligations apply on farms?,rule,,Dir 90/269/EEC,EU minimum + national,H,,
+OSH-08,100,N,OSH,What personal protective equipment must a farm employer provide?,list,,Dir 89/656/EEC,EU minimum + national,H,,
+CAP-01,9,Y,CAP,What minimum buffer-strip width along watercourses is required under conditionality (GAEC 4)?,metres,national water definitions,Reg (EU) 2021/2115 Annex III GAEC 4 (as amended) [S05],EU framework + national standard,M,T5,Must use consolidated text
+CAP-02,41,N,CAP,What minimum soil cover is required in sensitive periods (GAEC 6)?,rule + period,,Reg (EU) 2021/2115 Annex III GAEC 6 (as amended),EU framework + national,M,T5,
+CAP-03,29,N,CAP,What crop rotation or diversification is required (GAEC 7)?,rule,"farm size, exemptions",Reg (EU) 2021/2115 Annex III GAEC 7 (amended 2024),EU framework + national,M,T5,
+CAP-04,30,N,CAP,Is a minimum share of non-productive land still required (GAEC 8)?,% or 'no longer required',,Reg (EU) 2021/2115 Annex III GAEC 8 (amended 2024),EU framework + national,M,T5,Amendment trap
+CAP-05,40,N,CAP,How is permanent grassland protected (GAEC 1 ratio)?,% decrease threshold,,Reg (EU) 2021/2115 Annex III GAEC 1,EU framework + national,M,,
+CAP-06,81,N,CAP,What protection applies to wetlands and peatlands (GAEC 2)?,rule,,Reg (EU) 2021/2115 Annex III GAEC 2,EU framework + national,L,,
+CAP-07,82,N,CAP,Is burning of arable stubble prohibited (GAEC 3) and what exceptions apply?,yes/no + exceptions,plant-health exceptions,Reg (EU) 2021/2115 Annex III GAEC 3,EU framework + national,H,,
+CAP-08,18,Y,CAP,Are small farms exempt from conditionality controls and penalties and below what size?,hectares,,Reg (EU) 2021/2115 as amended by Reg (EU) 2024/1468 (≤10 ha) — verify consolidated text,EU + national,H,T5,
+CAP-09,59,N,CAP,How is an 'active farmer' defined for direct payments?,definition,,Reg (EU) 2021/2115 Art 4(5),EU framework + national,L,,
+CAP-10,57,N,CAP,Which labour and safety rules are linked to CAP payments through social conditionality and from when?,list + start date,,Reg (EU) 2021/2115 Art 14 + Annex IV,EU + national,M,,
+CAP-11,58,N,CAP,What payment reductions apply for conditionality breaches?,% bands,negligence vs intent,Reg (EU) 2021/2116 (horizontal regulation),EU + national,M,,
+CAP-12,83,N,CAP,Which eco-schemes are offered in the national CAP strategic plan?,list,,Reg (EU) 2021/2115 Art 31,National choice within EU frame,L,,Low comparability; list only
+NIT-01,2,Y,NIT,What is the maximum nitrogen from livestock manure that may be applied per hectare per year?,kg N/ha/year,derogation farms; zones,Dir 91/676/EEC Annex III(2): 170 kg N/ha [S02],EU harmonised + derogations,H,T3,NL derogation ended 2026 [S28]
+NIT-02,11,Y,NIT,During which periods is spreading of manure and fertiliser prohibited?,date ranges by fertiliser and land type,"soil type, crop, region",Dir 91/676/EEC Annex II/III (national action programmes),EU frame + national,M,,
+NIT-03,16,Y,NIT,What minimum livestock-manure storage capacity is required?,months of production,"species, zone, farm size",Dir 91/676/EEC Annex III(1)(2),EU frame + national,M,,
+NIT-04,34,N,NIT,What restrictions apply to spreading on steep slopes or on frozen or snow-covered soil?,rule,,Dir 91/676/EEC Annex II,EU frame + national,M,,
+NIT-05,35,N,NIT,What minimum distance from watercourses applies to fertiliser application?,metres,,Dir 91/676/EEC Annex II/III,EU frame + national,M,,
+NIT-06,60,N,NIT,Is the whole territory a nitrate-vulnerable zone or only designated areas?,whole / designated,,Dir 91/676/EEC Art 3(5),EU + national choice,H,,
+NIT-07,36,N,NIT,Must farms keep a fertilisation plan and fertiliser records?,yes/no + threshold,,Dir 91/676/EEC Annex III,EU frame + national,M,,
+NIT-08,61,N,NIT,Are there limits on phosphate application?,kg P2O5/ha or none,,None,National,L,,
+NIT-09,62,N,NIT,Is low-emission manure spreading compulsory?,yes/no + techniques,,Dir (EU) 2016/2284 (NEC) — national measures,EU target + national,L,,
+NIT-10,84,N,NIT,Is a permit required to abstract water for irrigation and above what volume?,m³ threshold,,Dir 2000/60/EC Art 11(3)(e),EU frame + national + regional,L,,Regional trap (ES river basins)
+PPP-01,8,Y,PPP,Must a professional pesticide user hold a certificate and how long is it valid?,yes/no + years,,Dir 2009/128/EC Art 5,EU minimum + national,H,,
+PPP-02,37,N,PPP,How often must pesticide application equipment be inspected?,years,equipment type,Dir 2009/128/EC Art 8,EU minimum + national,H,,
+PPP-03,38,N,PPP,Is aerial spraying prohibited and what derogations exist?,yes/no + derogation,,Dir 2009/128/EC Art 9,EU harmonised + derogations,H,,
+PPP-04,17,Y,PPP,What minimum buffer zones protect surface water from pesticide spraying?,metres,"product label, equipment",Dir 2009/128/EC Art 11 + product authorisation,EU frame + national + product-specific,L,,Product-label layer trap
+PPP-05,39,N,PPP,What national restrictions apply to glyphosate use?,list,,Reg (EU) 2023/2660 (renewal) + national,EU + national,M,,
+PPP-06,64,N,PPP,Has the state granted emergency authorisations for neonicotinoid-treated seed?,yes/no + dates,,Reg (EC) 1107/2009 Art 53; CJEU C-162/21,EU + courts + national,M,,
+PPP-07,63,N,PPP,How long must pesticide-use records be kept?,years,,Reg (EC) 1107/2009 Art 67 (3 years),EU harmonised,H,,
+PPP-08,85,N,PPP,What restrictions apply in sensitive areas (protected areas; public spaces)?,rule,,Dir 2009/128/EC Art 12,EU frame + national,L,,
+PPP-09,86,N,PPP,What storage requirements apply to plant protection products on farms?,rule,,Dir 2009/128/EC Art 13,EU frame + national,M,,
+PPP-10,87,N,PPP,How are integrated pest management obligations enforced on farms?,rule,,Dir 2009/128/EC Art 14,EU frame + national,L,,
+FER-01,88,N,FER,May fertilising products without EU CE marking be sold nationally?,yes/no,,Reg (EU) 2019/1009 (optional harmonisation),EU optional harmonisation + national,M,,
+FER-02,89,N,FER,What limits apply to using sewage sludge on agricultural land?,mg/kg limits + bans,,Dir 86/278/EEC,EU minimum + national,M,,
+FER-03,90,N,FER,What rules apply to spreading digestate from biogas plants?,rule,,Mixed (nitrates + waste law),National,L,,
+AW-01,7,Y,AW,Is farming animals primarily for fur prohibited and from what date?,banned/not + date + species,"species, phase-out, existing farms",None (Commission follow-up to 'Fur Free Europe' pending) [S32],National,H,T4,"EE from 1.1.2026; LV from 1.1.2028; PL phase-out 31.12.2033 (secondary) [S29–S31]"
+AW-02,28,N,AW,Are cages for laying hens permitted?,yes/enriched only/no + date,,Dir 1999/74/EC (enriched cages allowed),EU minimum + national,H,,
+AW-03,27,N,AW,For how long may sows be kept in individual stalls?,weeks,,Dir 2008/120/EC,EU minimum + national,H,,
+AW-04,20,Y,AW,Is castration of piglets without anaesthesia prohibited?,yes/no + date,,Dir 2008/120/EC Annex I (allows <7 days),EU minimum + national,H,,
+AW-05,49,N,AW,Is routine tail docking of pigs prohibited and how is it enforced?,rule,,Dir 2008/120/EC Annex I,EU harmonised + enforcement,M,,
+AW-06,50,N,AW,Is year-round tethering of dairy cattle permitted?,yes/no + exceptions,,None (Dir 98/58/EC general),National,M,,
+AW-07,51,N,AW,From what age must calves be group-housed?,weeks,,Dir 2008/119/EC,EU minimum + national,H,,
+AW-08,13,Y,AW,What is the maximum stocking density for broiler chickens?,kg/m²,"standard vs higher-density conditions",Dir 2007/43/EC (33 / 39 / 42 kg/m²),EU harmonised + national,H,,
+AW-09,26,N,AW,What is the maximum journey time for transporting cattle and pigs?,hours,,Reg (EC) 1/2005,EU harmonised,H,,Pending EU revision
+AW-10,74,N,AW,Is slaughter without prior stunning permitted for religious rites?,yes/no + conditions,,Reg (EC) 1099/2009 Art 4(4); CJEU C-336/19,EU + national + courts,M,,
+AW-11,75,N,AW,Is beak trimming of laying hens permitted?,yes/no + conditions,,Dir 1999/74/EC,EU minimum + national,H,,
+AW-12,52,N,AW,Is culling of male day-old chicks prohibited?,yes/no + date,,None,National,H,,
+AW-13,76,N,AW,Is anaesthesia required for disbudding or dehorning cattle?,yes/no + age,,None specific,National,M,,
+AW-14,53,N,AW,Must dairy cattle be given access to pasture or outdoors?,yes/no + days,,None,National,M,,
+VET-01,54,N,VET,What identification and registration rules apply to cattle?,rule + deadlines,,Reg (EU) 2016/429 + Del Reg (EU) 2019/2035,EU harmonised,H,,
+VET-02,77,N,VET,Must pig holdings be registered and how are movements reported?,rule,,Reg (EU) 2016/429,EU harmonised + national,H,,
+VET-03,14,Y,VET,Is prophylactic use of antimicrobials in farm animals prohibited?,yes/no + exceptions,,Reg (EU) 2019/6 Art 107,EU harmonised,H,,
+VET-04,55,N,VET,What biosecurity measures are compulsory for pig farms because of African swine fever?,list,"zone status",Reg (EU) 2023/594 + national,EU + national + zone,L,,Zone/date trap
+VET-05,78,N,VET,How often must a veterinarian visit a livestock holding?,frequency,,Reg (EU) 2016/429 Art 25,EU + national,M,,
+VET-06,79,N,VET,How must fallen stock be collected or disposed of?,rule,,Reg (EC) 1069/2009,EU harmonised + national,M,,
+VET-07,56,N,VET,What is the farmer's duty to notify suspected listed diseases?,rule,,Reg (EU) 2016/429 Art 18,EU harmonised,H,,
+VET-08,80,N,VET,What rules govern medicated feed on farms?,rule,,Reg (EU) 2019/4,EU harmonised,H,,
+ORG-01,65,N,ORG,What conversion period applies before land produce can be sold as organic?,years,"crop type",Reg (EU) 2018/848 Annex II,EU harmonised,H,,
+ORG-02,66,N,ORG,What outdoor access must organic livestock have?,rule,,Reg (EU) 2018/848 Annex II,EU harmonised,H,,
+ORG-03,91,N,ORG,May a farm run organic and conventional production in parallel?,yes/no + conditions,,Reg (EU) 2018/848 Art 9(7),EU harmonised,H,,
+ORG-04,92,N,ORG,Who carries out organic inspection and is it public or private?,authority type,,Reg (EU) 2018/848 + Reg (EU) 2017/625,EU + national,M,,
+ORG-05,93,N,ORG,Is group certification available for small organic farms?,yes/no + thresholds,,Reg (EU) 2018/848 Art 36,EU harmonised,H,,
+LAND-01,19,Y,LAND,Who may acquire agricultural land (residency; legal persons; qualifications)?,rule,"buyer type, area",None (Treaty free movement limits),National,M,,
+LAND-02,67,N,LAND,Does the state or another body have a pre-emption right over farmland sales?,yes/no + body,,None,National,M,,
+LAND-03,68,N,LAND,What minimum duration applies to agricultural leases?,years,,None,National,M,,
+LAND-04,94,N,LAND,Is permission required to convert agricultural land to other use?,yes/no + authority,,None,National + regional,L,,
+LAND-05,95,N,LAND,Are there caps on how much farmland one person may acquire?,hectares,,None,National,M,,
+REC-01,21,Y,REC,How long must farmers keep records of veterinary medicines administered?,years,,Reg (EU) 2019/6 Art 108 (5 years),EU harmonised,H,,
+REC-02,69,N,REC,May agricultural inspections be unannounced?,yes/no + exceptions,,Reg (EU) 2017/625 Art 9(4),EU harmonised,H,,
+REC-03,96,N,REC,What statistical reporting obligations apply to farms?,list,,Reg (EU) 2018/1091,EU harmonised,M,,
+REC-04,97,N,REC,Must employers register seasonal workers' hours with an authority?,yes/no,,None,National,L,,Overlaps EMP-17
+REC-05,98,N,REC,How do farmers submit geospatial aid applications?,system,,Reg (EU) 2021/2116 (IACS),EU frame + national,L,,

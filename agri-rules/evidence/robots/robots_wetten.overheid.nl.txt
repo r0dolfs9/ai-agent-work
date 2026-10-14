@@ -1,0 +1,336 @@
+# Default = ALLOW, met path-restricties voor heap-zware paden
+# AI/LLM-crawlers expliciet Disallow
+
+#############################
+# Global settings
+#############################
+
+Sitemap: https://wetten.overheid.nl/sitemap.xml
+
+#############################
+# Google
+#############################
+
+User-agent: Googlebot
+Disallow: /zoeken/zoekresultaat
+Disallow: /uitgebreid_zoeken/zoekresultaat
+Disallow: /toekomstig_zoeken/zoekresultaat
+Disallow: /*/download/1$
+Disallow: /*afdrukken$
+Disallow: /*/informatie/xml
+Disallow: /service/
+Allow: /
+
+User-agent: Googlebot-Image
+Disallow: /zoeken/zoekresultaat
+Disallow: /uitgebreid_zoeken/zoekresultaat
+Disallow: /toekomstig_zoeken/zoekresultaat
+Disallow: /*afdrukken$
+Disallow: /*/informatie/xml
+Disallow: /service/
+Allow: /
+
+User-agent: Googlebot-Video
+Disallow: /zoeken/zoekresultaat
+Disallow: /uitgebreid_zoeken/zoekresultaat
+Disallow: /toekomstig_zoeken/zoekresultaat
+Disallow: /*afdrukken$
+Disallow: /*/informatie/xml
+Disallow: /service/
+Allow: /
+
+# Google AI / data usage extensions
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Google-CloudVertexBot
+Disallow: /
+
+#############################
+# Bing
+#############################
+
+User-agent: Bingbot
+Disallow: /zoeken/zoekresultaat
+Disallow: /uitgebreid_zoeken/zoekresultaat
+Disallow: /toekomstig_zoeken/zoekresultaat
+Disallow: /*/download/1$
+Disallow: /*afdrukken$
+Disallow: /*/informatie/xml
+Disallow: /service/
+Crawl-delay: 10
+Allow: /
+
+#############################
+# DuckDuckGo
+#############################
+
+User-agent: DuckDuckBot
+Disallow: /zoeken/zoekresultaat
+Disallow: /uitgebreid_zoeken/zoekresultaat
+Disallow: /toekomstig_zoeken/zoekresultaat
+Disallow: /*afdrukken$
+Disallow: /*/informatie/xml
+Disallow: /service/
+Allow: /
+
+#############################
+# AI / LLM crawlers
+#############################
+
+# OpenAI
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: OAI-SearchBot
+Disallow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+# Common Crawl (LLM training data)
+User-agent: CCBot
+Disallow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Disallow: /
+
+# Cohere
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: cohere-training-data-crawler
+Disallow: /
+
+# Mistral
+User-agent: MistralAI-User
+Disallow: /
+
+# Andere AI-crawlers
+User-agent: ai2bot
+Disallow: /
+
+User-agent: Timpibot
+Disallow: /
+
+User-agent: LinerBot
+Disallow: /
+
+User-agent: PanguBot
+Disallow: /
+
+User-agent: Webzio-Extended
+Disallow: /
+
+User-agent: Awario
+Disallow: /
+
+User-agent: magpie-crawler
+Disallow: /
+
+# Apple — basic Applebot toegestaan (Siri/Spotlight), training-variant geblokkeerd
+User-agent: Applebot
+Disallow: /zoeken/zoekresultaat
+Disallow: /uitgebreid_zoeken/zoekresultaat
+Disallow: /toekomstig_zoeken/zoekresultaat
+Disallow: /*afdrukken$
+Disallow: /*/informatie/xml
+Disallow: /service/
+Allow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+# ByteDance / TikTok
+User-agent: Bytespider
+Disallow: /
+
+User-agent: TikTokSpider
+Disallow: /
+
+# Amazon
+User-agent: Amazonbot
+Disallow: /
+
+# Amazon Quick
+User-agent: amazon-Quick
+Disallow: /
+
+# Meta
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: meta-webindexer
+Disallow: /
+
+# You.com
+User-agent: YouBot
+Disallow: /
+
+# Diffbot
+User-agent: Diffbot
+Disallow: /
+
+# Image-training scrapers
+User-agent: ImagesiftBot
+Disallow: /
+
+User-agent: omgilibot
+Disallow: /
+
+#############################
+# SEO-audit / link-analysis bots
+#############################
+
+# Moz DotBot
+User-agent: DotBot
+Disallow: /
+
+# Screaming Frog SEO Spider
+User-agent: Screaming Frog SEO Spider
+Disallow: /
+
+# Majestic
+User-agent: MJ12bot
+Disallow: /
+
+# Ahrefs
+User-agent: AhrefsBot
+Disallow: /
+
+# Semrush
+User-agent: SemrushBot
+Disallow: /
+
+# Start.me bookmark-service crawler
+User-agent: StartmeBot
+Disallow: /
+
+#############################
+# Sogou and variants
+#############################
+
+User-agent: Sogou web spider
+Disallow: /
+
+User-agent: Sogou inst spider
+Disallow: /
+
+User-agent: Sogou Pic Spider
+Disallow: /
+
+User-agent: Sogou spider2
+Disallow: /
+
+#############################
+# Niet-EU zoekmachines
+#############################
+
+# Naver (Korea)
+User-agent: Yeti
+Disallow: /
+
+#############################
+# Sociale link-preview-bots
+#############################
+
+User-agent: Slackbot-LinkExpanding
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+# ShapBot
+User-agent: ShapBot
+Disallow: /
+
+# SleepBot
+User-agent: SleepBot
+Disallow: /
+
+# dataset-sprint
+User-agent: dataset-sprint
+Disallow: /
+
+User-agent: AzureAI-SearchBot
+Disallow: /
+
+User-agent: SofyaBot
+Disallow: /
+
+User-agent: rag-kennisbank
+Disallow: /
+
+# Principia Viva
+User-agent: PrincipiaViva
+Disallow: /
+
+User-agent: principia-viva
+Disallow: /
+
+# Legal investigation — permitted, but with a speed limit
+# Prefix: matches AstralLaw-NL-Wetten and AstralLaw-NL-BWBV
+User-agent: AstralLaw
+Crawl-delay: 30
+Disallow: /zoeken/zoekresultaat
+Disallow: /uitgebreid_zoeken/zoekresultaat
+Disallow: /toekomstig_zoeken/zoekresultaat
+Disallow: /*/download/1$
+Disallow: /*afdrukken$
+Disallow: /*/informatie/xml
+Disallow: /service/
+Allow: /
+
+User-agent: 45weg-legal-research
+Crawl-delay: 30
+Disallow: /zoeken/zoekresultaat
+Disallow: /uitgebreid_zoeken/zoekresultaat
+Disallow: /toekomstig_zoeken/zoekresultaat
+Disallow: /*/download/1$
+Disallow: /*afdrukken$
+Disallow: /*/informatie/xml
+Disallow: /service/
+Allow: /
+
+User-agent: Reflectionbot
+Disallow: /
+
+User-agent: AionBot
+Disallow: /
+
+#############################
+# Catch-all
+#############################
+
+User-agent: *
+Disallow: /zoeken/zoekresultaat
+Disallow: /uitgebreid_zoeken/zoekresultaat
+Disallow: /toekomstig_zoeken/zoekresultaat
+Disallow: /*/download/1$
+Disallow: /*afdrukken$
+Disallow: /*/informatie/xml
+Disallow: /service/
+Allow: /
